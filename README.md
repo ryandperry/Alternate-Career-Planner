@@ -1,3 +1,13 @@
-# comment 
+# Alternate Career Planner
 
-second line
+### Group Members
+* Emily Constantin
+* Kale Dodson
+* Beatrice Eldridge 
+* Jack Minehan
+* Ryan Perry
+
+### Project Description
+
+
+
