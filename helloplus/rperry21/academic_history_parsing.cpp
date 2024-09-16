@@ -68,7 +68,7 @@ ReadCourseInformation(std::ifstream &academic_history)
     while(getline(academic_history, line)) {
         // Check if line contains a start delimiter
         if (line.find(start_delimeter_even) != std::string::npos ||
-                line.find(start_delimeter_odd) != std::string::npos) {
+            line.find(start_delimeter_odd) != std::string::npos) {
             // Store the next 30 lines in course_block
             course_block = line + "\n";
             for (int i = 0; i < 30; i++) {
