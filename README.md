@@ -19,18 +19,3 @@ Using Expo Go, we will build a webapp that accepts HTML files, processes
 their academic history, compares it to the requirements for all other 
 engineering majors and displays the bachelor degrees that require the least
 number of classes to graduate.
-
-### How to run Emily's HelloPlus
-
-Follow the system requirements guide from Expo
-* https://docs.expo.dev/get-started/create-a-project/
-Clone our github repo locally in VS Code
-Install VS Code React Native Extention from Microsoft
-Navigate to helloplus/econstan/emily_hello_plus directory
-Install required packages to run the app on the web
-* npx expo install react-dom react-native-web @expo/metro-runtime
-Run the command 
-* npx expo start
-* 'w' to open a browser and see the current output
-The program should display a victorian woman in a field.
-
