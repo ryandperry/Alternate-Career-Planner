@@ -32,4 +32,5 @@ Install required packages to run the app on the web
 Run the command 
 * npx expo start
 * 'w' to open a browser and see the current output
+The program should display a victorian woman in a field.
 
