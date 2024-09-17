@@ -27,9 +27,9 @@ Follow the system requirements guide from Expo
 Download Expo Go to a phone or tablet
 * https://expo.dev/go
 Clone our github repo with our expo files
+Navigate to any of our expo folders (helloplus subfolders)
 Install required packages to run the app on the web
 * npx expo install react-dom react-native-web @expo/metro-runtime
-Navigate to any of our expo folders (helloplus subfolders)
 Run the command 
 * npx expo start
 
