@@ -10,6 +10,7 @@ We don't modify the main table manually.
 
 ### Collect Catalog Information
 Navigate to the 2023-2024 course catalog
+
 Locate the major under ‘majors A-Z’ (normal major, not honors or 5 year MS)
 * https://catalog.utk.edu/preview_program.php?catoid=43&poid=25821#C
 * Make sure the drop down menu at the top says 2023-2024
