@@ -1,5 +1,11 @@
-###Data Entry Guide and Instructions
+# Data Entry Guide and Instructions
 
+### Set up space in the database
+Create a new sheet in the database to make a table for your major
+The main table will be a concatenation of all major-specific tables
+Add your major to the Major Table (the list of all majors)
+
+### Collect Catalog Information
 Navigate to the 2023-2024 course catalog
 Locate the major under ‘majors A-Z’ (normal major, not honors or 5 year MS)
 *https://catalog.utk.edu/preview_program.php?catoid=43&poid=25821#C
@@ -8,18 +14,18 @@ Locate the major under ‘majors A-Z’ (normal major, not honors or 5 year MS)
 **https://tickle.utk.edu/wp-content/uploads/2022/11/Computer-Engineering-2023.pdf 
 *DARS is currently broken, do not use DARS for this
 
+### Fill in tables with information
 Start with the single classes that are listed in the utrack
-*Add each class (and honors version) to the course table
+*Add each class (and honors version) to the course table with the same course ID
 
-Add each course ID (ID from the course table) to this major’s table
-When you get to general education requirements, here are the lists: 
-*https://catalog.utk.edu/content.php?catoid=6&navoid=473#ah
-*if tickle engineering students are only allowed to pick from a few classes, only list those class IDs in the bucket
+When you reach a collection of more than 1 courses (we're calling them buckets), add the collection as a new bucket to the bucket table
+Link your major to the bucket by listing the major and bucket together in your major-specific table
+Ignore VolCore (general education) requirements
+*if you aren't sure if something is general education (vol core) or specific to tickle engineering, add it anyway
+
+### CSVs
+CSV's are comma seperated, so when you list multiple courses, use a semicolon
+when youre finished with your major-specific table, export the individual sheet as a csv and commit to github
+all other sheets will be exported in the end
 
 
-General education assignments:
-*Emily - WC, QR, GCI
-*Beatrice - OC, SS, 
-*Jack - AOC, GC + GCUS
-*Kale - NS, AAH
-*Ryan - AH, EI
