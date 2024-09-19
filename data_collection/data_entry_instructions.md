@@ -1,7 +1,8 @@
 # Data Entry Guide and Instructions
 
 ### Set up space in the database
-Create a new sheet in the database to make a table for your major.
+Create a new sheet in the database called 'Major - ID #' to make a table for your major.
+* the ID number for each major can be found in the Majors Table
 
 The main table will be a concatenation of all major-specific tables.
 
