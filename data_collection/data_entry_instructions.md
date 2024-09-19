@@ -1,12 +1,12 @@
 # Data Entry Guide and Instructions
 
 ### Set up space in the database
-Create a new sheet in the database called 'Major - ID #' to make a table for your major.
+Create a new sheet in the database called 'Major Abreviation - ID #' to make a table for your major.
 * the ID number for each major can be found in the Majors Table
+* Example: new sheet called CS - ID 1
 
-The main table will be a concatenation of all major-specific tables.
-
-Add your major to the Major Table (the list of all majors).
+The main table will be a code-generated concatenation of all major-specific tables.
+We don't modify the main table manually.
 
 ### Collect Catalog Information
 Navigate to the 2023-2024 course catalog
