@@ -28,7 +28,7 @@ When you reach a collection of more than 1 courses (we're calling them buckets),
 Link your major to the bucket by listing the major and bucket together in your major-specific table.
 
 Ignore VolCore (general education) requirements
-*if you aren't sure if something is general education (vol core) or specific to tickle engineering, add it anyway
+* if you aren't sure if something is general education (vol core) or specific to tickle engineering, add it anyway
 
 ### CSVs
 CSV's are comma seperated, so when you list multiple courses, use a semicolon.
