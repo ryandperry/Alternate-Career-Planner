@@ -2,6 +2,7 @@
 
 ### Set up space in the database
 Create a new sheet in the database called 'Major Abreviation - ID #' to make a table for your major.
+* https://docs.google.com/spreadsheets/d/1396Llo6YEQW1FxGvkfRYii44ywH6aEHaIX0b-_4ZzOM/edit?usp=sharing 
 * the ID number for each major can be found in the Majors Table
 * Example: new sheet called CS - ID 1
 
