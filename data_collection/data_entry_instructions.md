@@ -3,8 +3,9 @@
 ### Set up space in the database
 Create a new sheet in the database to make a table for your major.
 
-The main table will be a concatenation of all major-specific tables
-Add your major to the Major Table (the list of all majors)
+The main table will be a concatenation of all major-specific tables.
+
+Add your major to the Major Table (the list of all majors).
 
 ### Collect Catalog Information
 Navigate to the 2023-2024 course catalog
@@ -19,8 +20,10 @@ Locate the major under ‘majors A-Z’ (normal major, not honors or 5 year MS)
 Start with the single classes that are listed in the utrack
 *Add each class (and honors version) to the course table with the same course ID
 
-When you reach a collection of more than 1 courses (we're calling them buckets), add the collection as a new bucket to the bucket table
-Link your major to the bucket by listing the major and bucket together in your major-specific table
+When you reach a collection of more than 1 courses (we're calling them buckets), add the collection as a new bucket to the bucket table.
+
+Link your major to the bucket by listing the major and bucket together in your major-specific table.
+
 Ignore VolCore (general education) requirements
 *if you aren't sure if something is general education (vol core) or specific to tickle engineering, add it anyway
 
