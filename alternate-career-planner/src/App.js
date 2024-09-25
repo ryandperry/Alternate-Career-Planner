@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World!</h1>
-      <p>Below is a test for a list of course using dummy data. Feel free to change App.js to a homepage.</p>
+      <p>Below is a test for a list of courses using dummy data. Feel free to change App.js to a homepage.</p>
       <CourseListView courses={dummyDataCourses} />
     </div>
   );
