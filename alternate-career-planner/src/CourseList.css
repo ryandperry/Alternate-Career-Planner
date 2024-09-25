@@ -1,0 +1,31 @@
+/* CourseList.css
+ * Description: Contains css styling for
+    the list of courses.
+ */
+
+ /* Removes bullet points */
+ ul {
+    list-style-type: none; 
+    padding-left: 0;
+ }
+
+ /* Creates vertical padding between items */
+ .course-item {
+    margin: 20px 0;
+    text-align: left;
+ }
+
+ /* Removes heading padding */
+ .course-item h3 {
+    margin: 0 0 0 0; 
+  }
+  
+  /* Makes the description gray */
+  .course-description {
+    color: gray;
+  }
+  
+  /* Padding between components of list items */
+  .course-item p {
+    margin: 5px 0;
+  }
