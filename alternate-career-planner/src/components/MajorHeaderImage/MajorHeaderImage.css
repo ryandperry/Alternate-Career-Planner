@@ -1,0 +1,16 @@
+/* MajorHeaderImage.css
+ * Description: Contains css styling for
+    the header image of a major.
+ */
+
+ /* Zoom in on header image as the viewport grows after exceeding image size */
+.header-image img {
+   display: flex;
+   max-height: 375px;
+   object-fit: cover;
+   width: 100%;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden;
+   border-radius: 20px;
+}
