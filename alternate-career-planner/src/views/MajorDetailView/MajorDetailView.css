@@ -1,0 +1,19 @@
+/* MajorDetailView.css
+ * Description: CSS styling for MajorDetailView
+ */
+
+ /* Name of a major */
+ .major-title {
+    color: #FF8200; /* TN Orange */
+ }
+
+ /* Description text of a major  */
+ .major-description {
+    color: #4B4B4B; /* Smokey Gray */
+    white-space: pre-line; /* Allows newline character to function properly */
+ }
+
+ /* Required Courses Text */
+ h2 {
+    color: #4B4B4B; /* Smokey Gray */
+ }

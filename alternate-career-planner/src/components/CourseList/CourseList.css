@@ -18,11 +18,12 @@
  /* Removes heading padding */
  .course-item h3 {
     margin: 0 0 0 0; 
+    color: #FF8200; /* TN Orange */
   }
   
   /* Makes the description gray */
   .course-description {
-    color: gray;
+    color: #4B4B4B; /* Smokey Gray */
   }
   
   /* Padding between components of list items */
