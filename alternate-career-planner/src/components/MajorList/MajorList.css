@@ -1,0 +1,46 @@
+/* Removes bullet points */
+ul {
+list-style-type: none; 
+padding-left: 0;
+}
+
+/* Creates vertical padding between items */
+.majorlist-item {
+padding: 7px;
+text-align: left;
+}
+
+/* Add emphasis when the major is hovered */
+.majorlist-item:hover {
+/* Adds shadow and rounded background */
+background-color: #f7f8fa;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+border-radius: 10px;
+
+/* Smoothly scales up text on hover */
+transition: all 0.3s ease-in-out;
+transform: scale(1.005);
+
+cursor: pointer;
+}
+
+/* Removes heading padding */
+.majorlist-item h3 {
+margin: 0 0 0 0; 
+color: #FF8200; /* TN Orange */
+}
+
+/* Makes the description gray */
+.majorlist-description {
+color: #4B4B4B; /* Smokey Gray */
+}
+
+/* larger name of a major */
+.majorlist-title {
+font-size: 1.5rem;
+}
+
+/* Padding between components of list items */
+.majorlist-item p {
+margin: 5px 0;
+}
