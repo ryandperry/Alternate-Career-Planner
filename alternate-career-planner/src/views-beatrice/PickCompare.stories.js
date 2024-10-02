@@ -1,13 +1,13 @@
 import React from 'react';
 import '../../index.css'; // Imports global css
-import MajorDetailView from './MajorDetailView';
+import PickCompare from './PickCompare';
 
 export default {
-    title: 'MajorDetailView',
-    component: MajorDetailView,
+    title: 'PickCompare',
+    component: PickCompare,
 };
 
-const Template = (args) => <MajorDetailView {...args} />;
+const Template = (args) => <PickCompare {...args} />;
 
 // Test data for a list of courses
 const dummyDataCourses = [
@@ -41,20 +41,4 @@ const dummyMajor = {
 const genericMajor = {
     name: 'Generic Major',
     description: 'This is a generic major. It is a long established fact that a reader will be distracted ' +
-     'by the readable content of a page when looking at its layout. \n\nThe point of using Lorem Ipsum is that it ' +
-     'has a more-or-less normal distribution of letters, as opposed to using "Content here, content here", making ' +
-     'it look like readable English.',
-};
-
-// A preview of a major's details using dummy data
-export const ComputerScience = Template.bind({});
-ComputerScience.args = {
-    major: dummyMajor,
-    courses: dummyDataCourses,
-};
-
-export const GenericName = Template.bind({});
-GenericName.args = {
-    major: genericMajor,
-    courses: dummyDataCourses,
-};
+     'by the readable content of a page when looking at its layout. \n\nThe point of using Lorem Ipsum is that it '

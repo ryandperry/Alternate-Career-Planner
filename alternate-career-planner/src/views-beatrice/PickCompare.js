@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './MajorDetailView.css';
+import './PickCompare.css';
 import CourseListView from '../../components/CourseList/CourseList';
 import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage';
 
 // Lists the details of a given major including a description and required courses
-const MajorDetailView = ({ major, courses }) => {
+const PickCompare = ({ major, courses }) => {
     const [selectedMajor, setSelectedMajor] = useState('');
 
     const handleDropdownChange = (event) => {
@@ -35,4 +35,4 @@ const MajorDetailView = ({ major, courses }) => {
     );
 };
 
-export default MajorDetailView;
+export default PickCompare;
