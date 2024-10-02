@@ -129,7 +129,7 @@ ReadCourseInfo(char * academic_history_html, Course course)
 }
 
 /*
- * This function removes all whitespace from a stringk.
+ * This function removes all whitespace from a string.
  */
 std::string
 TrimWhiteSpace(std::string &str)
