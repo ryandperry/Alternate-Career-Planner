@@ -1,0 +1,20 @@
+/* CompletedCoursesView.css
+ * Description: CSS styling for CompletedCoursesView
+ */
+
+{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #eef6f8;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.course-preview:hover {
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
