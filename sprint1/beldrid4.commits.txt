@@ -1,1 +1,145 @@
+Alternate-Career-Planner/alternate-career-planner/src/views/views-beatrice/PathCompare.stories.jss
 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  1) import React from 'react';
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  2) import '../../index.css'; // Imports global css
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  3) import PickCompare from './PickCompare';
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  4) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  5) export default {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  6)     title: 'PickCompare',
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  7)     component: PickCompare,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  8) };
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  9) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 10) const Template = (args) => <PickCompare {...args} />;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 11) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 12) // Test data for a list of courses
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 13) const dummyDataCourses = [
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 14)     {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 15)         name: 'COSC 101',
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 16)         description: `An introduction to computational thinking and structured programming.`,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 17)         courseHours: 4,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 18)     },
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 19)     {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 20)         name: 'COSC 102',
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 21)         description: `Modular programming in an object-oriented programming language, including string and vector manipulation, and file I/O, bit operators.`,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 22)         courseHours: 4,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 23)     },
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 24)     {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 25)         name: 'COSC 202',
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 26)         description: `Design, analysis, and implementation of fundamental data structures and algorithms including lists, stacks, queues, hash tables, binary search trees and heaps.`,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 27)         courseHours: 4,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 28)     }
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 29) ];
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 30) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 31) // Test data for a major and its description
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 32) const dummyMajor = {
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 33)     name: 'Interest Quiz Results',
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 34)     description: `Thank you for taking our interest quiz! Due to the answers you provided, we were able to determine the ideal path forward for you. Your results show that this path is:           Mechanical!!!`,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 35) };
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 36) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 37) const genericMajor = {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 38)     name: 'Generic Major',
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 39)     description: `This is a generic major. It is a long-established fact that a reader will be distracted 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 40)     by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 41)     has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here,' making 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 42)     it look like readable English.`,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 43) };
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 44) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 45) // A preview of a major's details using dummy data
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 46) export const ComputerScience = Template.bind({});
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 47) ComputerScience.args = {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 48)     major: dummyMajor,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 49)     courses: dummyDataCourses,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 50) };
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 51) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 52) export const GenericName = Template.bind({});
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 53) GenericName.args = {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 54)     major: genericMajor,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 55)     courses: dummyDataCourses,
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 56) };
+
+
+Alternate-Career-Planner/alternate-career-planner/src/views/views-beatrice/PathCompare.css
+
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  1) /* PickCompare.css
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  2)  * Description: CSS styling for PickCompare component
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  3)  */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  4) 
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400  5) /* Major name color or header color possibly  */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  6) .major-title {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  7)     color: #FF8200; /* TN Orange */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  8) }
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  9) 
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 10) /* major description */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 11) .major-description {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 12)     color: #4B4B4B; /* Smokey Gray */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 13)     white-space: pre-line; /* Allows newline character to function properly */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 14) }
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 15) 
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 16) /* req courses (jack) */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 17) h2 {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 18)     color: #4B4B4B; /* Smokey Gray */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 19) }
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 20) 
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 21) /* button style */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 22) .compare-button {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 23)     background-color: #FF8200;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 24)     color: white;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 25)     border: none;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 26)     padding: 10px 20px;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 27)     font-size: 16px;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 28)     cursor: pointer;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 29)     margin-top: 20px;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 30) }
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 31) 
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 32) /* dropdown style */
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 33) .dropdown {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 34)     margin-top: 20px;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 35)     font-size: 16px;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 36)     padding: 10px;
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 37)     border: 1px solid #4B4B4B;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 38)     background-color: #f9f9f9;
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 39) }
+
+
+Alternate-Career-Planner/alternate-career-planner/src/views/views-beatrice/PathCompare.js
+
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  1) import React, { useState } from 'react';
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  2) import './PickCompare.css';
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400  3) // import CourseListView from '../../components/CourseList/CourseList';
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400  4) //import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage';
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  5) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  6) // Lists the details of a given major including a description and required courses
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  7) const PickCompare = ({ major, courses }) => {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  8)     const [selectedMajor, setSelectedMajor] = useState('');
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400  9) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 10)     const handleDropdownChange = (event) => {
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 11)         setSelectedMajor(event.target.value);
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 12)     };
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 13) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 14)     return (
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 15)         <div>
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 16)             <h1 className="major-title"> {major.name} </h1>
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 17)             <p className="major-description"> { major.description } </p> 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 18) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 19)             {/* "Compare with Mechanical" button */}
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 20)             <button className="compare-button">Compare with Mechanical</button>
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 21) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 22)             {/* Statement and dropdown */}
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 23)             <p>Or select from the following dropdown menu:</p>
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 24)             <select className="dropdown" value={selectedMajor} onChange={handleDropdownChange}>
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 25)                 <option value="">Select a major</option>
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 26)                 <option value="Aerospace Engineering">Aerospace Engineering</option>
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 27)                 <option value="Civil Engineering">Civil Engineering</option>
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 28)                 <option value="Material Science Engineering">Material Science</option>
+ed4b198b (bea-eldridge 2024-10-02 21:49:45 -0400 29)                 <option value="Biosystems Engineering">Biosystems Engineering</option>
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 30)             </select>
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 31)         </div>
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 32)     );
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 33) };
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 34) 
+0b288dcf (bea-eldridge 2024-10-02 17:13:03 -0400 35) export default PickCompare;
+
+
+I also commited the following images: 
+Alternate-Career-Planner/planning/Design Prototypes/MajorDetailView Designs/InterestPlanning.png
+Alternate-Career-Planner/planning/Design Prototypes/MajorDetailView Designs/Interest2.png
