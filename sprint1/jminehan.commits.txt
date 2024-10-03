@@ -1,0 +1,612 @@
+planning/Design Prototypes/MajorDetailView Designs/README.md
+f89798d5 (jckmnhn 2024-09-19 15:17:27 -0400 1) 
+f89798d5 (jckmnhn 2024-09-19 15:17:27 -0400 2) # MajorDetailView Design Prototypes
+f89798d5 (jckmnhn 2024-09-19 15:17:27 -0400 3) 
+f89798d5 (jckmnhn 2024-09-19 15:17:27 -0400 4) This view will present a detailed description and overview of a course. To prepare for implementing this view, I designed some mockup UI prototypes in Figma. Personally, my favorite proposed design is `ImagePrototype`. The other included designs were developed during this process. 
+f89798d5 (jckmnhn 2024-09-19 15:17:27 -0400 5) 
+26010749 (jckmnhn 2024-09-19 17:28:37 -0400 6) The `ImagePrototype` view would require a banner image for each major, but these could easily be found on UTK's website under their major's descriptions. Sometimes, a large amount of text on a page can be overwhelming, but adding an image or color (such as the capsule shape around the # of required course hours) can help balance any sense of being overwhelmed. Additionally, another fun use of color may include setting the capsule shape to different colors based on the number of additional credit hours required. For example, it could be shades of red for higher numbers indicating caution.
+
+planning/InterestQuizQuestions/QuizQuestions.md
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  1) # Interest Quiz Questions
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  2) 
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  3) ## Description
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  4) Within our project, users can take a quiz to find a major that best suits their interests. This file contains planned questions for the interest quiz alongside the corresponding major of each answer. Due to the limited scope of our project, these majors should all be within TCE.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  5) 
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  6) ## Questions
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  7) - What kind of impact do you want to have on the world?
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  8) 	- Improve technology for industries and everyday life
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400  9) 		- Mech. E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 10) 		- Industrial E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 11) 		- Aerospace E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 12) 		- Civil E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 13) 		- MS. E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 14) 	- Advance energy systems and electrical infrastructure
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 15) 		- Chem. E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 16) 		- Electrical E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 17) 		- Nuclear E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 18) 	- Enhance healthcare and save lives with technology
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 19) 		- Biomedical E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 20) 	- Protect the environment and promote sustainability
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 21) 		- Environmental E.
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 22) 	- Innovate the world of software and data systems
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 23) 		- Comp. Sci
+caa338e9 (jckmnhn 2024-09-20 11:03:20 -0400 24) 		- Comp. E.
+
+alternate-career-planner/src/components/CourseList/CourseList.stories.js
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  1) import React from 'react';
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  2) import '../../index.css'; // Imports global css
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  3) import CourseListView from './CourseList';
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  4) 
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  5) export default {
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  6)     title: 'CourseList',
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  7)     component: CourseListView,
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  8) };
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400  9) 
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 10) const Template = (args) => <CourseListView {...args} />
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 11) 
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 12) // Test data of a list of courses
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 13) const dummyDataCourses = [
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 14)     {
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 15)       name: 'COSC 101',
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 16)       description: 'An introduction to computational thinking and structured programming.',
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 17)       courseHours: 4
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 18)     },
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 19)     {
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 20)       name: 'COSC 102',
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 21)       description: 'Modular programming in an object-oriented programming language, including string and vector manipulation, and file I/O, bit operators.',
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 22)       courseHours: 4
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 23)     },
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 24)     {
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 25)       name: 'COSC 202',
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 26)       description: 'Design, analysis, and implementation of fundamental data structures and algorithms including lists, stacks, queues, hash tables, binary search trees and heaps.',
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 27)       courseHours: 4
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 28)     }
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 29) ];
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 30) 
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 31) // A preview of a course list using dummy data
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 32) export const Default = Template.bind({});
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 33) Default.args = {
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 34)     courses: dummyDataCourses,
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 35) };
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 36) 
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 37) // A preview of an empty course (nothing should be displayed)
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 38) export const EmptyCourseList = Template.bind({});
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 39) EmptyCourseList.args = {
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 40)     courses: []
+0ba7913b (jckmnhn 2024-09-26 12:33:00 -0400 41) };
+
+alternate-career-planner/src/components/CourseList/CourseList.js
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  1) /* CourseList.js
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  2)  * Description: Lists courses, their descriptions,
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  3)     and their hours.
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  4)  */
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  5) 
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  6) import React from 'react';
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  7) import './CourseList.css';
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  8) 
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400  9) // Lists courses, their description, and their number of credit hours
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 10) const CourseListView = ({ courses }) => {
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 11)     return (
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 12)         <div>
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 13)             <ul>
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 14)                 {courses.map((course, index) => (
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 15)                     <li key={index} className="course-item">
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 16)                         <h3>{course.name}</h3>
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 17)                         <p className="course-description">{course.description}</p>
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 18)                         <p>{course.courseHours} credit hours</p>
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 19)                     </li>
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 20)                 ))}
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 21)             </ul>
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 22)         </div>
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 23)     )
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 24) }
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 25) 
+6c833aa0 alternate-career-planner/src/CourseList.js (jckmnhn 2024-09-25 17:03:18 -0400 26) export default CourseListView;
+
+alternate-career-planner/src/components/CourseList/CourseList.css
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  1) /* CourseList.css
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  2)  * Description: Contains css styling for
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  3)     the list of courses.
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  4)  */
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  5) 
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  6)  /* Removes bullet points */
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  7)  ul {
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  8)     list-style-type: none; 
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400  9)     padding-left: 0;
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 10)  }
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 11) 
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 12)  /* Creates vertical padding between items */
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 13)  .course-item {
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 14)     margin: 20px 0;
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 15)     text-align: left;
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 16)  }
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 17) 
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 18)  /* Removes heading padding */
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 19)  .course-item h3 {
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 20)     margin: 0 0 0 0; 
+a9f8ebcc alternate-career-planner/src/components/CourseList/CourseList.css (jckmnhn 2024-09-26 13:40:50 -0400 21)     color: #FF8200; /* TN Orange */
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 22)   }
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 23)   
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 24)   /* Makes the description gray */
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 25)   .course-description {
+a9f8ebcc alternate-career-planner/src/components/CourseList/CourseList.css (jckmnhn 2024-09-26 13:40:50 -0400 26)     color: #4B4B4B; /* Smokey Gray */
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 27)   }
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 28)   
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 29)   /* Padding between components of list items */
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 30)   .course-item p {
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 31)     margin: 5px 0;
+6c833aa0 alternate-career-planner/src/CourseList.css                       (jckmnhn 2024-09-25 17:03:18 -0400 32)   }
+
+alternate-career-planner/src/components/MajorHeaderImage/MajorHeaderImage.js
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  1) /* MajorHeaderImage.js
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  2)  * Image header for a major (used in MajorDetailView)
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  3)  */
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  4) 
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  5) import React from 'react';
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  6) import './MajorHeaderImage.css';
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  7) 
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  8) // Map header images to major names
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  9) // Images from UTK major pages
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 10) const imageMap = {
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 11)     'Computer Science': '/assets/major-header-images/computer-science-header.jpg',
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 12)     'Computer Engineering': '/assets/major-header-images/computer-science-header.jpg',
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 13)     'Electrical Engineering': '/assets/major-header-images/electrical-engineering-header.jpg',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 14)     'Mechanical Engineering': '/assets/major-header-images/mech-engineering-header.jpg',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 15)     'Biomedical Engineering': '/assets/major-header-images/biomedical-header.jpg',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 16)     'Aerospace Engineering': '/assets/major-header-images/aerospace-header.jpg',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 17)     'Chemical Engineering': '/assets/major-header-images/chemical-eng-header.jpg',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 18)     'Civil Engineering': '/assets/major-header-images/civil-eng-header.jpg',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 19)     'Environmental Engineering': '/assets/major-header-images/environmental-eng-header.jpg',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 20)     'Material Science': '/assets/major-header-images/mse-header.jpg',
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 21) };
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 22) 
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 23) // Returns a header image
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 24) const MajorHeaderImage = ({ major }) => {
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 25)     // Return a generic header image if there is not one for that major
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 26)     const imageURL = imageMap[major.name] || 'assets/major-header-images/generic-header-image.jpg';
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 27) 
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 28)     return (
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 29)         <header className="header-image">
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 30)             <img
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 31)              src={imageURL}
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 32)              alt={major.name}
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 33)             />
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 34)         </header>
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 35)     );
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 36) };
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 37) 
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 38) export default MajorHeaderImage;
+
+alternate-career-planner/src/components/MajorHeaderImage/MajorHeaderImage.css
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  1) /* MajorHeaderImage.css
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  2)  * Description: Contains css styling for
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  3)     the header image of a major.
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  4)  */
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  5) 
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  6)  /* Zoom in on header image as the viewport grows after exceeding image size */
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  7) .header-image img {
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  8)    display: flex;
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  9)    max-height: 375px;
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 10)    object-fit: cover;
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 11)    width: 100%;
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 12)    justify-content: center;
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 13)    align-items: center;
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 14)    overflow: hidden;
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 15)    border-radius: 20px;
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 16) }
+
+alternate-career-planner/src/components/MajorList/MajorList.css
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  1) /* Removes bullet points */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  2) ul {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  3) list-style-type: none; 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  4) padding-left: 0;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  5) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  6) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  7) /* Creates vertical padding between items */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  8) .majorlist-item {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  9) padding: 7px;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 10) text-align: left;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 11) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 12) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 13) /* Add emphasis when the major is hovered */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 14) .majorlist-item:hover {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 15) /* Adds shadow and rounded background */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 16) background-color: #f7f8fa;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 17) box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 18) border-radius: 10px;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 19) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 20) /* Smoothly scales up text on hover */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 21) transition: all 0.3s ease-in-out;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 22) transform: scale(1.005);
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 23) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 24) cursor: pointer;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 25) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 26) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 27) /* Removes heading padding */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 28) .majorlist-item h3 {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 29) margin: 0 0 0 0; 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 30) color: #FF8200; /* TN Orange */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 31) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 32) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 33) /* Makes the description gray */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 34) .majorlist-description {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 35) color: #4B4B4B; /* Smokey Gray */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 36) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 37) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 38) /* larger name of a major */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 39) .majorlist-title {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 40) font-size: 1.5rem;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 41) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 42) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 43) /* Padding between components of list items */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 44) .majorlist-item p {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 45) margin: 5px 0;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 46) }
+
+alternate-career-planner/src/components/MajorList/MajorList.js
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  1) import React from 'react';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  2) import './MajorList.css'
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  3) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  4) // Lists majors and their descriptions 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  5) const MajorList = ({ majors }) => {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  6)     return (
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  7)         <div>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  8)             <ul>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  9)                 {majors.map((major, index) => (
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 10)                     <li key={index} className="majorlist-item">
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 11)                         <h3 className="majorlist-title">{major.name}</h3>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 12)                         <p className="majorlist-description">{major.description}</p>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 13)                     </li>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 14)                 ))}
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 15)             </ul>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 16)         </div>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 17)     )
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 18) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 19) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 20) export default MajorList;
+
+alternate-career-planner/src/components/MajorList/MajorList.stories.js
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  1) import React from 'react';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  2) import '../../index.css'; // Imports global css
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  3) import MajorList from './MajorList';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  4) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  5) export default {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  6)     title: 'MajorList',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  7)     component: MajorList,
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  8) };
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  9) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 10) const Template = (args) => <MajorList {...args} />
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 11) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 12) // Test data of a list of majors
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 13) const testMajors = [
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 14)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 15)       name: 'Computer Science',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 16)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 17)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 18)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 19)       aliquip ex ea commodo consequat.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 20)     },
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 21)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 22)       name: 'Mechanical Engineering',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 23)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 24)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 25)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 26)       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 27)       in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 28)     },
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 29)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 30)       name: 'Computer Engineering',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 31)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 32)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 33)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 34)       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 35)       in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 36)     }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 37) ];
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 38) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 39) // A preview of a course list using dummy data
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 40) export const Default = Template.bind({});
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 41) Default.args = {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 42)     majors: testMajors,
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 43) };
+
+alternate-career-planner/src/views/MajorDetailView/MajorDetailView.css
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  1) /* MajorDetailView.css
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  2)  * Description: CSS styling for MajorDetailView
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  3)  */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  4) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  5)  /* Name of a major */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  6)  .major-title {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  7)     color: #FF8200; /* TN Orange */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  8)  }
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  9) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 10)  /* Description text of a major  */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 11)  .major-description {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 12)     color: #4B4B4B; /* Smokey Gray */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 13)     white-space: pre-line; /* Allows newline character to function properly */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 14)  }
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 15) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 16)  /* Required Courses Text */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 17)  h2 {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 18)     color: #4B4B4B; /* Smokey Gray */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 19)  }
+
+alternate-career-planner/src/views/MajorDetailView/MajorDetailView.js
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  1) /* MajorDetailView.js
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  2)  * Description: Provides details of a given major including
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  3)  *  a description and required courses.
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  4)  */
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  5) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  6) import React from 'react';
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  7) import './MajorDetailView.css';
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  8) import CourseListView from '../../components/CourseList/CourseList';
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400  9) import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage';
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 10) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 11) // Lists the details of a given major including a description and required courses
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 12) const MajorDetailView = ({ major, courses }) => {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 13)     return (
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 14)         <div>
+2b0193f0 (jckmnhn 2024-09-26 15:28:15 -0400 15)             <MajorHeaderImage major={major}/>
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 16)             <h1 className="major-title"> {major.name} </h1>
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 17)             <p className="major-description"> { major.description } </p>
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 18)             <h2> Required Courses </h2>
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 19)             <CourseListView courses = {courses}/>
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 20)         </div>
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 21)     )
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 22) }
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 23) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 24) export default MajorDetailView;
+
+alternate-career-planner/src/views/MajorDetailView/MajorDetailView.stories.js
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  1) import React from 'react';
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  2) import '../../index.css'; // Imports global css
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  3) import MajorDetailView from './MajorDetailView';
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  4) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  5) export default {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  6)     title: 'MajorDetailView',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  7)     component: MajorDetailView,
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  8) };
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400  9) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 10) const Template = (args) => <MajorDetailView {...args} />
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 11) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 12) // Test data of a list of courses
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 13) const dummyDataCourses = [
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 14)     {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 15)       name: 'COSC 101',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 16)       description: 'An introduction to computational thinking and structured programming.',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 17)       courseHours: 4
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 18)     },
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 19)     {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 20)       name: 'COSC 102',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 21)       description: 'Modular programming in an object-oriented programming language, including string and vector manipulation, and file I/O, bit operators.',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 22)       courseHours: 4
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 23)     },
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 24)     {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 25)       name: 'COSC 202',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 26)       description: 'Design, analysis, and implementation of fundamental data structures and algorithms including lists, stacks, queues, hash tables, binary search trees and heaps.',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 27)       courseHours: 4
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 28)     }
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 29) ];
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 30) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 31) // Test data for a major and its description
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 32) const dummyMajor = {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 33)     name: 'Computer Science',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 34)     description: 'Computer Science is the systematic study of algorithmic processes that describe ' +
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 35)      'and transform information: their theory, analysis, design, efficiency, implementation, ' +
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 36)      'and application. The fundamental question underlying all of computing is: What can efficiently be automated?\n\n' +
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 37)      'Computer Science is far more than programming. It incorporates the paradigms of theory (mathematical), ' +
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 38)      'abstraction (experimental), and design (engineering) within many topic areas.',
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 39) };
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 40) 
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 41) const genericMajor = {
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 42)   name: 'Generic Major',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 43)   description: 'This is a generic major. It is a long established fact that a reader will be distracted ' +
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 44)    'by the readable content of a page when looking at its layout. \n\nThe point of using Lorem Ipsum is that it ' +
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 45)    'has a more-or-less normal distribution of letters, as opposed to using "Content here, content here", making ' +
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 46)    'it look like readable English.',
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 47) };
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 48) 
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 49) // A preview of a major's details using dummy data
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 50) export const ComputerScience = Template.bind({});
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 51) ComputerScience.args = {
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 52)     major: dummyMajor,
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 53)     courses: dummyDataCourses,
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 54) };
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 55) 
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 56) export const GenericName = Template.bind({});
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 57) GenericName.args = {
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 58)     major: genericMajor,
+127483f4 (jckmnhn 2024-09-26 15:48:37 -0400 59)     courses: dummyDataCourses,
+a9f8ebcc (jckmnhn 2024-09-26 13:40:50 -0400 60) };
+
+alternate-career-planner/src/components/MajorList/MajorList.css
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  1) /* Removes bullet points */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  2) ul {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  3) list-style-type: none; 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  4) padding-left: 0;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  5) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  6) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  7) /* Creates vertical padding between items */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  8) .majorlist-item {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  9) padding: 7px;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 10) text-align: left;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 11) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 12) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 13) /* Add emphasis when the major is hovered */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 14) .majorlist-item:hover {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 15) /* Adds shadow and rounded background */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 16) background-color: #f7f8fa;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 17) box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 18) border-radius: 10px;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 19) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 20) /* Smoothly scales up text on hover */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 21) transition: all 0.3s ease-in-out;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 22) transform: scale(1.005);
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 23) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 24) cursor: pointer;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 25) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 26) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 27) /* Removes heading padding */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 28) .majorlist-item h3 {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 29) margin: 0 0 0 0; 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 30) color: #FF8200; /* TN Orange */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 31) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 32) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 33) /* Makes the description gray */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 34) .majorlist-description {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 35) color: #4B4B4B; /* Smokey Gray */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 36) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 37) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 38) /* larger name of a major */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 39) .majorlist-title {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 40) font-size: 1.5rem;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 41) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 42) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 43) /* Padding between components of list items */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 44) .majorlist-item p {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 45) margin: 5px 0;
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 46) }
+
+alternate-career-planner/src/components/MajorList/MajorList.js
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  1) import React from 'react';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  2) import './MajorList.css'
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  3) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  4) // Lists majors and their descriptions 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  5) const MajorList = ({ majors }) => {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  6)     return (
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  7)         <div>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  8)             <ul>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  9)                 {majors.map((major, index) => (
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 10)                     <li key={index} className="majorlist-item">
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 11)                         <h3 className="majorlist-title">{major.name}</h3>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 12)                         <p className="majorlist-description">{major.description}</p>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 13)                     </li>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 14)                 ))}
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 15)             </ul>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 16)         </div>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 17)     )
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 18) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 19) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 20) export default MajorList;
+
+alternate-career-planner/src/components/MajorList/MajorList.stories.js
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  1) import React from 'react';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  2) import '../../index.css'; // Imports global css
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  3) import MajorList from './MajorList';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  4) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  5) export default {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  6)     title: 'MajorList',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  7)     component: MajorList,
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  8) };
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  9) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 10) const Template = (args) => <MajorList {...args} />
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 11) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 12) // Test data of a list of majors
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 13) const testMajors = [
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 14)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 15)       name: 'Computer Science',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 16)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 17)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 18)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 19)       aliquip ex ea commodo consequat.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 20)     },
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 21)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 22)       name: 'Mechanical Engineering',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 23)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 24)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 25)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 26)       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 27)       in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 28)     },
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 29)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 30)       name: 'Computer Engineering',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 31)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 32)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 33)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 34)       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 35)       in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 36)     }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 37) ];
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 38) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 39) // A preview of a course list using dummy data
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 40) export const Default = Template.bind({});
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 41) Default.args = {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 42)     majors: testMajors,
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 43) };
+
+alternate-career-planner/src/views/MajorsListView/MajorsListView.css
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 1) /* MajorsListView.css
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 2)  * Description: CSS styling for MajorsListView
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 3)  */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 4) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 5) /* Smokey Gray on titles */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 6) h1 {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 7)     color: #4B4B4B; /* Smokey Gray */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 8) }
+
+alternate-career-planner/src/views/MajorsListView/MajorsListView.js
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  1) /* MajorsListView.js
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  2)  * Description: Displays a list of similar majors for the user.
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  3)  *  This page will likely be displayed after the initial interest quiz.
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  4)  */
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  5) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  6) import React from 'react';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  7) import './MajorsListView.css';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  8) import MajorList from '../../components/MajorList/MajorList';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  9) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 10) // Lists similar majors and their descriptions
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 11) const MajorsListView = ({ majors }) => {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 12)     return (
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 13)         <div>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 14)             <h1> Similar Majors 🎓 </h1>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 15)             <p> Thanks for taking the interest quiz! Below are some majors that we think you'll enjoy. </p>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 16)             <MajorList majors = {majors}/>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 17)         </div>
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 18)     )
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 19) }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 20) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 21) export default MajorsListView;
+
+alternate-career-planner/src/views/MajorsListView/MajorsListView.stories.js
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  1) import React from 'react';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  2) import '../../index.css'; // Imports global css
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  3) import MajorsListView from './MajorsListView';
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  4) export default {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  5)     title: 'MajorsListView',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  6)     component: MajorsListView,
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  7) };
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  8) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400  9) const Template = (args) => <MajorsListView {...args} />
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 10) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 11) // Test data of a list of majors
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 12) const testMajors = [
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 13)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 14)       name: 'Computer Science',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 15)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 16)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 17)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 18)       aliquip ex ea commodo consequat.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 19)     },
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 20)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 21)       name: 'Mechanical Engineering',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 22)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 23)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 24)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 25)       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 26)       in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 27)     },
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 28)     {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 29)       name: 'Computer Engineering',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 30)       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 31)       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 32)       enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 33)       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit \
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 34)       in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 35)     }
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 36) ];
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 37) 
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 38) // A preview of a major list using dummy data
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 39) export const Default = Template.bind({});
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 40) Default.args = {
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 41)     majors: testMajors,
+2ea661f9 (jckmnhn 2024-10-02 16:45:01 -0400 42) };
