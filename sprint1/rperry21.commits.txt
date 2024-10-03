@@ -1,0 +1,368 @@
+/alternate-career-planner/src/components/ProgressBar/ProgressBar.css
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  1) /* ProgressBar.css
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  2)  * Description: Contains css styling for
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  3)  * the progress bar.
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  4)  */
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  5) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  6) {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400  7)     margin: 0;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400  8)     box-sizing: border-box;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400  9)     background-color: #eef6f8;
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 10) }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 11) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 12) body {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 13)     display: flex;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 14)     justify-content: center;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 15)     align-items: center;
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 16) }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 17) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 18) .container{
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 19)     width: 200px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 20)     margin-top: 20px;
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 21) }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 22) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 23) .progress-bar{
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 24)     width: 400px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 25)     height: 30px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 26)     border-radius: 10px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 27)     background-color: #e6e6e6;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 28)     margin-bottom: 10px;
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 29) }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 30) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 31) .progress-bar-fill {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 32)     height: 100%;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 33)     border-radius: 10px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 34)     background-color: #2ecc71;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 35)     transition: width 0.5s ease-out;
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 36) }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 37) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 38) .progress-label {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 39)     margin-top: 10px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 40)     font-size: 24px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 41)     font_weight: bold;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 42)     color: #444444;
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 43) }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 44) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 45) .button {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 46)     background_color: rgb(10, 110, 171);
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 47)     border-radius: 6px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 48)     border: 0;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 49)     box-sizing: border-box;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 50)     color: #eee;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 51)     cursor: pointer;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 52)     font-size: 18px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 53)     height: 40px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 54)     outline: 0;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 55)     text-align: center;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 56)     margin-right: 10px;
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 57)     margin-top: 15px;
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 58) }
+
+/alternate-career-planner/src/components/ProgressBar/ProgressBar.js
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  1) /* ProgressBar.js
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  2)  * Description: Creates a progress bar
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  3)  * that increments on button press.
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  4)  */
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  5) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  6) import React, { useState } from "react";
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  7) 
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400  8) export const ProgressBar = () => {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400  9)     const [progress, setProgress] = useState(0);
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 10)     // Increments progress by 20% on button press
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 11)     const handleButtonClick = ()=>{
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 12)         if (progress < 100) {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 13)             setProgress(progress + 20);
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 14)         }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 15)     }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 16) 
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 17)     // Resets progress on button press
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 18)     const handleButtonReset = () => {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 19)         setProgress(0);
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 20)     }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 21) 
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 22)     const getColor = () => {
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 23)         return "#ff8200";
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 24)     }
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 25) 
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 26)     return <div className="container">
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 27)         <div className="progress-bar">
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 28)             <div 
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 29)                 className="progress-bar-fill" 
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 30)                 // Width of progress bar increases as progress increases
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 31)                 style={{ width: `${progress}%`,
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 32)                                  backgroundColor: getColor() }}
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 33)             >
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 34)                 {" "}
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 35)             </div>
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 36)         </div>
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 37)         <div className="progress-label">{progress}%</div>
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 38)         <button onClick={handleButtonClick}>Progress</button>
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 39)         <button onClick={handleButtonReset}>Reset</button>
+f5cb0ea5 (Ryan Perry 2024-10-03 02:22:08 -0400 40)     </div>;
+ab9ddf96 (Ryan Perry 2024-10-03 02:13:38 -0400 41) };
+
+/alternate-career-planner/src/views/CompletedCoursesView/CompletedCoursesView.css
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  1) /* CompletedCoursesView.css
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  2)  * Description: CSS styling for CompletedCoursesView
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  3)  */
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  4) 
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  5) {
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  6)     margin: 0;
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  7)     box-sizing: border-box;
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  8)     background-color: #eef6f8;
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  9) }
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 10) 
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 11) body {
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 12)     display: flex;
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 13)     justify-content: center;
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 14)     align-items: center;
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 15) }
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 16) 
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 17) .course-preview:hover {
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 18)     box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 19) }
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 20) 
+
+/alternate-career-planner/src/views/CompletedCoursesView/CompletedCoursesView.js
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  1) /* CompletedCoursesView.js
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  2)  * Description: Displays a student's current
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  3)  * progress through their declared major.
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  4)  */
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  5) 
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  6) import React from 'react';
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  7) import './CompletedCoursesView.css';
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  8) import ProgressBar from '../../components/ProgressBar/ProgressBar';
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400  9) 
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 10) const CompletedCoursesView (){
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 11)     // Dummy data
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 12)     const [courses, setCourses] = useState([
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 13)         { title: 'Computer Organization', body: 'description...',
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 14)             grade: 'A', courseID: 'COSC230', hours: 3 },
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 15)         { title: 'Software Engineering', body: 'description...',
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 16)             grade: 'A', courseID: 'COSC340', hours: 3 },
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 17)         { title: 'Algorithm Analysis and Automata', body: 'description...',
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 18)             grade: 'A', courseID: 'COSC312', hours: 3 }
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 19)     ]);
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 20) 
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 21)     return (
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 22)         <div className="App">
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 23)             <h1>Progress Through Declared Major</h1>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 24)             <ProgressBar/>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 25)             {courses.map((course) => (
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 26)                 <div className="course-preview" key={course.courseID}>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 27)                     <h2>{ course.courseID }: { course.title }</h2>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 28)                     <h3>{ course.body }</h3>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 29)                     <p>Grade: { course.grade }</p>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 30)                     <p>Credit Hours: { course.hours }</p>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 31)                 </div>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 32)             ))}
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 33)         </div>
+2873fca8 (Ryan Perry 2024-10-03 03:41:50 -0400 34)     );
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 35) }
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 36) 
+764b6589 (Ryan Perry 2024-10-03 03:31:22 -0400 37) export default CompletedCoursesView;
+
+/c_parsing/README.md
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 1) # Academic History Parsing
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 2) ## Overview
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 3) * This program parses a student's academic history HTML file and extracts the course code, credit hours, grade, course title, and status for each class the student has taken or is taking.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 4) ## Usage
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 5) * This program can be compiled using g++. The user must provide an academic history HTML file on the command line. To obtain this file, run a DARS report online via MyUTK. Select the Course History tab. Right click the Course History Table and select Save As. Be sure to save as type Webpage, HTML Only.
+
+/c_parsing/main.cpp
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  1) #include <iostream>
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  2) #include <vector>
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  3) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  4) #include "parsing.h"
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  5) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  6) int main(int argc, char *argv[]) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  7)     if (argc != 2) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  8)         std::cerr << "Usage: " << argv[0] << " academic_history.html"
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  9)                   << std::endl;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 10)         return -1;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 11)     } 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 12) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 13)     Course course; 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 14) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 15)     std::vector<Course> courses_taken = ReadCourseInfo(argv[1], course); 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 16) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 17)     for (int i = 0; i < (int) courses_taken.size(); i++) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 18)         Course current = courses_taken[i];
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 19)         std::cout << "Title: " << current.get_title()
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 20)                   << "\nCourse Code: " << current.get_course_code()
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 21)                   << "\nCredit Hours: " <<  current.get_credit_hours()
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 22)                   << "\nGrade: " << current.get_grade()
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 23)                   << "\n\n";
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 24)     }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 25) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 26)     return 0;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 27) }
+
+/c_parsing/parsing.cpp
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   1) #include <iostream>
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   2) #include <cctype>
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   3) #include <sstream>
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   4) #include <algorithm>
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   5) #include <fstream>
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   6) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   7) #include "parsing.h"
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   8) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400   9) /*
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  10)  * Returns a Course's course code.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  11)  */
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  12) std::string Course::
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  13) get_course_code()
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  14) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  15)     return course_code;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  16) }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  17) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  18) /*
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  19)  * Returns a Course's credit hours.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  20)  */
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  21) int Course::
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  22) get_credit_hours()
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  23) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  24)     return credit_hours;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  25) }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  26) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  27) /*
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  28)  * Returns a Course's grade.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  29)  */
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  30) std::string Course::
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  31) get_grade()
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  32) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  33)     return grade;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  34) }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  35) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  36) /*
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  37)  * Returns a Course's title.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  38)  */
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  39) std::string Course::
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  40) get_title()
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  41) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  42)     return title;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  43) }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  44) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  45) /*
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  46)  * Sets a Courses's member variables given 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  47)  * an unformatted course block.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  48)  */
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  49) void Course::
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  50) set_course_info(std::string course_block)
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  51) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  52)     std::istringstream stream(course_block);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  53)     std::string line, course_code, grade, title;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  54)     int credit_hours = 0; 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  55) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  56)     for (int i = 1; i < 30; i++) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  57)         getline(stream, line);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  58) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  59)         if (i == 14) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  60)             // Course codes are stored on line 14 of every course block.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  61)             course_code = TrimWhiteSpace(line);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  62)             this->course_code = course_code;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  63)         } else if (i == 19) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  64)             // Course credit hours are stored on line 19 of every course block.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  65)             std::string credit_hours_str = TrimWhiteSpace(line);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  66)             credit_hours = std::stoi(credit_hours_str);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  67)             this->credit_hours = credit_hours;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  68)         } else if (i == 24) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  69)             // Course grades are stored on line 24 of every course block.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  70)             grade = TrimWhiteSpace(line);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  71)             this->grade = grade;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  72)         } else if (i == 29) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  73)             /*
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  74)              * Course titles are stored on line 29 of every course block. 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  75)              * For titles, only remove leading whitespace so that 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  76)              * there are spaces between words.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  77)              */
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  78)             std::string::iterator start;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  79)             start = std::find_if(line.begin(), line.end(), [](unsigned char c) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  80)                                      return !std::isspace(c); 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  81)                                  });
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  82)             line.erase(line.begin(), start);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  83) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  84)             this->title = line;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  85)         } 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  86)     } 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  87) }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  88) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  89) /*
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  90)  * This function reads the academic history HTML and stores all
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  91)  * the courses the student has completed or is taking.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  92)  */
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  93) std::vector<Course>
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  94) ReadCourseInfo(char * academic_history_html, Course course)
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  95) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  96)     std::ifstream academic_history;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  97)     academic_history.open(academic_history_html);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  98)     if (!academic_history.is_open()) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  99)         perror(academic_history_html);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 100)         exit(1);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 101)     } 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 102) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 103)     std::vector<Course> courses_taken;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 104)     std::string line, course_block;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 105) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 106)     std::string start_delim_even = "class=\"even\">";
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 107)     std::string start_delim_odd = "class=\"odd\">";
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 108) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 109)     while(getline(academic_history, line)) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 110)         // Check if line contains a start delimiter
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 111)         if (line.find(start_delim_even) != std::string::npos ||
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 112)             line.find(start_delim_odd) != std::string::npos) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 113)             // Store the next 30 lines in course_block
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 114)             course_block = line + "\n";
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 115)             for (int i = 0; i < 30; i++) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 116)                 if (getline(academic_history, line)) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 117)                     course_block += line + "\n";
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 118)                 } else {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 119)                     break; // break at end of file
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 120)                 }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 121)             }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 122)             course.set_course_info(course_block);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 123)             courses_taken.push_back(course);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 124)         }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 125)     }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 126)     academic_history.close();
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 127) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 128)     return courses_taken;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 129) }
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 130) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 131) /*
+5b4cc87b (Ryan Perry 2024-10-02 19:22:23 -0400 132)  * This function removes all whitespace from a string.
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 133)  */
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 134) std::string
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 135) TrimWhiteSpace(std::string &str)
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 136) {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 137)     str.erase(std::remove_if(str.begin(), str.end(), ::isspace),
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 138)               str.end()); 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 139) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 140)     return str;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 141) }
+
+/c_parsing/parsing.h
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  1) #ifndef PARSING_H
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  2) #define PARSING_H
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  3) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  4) class Course {
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  5)     private:
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  6)         std::string course_code;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  7)         int credit_hours;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  8)         std::string grade;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400  9)         std::string title;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 10)     public:
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 11)         Course() = default;
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 12) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 13)         std::string get_course_code();
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 14)         int         get_credit_hours();
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 15)         std::string get_grade();
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 16)         std::string get_title();
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 17) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 18)         void set_course_info(std::string);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 19) };
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 20) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 21) std::vector<Course> ReadCourseInfo(char *, Course);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 22) std::string TrimWhiteSpace(std::string &);
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 23) 
+483a03b3 (Ryan Perry 2024-10-02 19:20:00 -0400 24) #endif
