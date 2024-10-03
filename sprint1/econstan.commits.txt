@@ -2,6 +2,17 @@ planning/340_database_design.pdf
 472ebb10 Planning/340_database_design.pdf (Emily Constantin 2024-09-19 12:04:39 -0400    1) %PDF-1.3
 (the rest is garbage)
 
+data_collection/database_design.xlsx
+63d7a81d (Emily Constantin 2024-10-02 21:31:33 -0400   1) PK
+(the rest is garbage)
+I made the:
+- structure of all sheets
+- major table data
+- civil engineering table data
+- prereq table data with courses from civil engineering
+I contributed to the:
+- course table with courses from civil engineering (around 30-40)
+
 planning/algorithm_notes.md
 b3e123fa Planning/algorithm_notes.md (Emily Constantin 2024-09-19 11:54:53 -0400  1) ###Algorithm Notes
 b3e123fa Planning/algorithm_notes.md (Emily Constantin 2024-09-19 11:54:53 -0400  2) 
@@ -62,15 +73,6 @@ ub.
 8db2a0f3 (Emily Constantin 2024-09-19 12:02:48 -0400 42) 
 (END)
 
-data_collection/database_design.xlsx
-63d7a81d (Emily Constantin 2024-10-02 21:31:33 -0400   1) PK
-(the rest is garbage)
-I made the:
-- structure of all sheets
-- major table data
-- civil engineering table data
-- prereq table data with courses from civil engineering
-I contributed to the:
-- course table with courses from civil engineering
+
 
 
