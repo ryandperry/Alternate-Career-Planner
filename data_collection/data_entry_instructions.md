@@ -23,6 +23,7 @@ Locate the major under ‘majors A-Z’
 ### Fill in tables with information
 Start with the single classes that are listed in the utrack
 * Add each class (and the honors version of that class) to the course table with the same course ID
+* Add each class' pre-reqs and co-reqs to the prereq table
 
 When you reach a collection of more than 1 courses (we're calling them buckets), add the collection as a new bucket to the bucket table.
 
