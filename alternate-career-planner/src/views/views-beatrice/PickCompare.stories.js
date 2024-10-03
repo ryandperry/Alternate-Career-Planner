@@ -30,13 +30,8 @@ const dummyDataCourses = [
 
 // Test data for a major and its description
 const dummyMajor = {
-    name: 'Computer Science',
-    description: `Computer Science is the systematic study of algorithmic processes that describe
-    and transform information: their theory, analysis, design, efficiency, implementation,
-    and application. The fundamental question underlying all of computing is: What can efficiently be automated?
-
-    Computer Science is far more than programming. It incorporates the paradigms of theory (mathematical),
-    abstraction (experimental), and design (engineering) within many topic areas.`,
+    name: 'Interest Quiz Results',
+    description: `Thank you for taking our interest quiz! Due to the answers you provided, we were able to determine the ideal path forward for you. Your results show that this path is:           Mechanical!!!`,
 };
 
 const genericMajor = {
