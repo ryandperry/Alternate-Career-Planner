@@ -17,3 +17,37 @@
 .App-link {
   color: #ffa443;
 }
+
+.alt-header {
+  color: #FF8200;
+}
+
+.sec-header {
+  color: #4B4B4B;
+}
+
+.quiz-button {
+  background-color: #489FDF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.upload-button {
+  background-color: #489FDF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.quiz-div{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.upload-div{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

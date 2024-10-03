@@ -28,6 +28,19 @@ function App() {
       <h1>Hello World!</h1>
       <p>Below is a test for a list of courses using dummy data. Feel free to change App.js to a homepage.</p>
       <CourseListView courses={dummyDataCourses} />
+
+      <h1 className='alt-header'>Alternate Career Planner</h1>
+      <h2 className='sec-header'>Quick Explination</h2>
+      <p>         Welcome to the Alternate Career Planner, this will allow to upload your 
+          completed courses and we will show you the alternate majors that you can change to. 
+          You can also take a short quiz and we can give you some majors that fit the answers 
+          you have given us. </p>
+      <div className='quiz-div'>
+      <button className='quiz-button'>Take Quiz</button>
+      </div>
+      <div className='upload-div'>
+      <button className='upload-button'>Upload Completed Courses</button>
+      </div>
     </div>
   );
 }
