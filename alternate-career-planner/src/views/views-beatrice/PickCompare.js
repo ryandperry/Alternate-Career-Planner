@@ -26,10 +26,10 @@ const PickCompare = ({ major, courses }) => {
             <p>or select from the following dropdown menu:</p>
             <select className="dropdown" value={selectedMajor} onChange={handleDropdownChange}>
                 <option value="">Select a major</option>
-                <option value="Major 1">Major 1</option>
-                <option value="Major 2">Major 2</option>
-                <option value="Major 3">Major 3</option>
-                <option value="Major 4">Major 4</option>
+                <option value="Aerospace Engineering">Major 1</option>
+                <option value="Civil Engineering">Major 2</option>
+                <option value="Material Science Engineering">Major 3</option>
+                <option value="Biosystems Engineering">Major 4</option>
             </select>
         </div>
     );
