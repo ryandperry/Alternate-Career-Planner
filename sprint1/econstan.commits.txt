@@ -1,0 +1,78 @@
+planning/340_database_design.pdf
+472ebb10 Planning/340_database_design.pdf (Emily Constantin 2024-09-19 12:04:39 -0400    1) %PDF-1.3
+(the rest is garbage)
+
+data_collection/database_design.xlsx
+63d7a81d (Emily Constantin 2024-10-02 21:31:33 -0400   1) PK
+(the rest is garbage)
+I made the:
+- structure of all sheets
+- major table data
+- civil engineering table data
+- prereq table data with courses from civil engineering
+I contributed to the:
+- course table with courses from civil engineering (around 30-40)
+
+planning/algorithm_notes.md
+b3e123fa Planning/algorithm_notes.md (Emily Constantin 2024-09-19 11:54:53 -0400  1) ###Algorithm Notes
+b3e123fa Planning/algorithm_notes.md (Emily Constantin 2024-09-19 11:54:53 -0400  2) 
+f9659c09 planning/algorithm_notes.md (Emily Constantin 2024-09-19 13:26:37 -0400  3) * We don’t accept transfer credit
+f9659c09 planning/algorithm_notes.md (Emily Constantin 2024-09-19 13:26:37 -0400  4) * Grade < C doesn’t count
+f9659c09 planning/algorithm_notes.md (Emily Constantin 2024-09-19 13:26:37 -0400  5) * W’s don’t count
+f9659c09 planning/algorithm_notes.md (Emily Constantin 2024-09-19 13:26:37 -0400  6) * algorithm matches on ID
+f9659c09 planning/algorithm_notes.md (Emily Constantin 2024-09-19 13:26:37 -0400  7) * If math 141 and math 147 have the same ID, the algorithm should match on IDs and that should count
+05bda0ac planning/algorithm_notes.md (Emily Constantin 2024-10-02 21:41:27 -0400  8) * check prereqs and coreqs
+05bda0ac planning/algorithm_notes.md (Emily Constantin 2024-10-02 21:41:27 -0400  9) * check for buckets
+05bda0ac planning/algorithm_notes.md (Emily Constantin 2024-10-02 21:41:27 -0400 10) * C- only counts for 1 class in a major
+05bda0ac planning/algorithm_notes.md (Emily Constantin 2024-10-02 21:41:27 -0400 11) * we don't check for ACT or SAT scores as prereq requirements
+
+data_collection/data_entry_instructions.md
+d75dd916 (Emily Constantin 2024-09-19 13:01:44 -0400  1) # Data Entry Guide and Instructions
+8db2a0f3 (Emily Constantin 2024-09-19 12:02:48 -0400  2) 
+d75dd916 (Emily Constantin 2024-09-19 13:01:44 -0400  3) ### Set up space in the database
+f2a2e65b (Emily Constantin 2024-09-19 13:21:25 -0400  4) Create a new sheet in the database called 'Major Abreviation - ID #' to make a table for your major.
+30d0ea63 (Emily Constantin 2024-09-19 13:23:41 -0400  5) * https://docs.google.com/spreadsheets/d/1396Llo6YEQW1FxGvkfRYii44ywH6aEHaIX0b-_4ZzOM/edit?usp=sharing 
+0dc593d2 (Emily Constantin 2024-09-19 13:20:18 -0400  6) * the ID number for each major can be found in the Majors Table
+f2a2e65b (Emily Constantin 2024-09-19 13:21:25 -0400  7) * Example: new sheet called CS - ID 1
+ce4f3b8d (Emily Constantin 2024-09-19 13:18:07 -0400  8) 
+f2a2e65b (Emily Constantin 2024-09-19 13:21:25 -0400  9) The main table will be a code-generated concatenation of all major-specific tables.
+f2a2e65b (Emily Constantin 2024-09-19 13:21:25 -0400 10) We don't modify the main table manually.
+d75dd916 (Emily Constantin 2024-09-19 13:01:44 -0400 11) 
+d75dd916 (Emily Constantin 2024-09-19 13:01:44 -0400 12) ### Collect Catalog Information
+8db2a0f3 (Emily Constantin 2024-09-19 12:02:48 -0400 13) Navigate to the 2023-2024 course catalog
+1270d890 (Emily Constantin 2024-09-19 13:21:36 -0400 14) 
+4c956c14 (Emily Constantin 2024-09-19 13:22:09 -0400 15) Locate the major under ‘majors A-Z’ 
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 16) * https://catalog.utk.edu/preview_program.php?catoid=43&poid=25821#C
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 17) * Make sure the drop down menu at the top says 2023-2024
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 18) * Open the suggested catalog PDF for the major
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 19) * * https://tickle.utk.edu/wp-content/uploads/2022/11/Computer-Engineering-2023.pdf 
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 20) * DARS is currently broken, do not use DARS for this
+4c956c14 (Emily Constantin 2024-09-19 13:22:09 -0400 21) * We're only doing normal majors, not honors or 5 year MS
+8db2a0f3 (Emily Constantin 2024-09-19 12:02:48 -0400 22) 
+d75dd916 (Emily Constantin 2024-09-19 13:01:44 -0400 23) ### Fill in tables with information
+8db2a0f3 (Emily Constantin 2024-09-19 12:02:48 -0400 24) Start with the single classes that are listed in the utrack
+c7bc3b80 (Emily Constantin 2024-09-19 13:22:32 -0400 25) * Add each class (and the honors version of that class) to the course table with the same course ID
+a394ebad (Emily Constantin 2024-10-03 17:44:57 -0400 26) * Add each class' pre-reqs and co-reqs to the prereq table
+d75dd916 (Emily Constantin 2024-09-19 13:01:44 -0400 27) 
+b235cd70 (Emily Constantin 2024-09-19 13:18:46 -0400 28) When you reach a collection of more than 1 courses (we're calling them buckets), add the collection as a new bucket to the bucket table.
+b235cd70 (Emily Constantin 2024-09-19 13:18:46 -0400 29) 
+b235cd70 (Emily Constantin 2024-09-19 13:18:46 -0400 30) Link your major to the bucket by listing the major and bucket together in your major-specific table.
+b235cd70 (Emily Constantin 2024-09-19 13:18:46 -0400 31) 
+d75dd916 (Emily Constantin 2024-09-19 13:01:44 -0400 32) Ignore VolCore (general education) requirements
+989a2bf1 (Emily Constantin 2024-09-19 13:22:47 -0400 33) * if you aren't sure if something is general education (vol core) or specific to tickle engineering, add it
+ anyway
+8db2a0f3 (Emily Constantin 2024-09-19 12:02:48 -0400 34) 
+d75dd916 (Emily Constantin 2024-09-19 13:01:44 -0400 35) ### CSVs
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 36) CSV's are comma seperated, so when you list multiple courses, use a semicolon.
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 37) 
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 38) When youre finished with your major-specific table, export the individual sheet as a csv and commit to gith
+ub.
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 39) 
+5131c386 (Emily Constantin 2024-09-19 13:19:43 -0400 40) All other sheets will be exported in the end.
+8db2a0f3 (Emily Constantin 2024-09-19 12:02:48 -0400 41) 
+8db2a0f3 (Emily Constantin 2024-09-19 12:02:48 -0400 42) 
+(END)
+
+
+
+
