@@ -54,7 +54,7 @@ public class course {
   }
 
   /*
-   * Sets a Courses's member variables given 
+   * Sets a Course's member variables given 
    * an unformatted course block.
    */
   public void 
