@@ -7,7 +7,7 @@ import React from 'react';
 import './CompletedCoursesView.css';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
-const CompletedCoursesView (){
+const CompletedCoursesView = () => {
     // Dummy data
     const [courses, setCourses] = useState([
         { title: 'Computer Organization', body: 'description...',
