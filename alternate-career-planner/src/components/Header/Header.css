@@ -1,0 +1,28 @@
+/* Header.css
+ * Description: Contains css styling for
+    the header bar at the top of pages.
+ */
+
+/* Fixes padding issues added by browsers */
+.header-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+ 
+/* Logo and title with orange background */
+.titleRow {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: #ffffff;
+    background-color: #FF8200;
+}
+
+/* Logo image */
+.logo {
+    width: 65px;
+    height: 65px;
+    padding-right: 20px;
+}
