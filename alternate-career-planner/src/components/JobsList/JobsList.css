@@ -1,0 +1,31 @@
+/* JobsList.css
+ * Description: Styling for the list of jobs in MajorDetailView
+ */
+
+/* Removes bullet points */
+ul {
+    list-style-type: none; 
+    padding-left: 0;
+}
+
+/* Creates vertical padding between items */
+.job-item {
+    margin: 20px 0;
+    text-align: left;
+}
+
+/* Removes heading padding */
+.job-item h3 {
+    margin: 0 0 0 0; 
+    color: #FF8200; /* TN Orange */
+}
+
+/* Makes the description gray */
+.job-description {
+    color: #4B4B4B; /* Smokey Gray */
+}
+
+/* Padding between components of list items */
+.job-item p {
+    margin: 5px 0;
+}

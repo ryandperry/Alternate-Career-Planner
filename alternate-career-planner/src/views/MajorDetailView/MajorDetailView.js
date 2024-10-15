@@ -7,6 +7,7 @@ import React from 'react';
 import './MajorDetailView.css';
 import CourseListView from '../../components/CourseList/CourseList';
 import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage';
+import JobsList from '../../components/JobsList/JobsList';
 
 // Lists the details of a given major including a description and required courses
 const MajorDetailView = ({ major, courses }) => {
@@ -20,6 +21,9 @@ const MajorDetailView = ({ major, courses }) => {
             {/* Required Courses List */}
             <h2> Required Courses </h2>
             <CourseListView courses = {courses}/>
+
+            {/* Jobs List */}
+            <JobsList majorname={major.name}/>
 
         </div>
     )
