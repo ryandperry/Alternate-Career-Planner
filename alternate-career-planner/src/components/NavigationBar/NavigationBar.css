@@ -3,7 +3,42 @@
     the vertical navigation bar
  */
 
+.navbar-wrapper {
+    background-color: #f9f9f9;
+    width: 300px;
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+/* Headers such as "Majors" */
+.section-title {
+    color: #FF8200; /* TN Orange */
+}
+
 /* Smaller navigation titles such as major names */
 .sub-nav-title {
-    padding: 8px 0px;
+    display: block;
+    width: 225px;
+    padding: 10px 10px;
+    color: #4B4B4B; /* Smokey Gray */
+    font-weight: 500;
+    margin: 8px 0px;
+}
+
+/* Show block around sub-headline when hovered */
+.sub-nav-title:hover {
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+ /* Removes bullet points */
+ul {
+    display: block;
+    list-style-type: none; 
+    padding-left: 0;
 }

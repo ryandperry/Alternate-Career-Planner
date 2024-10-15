@@ -5,7 +5,7 @@
 
 /* Prevents header from overlapping body */
 html {
-    padding-top: 85px;
+    padding-top: 69px;
 }
 
 /* Prevents overlap on mobile by resizing header along with text */

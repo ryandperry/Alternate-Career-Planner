@@ -2,6 +2,7 @@ import React from 'react';
 import '../../index.css'; // Imports global css
 import MajorDetailView from './MajorDetailView';
 import { Default as Header } from '../../components/Header/Header.stories'; // Import Header
+import { Default as NavigationBar } from '../../components/NavigationBar/NavigationBar.stories'; // Import Navigation Bar
 
 export default {
     title: 'MajorDetailView',

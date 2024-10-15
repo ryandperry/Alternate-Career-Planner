@@ -7,7 +7,15 @@ import './NavigationBar.css';
 
 const NavigationBar = ({ majors }) => {
     return (
-        <div>
+        <div className="navbar-wrapper">
+
+            {/* My Quiz */}
+            <h3 className="section-title"> My Quiz </h3>
+            <ul>
+                <li className="sub-nav-title"> View Results </li>
+                <li className="sub-nav-title"> Retake Quiz </li>
+            </ul>
+            
             {/* List of Majors */}
             <h3 className="section-title"> Majors </h3>
             <ul>
