@@ -15,7 +15,7 @@
 .titleRow {
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 2px;
     color: #ffffff;
     background-color: #FF8200;
 }
