@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../index.css'; // Imports global css
 import MajorDetailView from './MajorDetailView';
+import { Default as Header } from '../../components/Header/Header.stories'; // Import Header
 
 export default {
     title: 'MajorDetailView',
@@ -47,8 +48,13 @@ const genericMajor = {
 };
 
 // A preview of a major's details using dummy data
-export const ComputerScience = Template.bind({});
-ComputerScience.args = {
+export const ComputerScienceWithHeader = (args) => (
+  <div>
+    <Header />
+    <MajorDetailView {...args} />
+  </div>
+);
+ComputerScienceWithHeader.args = {
     major: dummyMajor,
     courses: dummyDataCourses,
 };
