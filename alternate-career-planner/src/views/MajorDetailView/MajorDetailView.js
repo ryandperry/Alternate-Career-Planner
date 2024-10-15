@@ -12,11 +12,15 @@ import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage
 const MajorDetailView = ({ major, courses }) => {
     return (
         <div>
+            {/* Header, Title and Description */}
             <MajorHeaderImage major={major}/>
             <h1 className="major-title"> {major.name} </h1>
             <p className="major-description"> { major.description } </p>
+
+            {/* Required Courses List */}
             <h2> Required Courses </h2>
             <CourseListView courses = {courses}/>
+
         </div>
     )
 }
