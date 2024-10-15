@@ -6,7 +6,8 @@
  /* Zoom in on header image as the viewport grows after exceeding image size */
 .header-image img {
    display: flex;
-   max-height: 400px;
+   max-height: 450px;
+   max-width: 1150px;
    object-fit: cover;
    width: 100%;
    justify-content: center;
