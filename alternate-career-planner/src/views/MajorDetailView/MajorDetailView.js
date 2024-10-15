@@ -13,7 +13,6 @@ import Header from '../../components/Header/Header';
 const MajorDetailView = ({ major, courses }) => {
     return (
         <div>
-            <Header/>
             <MajorHeaderImage major={major}/>
             <h1 className="major-title"> {major.name} </h1>
             <p className="major-description"> { major.description } </p>
