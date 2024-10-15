@@ -53,12 +53,12 @@ class Bucket:
     num_courses = num_courses
 
   #get course IDs from the course names
-  course_ids
+  #course_ids
 
 
 
 
-def main():
+
   # functions me and beatrice can make
 
   #looping through course table rows
@@ -66,6 +66,17 @@ def main():
   #dict of courses
   # dict.append(str(course.course_id), course object)
   # dict[course.course_id] returns course object
+  # check this indenting 
+print("Hello World")
+df = pd.read_csv("database_design_CT.csv")
+print(df.shape[0])
+for row in df.index:
+    #course_id, name, description, hours
+    course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
+      #dict[i] = course_object
+    dict = {row: course_object}
+
+print(dict)
 
   #looping through major table rows
   #build major class object for each row
