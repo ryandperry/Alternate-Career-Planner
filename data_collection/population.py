@@ -36,6 +36,9 @@ class Major:
     name = name
     description = description
 
+  course_ids = {}
+  bucket_ids = {}
+
 
 class Course:
   def __init__(self, course_id, name, description, hours):
@@ -53,7 +56,7 @@ class Bucket:
     num_courses = num_courses
 
   #get course IDs from the course names
-  course_ids
+  course_ids = {}
 
 
 
