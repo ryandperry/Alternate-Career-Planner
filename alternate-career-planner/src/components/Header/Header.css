@@ -22,10 +22,15 @@ html {
 
 /* Fixes padding issues added by browsers */
 .header-wrapper {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
+}
+
+/* Keeps body content outside of header */
+body {
+    margin-top: 20px;
 }
 
 /* Logo and title with orange background */

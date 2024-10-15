@@ -40,6 +40,7 @@ const dummyMajor = {
      'abstraction (experimental), and design (engineering) within many topic areas.',
 };
 
+// Test data for a generic major showing a generic photo
 const genericMajor = {
   name: 'Generic Major',
   description: 'This is a generic major. It is a long established fact that a reader will be distracted ' +
@@ -48,16 +49,53 @@ const genericMajor = {
    'it look like readable English.',
 };
 
+// Styling to include navigation bar 
+
+const appContainerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100vh',
+};
+
+const appBodyStyle = {
+  display: 'flex',
+  flex: 1,
+};
+
+const contentStyle = {
+  flex: 1,
+  padding: '1rem',
+  backgroundColor: '#f0f0f0',
+  overflowY: 'auto',
+  margin: 0,
+};
+
+// Dummy majors for nav bar
+const dummyMajors = [
+  { name: 'Computer Science' },
+  { name: 'Electrical Engineering' },
+  { name: 'Computer Engineering' },
+  { name: 'Mechanical Engineering' },
+  { name: 'Environmental Engineering' },
+];
+
+
 // A preview of a major's details using dummy data
 export const ComputerScienceWithHeader = (args) => (
-  <div>
+  <div style={appContainerStyle}>
     <Header />
-    <MajorDetailView {...args} />
+    <div style={appBodyStyle}>
+      <NavigationBar {...args} />
+      <body>
+        <MajorDetailView style={contentStyle} {...args} />
+      </body>
+    </div>
   </div>
 );
 ComputerScienceWithHeader.args = {
     major: dummyMajor,
     courses: dummyDataCourses,
+    majors: dummyMajors
 };
 
 export const GenericName = Template.bind({});
