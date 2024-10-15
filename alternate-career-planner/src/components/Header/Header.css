@@ -3,6 +3,23 @@
     the header bar at the top of pages.
  */
 
+/* Prevents header from overlapping body */
+html {
+    padding-top: 85px;
+}
+
+/* Prevents overlap on mobile by resizing header along with text */
+@media (max-width: 460px) {
+    html {
+        padding-top: 120px; /* Increase padding for mobile to accommodate header size */
+    }
+}
+@media (max-width: 315px) {
+    html {
+        padding-top: 160px; /* Increase padding for mobile to accommodate header size */
+    }
+}
+
 /* Fixes padding issues added by browsers */
 .header-wrapper {
     position: absolute;
@@ -10,7 +27,7 @@
     left: 0;
     width: 100vw;
 }
- 
+
 /* Logo and title with orange background */
 .titleRow {
     display: flex;
@@ -22,7 +39,8 @@
 
 /* Logo image */
 .logo {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     padding-right: 20px;
+    padding-left: 10px;
 }

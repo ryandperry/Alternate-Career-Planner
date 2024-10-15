@@ -27,7 +27,6 @@ function App() {
     <div className="App">
 
       <Header/>
-      <h1 className='alt-header'>Alternate Career Planner</h1>
       <h2 className='sec-header'>Quick Explination</h2>
       <p>         Welcome to the Alternate Career Planner, this will allow to upload your 
           completed courses and we will show you the alternate majors that you can change to. 
