@@ -1,0 +1,9 @@
+/* NavigationBar.css
+ * Description: Contains css styling for
+    the vertical navigation bar
+ */
+
+/* Smaller navigation titles such as major names */
+.sub-nav-title {
+    padding: 8px 0px;
+}
