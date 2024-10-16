@@ -1,0 +1,40 @@
+/* Quiz.css
+ * Description: CSS Styling for Quiz.
+ */
+
+.Quiz {
+    text-align: left;
+    padding-top: 30px;
+    padding-left: 5%;
+    padding-bottom: 30px;
+    width: 90%;
+}
+
+.text-section p {
+    font-size: 28px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.selected {
+    background-color: #489FDF !important;
+    color: #FFFFFF !important;
+}
+
+.options {
+    padding: 8px;
+    border: 3px solid #4B4B4B;
+    cursor: pointer;
+    width: 30%;
+    background-color: white;
+    color: #FF8200;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin: 5px;
+}
