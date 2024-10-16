@@ -31,10 +31,10 @@ import pandas as pd
 
 class Major:
   def __init__(self, major_id, abbr, name, description):
-    major_id = major_id
-    abbr = abbr
-    name = name
-    description = description
+    self.major_id = major_id
+    self.abbr = abbr
+    self.name = name
+    self.description = description
 
   course_ids = {}
   bucket_ids = {}
@@ -42,18 +42,19 @@ class Major:
 
 class Course:
   def __init__(self, course_id, name, description, hours):
-    course_id = course_id
-    name = name
-    description = description
-    hours = hours
+    self.course_id = course_id
+    self.name = name
+    self.description = description
+    self.hours = hours
+
 
 class Bucket:
   def __init__(self, bucket_id, name, course_names, num_hours, num_courses):
-    bucket_id = bucket_id
-    name = name
-    course_names = course_names
-    num_hours = num_hours
-    num_courses = num_courses
+    self.bucket_id = bucket_id
+    self.name = name
+    self.course_names = course_names
+    self.num_hours = num_hours
+    self.num_courses = num_courses
 
   #get course IDs from the course names
   #course_ids
@@ -75,12 +76,12 @@ df = pd.read_csv('data_collection/database_design_CT.csv')
 #print(df.shape[0])
 for row in df.index:
     #course_id, name, description, hours
-    course_id = df.loc[row, 'Course ID']
-    name = df.loc[row, 'Course']
-    description = df.loc[row, 'Course Description']
-    hours = df.loc[row, 'Course Hours']
-    course_object = Course(course_id, name, description, hours)
-    # course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
+    # course_id = str(df.loc[row, 'Course ID'])
+    # name = str(df.loc[row, 'Course'])
+    # description = str(df.loc[row, 'Course Description'])
+    # hours = str(df.loc[row, 'Course Hours'])
+    # course_object = Course(course_id=course_id, name=name, description=description, hours=hours)
+    course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
     #dict[i] = course_object
     # dict = {str(row): course_object}
     # print(dict[str(row)].name)
