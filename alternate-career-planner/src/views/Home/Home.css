@@ -1,0 +1,35 @@
+.Home {
+    text-align: left;
+    padding-top: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 30px;
+    width: 90%;
+}
+.text-section p {
+    font-size: 28px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+.upload-button {
+    background-color: #489FDF;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.quiz-button {
+    background-color: white;
+    color: #489FDF;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: 2px solid #489FDF;
+    border-radius: 4px;
+    cursor: pointer;
+}
