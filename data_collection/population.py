@@ -76,11 +76,13 @@ try:
 except:
   df = pd.read_csv('data_collection/database_design_CT.csv')
 #print(df.shape[0])
+course_objects = {}
 for row in df.index:
     #course_id, name, description, hours
+    course_id = df.loc[row, "Course ID"]
     course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
     #dict[i] = course_object
-    course_objects = {str(row): course_object}
+    course_objects[str(course_id)] = course_object
     # print(dict[str(row)].name)
     print(course_object.name)
 
@@ -111,13 +113,15 @@ try:
   df3 = pd.read_csv('database_design_BT.csv')
 except:
   df3 = pd.read_csv('data_collection/database_design_BT.csv')
+bucket_objects = {}
 #print(df.shape[0])
 for row in df3.index:
     #course_id, name, description, hours
+    bucket_id = df3.loc[row, "Bucket ID"]
     bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
     #dict[i] = course_object
-    bucket_objects = {str(row): bucket_obj}
-    print(bucket_objects[str(row)].name)
+    bucket_objects[bucket_id] =  bucket_obj
+    print(bucket_objects[str(bucket_id)].name)
     # print(major_obj.name)
 
 
