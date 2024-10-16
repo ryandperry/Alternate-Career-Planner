@@ -132,15 +132,23 @@ for major in major_objects:
   relative_filename = 'major_requirement_csvs/major_' + str(int(major.major_id)) + '.csv'
   outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major.major_id)) + '.csv'
   try:
-    df4 = pd.read_csv(relative_filename)
+    major_requirements = pd.read_csv(relative_filename)
   except:
-    df4 = pd.read_csv(outside_filename)
+    major_requirements = pd.read_csv(outside_filename)
 
 
-  #clean up the csv by populating the empty columns
+  #make the course and bucket objects using either the ID or the name
   #example: if the row has a course (MATH 141), lookup in the dictionary
     #of courses for that and add the course ID to major.course_ids set()
-  #example: if the row has course ID 5, 
+  #example: if the row has course ID 5, then add that ID
+  for major_requirement in major_requirements.index():
+    #get the course ID or bucket ID for this major requirement
+    bucket_ID = major_requirements[major_requirement]['']
+    #if this row has a bucket, use the bucket ID
+    if()
+
+    #else, if this row has a course, look for course ID or course
+    course_objects[str(row)]
 
 
 
