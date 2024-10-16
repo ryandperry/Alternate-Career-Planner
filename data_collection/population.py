@@ -127,15 +127,17 @@ for row in df3.index:
 #place them in folder for easy access
 
 # for each table that has major's requirements in the excel,
-for major in major_objects:
+for major_object in major_objects:
   #read csv for this major using the ID number
-  relative_filename = 'major_requirement_csvs/major_' + str(int(major.major_id)) + '.csv'
-  outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major.major_id)) + '.csv'
+  relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
+  outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
   try:
     major_requirements = pd.read_csv(relative_filename)
   except:
     major_requirements = pd.read_csv(outside_filename)
 
+  #fill in everything thats null in the excel 
+  major_requirements = major_requirements.fillna("NULL")
 
   #make the course and bucket objects using either the ID or the name
   #example: if the row has a course (MATH 141), lookup in the dictionary
@@ -143,9 +145,21 @@ for major in major_objects:
   #example: if the row has course ID 5, then add that ID
   for major_requirement in major_requirements.index():
     #get the course ID or bucket ID for this major requirement
-    bucket_ID = major_requirements[major_requirement]['']
+    bucket_ID = major_requirements[major_requirement]['Required Bucket ID']
+    course_ID = major_requirements[major_requirement]['Required Course ID']
+    course = major_requirements[major_requirement]['Required Course']
     #if this row has a bucket, use the bucket ID
-    if()
+    if(bucket_ID != "NULL"):
+      major_object.bucket_ids.add(bucket_ID)
+    if(course_ID != "NULL"):
+      major_object.course_ids.add(course_ID)
+    elif(course != "NULL"):
+      #get all values for the course objects
+      #search in the values for the course.name that matches
+      #get course ID
+      #add to the course_ids for this major
+      course_id = [course_obj.course_id for course_obj in course_objects if course_obj.name == course.name]
+
 
     #else, if this row has a course, look for course ID or course
     course_objects[str(row)]
