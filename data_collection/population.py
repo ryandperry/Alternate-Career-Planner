@@ -36,8 +36,8 @@ class Major:
     self.name = name
     self.description = description
 
-  course_ids = {}
-  bucket_ids = {}
+  course_ids = set()
+  bucket_ids = set()
 
 
 class Course:
@@ -71,7 +71,10 @@ class Bucket:
   # dict[course.course_id] returns course object
   # check this indenting 
 print("Hello World")
-df = pd.read_csv('database_design_CT.csv')
+try:
+  df = pd.read_csv('database_design_CT.csv')
+except:
+  df = pd.read_csv('data_collection/database_design_CT.csv')
 #print(df.shape[0])
 for row in df.index:
     #course_id, name, description, hours
@@ -85,7 +88,10 @@ for row in df.index:
   #build major class object for each row
   #dict of majors
 
-df2 = pd.read_csv('database_design_MT.csv')
+try:
+  df2 = pd.read_csv('database_design_MT.csv')
+except:
+  df2 = pd.read_csv('data_collection/database_design_MT.csv')
 #print(df.shape[0])
 for row in df2.index:
     #course_id, name, description, hours
@@ -99,7 +105,10 @@ for row in df2.index:
   #build bucket class object for each row
   #dict of buckets
 
-df3 = pd.read_csv('database_design_BT.csv')
+try:
+  df3 = pd.read_csv('database_design_BT.csv')
+except:
+  df3 = pd.read_csv('data_collection/database_design_BT.csv')
 #print(df.shape[0])
 for row in df3.index:
     #course_id, name, description, hours
@@ -110,12 +119,32 @@ for row in df3.index:
     # print(major_obj.name)
 
 
-  # for each table that has major's requirements in the excel,
-  # make a pandas table 
-  # populate columns using the lists of class objects
-  # we have 12 majors
-  # make one generic function to populate each table using the 
-  # course IDs, bucket ID, major ID
 
-  #algorithm will depend on searching by ID so we're
-  # using dictionaries to be able to quickly search on ID
+#looping through major table rows
+#build major class object for each row
+#dict of majors
+major_objects = {}
+
+#looping through bucket table rows
+#build bucket class object for each row
+#dict of buckets
+
+#Emily part
+#make excel csvs for each major requirements
+#name them major_ID like major_1 (which is CS)
+#place them in folder for easy access
+
+# for each table that has major's requirements in the excel,
+for major in majors_objects:
+  #read csv for this major using the ID number
+
+
+  #clean up the csv by populating the empty columns
+  #example: if the row has a course (MATH 141), lookup in the dictionary
+    #of courses for that and add the course ID to major.course_ids set()
+  #example: if the row has course ID 5, 
+
+
+
+#algorithm will depend on searching by ID so we're
+# using dictionaries to be able to quickly search on ID
