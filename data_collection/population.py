@@ -154,7 +154,12 @@ for major_object in major_objects:
     if(course_ID != "NULL"):
       major_object.course_ids.add(course_ID)
     elif(course != "NULL"):
-      course_objects.values()
+      #get all values for the course objects
+      #search in the values for the course.name that matches
+      #get course ID
+      #add to the course_ids for this major
+      course_id = [course_obj.course_id for course_obj in course_objects if course_obj.name == course.name]
+
 
     #else, if this row has a course, look for course ID or course
     course_objects[str(row)]
