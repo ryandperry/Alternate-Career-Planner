@@ -148,27 +148,33 @@ for major_object_key in major_objects.keys():
   #example: if the row has a course (MATH 141), lookup in the dictionary
     #of courses for that and add the course ID to major.course_ids set()
   #example: if the row has course ID 5, then add that ID
-  for major_requirement in major_requirements.index():
+  for row in major_requirements.index:
     #get the course ID or bucket ID for this major requirement
-    bucket_ID = major_requirements[major_requirement]['Required Bucket ID']
-    course_ID = major_requirements[major_requirement]['Required Course ID']
-    course = major_requirements[major_requirement]['Required Course']
+    bucket_ID = major_requirements['Required Bucket ID'][row]
+    course_ID = major_requirements['Required Course ID'][row]
+    course = major_requirements['Required Course'][row]
     #if this row has a bucket, use the bucket ID
     if(bucket_ID != "NULL"):
-      major_object.bucket_ids.add(bucket_ID)
-    if(course_ID != "NULL"):
-      major_object.course_ids.add(course_ID)
+      print("found a bucket")
+      major_object.bucket_ids.add(str(bucket_ID))
+    elif(course_ID != "NULL"):
+      print("found a course")
+      major_object.course_ids.add(str(course_ID))
     elif(course != "NULL"):
       #get all values for the course objects
       #search in the values for the course.name that matches
       #get course ID
       #add to the course_ids for this major
       course_id = [course_obj.course_id for course_obj in course_objects if course_obj.name == course.name]
+      print("found a course id from the name")
+    else:
+      #this isnt a valid requirement because theres nothing in this row
+      print("error")
 
 
-    #else, if this row has a course, look for course ID or course
-    course_objects[str(row)]
-
+# emily to do
+# test the civil engineering excel
+# make sure ID's are matching as strings (no decimal issues)
 
 
 #algorithm will depend on searching by ID so we're
