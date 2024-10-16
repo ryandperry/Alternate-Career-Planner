@@ -71,19 +71,13 @@ class Bucket:
   # dict[course.course_id] returns course object
   # check this indenting 
 print("Hello World")
-df = pd.DataFrame()
-df = pd.read_csv('data_collection/database_design_CT.csv')
+df = pd.read_csv('database_design_CT.csv')
 #print(df.shape[0])
 for row in df.index:
     #course_id, name, description, hours
-    # course_id = str(df.loc[row, 'Course ID'])
-    # name = str(df.loc[row, 'Course'])
-    # description = str(df.loc[row, 'Course Description'])
-    # hours = str(df.loc[row, 'Course Hours'])
-    # course_object = Course(course_id=course_id, name=name, description=description, hours=hours)
     course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
     #dict[i] = course_object
-    # dict = {str(row): course_object}
+    dict = {str(row): course_object}
     # print(dict[str(row)].name)
     print(course_object.name)
 
@@ -91,9 +85,30 @@ for row in df.index:
   #build major class object for each row
   #dict of majors
 
+df2 = pd.read_csv('database_design_MT.csv')
+#print(df.shape[0])
+for row in df2.index:
+    #course_id, name, description, hours
+    major_obj = Major(df2.loc[row, 'Major ID'], df2.loc[row, 'Major Abreviation'], df2.loc[row, 'Major Name'], df2.loc[row, 'Major Description'])
+    #dict[i] = course_object
+    dict2 = {str(row): major_obj}
+    print(dict2[str(row)].name)
+    # print(major_obj.name)
+
   #looping through bucket table rows
   #build bucket class object for each row
   #dict of buckets
+
+df3 = pd.read_csv('database_design_BT.csv')
+#print(df.shape[0])
+for row in df3.index:
+    #course_id, name, description, hours
+    bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
+    #dict[i] = course_object
+    dict3 = {str(row): bucket_obj}
+    print(dict3[str(row)].name)
+    # print(major_obj.name)
+
 
   # for each table that has major's requirements in the excel,
   # make a pandas table 
