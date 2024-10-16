@@ -84,7 +84,7 @@ for row in df.index:
     #dict[i] = course_object
     course_objects[str(course_id)] = course_object
     # print(dict[str(row)].name)
-    print(course_object.name)
+    # print(course_object.name)
 
   #looping through major table rows
   #build major class object for each row
@@ -102,7 +102,7 @@ for row in df2.index:
     major_obj = Major(df2.loc[row, 'Major ID'], df2.loc[row, 'Major Abreviation'], df2.loc[row, 'Major Name'], df2.loc[row, 'Major Description'])
     #dict[i] = course_object
     major_objects[str(major_id)] = major_obj
-    print(major_objects[str(major_id)].name)
+    # print(major_objects[str(major_id)].name)
     # print(major_obj.name)
 
   #looping through bucket table rows
@@ -121,7 +121,7 @@ for row in df3.index:
     bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
     #dict[i] = course_object
     bucket_objects[str(bucket_id)] =  bucket_obj
-    print(bucket_objects[str(bucket_id)].name)
+    # print(bucket_objects[str(bucket_id)].name)
     # print(major_obj.name)
 
 
@@ -131,7 +131,8 @@ for row in df3.index:
 #place them in folder for easy access
 
 # for each table that has major's requirements in the excel,
-for major_object_key in major_objects.keys():
+# for major_object_key in major_objects.keys():
+for major_object_key in ["1", "5","10", "11"]:
   #read csv for this major using the ID number
   major_object = major_objects[major_object_key]
   relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
@@ -155,21 +156,22 @@ for major_object_key in major_objects.keys():
     course = major_requirements['Required Course'][row]
     #if this row has a bucket, use the bucket ID
     if(bucket_ID != "NULL"):
-      print("found a bucket")
+      # print("found a bucket")
       major_object.bucket_ids.add(str(bucket_ID))
     elif(course_ID != "NULL"):
-      print("found a course")
+      # print("found a course")
       major_object.course_ids.add(str(course_ID))
     elif(course != "NULL"):
       #get all values for the course objects
       #search in the values for the course.name that matches
       #get course ID
       #add to the course_ids for this major
-      course_id = [course_obj.course_id for course_obj in course_objects if course_obj.name == course.name]
-      print("found a course id from the name")
+      course_ID = [course_obj.course_id for course_obj in course_objects.values() if course_obj.name == course]
+      # print("found a course id from the name")
+      major_object.course_ids.add(str(course_ID))
     else:
       #this isnt a valid requirement because theres nothing in this row
-      print("error")
+      print("error: major requirement has neither course nor bucket listed")
 
 
 # emily to do
