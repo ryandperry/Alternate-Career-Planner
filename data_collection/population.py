@@ -56,20 +56,7 @@ class Bucket:
     self.num_hours = num_hours
     self.num_courses = num_courses
 
-  #get course IDs from the course names
-  #course_ids
-
-
-
-
-  # functions me and beatrice can make
-
-  #looping through course table rows
-  #build course class object for each row
-  #dict of courses
-  # dict.append(str(course.course_id), course object)
-  # dict[course.course_id] returns course object
-  # check this indenting 
+#script to read in course table, major table, and bucket table
 print("Hello World")
 try:
   df = pd.read_csv('database_design_CT.csv')
@@ -125,14 +112,20 @@ for row in df3.index:
     # print(major_obj.name)
 
 
-#Emily part
-#make excel csvs for each major requirements
-#name them major_ID like major_1 (which is CS)
-#place them in folder for easy access
+#script to match all major's requirements to the associated
+#course or bucket IDs
 
-# for each table that has major's requirements in the excel,
+#there are csvs for each major requirements
+#(from our "database")
+#name them major_ID like major_1 (which is CS)
+#place them in the major requirements csv folder
+
+# loop through each csv with each major's requirements
+# right now we only have 4 accessbile csvs but in the future, we 
+# will have access to all 12
 # for major_object_key in major_objects.keys():
 for major_object_key in ["1", "5","10", "11"]:
+
   #read csv for this major using the ID number
   major_object = major_objects[major_object_key]
   relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
@@ -150,17 +143,19 @@ for major_object_key in ["1", "5","10", "11"]:
     #of courses for that and add the course ID to major.course_ids set()
   #example: if the row has course ID 5, then add that ID
   for row in major_requirements.index:
+
     #get the course ID or bucket ID for this major requirement
     bucket_ID = major_requirements['Required Bucket ID'][row]
     course_ID = major_requirements['Required Course ID'][row]
     course = major_requirements['Required Course'][row]
+
     #if this row has a bucket, use the bucket ID
     if(bucket_ID != "NULL"):
-      # print("found a bucket")
-      major_object.bucket_ids.add(str(bucket_ID))
+      major_object.bucket_ids = major_object.bucket_ids.add(str(bucket_ID))
+    
     elif(course_ID != "NULL"):
-      # print("found a course")
       major_object.course_ids.add(str(course_ID))
+    
     elif(course != "NULL"):
       #get all values for the course objects
       #search in the values for the course.name that matches
@@ -169,6 +164,7 @@ for major_object_key in ["1", "5","10", "11"]:
       course_ID = [course_obj.course_id for course_obj in course_objects.values() if course_obj.name == course]
       # print("found a course id from the name")
       major_object.course_ids.add(str(course_ID))
+    
     else:
       #this isnt a valid requirement because theres nothing in this row
       print("error: major requirement has neither course nor bucket listed")
@@ -178,6 +174,8 @@ for major_object_key in ["1", "5","10", "11"]:
 # test the civil engineering excel
 # make sure ID's are matching as strings (no decimal issues)
 
-
 #algorithm will depend on searching by ID so we're
 # using dictionaries to be able to quickly search on ID
+
+# todo: merge ryan's html parsing code with this set up
+# todo: decide how algorithm code will use these classes
