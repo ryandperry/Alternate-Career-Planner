@@ -71,14 +71,13 @@ class Bucket:
   # check this indenting 
 print("Hello World")
 df = pd.read_csv("database_design_CT.csv")
-print(df.shape[0])
+#print(df.shape[0])
 for row in df.index:
     #course_id, name, description, hours
     course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
       #dict[i] = course_object
-    dict = {row: course_object}
-
-print(dict)
+    dict = {"row": course_object}
+    print(dict["row"].name)
 
   #looping through major table rows
   #build major class object for each row
