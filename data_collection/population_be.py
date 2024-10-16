@@ -120,7 +120,7 @@ for row in df3.index:
     bucket_id = df3.loc[row, "Bucket ID"]
     bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
     #dict[i] = course_object
-    bucket_objects[str(bucket_id)] =  bucket_obj
+    bucket_objects[bucket_id] =  bucket_obj
     print(bucket_objects[str(bucket_id)].name)
     # print(major_obj.name)
 
@@ -131,50 +131,21 @@ for row in df3.index:
 #place them in folder for easy access
 
 # for each table that has major's requirements in the excel,
-for major_object_key in major_objects.keys():
+for major in major_objects:
   #read csv for this major using the ID number
-  major_object = major_objects[major_object_key]
-  relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
-  outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
+  relative_filename = 'major_requirement_csvs/major_' + str(int(major.major_id)) + '.csv'
+  outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major.major_id)) + '.csv'
   try:
-    major_requirements = pd.read_csv(relative_filename)
+    df4 = pd.read_csv(relative_filename)
   except:
-    major_requirements = pd.read_csv(outside_filename)
+    df4 = pd.read_csv(outside_filename)
 
-  #fill in everything thats null in the excel 
-  major_requirements = major_requirements.fillna("NULL")
 
-  #make the course and bucket objects using either the ID or the name
+  #clean up the csv by populating the empty columns
   #example: if the row has a course (MATH 141), lookup in the dictionary
     #of courses for that and add the course ID to major.course_ids set()
-  #example: if the row has course ID 5, then add that ID
-  for row in major_requirements.index:
-    #get the course ID or bucket ID for this major requirement
-    bucket_ID = major_requirements['Required Bucket ID'][row]
-    course_ID = major_requirements['Required Course ID'][row]
-    course = major_requirements['Required Course'][row]
-    #if this row has a bucket, use the bucket ID
-    if(bucket_ID != "NULL"):
-      print("found a bucket")
-      major_object.bucket_ids.add(str(bucket_ID))
-    elif(course_ID != "NULL"):
-      print("found a course")
-      major_object.course_ids.add(str(course_ID))
-    elif(course != "NULL"):
-      #get all values for the course objects
-      #search in the values for the course.name that matches
-      #get course ID
-      #add to the course_ids for this major
-      course_id = [course_obj.course_id for course_obj in course_objects if course_obj.name == course.name]
-      print("found a course id from the name")
-    else:
-      #this isnt a valid requirement because theres nothing in this row
-      print("error")
+  #example: if the row has course ID 5, 
 
-
-# emily to do
-# test the civil engineering excel
-# make sure ID's are matching as strings (no decimal issues)
 
 
 #algorithm will depend on searching by ID so we're
