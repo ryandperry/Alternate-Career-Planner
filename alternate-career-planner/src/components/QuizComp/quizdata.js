@@ -1,3 +1,7 @@
+/* quizdata.js
+ * Description: Stores quiz questions and their options.
+ */
+
 export const QuizData = [
     {
         id: 0,

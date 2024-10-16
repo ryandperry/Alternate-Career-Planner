@@ -1,3 +1,9 @@
+/* QuizComp.js
+ * Description: Implements Quiz Component used on the quiz screen.
+ * Users answer questions from quiszdata.js. Their answers are displayed
+ * after finishing the quiz.
+ */
+
 import React, { Component } from 'react'
 import { QuizData } from './quizdata.js'
 import { Link } from 'react-router-dom'
