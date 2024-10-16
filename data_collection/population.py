@@ -131,8 +131,9 @@ for row in df3.index:
 #place them in folder for easy access
 
 # for each table that has major's requirements in the excel,
-for major_object in major_objects:
+for major_object_key in major_objects.keys():
   #read csv for this major using the ID number
+  major_object = major_objects[major_object_key]
   relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
   outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
   try:
