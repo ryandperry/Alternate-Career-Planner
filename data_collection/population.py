@@ -120,7 +120,7 @@ for row in df3.index:
     bucket_id = df3.loc[row, "Bucket ID"]
     bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
     #dict[i] = course_object
-    bucket_objects[bucket_id] =  bucket_obj
+    bucket_objects[str(bucket_id)] =  bucket_obj
     print(bucket_objects[str(bucket_id)].name)
     # print(major_obj.name)
 
