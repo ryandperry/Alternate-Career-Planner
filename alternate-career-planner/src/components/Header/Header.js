@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -11,7 +12,11 @@ const Header = () => {
         <div className="header-wrapper">
             <header>
                 <div className ="titleRow">
-                    <img src={require('./../../assets/Logo.png')} alt="Alternate Career Planner Logo" className="logo"/>
+                    <Link to='/'>
+                        <img src={require('./../../assets/Logo.png')} 
+                        alt="Alternate Career Planner Logo" 
+                        className="logo"/>
+                    </Link>
                     <h1> Alternate Career Planner </h1>
                 </div>
             </header>
