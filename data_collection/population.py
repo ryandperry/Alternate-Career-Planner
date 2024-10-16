@@ -80,7 +80,7 @@ for row in df.index:
     #course_id, name, description, hours
     course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
     #dict[i] = course_object
-    dict = {str(row): course_object}
+    course_objects = {str(row): course_object}
     # print(dict[str(row)].name)
     print(course_object.name)
 
@@ -93,12 +93,14 @@ try:
 except:
   df2 = pd.read_csv('data_collection/database_design_MT.csv')
 #print(df.shape[0])
+major_objects = {}
 for row in df2.index:
     #course_id, name, description, hours
+    major_id = df2.loc[row, 'Major ID']
     major_obj = Major(df2.loc[row, 'Major ID'], df2.loc[row, 'Major Abreviation'], df2.loc[row, 'Major Name'], df2.loc[row, 'Major Description'])
     #dict[i] = course_object
-    dict2 = {str(row): major_obj}
-    print(dict2[str(row)].name)
+    major_objects[str(major_id)] = major_obj
+    print(major_objects[str(major_id)].name)
     # print(major_obj.name)
 
   #looping through bucket table rows
@@ -114,20 +116,10 @@ for row in df3.index:
     #course_id, name, description, hours
     bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
     #dict[i] = course_object
-    dict3 = {str(row): bucket_obj}
-    print(dict3[str(row)].name)
+    bucket_objects = {str(row): bucket_obj}
+    print(bucket_objects[str(row)].name)
     # print(major_obj.name)
 
-
-
-#looping through major table rows
-#build major class object for each row
-#dict of majors
-major_objects = {}
-
-#looping through bucket table rows
-#build bucket class object for each row
-#dict of buckets
 
 #Emily part
 #make excel csvs for each major requirements
@@ -135,8 +127,14 @@ major_objects = {}
 #place them in folder for easy access
 
 # for each table that has major's requirements in the excel,
-for major in majors_objects:
+for major in major_objects:
   #read csv for this major using the ID number
+  relative_filename = 'major_requirement_csvs/major_' + str(int(major.major_id)) + '.csv'
+  outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major.major_id)) + '.csv'
+  try:
+    df4 = pd.read_csv(relative_filename)
+  except:
+    df4 = pd.read_csv(outside_filename)
 
 
   #clean up the csv by populating the empty columns
