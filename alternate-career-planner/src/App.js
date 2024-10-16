@@ -1,10 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
 import './App.css';
 import Header from './components/Header/Header';
-import Home from './views/Home/Home';
-import Quiz from './views/Quiz/Quiz';
 
 function App() {
 
@@ -28,14 +24,21 @@ function App() {
   ];
 
   return (
-      <Router>
-          <Header />
+    <div className="App">
 
-          <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/quiz" element={<Quiz />} />
-          </Routes>
-      </Router>
+      <Header/>
+      <h2 className='sec-header'>Quick Explination</h2>
+      <p>         Welcome to the Alternate Career Planner, this will allow to upload your 
+          completed courses and we will show you the alternate majors that you can change to. 
+          You can also take a short quiz and we can give you some majors that fit the answers 
+          you have given us. </p>
+      <div className='quiz-div'>
+      <button className='quiz-button'>Take Quiz</button>
+      </div>
+      <div className='upload-div'>
+      <button className='upload-button'>Upload Completed Courses</button>
+      </div>
+    </div>
   );
 }
 
