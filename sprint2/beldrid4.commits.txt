@@ -1,0 +1,80 @@
+Population.py: 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400   7) # Pandas Data Frames 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400   8) 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400   9) # Bucket Table To-Dos: 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  10) # Populate the course ID's, fill in the number of courses 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  11) 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  12) # for i in bucket ID 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  13) 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  14) # Prereq/Coreq 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  15) # Populating the Course ID and the Prereq Bucket Name and number of courses/ hours 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  16) 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  17) 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  18) # for i in Major Table 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  19) # Course ID to Required Course & Required Course Name 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  20) # Bucket ID to course name and number of hours 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  21) 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  22) # Class :
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  23) # course : ID, name description 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  24) # Bucket: ID, Bucket Name, Bucket NUmber of Hours/Number of COurses, List of Courses
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  25) # Major: ID, Abbreviation, Name, Description  
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  26) 
+3441bdc3 (bea-eldridge     2024-10-15 08:51:49 -0400  27) # Write out the classes , then write out stump code 
+6876b3d4 (bea-eldridge     2024-10-16 09:28:30 -0400  65) #print(df.shape[0])
+9b749954 (bea-eldridge     2024-10-16 11:00:36 -0400  66) course_objects = {}
+2f05fc9f (bea-eldridge     2024-10-15 10:18:29 -0400  67) for row in df.index:
+2f05fc9f (bea-eldridge     2024-10-15 10:18:29 -0400  68)     #course_id, name, description, hours
+9b749954 (bea-eldridge     2024-10-16 11:00:36 -0400  69)     course_id = df.loc[row, "Course ID"]
+9b749954 (bea-eldridge     2024-10-16 11:00:36 -0400  72)     course_objects[str(course_id)] = course_object
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400  85) #print(df.shape[0])
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400  87) for row in df2.index:
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400  88)     #course_id, name, description, hours
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400  90)     major_obj = Major(df2.loc[row, 'Major ID'], df2.loc[row, 'Major Abreviation'], df2.loc[row, 'Major Name'], df2.loc[row, 'Major Description'])
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400  91)     #dict[i] = course_object
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400  94)     # print(major_obj.name)
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400  96) 
+9b749954 (bea-eldridge     2024-10-16 11:00:36 -0400 105) bucket_objects = {}
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400 106) #print(df.shape[0])
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400 107) for row in df3.index:
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400 108)     #course_id, name, description, hours
+9b749954 (bea-eldridge     2024-10-16 11:00:36 -0400 109)     bucket_id = df3.loc[row, "Bucket ID"]
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400 110)     bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400 111)     #dict[i] = course_object
+482f6482 (bea-eldridge     2024-10-16 11:02:13 -0400 112)     bucket_objects[str(bucket_id)] =  bucket_obj
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400 114)     # print(major_obj.name)
+102b2466 (bea-eldridge     2024-10-16 10:00:31 -0400 116) 
+
+
+ComparePage.css: 
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  1) .ComparePage {
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  2)     padding: 20px;
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  3)     text-align: center;
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  4) }
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  5) 
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  6) .ComparePage h1 {
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  7)     color: #FF8200; /* UT Orange */
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  8) }
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400  9) 
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400 10) .ComparePage p {
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400 11)     color: #4B4B4B; /* Smokey Grey! */
+a0dce74a (bea-eldridge 2024-10-17 15:00:11 -0400 12) }
+
+ComparePage.js:
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  1) // import React, { useState } from 'react';
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  2) // import React from 'react';
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  3) import './ComparePage.css';
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  4) 
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  5) const ComparePage = ({major = 'Mechanical Engineering'}) =>{
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  6)     return (
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  7)         <div className='ComparePage'>
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  8)             <h1>Compare with {major}</h1>
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400  9)         </div>
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400 10)     );
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400 11) };
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400 12) 
+d27c19fb (bea-eldridge 2024-10-17 14:27:42 -0400 13) export default ComparePage;
+
+PickCompare.js
+26455ba1 (bea-eldridge 2024-10-17 14:28:53 -0400 20)             {/* <Link to='/compare/mechanical-engineering'>
+26455ba1 (bea-eldridge 2024-10-17 14:28:53 -0400 21)                 <button className="compare-button">Compare with Mechanical</button>
+26455ba1 (bea-eldridge 2024-10-17 14:28:53 -0400 22)             </Link> */}
