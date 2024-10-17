@@ -1,3 +1,7 @@
+/* Home.css
+ * Description: CSS styling for Home.js
+ */
+
 .Home {
     text-align: left;
     padding-top: 30px;
@@ -6,15 +10,20 @@
     padding-bottom: 30px;
     width: 90%;
 }
+
 .text-section p {
     font-size: 28px;
     margin-bottom: 30px;
     line-height: 1.5;
+    
 }
+
 .buttons {
     display: flex;
     gap: 15px;
+    margin-bottom: 30px;
 }
+
 .upload-button {
     background-color: #489FDF;
     color: white;
@@ -33,4 +42,9 @@
     border: 2px solid #489FDF;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.tutorial-section p {
+  padding-left: 10px;
+  font-size: 24px;
 }
