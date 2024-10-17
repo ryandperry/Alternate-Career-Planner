@@ -101,7 +101,7 @@ export class QuizComp extends Component {
                               <li key={index}>
                                   <strong>Q: {item.question}</strong>
                                   <br />
-                                  A: {userAnswers[index]}
+                                  {userAnswers[index]}
                               </li>
                           ))}
                       </ul>
@@ -113,11 +113,10 @@ export class QuizComp extends Component {
                               </button>
                           </Link>
 
-                          <Link to='/quiz'>
-                              <button className='quiz-button'>
-                                  Retake Quiz
-                              </button>
-                          </Link>
+                          <button className='quiz-button'
+                            onClick={() => window.location.reload()}>
+                              Retake Quiz
+                          </button>
                       </div>
                   </div>
               )
