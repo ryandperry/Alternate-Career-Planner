@@ -1,0 +1,89 @@
+alternate-career-planner/src/components/CourseHistory/CourseHistory.css
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15): .CourseName{
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15):     color: #FF8200;
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15): }
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15): 
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15): .CourseGrade{
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15):     color: #489FDF;
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15): }
+
+alternate-career-planner/src/components/CourseHistory/CourseHistory.stories.js
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): import React from "react";
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): import '../../index.css';
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): import CourseHistory from "./CourseHistory";
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): export default {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     title: 'CourseHistory',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     component: CourseHistory,
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): };
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): const Template = (args) => <CourseHistory {...args} />
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): const CourseHistoryList = [
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         class: 'BME 205',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         grade: 'A',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     }, 
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         class: 'BME 474',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         grade: 'B',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     }, 
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         class: 'EF 151',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         grade: 'B-',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     }
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): ];
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): export const Default = Template.bind({});
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): Default.args = {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     courses: CourseHistoryList,
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): };
+
+alternate-career-planner/src/views/CourseHistoryView/CourseHistory.css
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15): .h1 {
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15):     color: #4B4B4B;
+CourseHistory.css (KaleDod on 10/16/2024 at 16:15): }
+
+alternate-career-planner/src/views/CourseHistoryView/CourseHistory.js
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): import React from "react";
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): import './CourseHistory.css';
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): import CourseHistory from '../../components/CourseHistory/CourseHistory';
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): const CourseHistoryView = ({courses}) => {
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):     return (
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):         <div>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):             <h1> List of completed courses </h1>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):             <CourseHistory courses = {courses}/>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):         </div>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):     )
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): }
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): export default CourseHistoryView;
+
+alternate-career-planner/src/views/CourseHistoryView/CourseHistory.stories.js
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): import React from "react";
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): import '../../index.css';
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): import CourseHistoryView from './CourseHistory';
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): export default {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     title: 'CourseHistoryView',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     component: CourseHistoryView,
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): };
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): const Template = (args) => <CourseHistoryView {...args} />
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): //Test data to create the course history page
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): const CourseHistoryList = [
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         class: 'BME 205',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         grade: 'A',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     }, 
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         class: 'BME 474',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         grade: 'B',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     }, 
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         class: 'EF 151',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):         grade: 'B-',
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     }
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): ];
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): export const Default = Template.bind({});
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): Default.args = {
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15):     courses: CourseHistoryList,
+CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): };
+
+data_collection/major_requirement_csvs/
+With commit 8888a69 on 10/16/2024 at 16:21 I commited 
+- major_10.csv 
+- major_5.csv
