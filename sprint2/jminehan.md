@@ -18,7 +18,7 @@
 All planned items were completed. In the next sprint when all pages are written, I can begin tying links together with functional navigation.
 
 ## What problems you encountered
-After beginning to design the header, I realized we had no logo or icon to be displayed next to the text. Therefore, I ended up taking on the fourth issue of designing a logo for the website.
+One major issue I encountered was due to global padding added by web browsers, making it difficult to create a header or sidebar stretched out to the edges of a display. Since we had already made many views that rely on this global padding, I had to manually set the positions of the header and sidebar. After beginning to design the header, I realized we had no logo or icon to be displayed next to the text. Therefore, I ended up taking on the fourth issue of designing a logo for the website.
 
 ## Issues you worked on 
 - Make a UI for a list of potential jobs with sample jobs in MajorDetailView.
