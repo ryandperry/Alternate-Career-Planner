@@ -15,7 +15,7 @@ Navigate to the 2023-2024 course catalog
 Locate the major under ‘majors A-Z’ 
 * https://catalog.utk.edu/preview_program.php?catoid=43&poid=25821#C
 * Make sure the drop down menu at the top says 2023-2024
-* Open the suggested catalog PDF for the major
+* If availible, open the suggested catalog PDF for the major
 * * https://tickle.utk.edu/wp-content/uploads/2022/11/Computer-Engineering-2023.pdf 
 * DARS is currently broken, do not use DARS for this
 * We're only doing normal majors, not honors or 5 year MS
@@ -27,16 +27,20 @@ Start with the single classes that are listed in the utrack
 
 When you reach a collection of more than 1 courses (we're calling them buckets), add the collection as a new bucket to the bucket table.
 
-Link your major to the bucket by listing the major and bucket together in your major-specific table.
+If you reach a collection of sequences of courses (choose from this list of sequeneces), add each sequence as its own bucket. then make a new entry for the bucket and list all the sequence buckets under the column (sequence bucket IDs)
+
+Link your major to the bucket by listing bucket ID in your major-specific table as a row by itself.
 
 Ignore VolCore (general education) requirements
 * if you aren't sure if something is general education (vol core) or specific to tickle engineering, add it anyway
+* even if something MEETS volcore requirements, it can still be an engineering-specific requirement
+* * for example: if a major requires CS 723 as a writing intensive course, it meets the VolCore requirement for writing intensive - in our table we still have to list it as a required class because it is not just a VolCore credit. engineering majors have to take that specific class
 
 ### CSVs
-CSV's are comma seperated, so when you list multiple courses, use a semicolon.
+CSV's are comma seperated, so when you list multiple courses or multiple buckets, use a semicolon.
 
-When youre finished with your major-specific table, export the individual sheet as a csv and commit to github.
+When you're finished with your major-specific table, export the sheet as an excel. change all column data types strings only. then expost that sheet as a csv titled "major_IDNUMBER.csv" (for example major_2.csv) and commit to github under the folder "major_requirement_csvs"
 
-All other sheets will be exported in the end.
+All other sheets will be exported by whoever runs the processing code.
 
 
