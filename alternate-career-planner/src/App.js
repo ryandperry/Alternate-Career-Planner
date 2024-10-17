@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import './App.css';
-import Header from './components/Header/Header';
+import RealHeader from './components/RealHeader/RealHeader';
 import Home from './views/Home/Home';
 import Quiz from './views/Quiz/Quiz';
 
@@ -29,7 +29,7 @@ function App() {
 
   return (
       <Router>
-          <Header />
+          <RealHeader />
 
           <Routes>
               <Route path="/" element={<Home />} />
