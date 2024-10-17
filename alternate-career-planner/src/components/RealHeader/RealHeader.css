@@ -1,0 +1,51 @@
+/* RealHeader.css
+ * Description: Contains css styling for
+    the header bar at the top of pages.
+ */
+
+/* Prevents header from overlapping body */
+html {
+    padding-top: 69px;
+}
+
+/* Prevents overlap on mobile by resizing header along with text */
+@media (max-width: 460px) {
+    html {
+        padding-top: 120px; /* Increase padding for mobile to accommodate header size */
+    }
+}
+@media (max-width: 315px) {
+    html {
+        padding-top: 160px; /* Increase padding for mobile to accommodate header size */
+    }
+}
+
+/* Fixes padding issues added by browsers */
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+/* Keeps body content outside of header */
+body {
+    margin-top: 20px;
+}
+
+/* Logo and title with orange background */
+.titleRow {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    color: #ffffff;
+    background-color: #FF8200;
+}
+
+/* Logo image */
+.logo {
+    width: 60px;
+    height: 60px;
+    padding-right: 20px;
+    padding-left: 10px;
+}
