@@ -59,9 +59,9 @@ class Bucket:
 #script to read in course table, major table, and bucket table
 # print("Hello World")
 try:
-  df = pd.read_csv('database_design_CT.csv')
+  df = pd.read_csv('database_design_CT.csv', dtype=str)
 except:
-  df = pd.read_csv('data_collection/database_design_CT.csv')
+  df = pd.read_csv('data_collection/database_design_CT.csv', dtype=str)
 #print(df.shape[0])
 course_objects = {}
 for row in df.index:
@@ -79,9 +79,9 @@ print(course_objects)
 #dict of majors
 
 try:
-  df2 = pd.read_csv('database_design_MT.csv')
+  df2 = pd.read_csv('database_design_MT.csv', dtype=str)
 except:
-  df2 = pd.read_csv('data_collection/database_design_MT.csv')
+  df2 = pd.read_csv('data_collection/database_design_MT.csv', dtype=str)
 #print(df.shape[0])
 major_objects = {}
 for row in df2.index:
@@ -99,9 +99,9 @@ print(major_objects)
 #dict of buckets
 
 try:
-  df3 = pd.read_csv('database_design_BT.csv')
+  df3 = pd.read_csv('database_design_BT.csv', dtype=str)
 except:
-  df3 = pd.read_csv('data_collection/database_design_BT.csv')
+  df3 = pd.read_csv('data_collection/database_design_BT.csv', dtype=str)
 bucket_objects = {}
 #print(df.shape[0])
 for row in df3.index:
@@ -133,9 +133,9 @@ for major_object_key in ["1", "5","10", "11"]:
   relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
   outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
   try:
-    major_requirements = pd.read_csv(relative_filename)
+    major_requirements = pd.read_csv(relative_filename, dtype=str)
   except:
-    major_requirements = pd.read_csv(outside_filename)
+    major_requirements = pd.read_csv(outside_filename, dtype=str)
 
   #fill in everything thats null in the excel 
   major_requirements = major_requirements.fillna("NULL")
@@ -167,10 +167,12 @@ for major_object_key in ["1", "5","10", "11"]:
       # print("found a course id from the name")
       major_object.course_ids.add(str(course_ID))
     
-    else:
+    # else:
       #this isnt a valid requirement because theres nothing in this row
-      print("empty row: major requirement has neither course nor bucket listed")
-
+      # print("empty row: major requirement has neither course nor bucket listed")
+  print(major_object.name)
+  print(major_object.bucket_ids)
+  print(major_object.course_ids)
 
 # emily to do
 # test the civil engineering excel
