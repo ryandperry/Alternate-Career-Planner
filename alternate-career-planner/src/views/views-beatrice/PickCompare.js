@@ -17,6 +17,9 @@ const PickCompare = ({ major, courses }) => {
             <p className="major-description"> { major.description } </p> 
 
             {/* "Compare with Mechanical" button */}
+            {/* <Link to='/compare/mechanical-engineering'>
+                <button className="compare-button">Compare with Mechanical</button>
+            </Link> */}
             <button className="compare-button">Compare with Mechanical</button>
 
             {/* Statement and dropdown */}
