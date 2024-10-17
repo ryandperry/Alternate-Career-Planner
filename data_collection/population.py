@@ -57,7 +57,7 @@ class Bucket:
     self.num_courses = num_courses
 
 #script to read in course table, major table, and bucket table
-print("Hello World")
+# print("Hello World")
 try:
   df = pd.read_csv('database_design_CT.csv')
 except:
@@ -72,10 +72,11 @@ for row in df.index:
     course_objects[str(course_id)] = course_object
     # print(dict[str(row)].name)
     # print(course_object.name)
+print(course_objects)
 
-  #looping through major table rows
-  #build major class object for each row
-  #dict of majors
+#looping through major table rows
+#build major class object for each row
+#dict of majors
 
 try:
   df2 = pd.read_csv('database_design_MT.csv')
@@ -91,10 +92,11 @@ for row in df2.index:
     major_objects[str(major_id)] = major_obj
     # print(major_objects[str(major_id)].name)
     # print(major_obj.name)
+print(major_objects)
 
-  #looping through bucket table rows
-  #build bucket class object for each row
-  #dict of buckets
+#looping through bucket table rows
+#build bucket class object for each row
+#dict of buckets
 
 try:
   df3 = pd.read_csv('database_design_BT.csv')
@@ -110,7 +112,7 @@ for row in df3.index:
     bucket_objects[str(bucket_id)] =  bucket_obj
     # print(bucket_objects[str(bucket_id)].name)
     # print(major_obj.name)
-
+print(bucket_objects)
 
 #script to match all major's requirements to the associated
 #course or bucket IDs
@@ -151,7 +153,7 @@ for major_object_key in ["1", "5","10", "11"]:
 
     #if this row has a bucket, use the bucket ID
     if(bucket_ID != "NULL"):
-      major_object.bucket_ids = major_object.bucket_ids.add(str(bucket_ID))
+      major_object.bucket_ids.add(str(bucket_ID))
     
     elif(course_ID != "NULL"):
       major_object.course_ids.add(str(course_ID))
@@ -167,7 +169,7 @@ for major_object_key in ["1", "5","10", "11"]:
     
     else:
       #this isnt a valid requirement because theres nothing in this row
-      print("error: major requirement has neither course nor bucket listed")
+      print("empty row: major requirement has neither course nor bucket listed")
 
 
 # emily to do
@@ -179,3 +181,5 @@ for major_object_key in ["1", "5","10", "11"]:
 
 # todo: merge ryan's html parsing code with this set up
 # todo: decide how algorithm code will use these classes
+# todo: decide how to seperate algorithm functions
+  #so we can each work on different aspects

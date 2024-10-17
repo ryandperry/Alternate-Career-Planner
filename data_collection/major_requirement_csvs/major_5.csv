@@ -1,4 +1,4 @@
-Major ID,Required Course ID,Required Bucket ID,Required Course,Required Course Name,Required Course Number of Hours,Required Bucket Number of Hours,Required Bucket Name,List of Courses in Bucket
+﻿Major ID,Required Course ID,Required Bucket ID,Required Course,Required Course Name,Required Course Number of Hours,Required Bucket Number of Hours,Required Bucket Name,List of Courses in Bucket
 5,3,NULL,EF 105,,,,,
 5,136,NULL,ENGL 101,,,,,
 5,NULL,11,,,,,,

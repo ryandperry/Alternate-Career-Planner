@@ -1,4 +1,4 @@
-Major ID,Required Course ID,Required Course,Required Course Name,Required Course Number of Hours,Required Bucket ID,Required Bucket Number of Hours,Required Bucket Name,List of Courses in Bucket
+﻿Major ID,Required Course ID,Required Course,Required Course Name,Required Course Number of Hours,Required Bucket ID,Required Bucket Number of Hours,Required Bucket Name,List of Courses in Bucket
 1,NULL,,,,1,,,
 1,25,,,,NULL,,,
 1,26,,,,NULL,,,
