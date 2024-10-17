@@ -1,3 +1,15 @@
-.h1 {
+.Header {
     color: #4B4B4B;
+}
+
+.CourseHeader {
+    text-align: left;
+    color: #4B4B4B;
+    
+}
+
+.GradeHeader {
+    text-align: left;
+    color: #4B4B4B;
+    
 }

@@ -4,14 +4,14 @@ import './CourseHistory.css'
 const CourseHistory = ({ courses }) => {
     return (
         <div>
-            <ul>
+            <table>
                 {courses.map((course, index) =>(
-                    <li key={index} className="CompleteCoursesList">
-                        <h4 className="CourseName" >{course.class}</h4>
-                        <h6 className="CourseGrade">{course.grade}</h6>
-                    </li>
+                    <><tr key={index} className="CompletedCoursesList">
+                            <th className="CourseName">{course.class}</th>
+                            <th className="CourseGrade">{course.grade}</th>
+                        </tr></>
                 ))}
-            </ul>
+            </table>
         </div>
 
     )

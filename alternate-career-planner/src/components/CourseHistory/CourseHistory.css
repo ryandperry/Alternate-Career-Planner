@@ -1,7 +1,11 @@
 .CourseName{
+    padding: 15px;
     color: #FF8200;
+    
 }
 
 .CourseGrade{
+    padding: 15px;
     color: #489FDF;
+    
 }
