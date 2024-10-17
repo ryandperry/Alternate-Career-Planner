@@ -11,9 +11,8 @@ const Header = () => {
         <div className="header-wrapper">
             <header>
                 <div className ="titleRow">
-                    <img src={require('./../../assets/Logo.png')} 
-                    alt="Alternate Career Planner Logo" 
-                    className="logo"/>
+                    <img src={'/assets/logo.png'} alt="Alternate Career Planner Logo" className="logo"/>
+                    <h1> Alternate Career Planner </h1>
                 </div>
             </header>
         </div>
