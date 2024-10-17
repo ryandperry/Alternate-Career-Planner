@@ -1,0 +1,773 @@
+/alternate-career-planner/src/views/CompletedCoursesView/CompletedCoursesView.js
+6d25d59e (Ryan Perry       2024-10-10 08:01:01 -0400 10) const CompletedCoursesView = () => {
+
+/alternate-career-planner/src/App.js
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400  2) import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400  3) 
+617a70a2 (Ryan Perry       2024-10-16 21:26:07 -0400  5) import RealHeader from './components/RealHeader/RealHeader';
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400  6) import Home from './views/Home/Home';
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400  7) import Quiz from './views/Quiz/Quiz';
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400 31)       <Router>
+617a70a2 (Ryan Perry       2024-10-16 21:26:07 -0400 32)           <RealHeader />
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400 34)           <Routes>
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400 35)               <Route path="/" element={<Home />} />
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400 36)               <Route path="/quiz" element={<Quiz />} />
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400 37)           </Routes>
+0b207361 (Ryan Perry       2024-10-16 13:48:54 -0400 38)       </Router>
+
+/alternate-career-planner/src/components/ImageSlider/ImageSlider.js
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   1) /* ImageSlider.js
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   2)  * Description: Image Slider Component. Displays a sequence of 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   3)  * images and their descriptions that the user can scroll through
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   4)  */
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   5) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   6) import { useState } from 'react';
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   7) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   8) const ImageSlider = ({slides}) => {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400   9)     const [currentIndex, setCurrentIndex] = useState(0);
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  10) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  11)     const sliderStyles = {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  12)       position: 'relative',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  13)       height: '100%',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  14)     };
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  15) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  16)     const slideStyles = {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  17)         width: '100%',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  18)         height: '100%',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  19)         borderRadius: '10px',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  20)         backgroundSize: 'cover',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  21)         backgroundPosition: 'center',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  22)         backgroundImage: `url(${slides[currentIndex].url})`
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  23)     };
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  24) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  25)     const rightArrowStyles = {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  26)         position: 'absolute',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  27)         top: '50%',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  28)         transform: 'translate(0, -50%)',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  29)         right: '-45px',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  30)         fontSize: '45px',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  31)         color: '#FF8200',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  32)         zIndex: 1,
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  33)         cursor: "pointer"
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  34)     };
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  35)   
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  36)     const leftArrowStyles = {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  37)         position: 'absolute',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  38)         top: '50%',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  39)         transform: 'translate(0, -50%)',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  40)         left: '-45px',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  41)         fontSize: '45px',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  42)         color: '#FF8200',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  43)         zIndex: 1,
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  44)         cursor: "pointer"
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  45)     };
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  46) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  47)     const checksContainerStyles = {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  48)         justifyContent: 'center',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  49)     };
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  50) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  51)     const itemStyles = {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  52)         display: 'flex',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  53)         alignItems: 'center',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  54)         margin: '15px 0',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  55)         cursor: 'pointer',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  56)         fontSize: '24px'
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  57)     };
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  58) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  59)     const checksStyles = {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  60)       marginRight: '15px',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  61)       cursor: 'pointer',
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  62)       fontSize: '24px'
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  63)     };
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  64) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  65)     const titleStyles = (isActive) => ({
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  66)         fontWeight: isActive ? 'bold' : 'normal'
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  67)     })
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  68) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  69)     const goToSlide = slideIndex => {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  70)         setCurrentIndex(slideIndex);
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  71)     }
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  72)     
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  73)     const goToPrevious = () => {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  74)         const isFirstslide = currentIndex === 0;
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  75)         const newIndex = isFirstslide ? slides.length - 1 : currentIndex - 1;
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  76)         setCurrentIndex(newIndex);
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  77)     }
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  78) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  79)     const goToNext = () => {
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  80)        const isLastSlide = currentIndex === slides.length - 1;
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  81)        const newIndex = isLastSlide ? 0 : currentIndex + 1;
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  82)        setCurrentIndex(newIndex);
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  83)     }
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  84) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  85)     return (
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  86)         <div style={sliderStyles}>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  87)             <div style={leftArrowStyles} onClick={goToPrevious}>❰</div>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  88)             <div style={rightArrowStyles} onClick={goToNext}>❱</div>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  89)             <div style={slideStyles}></div>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  90)             <div style={checksContainerStyles}>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  91)                 <h2>How to Download Your Academic History File:</h2>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  92)                 {slides.map((slide, slideIndex) => (
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  93)                     <div 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  94)                         key={slideIndex}
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  95)                         style={itemStyles} 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  96)                         onClick={() => goToSlide(slideIndex)}
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  97)                     >
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  98)                         <span style={checksStyles}>✅</span>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400  99)                         <span style={titleStyles(slideIndex === currentIndex)}>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 100)                             {slide.title}
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 101)                         </span>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 102)                     </div>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 103)                 ))}
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 104)             </div>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 105)         </div>
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 106)     )
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 107) };
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 108) 
+dc095801 (Ryan Perry 2024-10-17 03:38:53 -0400 109) export default ImageSlider;
+
+/alternate-career-planner/src/components/QuizComp/QuizComp.js
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400   1) /* QuizComp.js
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400   2)  * Description: Implements Quiz Component used on the quiz screen.
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400   3)  * Users answer questions from quiszdata.js. Their answers are displayed
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400   4)  * after finishing the quiz.
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400   5)  */
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400   6) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400   7) import React, { Component } from 'react'
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400   8) import { QuizData } from './quizdata.js'
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400   9) import { Link } from 'react-router-dom'
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  10) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  11) export class QuizComp extends Component {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  12)   
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  13)     state = {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  14)         currentIndex: 0,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  15)         options: [],
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  16)         score: 0,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  17)         disabled: true,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  18)         quizEnd: false,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  19)         userAnswer: null,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  20)         userAnswers: []
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  21)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  22) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  23)     loadQuiz = () => {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  24)         const {currentIndex} = this.state
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  25)         this.setState(() => {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  26)             return {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  27)                 question: QuizData[currentIndex].question,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  28)                 options: QuizData[currentIndex].options,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  29)             }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  30)         })
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  31)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  32) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  33)     checkAnswer = (selectedAnswer) => {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  34)         this.setState({
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  35)             userAnswer: selectedAnswer,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  36)             disabled: false
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  37)         })
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  38)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  39) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  40)     nextQuestionHandler = () => {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  41)         const {userAnswer, score, userAnswers, currentIndex} 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  42)             = this.state;
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  43)         userAnswers[currentIndex] = userAnswer
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  44)         this.setState ({
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  45)             currentIndex: this.state.currentIndex + 1,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  46)             userAnswer: null,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  47)             disabled: true,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  48)             userAnswers: userAnswers
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  49)         })
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  50)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  51) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  52)     prevQuestionHandler = () => {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  53)         this.setState ({
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  54)             currentIndex: this.state.currentIndex - 1,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  55)             userAnswer: null,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  56)             disabled: true 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  57)         }) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  58)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  59) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  60)     finishHandler = () => {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  61)         const {userAnswer, score, userAnswers, currentIndex} 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  62)             = this.state;
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  63)         userAnswers[currentIndex] = userAnswer
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  64) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  65)         this.setState({
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  66)             quizEnd: true,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  67)             userAnswers: userAnswers    
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  68)         })
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  69)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  70) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  71)     componentDidMount() {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  72)         this.loadQuiz();
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  73)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  74) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  75)     componentDidUpdate(prevProps, prevState) {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  76)         const {currentIndex} = this.state
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  77) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  78)         if (this.state.currentIndex !== prevState.currentIndex) {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  79)             this.setState(() => {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  80)                 return {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  81)                     question: QuizData[currentIndex].question,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  82)                     options: QuizData[currentIndex].options,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  83)                 }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  84)             })
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  85)            
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  86)         }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  87)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  88) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  89)     render() {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  90)           const {question, options, currentIndex, userAnswer, quizEnd,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  91)                  userAnswers} = this.state
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  92)           
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  93)           if (quizEnd) {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  94)               return (
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  95)                   <div>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  96)                       <h2>You finished the quiz!</h2>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  97)                       <p>Here's how you answered:</p>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  98) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  99)                       <ul>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 100)                           {QuizData.map((item, index) => (
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 101)                               <li key={index}>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 102)                                   <strong>Q: {item.question}</strong>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 103)                                   <br />
+b9fb604a (Ryan Perry 2024-10-16 21:26:41 -0400 104)                                   {userAnswers[index]}
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 105)                               </li>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 106)                           ))}
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 107)                       </ul>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 108)                       
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 109)                       <div className='buttons'>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 110)                           <Link to='/'>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 111)                               <button className='upload-button'>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 112)                                   Return Home
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 113)                               </button>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 114)                           </Link>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 115) 
+b9fb604a (Ryan Perry 2024-10-16 21:26:41 -0400 116)                           <button className='quiz-button'
+b9fb604a (Ryan Perry 2024-10-16 21:26:41 -0400 117)                             onClick={() => window.location.reload()}>
+b9fb604a (Ryan Perry 2024-10-16 21:26:41 -0400 118)                               Retake Quiz
+b9fb604a (Ryan Perry 2024-10-16 21:26:41 -0400 119)                           </button>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 120)                       </div>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 121)                   </div>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 122)               )
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 123)           }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 124) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 125)           return (
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 126)               <div>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 127)                   <h2>{question}</h2>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 128)                   <h4>{`Question ${currentIndex+1} of 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 129)                        ${QuizData.length}`}</h4>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 130)                   
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 131)                   {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 132)                       options !== null? options.map(option =>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 133)                           <p key={option.id} className={`options 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 134)                           ${userAnswer == option?  "selected": null}`}
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 135)                           onClick={() => this.checkAnswer(option)}>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 136)                               {option}   
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 137)                           </p>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 138)                       ): <span>...</span>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 139)                   }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 140)                   {currentIndex < QuizData.length && 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 141)                       currentIndex > 0 &&
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 142)                       <button
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 143)                       onClick={this.prevQuestionHandler}>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 144)                           Previous Question
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 145)                       </button>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 146)                   }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 147)                   {currentIndex < QuizData.length - 1 &&
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 148)                       <button disabled = {this.state.disabled}
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 149)                       onClick={this.nextQuestionHandler}>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 150)                           Next Question
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 151)                       </button>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 152)                   }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 153)                   {currentIndex === QuizData.length - 1 &&
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 154)                       <button disabled = {this.state.disabled}
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 155)                       onClick={this.finishHandler}>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 156)                           Finish Quiz
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 157)                       </button>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 158)                   }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 159) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 160)               </div>
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 161)           )
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 162)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 163) }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 164) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 165) export default QuizComp
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400  1) /* quizdata.js
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400  2)  * Description: Stores quiz questions and their options.
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400  3)  */
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400  4) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  5) export const QuizData = [
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  6)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  7)         id: 0,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  8)         question: 'How would you describe yourself?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  9)         options: ['Hands-on learner', 'Nerd', 'Adventurous',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 10)                   'Environmentally consious', 'Good at science', 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 11)                   'Driven and passionate']
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 12)     },
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 13)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 14)         id: 1,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 15)         question: 'What did you like to play with as a kid?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 16)         options: ['Model Planes', 'Lego Bricks', 'Home Experiments',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 17)                   'Playdough', 'Explore Outdoors']
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 18)     },
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 19)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 20)         id: 2,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 21)         question: 'Which of these topics did you like best at school?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 22)         options: ['Music', 'Economics', 'Physics', 'Biology', 'Math',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 23)                   'Chemistry']
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 24)     },
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 25)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 26)         id: 3,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 27)         question: 'What do you like to do on the weekend?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 28)         options: ['Build something in the shed', 'Rebuild electronics',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 29)                   'Spend time in the great outdoors', 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 30)                   'Cook a new recipe', 'Read up on crypto', 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 31)                   'Fly a drone']
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 32)     }, 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 33)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 34)         id: 4,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 35)         question: 'What kind of impact do you want to have on the world?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 36)         options: ['Improve technology for industries and everyday life',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 37)                   'Advance energy systems and electrical infrastructure',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 38)                   'Enhance healthcare and save lives with technology', 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 39)                   'Protect the environment and promote sustainability',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 40)                   'Innovate the world of software and data systems' ], 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 41) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 42)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 43) ]
+
+/alternate-career-planner/src/components/QuizComp/quizdata.js
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400  1) /* quizdata.js
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400  2)  * Description: Stores quiz questions and their options.
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400  3)  */
+dd99aba2 (Ryan Perry 2024-10-16 19:55:34 -0400  4) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  5) export const QuizData = [
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  6)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  7)         id: 0,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  8)         question: 'How would you describe yourself?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400  9)         options: ['Hands-on learner', 'Nerd', 'Adventurous',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 10)                   'Environmentally consious', 'Good at science', 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 11)                   'Driven and passionate']
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 12)     },
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 13)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 14)         id: 1,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 15)         question: 'What did you like to play with as a kid?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 16)         options: ['Model Planes', 'Lego Bricks', 'Home Experiments',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 17)                   'Playdough', 'Explore Outdoors']
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 18)     },
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 19)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 20)         id: 2,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 21)         question: 'Which of these topics did you like best at school?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 22)         options: ['Music', 'Economics', 'Physics', 'Biology', 'Math',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 23)                   'Chemistry']
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 24)     },
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 25)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 26)         id: 3,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 27)         question: 'What do you like to do on the weekend?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 28)         options: ['Build something in the shed', 'Rebuild electronics',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 29)                   'Spend time in the great outdoors', 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 30)                   'Cook a new recipe', 'Read up on crypto', 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 31)                   'Fly a drone']
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 32)     }, 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 33)     {
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 34)         id: 4,
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 35)         question: 'What kind of impact do you want to have on the world?',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 36)         options: ['Improve technology for industries and everyday life',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 37)                   'Advance energy systems and electrical infrastructure',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 38)                   'Enhance healthcare and save lives with technology', 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 39)                   'Protect the environment and promote sustainability',
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 40)                   'Innovate the world of software and data systems' ], 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 41) 
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 42)     }
+cbad6db7 (Ryan Perry 2024-10-16 19:48:00 -0400 43) ]
+
+/alternate-career-planner/src/views/Home/Home.css
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  1) /* Home.css
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  2)  * Description: CSS styling for Home.js
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  3)  */
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  4) 
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400  5) .Home {
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400  6)     text-align: left;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400  7)     padding-top: 30px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400  8)     padding-left: 5%;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400  9)     padding-right: 5%;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 10)     padding-bottom: 30px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 11)     width: 90%;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 12) }
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 13) 
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 14) .text-section p {
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 15)     font-size: 28px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 16)     margin-bottom: 30px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 17)     line-height: 1.5;
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 18)     
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 19) }
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 20) 
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 21) .buttons {
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 22)     display: flex;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 23)     gap: 15px;
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 24)     margin-bottom: 30px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 25) }
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 26) 
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 27) .upload-button {
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 28)     background-color: #489FDF;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 29)     color: white;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 30)     padding: 12px 24px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 31)     font-size: 16px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 32)     border: none;
+9481a210 (Ryan Perry 2024-10-16 19:35:31 -0400 33)     border: 2px solid #489FDF;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 34)     border-radius: 4px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 35)     cursor: pointer;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 36) }
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 37) .quiz-button {
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 38)     background-color: white;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 39)     color: #489FDF;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 40)     padding: 12px 24px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 41)     font-size: 16px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 42)     border: 2px solid #489FDF;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 43)     border-radius: 4px;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 44)     cursor: pointer;
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 45) }
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 46) 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 47) .tutorial-section p {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 48)   padding-left: 10px;
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 49)   font-size: 24px;
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 50) }
+
+/alternate-career-planner/src/views/Home/Home.js
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  1) /* Home.js
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  2)  * Description: Implements the webpage homescreen. Displays a brief 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  3)  * descritpion of webpage, buttons, and tutorial.
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  4)  */
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  5) 
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400  6) import React from 'react';
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400  7) import { Link } from 'react-router-dom';
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400  8) import './Home.css';
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400  9) import ImageSlider from "./../../components/ImageSlider/ImageSlider";
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 10) 
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 11) const Home = () => {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 12)     
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 13)     const slides = [
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 14)         {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 15)             url: 'http://localhost:3000/image-1.jpg', 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 16)             title: 'Step 1: In myUTK, click the My Resources Tab, and select '
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 17)                  + 'DARS and uTrack.'
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 18)         },
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 19)         {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 20)             url: 'http://localhost:3000/image-2.jpg', 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 21)             title: 'Step 2: Select Run Declared Programs.'
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 22)         },
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 23)         {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 24)             url: 'http://localhost:3000/image-3.jpg', 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 25)             title: 'Step 3: Select your audit from the Program Column.'
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 26)         },
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 27)         {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 28)             url: 'http://localhost:3000/image-4.jpg', 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 29)             title: 'Step 4: Navigate to the Course History tab.'
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 30)         },
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 31)         {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 32)             url: 'http://localhost:3000/image-5.jpg', 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 33)             title: 'Step 5: Right click the Course History table and select Save As.'
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 34)         },
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 35)         {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 36)             url: 'http://localhost:3000/image-6.jpg', 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 37)             title: 'Step 6: Save your academic history file as filetype WebPage'
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 38)                  + ', HTML Only.'
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 39)         }
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 40)     ];
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 41) 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 42)     const containerStyles = {
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 43)         width: '921.6px',
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 44)         height: '518.4px',
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 45)         margin: '0 auto',
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 46)     };
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 47) 
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 48)     return (
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 49)         <div className='Home'>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 50) 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 51)             {/* Brief Description */}
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 52)             <div className='text-section'>
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 53)                 <h1>We make switching majors easy.</h1>
+9481a210 (Ryan Perry 2024-10-16 19:35:31 -0400 54)                 <p> Welcome to the Alternate Career Planner! Like 
+9481a210 (Ryan Perry 2024-10-16 19:35:31 -0400 55)                     engineering but hate your major? Don't worry, you've
+9481a210 (Ryan Perry 2024-10-16 19:35:31 -0400 56)                     come to the right place. Upload your academic 
+9481a210 (Ryan Perry 2024-10-16 19:35:31 -0400 57)                     history file and find majors that you could easily 
+9481a210 (Ryan Perry 2024-10-16 19:35:31 -0400 58)                     switch to, or take a short quiz to find out which 
+9481a210 (Ryan Perry 2024-10-16 19:35:31 -0400 59)                     major is right for you. </p>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 60) 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 61)                 {/* Buttons */}
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 62)                 <div className='buttons'>
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 63)                     <button className='upload-button'>Upload File</button>
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 64)                     <Link to='/quiz'>
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 65)                         <button className='quiz-button'>Take Quiz</button>
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 66)                     </Link>
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 67)                 </div>
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 68)             </div> 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 69) 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 70)             <hr style={{ width: '100%', marginTop: '40px', marginBottom: '40px' }} />
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 71) 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 72)             {/* Tutorial */}
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 73)             <h2>❓ What's an academic history file?</h2>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 74)             <div className='tutorial-section'>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 75)                 <p>Your academic history file contains all the coures
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 76)                    you have taken at UTK. It's generated by UTK's Degree 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 77)                    Audit Report System (DARS).</p>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 78)             </div>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 79) 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 80)             <hr style={{ width: '100%', marginTop: '40px', marginBottom: '40px' }} />
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 81) 
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 82)             <div style={containerStyles}>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 83)                 <ImageSlider slides={slides}/>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 84)             </div>
+41631666 (Ryan Perry 2024-10-17 03:37:23 -0400 85) 
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 86)         </div>
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 87)     );
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 88) };
+d79d727f (Ryan Perry 2024-10-16 13:45:35 -0400 89) export default Home;
+
+/alternate-career-planner/src/views/Quiz/Quiz.css
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  1) /* Quiz.css
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  2)  * Description: CSS Styling for Quiz.
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  3)  */
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  4) 
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  5) .Quiz {
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  6)     text-align: left;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  7)     padding-top: 30px;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  8)     padding-left: 5%;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  9)     padding-bottom: 30px;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 10)     width: 90%;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 11) }
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 12) 
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 13) .text-section p {
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 14)     font-size: 28px;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 15)     margin-bottom: 30px;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 16)     line-height: 1.5;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 17) }
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 18) 
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 19) .selected {
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 20)     background-color: #489FDF !important;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 21)     color: #FFFFFF !important;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 22) }
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 23) 
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 24) .options {
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 25)     padding: 8px;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 26)     border: 3px solid #4B4B4B;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 27)     cursor: pointer;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 28)     width: 30%;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 29)     background-color: white;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 30)     color: #FF8200;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 31)     font-weight: bold;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 32) }
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 33) 
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 34) ul {
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 35)     list-style-type: none;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 36) }
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 37) 
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 38) ul li {
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 39)     margin: 5px;
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 40) }
+
+/alternate-career-planner/src/views/Quiz/Quiz.js
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  1) /* Quiz.js
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  2)  * Description: Diplays the major interest quiz.
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  3)  */
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  4) 
+bf88acb9 (Ryan Perry 2024-10-16 13:51:02 -0400  5) import React from "react";
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  6) 
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  7) import './Quiz.css';
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  8) import QuizComp from './../../components/QuizComp/QuizComp';
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400  9) 
+bf88acb9 (Ryan Perry 2024-10-16 13:51:02 -0400 10) const Quiz = () => {
+bf88acb9 (Ryan Perry 2024-10-16 13:51:02 -0400 11)     return (
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 12)         <div className='Quiz'>
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 13)             <div className='text-section'>
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 14)                 <h1>Interest Quiz</h1>
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 15)                 <p> Answer a few questions to find out 
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 16)                     which major is right for you. </p>
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 17)             </div>
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 18)             
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 19)             <QuizComp />
+bf88acb9 (Ryan Perry 2024-10-16 13:51:02 -0400 20)         </div>
+bf88acb9 (Ryan Perry 2024-10-16 13:51:02 -0400 21)     );
+bf88acb9 (Ryan Perry 2024-10-16 13:51:02 -0400 22) };
+9e9e32e9 (Ryan Perry 2024-10-16 19:37:04 -0400 23) 
+bf88acb9 (Ryan Perry 2024-10-16 13:51:02 -0400 24) export default Quiz;
+
+/java_parsing/course.java
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  1) /* Course.java
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  2)  * Description: Implements 'Course' class
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  3)  */
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  4) 
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  5) import java.io.BufferedReader;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  6) import java.io.IOException;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  7) import java.io.StringReader;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  8) 
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  9) public class course {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 10)     private String courseCode;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 11)     private double creditHours;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 12)     private String grade;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 13)     private String title;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 14) 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 15)     /*
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 16)      * Default course constructor.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 17)      */
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 18)     public course() {}
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 19) 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 20)     /*
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 21)      * Returns a Course's course code.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 22)      */
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 23)     public String 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 24)     getCourseCode() 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 25)     {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 26)         return courseCode;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 27)     }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 28) 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 29)     /*
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 30)      * Returns a Course's credit hours.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 31)      */
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 32)     public double
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 33)     getCreditHours()
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 34)     {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 35)         return creditHours;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 36)     }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 37) 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 38)     /*
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 39)      * Returns a Course's grade.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 40)      */
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 41)     public String
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 42)     getGrade()
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 43)     {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 44)         return grade;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 45)     }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 46) 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 47)     /*
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 48)      * Returns a Course's title.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 49)      */
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 50)     public String
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 51)     getTitle()
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 52)     {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 53)         return title;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 54)     }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 55) 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 56)     /*
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 57)      * Sets a Course's member variables given 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 58)      * an unformatted course block.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 59)      */
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 60)     public void 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 61)     setCourseInfo(String block)
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 62)     {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 63)         BufferedReader read = new BufferedReader(new StringReader(block)) ;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 64)         String line;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 65) 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 66)         try {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 67)             for (int i = 1; i < 30; i++) {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 68)                 line = read.readLine();
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 69) 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 70)                 if (i == 14) {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 71)                     /* Course codes are stored on line 14 of every course block.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 72)                      * We must add a space between the letters and numbers of 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 73)                      * course codes to align with the naming conventions in 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 74)                      * our database.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 75)                      */
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 76)                     courseCode = line.trim().replaceAll("\\s+", "")
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 77)                                              .replaceAll("([A-Z]+)([0-9]+)", "$1 $2");
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 78)                     this.courseCode = courseCode;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 79)                 } else if (i == 19) {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 80)                     // Course credit hours are stored on line 19 of every course block.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 81)                     String creditHoursStr = line.trim();
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 82)                     creditHours = Double.parseDouble(creditHoursStr);
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 83)                     this.creditHours = creditHours;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 84)                 } else if (i == 24) {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 85)                     // Course grades are stored on line 24 of every course block.
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 86)                     grade = line.trim();
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 87)                     this.grade = grade;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 88)                 } else if (i == 29) {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 89)                     // Course titles are stored on line 29 of every course block. 
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 90)                     title = line.trim();
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 91)                     this.title = title;
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 92)                 }
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 93)             }
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 94)         } catch (IOException e) {
+51af9d8f (Ryan Perry 2024-10-11 11:36:37 -0400 95)                 e.printStackTrace();
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 96)         }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 97)     }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 98) }
+
+/java_parsing/main.java
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  1) /* Main.java
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  2)  * Description: Parses information from the user's academic history
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  3)  * HTML webpage and stores taken courses in a vector of course objects
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  4)  */
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  5) 
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  6) import java.io.BufferedReader;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  7) import java.io.FileReader;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  8) import java.io.IOException;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400  9) import java.util.ArrayList;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 10) import java.util.List;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 11) 
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 12) public class main {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 13)     public static void 
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 14)     main(String[] args)
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 15)     {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 16)         if (args.length != 1) {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 17)             System.err.println("Academic history HTML not specified");
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 18)             System.exit(-1);
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 19)         }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 20) 
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 21)         List<course> coursesTaken = readCourseInfo(args[0]);
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 22)         
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 23)         for (int i = 0; i < coursesTaken.size(); i++) {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 24)             course current = coursesTaken.get(i);
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 25)             System.out.println("Title: " + current.getTitle() +
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 26)                                                  "\nCourse Code: " + current.getCourseCode() +
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 27)                                                  "\nCredit Hours: " + current.getCreditHours() +
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 28)                                                  "\nGrade: " + current.getGrade() + "\n");
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 29)         }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 30)     }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 31) 
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 32)     /*
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 33)      * This function reads the academic history HTML and stores all
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 34)      * the courses the student has completed or is taking.
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 35)      */
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 36)     public static List<course> 
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 37)     readCourseInfo(String html)
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 38)     {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 39)         List<course> coursesTaken = new ArrayList<>();
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 40)         StringBuilder courseBlock = new StringBuilder();
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 41) 
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 42)         String even = "class=\"even\">";
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 43)         String odd = "class=\"odd\">";
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 44)     
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 45)         try (BufferedReader history = new BufferedReader(new FileReader(html))) {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 46)             String line;
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 47)             while ((line = history.readLine()) != null) {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 48)                 // Check if line contains a start delimeter
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 49)                 if (line.contains(even) || line.contains(odd)) {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 50)                     // Store the next 30 lines in courseBlock
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 51)                     courseBlock.append(line).append("\n");
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 52)                     for (int i = 0; i < 30; i++) {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 53)                         if ((line = history.readLine()) != null) {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 54)                             courseBlock.append(line).append("\n");
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 55)                         } else {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 56)                             break; // break at end of file
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 57)                         }
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 58)                     }
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 59)                     course newCourse = new course();
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 60)                     newCourse.setCourseInfo(courseBlock.toString());
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 61)                     coursesTaken.add(newCourse);
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 62)                     courseBlock.setLength(0); // clear the StringBuilder
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 63)                 }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 64)             }
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 65)         } catch (IOException e) {
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 66)                 e.printStackTrace();
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 67)                 System.exit(1);
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 68)         }
+7f64464e (Ryan Perry 2024-10-11 11:36:43 -0400 69)         return coursesTaken;
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 70)     }
+4106aabc (Ryan Perry 2024-10-09 16:31:40 -0400 71) }
+
+/java_parsing/README.md
+29726258 (Ryan Perry 2024-10-09 16:37:09 -0400 1) # Academic History Parsing
+29726258 (Ryan Perry 2024-10-09 16:37:09 -0400 2) ## Overview
+29726258 (Ryan Perry 2024-10-09 16:37:09 -0400 3) * This program parses a student's academic history HTML file in Java and extracts the course code, credit hours, grade, course title, and status for each class the student has taken or is taking. 
+29726258 (Ryan Perry 2024-10-09 16:37:09 -0400 4) ## Usage
+29726258 (Ryan Perry 2024-10-09 16:37:09 -0400 5) * This program can be compiled using javac. The user must provide an academic history HTML file on the command line. To obtain this file, run a DARS report online via MyUTK. Select the Course History tab. Right click the Course History Table and select Save As. Be sure to save as type Webpage, HTML Only.
