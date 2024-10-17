@@ -1,11 +1,39 @@
 alternate-career-planner/src/components/CourseHistory/CourseHistory.css
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15): .CourseName{
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04):     padding: 15px;
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15):     color: #FF8200;
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15): }
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15): 
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15): .CourseGrade{
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04):     padding: 15px;
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15):     color: #489FDF;
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15): }
+
+alternate-career-planner/src/components/CourseHistory/CourseHistory.js
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): import React from "react";
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): import './CourseHistory.css'
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): const CourseHistory = ({ courses }) => {
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):     return (
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):         <div>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):             <ul>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):             <table>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):                 {courses.map((course, index) =>(
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):                     <li key={index} className="CompleteCoursesList">
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):                         <h4 className="CourseName" >{course.class}</h4>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):                         <h6 className="CourseGrade">{course.grade}</h6>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):                     </li>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04): <><tr key={index} className="CompletedCoursesList">
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                            <th className="CourseName">{course.class}</th>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                            <th className="CourseGrade">{course.grade}</th>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                        </tr></>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):                 ))}
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):             </ul>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):             </table>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):         </div>
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): 
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15):     )
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): }
+CourseHistory.js (KaleDod on 10/16/2024 at 16:15): export default CourseHistory;
 
 alternate-career-planner/src/components/CourseHistory/CourseHistory.stories.js
 CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): import React from "react";
@@ -37,8 +65,17 @@ CourseHistory.stories.js (KaleDod on 10/16/2024 at 16:15): };
 
 alternate-career-planner/src/views/CourseHistoryView/CourseHistory.css
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15): .h1 {
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04): .Header {}
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15):     color: #4B4B4B;
 CourseHistory.css (KaleDod on 10/16/2024 at 16:15): }
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04): .CourseHeader {
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04):     text-align: left;
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04):     color: #4B4B4B;
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04): } 
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04): .GradeHeader {
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04):     text-align: left;
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04):     color: #4B4B4B;
+CourseHistory.css (KaleDod on 10/17/2024 at 13:04): } 
 
 alternate-career-planner/src/views/CourseHistoryView/CourseHistory.js
 CourseHistory.js (KaleDod on 10/16/2024 at 16:15): import React from "react";
@@ -49,6 +86,16 @@ CourseHistory.js (KaleDod on 10/16/2024 at 16:15):     return (
 CourseHistory.js (KaleDod on 10/16/2024 at 16:15):         <div>
 CourseHistory.js (KaleDod on 10/16/2024 at 16:15):             <h1> List of completed courses </h1>
 CourseHistory.js (KaleDod on 10/16/2024 at 16:15):             <CourseHistory courses = {courses}/>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):              <h1 className="Header"> List of completed courses </h1>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):              <table className="WholeTable">
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                  <tr>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                     <th className="CourseHeader">Course Name</th>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                     <th className="GradeHeader">Course Grade</th>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                 </tr>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                 <tr>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                     <th colSpan={2}><CourseHistory courses = {courses}/></th>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):                 </tr>
+CourseHistory.js (KaleDod on 10/17/2024 at 13:04):             </table>
 CourseHistory.js (KaleDod on 10/16/2024 at 16:15):         </div>
 CourseHistory.js (KaleDod on 10/16/2024 at 16:15):     )
 CourseHistory.js (KaleDod on 10/16/2024 at 16:15): }
@@ -87,3 +134,8 @@ data_collection/major_requirement_csvs/
 With commit 8888a69 on 10/16/2024 at 16:21 I commited 
 - major_10.csv 
 - major_5.csv
+
+data_collection/major_requirement_csvs/
+With commit d206636 on 10/17/2024 at 14:39
+- major_4.csv
+- Major_9.csv
