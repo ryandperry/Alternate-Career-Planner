@@ -1,0 +1,472 @@
+MajorHeaderImage.css
+MajorHeaderImage.css (jckmnhn on 10/15/2024 at 16:00):    max-height: 450px;
+MajorHeaderImage.css (jckmnhn on 10/15/2024 at 16:00):    max-width: 1150px;
+
+MajorDetailView.stories.js
+MajorDetailView.stories.js (jckmnhn on 10/14/2024 at 23:43): import { Default as Header } from '../../components/Header/Header.stories'; // Import Header
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:34): import { Default as NavigationBar } from '../../components/NavigationBar/NavigationBar.stories'; // Import Navigation Bar
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): // Test data for a generic major showing a generic photo
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): // Styling to include navigation bar 
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): const appContainerStyle = {
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   display: 'flex',
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   flexDirection: 'column',
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   height: '100vh',
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): };
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): const appBodyStyle = {
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   display: 'flex',
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   flex: 1,
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): };
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): const contentStyle = {
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   flex: 1,
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   padding: '1rem',
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   backgroundColor: '#f0f0f0',
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   overflowY: 'auto',
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   margin: 0,
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): };
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): // Dummy majors for nav bar
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): const dummyMajors = [
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   { name: 'Computer Science' },
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   { name: 'Electrical Engineering' },
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   { name: 'Computer Engineering' },
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   { name: 'Mechanical Engineering' },
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   { name: 'Environmental Engineering' },
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53): ];
+MajorDetailView.stories.js (jckmnhn on 10/14/2024 at 23:43): export const ComputerScienceWithHeader = (args) => (
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):   <div style={appContainerStyle}>
+MajorDetailView.stories.js (jckmnhn on 10/14/2024 at 23:43):     <Header />
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):     <div style={appBodyStyle}>
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):       <NavigationBar {...args} />
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):       <body>
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):         <MajorDetailView style={contentStyle} {...args} />
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):       </body>
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):     </div>
+MajorDetailView.stories.js (jckmnhn on 10/14/2024 at 23:43):   </div>
+MajorDetailView.stories.js (jckmnhn on 10/14/2024 at 23:43): );
+MajorDetailView.stories.js (jckmnhn on 10/14/2024 at 23:43): ComputerScienceWithHeader.args = {
+MajorDetailView.stories.js (jckmnhn on 10/15/2024 at 15:53):     majors: dummyMajors
+
+NavigationBar.css
+NavigationBar.css (jckmnhn on 10/15/2024 at 00:32): /* NavigationBar.css
+NavigationBar.css (jckmnhn on 10/15/2024 at 00:32):  * Description: Contains css styling for
+NavigationBar.css (jckmnhn on 10/15/2024 at 00:32):     the vertical navigation bar
+NavigationBar.css (jckmnhn on 10/15/2024 at 00:32):  */
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:53): /* Keeps body content out of Navigation Bar */
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:53): body {
+NavigationBar.css (jckmnhn on 10/15/2024 at 16:37):     margin-left: 280px;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:53): }
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): .navbar-wrapper {
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     background-color: #f9f9f9;
+NavigationBar.css (jckmnhn on 10/15/2024 at 16:37):     width: 280px;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     padding: 1rem;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     position: fixed;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     left: 0;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     box-sizing: border-box;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     height: 100vh;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): }
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): /* Headers such as "Majors" */
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): .section-title {
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     color: #FF8200; /* TN Orange */
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): }
+NavigationBar.css (jckmnhn on 10/15/2024 at 00:32): /* Smaller navigation titles such as major names */
+NavigationBar.css (jckmnhn on 10/15/2024 at 00:32): .sub-nav-title {
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     display: block;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     width: 225px;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     padding: 10px 10px;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     color: #4B4B4B; /* Smokey Gray */
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     font-weight: 500;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     margin: 8px 0px;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): }
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): /* Show block around sub-headline when hovered */
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): .sub-nav-title:hover {
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     font-weight: 600;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     border-radius: 10px;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     background-color: #eeeeee;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     cursor: pointer;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): }
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):  /* Removes bullet points */
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34): ul {
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     display: block;
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     list-style-type: none; 
+NavigationBar.css (jckmnhn on 10/15/2024 at 15:34):     padding-left: 0;
+NavigationBar.css (jckmnhn on 10/15/2024 at 00:32): }
+
+JobsList.stories.js
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): import React from 'react';
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): import '../../index.css'; // Imports global css
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): import JobsList from './JobsList';
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): export default {
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):     title: 'JobsList',
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):     component: JobsList,
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): };
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): const dummyMajor = {
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):     name: 'Computer Science',
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):     description: 'Computer Science is the systematic study of algorithmic processes that describe ' +
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):      'and transform information: their theory, analysis, design, efficiency, implementation, ' +
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):      'and application. The fundamental question underlying all of computing is: What can efficiently be automated?\n\n' +
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):      'Computer Science is far more than programming. It incorporates the paradigms of theory (mathematical), ' +
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):      'abstraction (experimental), and design (engineering) within many topic areas.',
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): };
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): const Template = (args) => <JobsList {...args} />
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): // A preview of a career list for comp sci
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): export const CompSciJobs = Template.bind({});
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): CompSciJobs.args = {
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):     majorname: 'Computer Science'
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): };
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): // A preview of a career list for mechanical engineering
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): export const BiomedicalJobs = Template.bind({});
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): BiomedicalJobs.args = {
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29):     majorname: 'Biomedical Engineering'
+JobsList.stories.js (jckmnhn on 10/15/2024 at 19:29): };
+
+JobsList.js
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): /* JobsList.js
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):  * Description: Lists job titles and descriptions for a given major
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):  */
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): import React from 'react';
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): import './JobsList.css';
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): // Jobs for each major
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): const jobsData = {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Computer Science': [
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Software Developer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Software developers build applications, websites, and software solutions for various devices, focusing on creating functional, user-friendly, and efficient products.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Web Developer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Web developers specialize in designing and coding websites, ensuring that they are both visually appealing and technically sound to offer a smooth user experience.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'IT Project Manager',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'IT project managers oversee the planning and execution of IT projects, ensuring that technological goals align with organizational needs and are completed on time and within budget.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Aerospace Engineering': [
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Pilot',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Pilots operate aircraft, including planes and helicopters, ensuring safe navigation and transport of passengers or cargo from departure to destination based on flight plans.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Aerospace Drafter',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Aerospace drafters create detailed technical drawings and schematics used in the design and production of aircraft components, relying on engineering guidelines.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Communications Officer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Communications officers in aerospace handle the flow of information between aircraft and ground control, ensuring all mission updates and flight communications are transmitted accurately.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Biomedical Engineering': [
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Clinical Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'Clinical engineers maintain and improve medical devices and technologies, ensuring their proper function in clinical settings and contributing to advancements in healthcare solutions.',
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       },
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Research Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'Research engineers in biomedical fields gather and analyze experimental data, develop new medical devices, and prototype technologies to improve healthcare and treatment methods.',
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       },
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Product Development Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'These engineers focus on designing innovative medical products, testing prototypes, and conducting market analysis to meet industry standards and user needs.',
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Chemical Engineering': [
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Chemical Technician',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'Chemical technicians assist in the research, development, and testing of chemical products and processes, working closely with engineers to ensure safety and efficiency.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       },
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Process Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'Process engineers design and optimize chemical manufacturing processes, aiming to increase production efficiency and minimize waste while maintaining safety standards.',
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       },
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Quality Control Specialist',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'Quality control specialists monitor and test chemical products to ensure they meet required specifications, identifying any defects and suggesting improvements.',
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Electrical Engineering': [
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Electrical Technician',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'Electrical technicians build, install, and maintain electrical systems, ensuring that devices and machinery operate efficiently and safely in various settings.',
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):       },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Equipment Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'Equipment engineers design and develop machinery for industrial use, ensuring that machines meet operational needs and perform optimally in their respective environments.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         title: 'Hardware Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):         description: 'Hardware engineers develop and test computer components, such as processors and circuit boards, aiming to create reliable hardware solutions for electronic devices.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Civil Engineering': [
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Surveyor',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Surveyors analyze land features and boundaries, collecting data used in the planning and construction of infrastructure projects like roads, bridges, and buildings.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Structural Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Structural engineers focus on designing buildings and structures that can withstand various forces, ensuring they are safe, stable, and durable over time.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Urban Planner',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Urban planners develop plans for land use in urban areas, considering factors like population growth, infrastructure needs, and sustainable development to create efficient cities.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Environmental Engineering': [
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Environmental Consultant',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Environmental consultants analyze environmental data and advise organizations on how to minimize their environmental impact and comply with regulations.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Water Resources Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Water resources engineers design systems for managing water resources, such as stormwater management, wastewater treatment, and irrigation systems, ensuring sustainable use.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Air Quality Specialist',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Air quality specialists monitor and assess pollution levels, developing strategies to reduce air contaminants and improve environmental health and safety standards.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Mechanical Engineering': [
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Mechanical Design Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Mechanical design engineers create detailed designs and prototypes for mechanical systems, ensuring that they function as intended in various applications.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Manufacturing Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Manufacturing engineers optimize production processes and develop techniques to improve efficiency, reduce waste, and maintain product quality in manufacturing environments.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Automotive Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Automotive engineers design and develop vehicle components and systems, focusing on enhancing performance, safety, and fuel efficiency for different types of vehicles.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Material Science Engineering': [
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Materials Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Materials engineers analyze and develop new materials for various applications, studying their properties to create products with enhanced performance and durability.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Metallurgist',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Metallurgists focus on the properties and performance of metals, developing processes to extract, refine, and shape metals for use in a variety of industries.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Polymer Scientist',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Polymer scientists study the chemical properties of polymers, designing new plastic and rubber materials for use in manufacturing and technology industries.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   'Computer Engineering': [
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Embedded Systems Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Embedded systems engineers design software and hardware systems that operate within larger machines, such as automotive controls or home appliances.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Network Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Network engineers design, implement, and maintain computer networks, ensuring reliable communication between devices and optimal data flow.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     {
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       title: 'Robotics Engineer',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):       description: 'Robotics engineers develop robotic systems for industrial and consumer applications, integrating computer engineering and mechanical components to create automated solutions.',
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):     },
+JobsList.js  (jckmnhn on 10/16/2024 at 21:52):   ],
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): };
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): // Lists courses, their description, and their number of credit hours
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): const JobsList = ({ majorname }) => {
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):     const jobs = jobsData[ majorname ] || [];
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):     return (
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):         <div>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):             {/* Show data as long as there are jobs listed */}
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):             {jobs.length > 0 ? ( 
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                 <>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                 <h2> Potential Careers </h2>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                     <ul>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                         {jobs.map((job, index) => (
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                              <li key={index} className="job-item">
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                                 <h3>{job.title}</h3>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                                 <p className="job-description">{job.description}</p>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                              </li>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                         ))}
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                     </ul>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):                 </>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):             ) : (<></>)}
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):         </div>
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29):     )
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): }
+JobsList.js  (jckmnhn on 10/15/2024 at 19:29): export default JobsList;
+
+App.css
+App.css      (jckmnhn on 10/14/2024 at 23:31):   padding: 20px;
+
+JobsList.css
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): /* JobsList.css
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):  * Description: Styling for the list of jobs in MajorDetailView
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):  */
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): /* Removes bullet points */
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): ul {
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):     list-style-type: none; 
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):     padding-left: 0;
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): }
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): /* Creates vertical padding between items */
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): .job-item {
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):     margin: 20px 0;
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):     text-align: left;
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): }
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): /* Removes heading padding */
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): .job-item h3 {
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):     margin: 0 0 0 0; 
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):     color: #FF8200; /* TN Orange */
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): }
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): /* Makes the description gray */
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): .job-description {
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):     color: #4B4B4B; /* Smokey Gray */
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): }
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): /* Padding between components of list items */
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): .job-item p {
+JobsList.css (jckmnhn on 10/15/2024 at 19:29):     margin: 5px 0;
+JobsList.css (jckmnhn on 10/15/2024 at 19:29): }
+
+NavigationBar.stories.js
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): import React from 'react';
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): import '../../index.css'; // Imports global css
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): import NavigationBar from './NavigationBar';
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34): import { Default as Header } from '../../components/Header/Header.stories'; // Import Header
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): export default {
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32):     title: 'NavigationBar',
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32):     component: NavigationBar,
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): };
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): const dummyMajors = [
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32):     { name: 'Computer Science' },
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32):     { name: 'Electrical Engineering' },
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32):     { name: 'Computer Engineering' },
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32):     { name: 'Mechanical Engineering' },
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32):     { name: 'Environmental Engineering' },
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): ];
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): const Template = (args) => <NavigationBar {...args} />
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): export const Default = Template.bind({});
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): Default.args = {
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32):     majors: dummyMajors
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34): };
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34): export const NavBarWithHeader = (args) => (
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34):     <div>
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34):     <Header />
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34):     <NavigationBar {...args} />
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34):   </div>
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34): );
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34): NavBarWithHeader.args = {
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 15:34):     majors: dummyMajors
+NavigationBar.stories.js (jckmnhn on 10/15/2024 at 00:32): };
+
+MajorDetailView.js
+MajorDetailView.js (jckmnhn on 10/15/2024 at 19:29): import JobsList from '../../components/JobsList/JobsList';
+MajorDetailView.js (jckmnhn on 10/14/2024 at 23:56):             {/* Header, Title and Description */}
+MajorDetailView.js (jckmnhn on 10/14/2024 at 23:56):             {/* Required Courses List */}
+MajorDetailView.js (jckmnhn on 10/15/2024 at 19:29):             {/* Jobs List */}
+MajorDetailView.js (jckmnhn on 10/15/2024 at 19:29):             <JobsList majorname={major.name}/>
+
+MajorDetailView.css
+MajorDetailView.css (jckmnhn on 10/14/2024 at 23:56):    padding-top: 10px;
+MajorDetailView.css (jckmnhn on 10/14/2024 at 23:56):    color: #4B4B4B; /* Smokey Gray */
+
+Header.stories.js
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44): import React from 'react';
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44): import '../../index.css'; // Imports global css
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44): import Header from './Header';
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44): export default {
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44):     title: 'Header',
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44):     component: Header,
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44): };
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44): const Template = (args) => <Header {...args} />
+Header.stories.js (jckmnhn on 10/12/2024 at 14:44): export const Default = Template.bind({});
+
+Header.js
+Header.js    (jckmnhn on 10/12/2024 at 14:44): /* Header.js 
+Header.js    (jckmnhn on 10/12/2024 at 14:44):  * Description: Displays logo and name at the top of the page.
+Header.js    (jckmnhn on 10/12/2024 at 14:44):  */
+Header.js    (jckmnhn on 10/12/2024 at 14:44): import React from 'react';
+Header.js    (jckmnhn on 10/12/2024 at 14:44): import './Header.css';
+Header.js    (jckmnhn on 10/12/2024 at 14:44): const Header = () => {
+Header.js    (jckmnhn on 10/12/2024 at 14:44):     return (
+Header.js    (jckmnhn on 10/12/2024 at 14:44):         // Added a header wrapper to remove global padding
+Header.js    (jckmnhn on 10/12/2024 at 14:44):         <div className="header-wrapper">
+Header.js    (jckmnhn on 10/12/2024 at 14:44):             <header>
+Header.js    (jckmnhn on 10/12/2024 at 14:44):                 <div className ="titleRow">
+Header.js    (jckmnhn on 10/16/2024 at 20:52):                     <img src={'/assets/logo.png'} alt="Alternate Career Planner Logo" className="logo"/>
+Header.js    (jckmnhn on 10/16/2024 at 20:52):                     <h1> Alternate Career Planner </h1>
+Header.js    (jckmnhn on 10/12/2024 at 14:44):                 </div>
+Header.js    (jckmnhn on 10/12/2024 at 14:44):             </header>
+Header.js    (jckmnhn on 10/12/2024 at 14:44):         </div>
+Header.js    (jckmnhn on 10/12/2024 at 14:44):     )
+Header.js    (jckmnhn on 10/12/2024 at 14:44): }
+
+NavigationBar.js
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32): /* NavigationBar.js 
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):  * Description: Side bar to quickly navigate to other pages
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):  */
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32): import React from 'react';
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32): import './NavigationBar.css';
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32): const NavigationBar = ({ majors }) => {
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):     return (
+NavigationBar.js (jckmnhn on 10/15/2024 at 15:34):         <div className="navbar-wrapper">
+NavigationBar.js (jckmnhn on 10/15/2024 at 15:34):             {/* My Quiz */}
+NavigationBar.js (jckmnhn on 10/15/2024 at 15:34):             <h3 className="section-title"> My Quiz </h3>
+NavigationBar.js (jckmnhn on 10/15/2024 at 15:34):             <ul>
+NavigationBar.js (jckmnhn on 10/15/2024 at 15:34):                 <li className="sub-nav-title"> View Results </li>
+NavigationBar.js (jckmnhn on 10/15/2024 at 15:34):                 <li className="sub-nav-title"> Retake Quiz </li>
+NavigationBar.js (jckmnhn on 10/15/2024 at 15:34):             </ul>
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):             {/* List of Majors */}
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):             <h3 className="section-title"> Majors </h3>
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):             <ul>
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):                 {majors.map((major) => (
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):                     <li className="sub-nav-title">
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):                         { major.name }
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):                     </li>
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):                 ))}
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):             </ul>
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):         </div>
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32):     )
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32): }
+NavigationBar.js (jckmnhn on 10/15/2024 at 00:32): export default NavigationBar;
+
+Header.css
+Header.css   (jckmnhn on 10/12/2024 at 14:44): /* Header.css
+Header.css   (jckmnhn on 10/12/2024 at 14:44):  * Description: Contains css styling for
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     the header bar at the top of pages.
+Header.css   (jckmnhn on 10/12/2024 at 14:44):  */
+Header.css   (jckmnhn on 10/14/2024 at 21:18): /* Prevents header from overlapping body */
+Header.css   (jckmnhn on 10/14/2024 at 21:18): html {
+Header.css   (jckmnhn on 10/15/2024 at 15:34):     padding-top: 69px;
+Header.css   (jckmnhn on 10/14/2024 at 21:18): }
+Header.css   (jckmnhn on 10/14/2024 at 21:18): /* Prevents overlap on mobile by resizing header along with text */
+Header.css   (jckmnhn on 10/14/2024 at 21:18): @media (max-width: 460px) {
+Header.css   (jckmnhn on 10/14/2024 at 21:18):     html {
+Header.css   (jckmnhn on 10/14/2024 at 21:18):         padding-top: 120px; /* Increase padding for mobile to accommodate header size */
+Header.css   (jckmnhn on 10/14/2024 at 21:18):     }
+Header.css   (jckmnhn on 10/14/2024 at 21:18): }
+Header.css   (jckmnhn on 10/14/2024 at 21:18): @media (max-width: 315px) {
+Header.css   (jckmnhn on 10/14/2024 at 21:18):     html {
+Header.css   (jckmnhn on 10/14/2024 at 21:18):         padding-top: 160px; /* Increase padding for mobile to accommodate header size */
+Header.css   (jckmnhn on 10/14/2024 at 21:18):     }
+Header.css   (jckmnhn on 10/14/2024 at 21:18): }
+Header.css   (jckmnhn on 10/12/2024 at 14:44): /* Fixes padding issues added by browsers */
+Header.css   (jckmnhn on 10/12/2024 at 14:44): .header-wrapper {
+Header.css   (jckmnhn on 10/15/2024 at 15:53):     position: fixed;
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     top: 0;
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     left: 0;
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     width: 100vw;
+Header.css   (jckmnhn on 10/12/2024 at 14:44): }
+Header.css   (jckmnhn on 10/15/2024 at 15:53): /* Keeps body content outside of header */
+Header.css   (jckmnhn on 10/15/2024 at 15:53): body {
+Header.css   (jckmnhn on 10/15/2024 at 15:53):     margin-top: 20px;
+Header.css   (jckmnhn on 10/15/2024 at 15:53): }
+Header.css   (jckmnhn on 10/12/2024 at 14:44): /* Logo and title with orange background */
+Header.css   (jckmnhn on 10/12/2024 at 14:44): .titleRow {
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     display: flex;
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     align-items: center;
+Header.css   (jckmnhn on 10/14/2024 at 20:44):     padding: 2px;
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     color: #ffffff;
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     background-color: #FF8200;
+Header.css   (jckmnhn on 10/12/2024 at 14:44): }
+Header.css   (jckmnhn on 10/12/2024 at 14:44): /* Logo image */
+Header.css   (jckmnhn on 10/12/2024 at 14:44): .logo {
+Header.css   (jckmnhn on 10/14/2024 at 21:18):     width: 60px;
+Header.css   (jckmnhn on 10/14/2024 at 21:18):     height: 60px;
+Header.css   (jckmnhn on 10/12/2024 at 14:44):     padding-right: 20px;
+Header.css   (jckmnhn on 10/14/2024 at 21:18):     padding-left: 10px;
+Header.css   (jckmnhn on 10/12/2024 at 14:44): }
