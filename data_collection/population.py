@@ -131,6 +131,7 @@ for major_object_key in ["1", "5","10", "11"]:
   #read csv for this major using the ID number
   major_object = major_objects[major_object_key]
   print(major_object.name)
+  # print(major_object.bucket_ids)
   
   relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
   outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
@@ -147,7 +148,7 @@ for major_object_key in ["1", "5","10", "11"]:
     #of courses for that and add the course ID to major.course_ids set()
   #example: if the row has course ID 5, then add that ID
   for row in major_requirements.index:
-    print(row)
+    # print(row)
     #get the course ID or bucket ID for this major requirement
     bucket_ID = major_requirements['Required Bucket ID'][row]
     course_ID = major_requirements['Required Course ID'][row]
@@ -155,14 +156,14 @@ for major_object_key in ["1", "5","10", "11"]:
   
     #if this row has a bucket, use the bucket ID
     if(bucket_ID != "NULL"):
-      print("bucket ID is ", bucket_ID)
+      # print("bucket ID is ", bucket_ID)
       major_object.bucket_ids.add(str(bucket_ID))
-      print("bucket ids list is ", major_object.bucket_ids)
+      # print("bucket ids list is ", major_object.bucket_ids)
     
     elif(course_ID != "NULL"):
-      print("course ID is ", course_ID)
+      # print("course ID is ", course_ID)
       major_object.course_ids.add(str(course_ID))
-      print("course ids list is ", major_object.course_ids)
+      # print("course ids list is ", major_object.course_ids)
     
     elif(course != "NULL"):
       #get all values for the course objects
@@ -170,7 +171,7 @@ for major_object_key in ["1", "5","10", "11"]:
       #get course ID
       #add to the course_ids for this major
       course_ID = [course_obj.course_id for course_obj in course_objects.values() if course_obj.name == course]
-      print("found a course id from the name")
+      # print("found a course id from the name")
       major_object.course_ids.add(str(course_ID))
     
     # else:
