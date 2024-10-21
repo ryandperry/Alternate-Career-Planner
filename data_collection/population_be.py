@@ -122,6 +122,14 @@ for row in df3.index:
     # print(major_obj.name)
 print(bucket_objects)
 
+try:
+  df4 = pd.read_csv('database_design_PC.csv', dtype=str)
+except:
+  df4 = pd.read_csv('data_collection/database_design_PC.csv', dtype=str)
+prereq_objects = {}
+for row in df4.index:
+  # fill in if this is what they want 
+
 #script to match all major's requirements to the associated
 #course or bucket IDs
 
