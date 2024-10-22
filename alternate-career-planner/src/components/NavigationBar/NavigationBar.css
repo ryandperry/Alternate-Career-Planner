@@ -4,8 +4,9 @@
  */
 
 /* Keeps body content out of Navigation Bar */
-body {
+.content-wrapper {
     margin-left: 280px;
+    padding-left: 1rem;
 }
 
 .navbar-wrapper {

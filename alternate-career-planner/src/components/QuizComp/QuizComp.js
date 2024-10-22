@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react'
 import { QuizData } from './quizdata.js'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 export class QuizComp extends Component {
   
@@ -91,8 +91,10 @@ export class QuizComp extends Component {
                  userAnswers} = this.state
           
           if (quizEnd) {
-              return (
-                  <div>
+              return <Navigate to= "/results" />;
+
+
+                  /*<div>
                       <h2>You finished the quiz!</h2>
                       <p>Here's how you answered:</p>
 
@@ -118,8 +120,7 @@ export class QuizComp extends Component {
                               Retake Quiz
                           </button>
                       </div>
-                  </div>
-              )
+                  </div>*/
           }
 
           return (
