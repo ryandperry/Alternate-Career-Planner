@@ -39,6 +39,11 @@ class Major:
   course_ids = set()
   bucket_ids = set()
 
+class Person:
+  def __init__(self, major, classes_array, quiz_results):
+    self.major = major
+    self.classes_array = classes_array
+    self.quiz_results = quiz_results
 
 class Course:
   def __init__(self, course_id, name, description, hours):
@@ -46,6 +51,8 @@ class Course:
     self.name = name
     self.description = description
     self.hours = hours
+  prereq_courseids = {1, 4, 6, 7}
+  coreq_courseids = set()
 
 
 class Bucket:
@@ -55,6 +62,8 @@ class Bucket:
     self.course_names = course_names
     self.num_hours = num_hours
     self.num_courses = num_courses
+  course_ids = set()
+  bucket_ids = set()
 
 class Requisite:
   def __init__(self, p_or_c, course_names, course_id, bucket_id, num_courses):
@@ -66,69 +75,71 @@ class Requisite:
 
 #script to read in course table, major table, and bucket table
 # print("Hello World")
-try:
-  df = pd.read_csv('database_design_CT.csv', dtype=str)
-except:
-  df = pd.read_csv('data_collection/database_design_CT.csv', dtype=str)
-#print(df.shape[0])
-course_objects = {}
-for row in df.index:
-    #course_id, name, description, hours
-    course_id = df.loc[row, "Course ID"]
-    course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
-    #dict[i] = course_object
-    course_objects[str(course_id)] = course_object
-    # print(dict[str(row)].name)
-    # print(course_object.name)
-print(course_objects)
+def build_course_objects():
+  try:
+    df = pd.read_csv('database_design_CT.csv', dtype=str)
+  except:
+    df = pd.read_csv('data_collection/database_design_CT.csv', dtype=str)
+  #print(df.shape[0])
+  course_objects = {}
+  for row in df.index:
+      #course_id, name, description, hours
+      course_id = df.loc[row, "Course ID"]
+      course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
+      #dict[i] = course_object
+      course_objects[str(course_id)] = course_object
+      # print(dict[str(row)].name)
+      # print(course_object.name)
+  print(course_objects)
+  try:
+    df4 = pd.read_csv('database_design_PC.csv', dtype=str)
+  except:
+    df4 = pd.read_csv('data_collection/database_design_PC.csv', dtype=str)
+  prereq_objects = {}
+  #for row in df4.index:
+  # fill in if this is what they want 
 
 #looping through major table rows
 #build major class object for each row
 #dict of majors
-
-try:
-  df2 = pd.read_csv('database_design_MT.csv', dtype=str)
-except:
-  df2 = pd.read_csv('data_collection/database_design_MT.csv', dtype=str)
-#print(df.shape[0])
-major_objects = {}
-for row in df2.index:
-    #course_id, name, description, hours
-    major_id = df2.loc[row, 'Major ID']
-    major_obj = Major(df2.loc[row, 'Major ID'], df2.loc[row, 'Major Abreviation'], df2.loc[row, 'Major Name'], df2.loc[row, 'Major Description'])
-    #dict[i] = course_object
-    major_objects[str(major_id)] = major_obj
-    # print(major_objects[str(major_id)].name)
-    # print(major_obj.name)
-print(major_objects)
+def build_major_objects():
+  try:
+    df2 = pd.read_csv('database_design_MT.csv', dtype=str)
+  except:
+    df2 = pd.read_csv('data_collection/database_design_MT.csv', dtype=str)
+  #print(df.shape[0])
+  major_objects = {}
+  for row in df2.index:
+      #course_id, name, description, hours
+      major_id = df2.loc[row, 'Major ID']
+      major_obj = Major(df2.loc[row, 'Major ID'], df2.loc[row, 'Major Abreviation'], df2.loc[row, 'Major Name'], df2.loc[row, 'Major Description'])
+      #dict[i] = course_object
+      major_objects[str(major_id)] = major_obj
+      # print(major_objects[str(major_id)].name)
+      # print(major_obj.name)
+  print(major_objects)
 
 #looping through bucket table rows
 #build bucket class object for each row
 #dict of buckets
+def build_bucket_object():
+  try:
+    df3 = pd.read_csv('database_design_BT.csv', dtype=str)
+  except:
+    df3 = pd.read_csv('data_collection/database_design_BT.csv', dtype=str)
+  bucket_objects = {}
+  #print(df.shape[0])
+  for row in df3.index:
+      #course_id, name, description, hours
+      bucket_id = df3.loc[row, "Bucket ID"]
+      bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
+      #dict[i] = course_object
+      bucket_objects[str(bucket_id)] =  bucket_obj
+      # print(bucket_objects[str(bucket_id)].name)
+      # print(major_obj.name)
+  print(bucket_objects)
 
-try:
-  df3 = pd.read_csv('database_design_BT.csv', dtype=str)
-except:
-  df3 = pd.read_csv('data_collection/database_design_BT.csv', dtype=str)
-bucket_objects = {}
-#print(df.shape[0])
-for row in df3.index:
-    #course_id, name, description, hours
-    bucket_id = df3.loc[row, "Bucket ID"]
-    bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
-    #dict[i] = course_object
-    bucket_objects[str(bucket_id)] =  bucket_obj
-    # print(bucket_objects[str(bucket_id)].name)
-    # print(major_obj.name)
-print(bucket_objects)
 
-try:
-  df4 = pd.read_csv('database_design_PC.csv', dtype=str)
-except:
-  df4 = pd.read_csv('data_collection/database_design_PC.csv', dtype=str)
-prereq_objects = {}
-for row in df4.index:
-  # fill in if this is what they want 
 
 #script to match all major's requirements to the associated
 #course or bucket IDs
@@ -207,3 +218,16 @@ for major_object_key in ["1", "5","10", "11"]:
 # todo: decide how algorithm code will use these classes
 # todo: decide how to seperate algorithm functions
   #so we can each work on different aspects
+
+def compare_academic_history(person_object, major_objects, course_objects):
+  #major_objects is the dictionary of major objects 
+  hour_counter = 0
+  for i in major_objects:
+    if(major_objects[i].major_id == person_object.major):
+      continue
+    else:
+      for course_taken in person_object.classes_array:
+        #somewhere in here we need to check if it is part of a bucket 
+        if(major_objects[i].course_id == course_taken[i]):
+          hour_counter += course_objects["course_taken"].hours
+        # look up the course id in the major dictionary at this i 
