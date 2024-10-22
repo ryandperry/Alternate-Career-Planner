@@ -1,0 +1,22 @@
+/* ResultsView.css
+ * Description: Styling for the results view after the quiz
+ */
+
+.appContainerStyle {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+};
+  
+.appBodyStyle {
+    display: flex;
+    flex: 1;
+};
+  
+.contentStyle {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    overflow-y: auto;
+    margin: 0;
+};
