@@ -6,7 +6,7 @@
 import React from 'react';
 import './ResultsView.css';
 import NavigationBar from '../../components/NavigationBar/NavigationBar'
-import RealHeader from '../../components/RealHeader/RealHeader'
+import Header from '../../components/Header/Header'
 import MajorsListView from '../MajorsListView/MajorsListView'
 
 // Lists the details of a given major including a description and required courses
@@ -41,7 +41,7 @@ const ResultsView = ({ majors }) => {
 
     return (
         <div className='appContainerStyle'>
-            <RealHeader />
+            <Header />
             <div className='appBodyStyle'>
                 <NavigationBar majors={ majors || testMajors} />
                 <body className='content-wrapper'>
