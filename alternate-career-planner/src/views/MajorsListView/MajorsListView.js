@@ -11,8 +11,8 @@ import MajorList from '../../components/MajorList/MajorList';
 const MajorsListView = ({ majors }) => {
     return (
         <div>
-            <h1 className='similarMajorsHeader'> Similar Majors 🎓 </h1>
-            <p> Thanks for taking the interest quiz! Below are some majors that we think you'll enjoy. </p>
+            <h1 className='similarMajorsHeader'> Quiz Results 🎓 </h1>
+            <p> Thanks for taking the quiz! Based on your provided answers, we've selected the following majors that we think you'll enjoy. Alternatively, explore all majors below. </p>
             <MajorList majors = {majors}/>
         </div>
     )
