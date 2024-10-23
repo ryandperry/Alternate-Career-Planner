@@ -35,6 +35,13 @@
     margin: 8px 0px;
 }
 
+/* Fix CSS on links */
+.sub-nav-title a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 /* Show block around sub-headline when hovered */
 .sub-nav-title:hover {
     font-weight: 600;
@@ -43,7 +50,7 @@
     cursor: pointer;
 }
 
- /* Removes bullet points */
+/* Removes bullet points */
 ul {
     display: block;
     list-style-type: none; 
