@@ -64,26 +64,27 @@ class Bucket:
 
 #script to read in course table, major table, and bucket table
 # print("Hello World")
-def build_course_objects():
-  try:
-    df = pd.read_csv('database_design_CT.csv', dtype=str)
-  except:
-    df = pd.read_csv('data_collection/database_design_CT.csv', dtype=str)
-  #print(df.shape[0])
-  course_objects = {}
-  for row in df.index:
-      #course_id, name, description, hours
-      course_id = df.loc[row, "Course ID"]
-      course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
-      #dict[i] = course_object
-      course_objects[str(course_id)] = course_object
-      # print(dict[str(row)].name)
-      # print(course_object.name)
-  print(course_objects)
+
+try:
+  df = pd.read_csv('database_design_CT.csv', dtype=str)
+except:
+  df = pd.read_csv('data_collection/database_design_CT.csv', dtype=str)
+#print(df.shape[0])
+course_objects = {}
+for row in df.index:
+    #course_id, name, description, hours
+    course_id = df.loc[row, "Course ID"]
+    course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
+    #dict[i] = course_object
+    course_objects[str(course_id)] = course_object
+    # print(dict[str(row)].name)
+    # print(course_object.name)
+print(course_objects)
 
 # PREREQ and COREQ
 #use the csv for prereq/coreq table
 #for each row (each course and P/C pairing)
+
 #find the course ID in the list of course objects
   # have to look through the course_objects dictionary
   # for each course in course_objects.values():
