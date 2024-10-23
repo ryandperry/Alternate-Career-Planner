@@ -12,13 +12,13 @@
 
 import pandas as pd
 
-# TODO 
-# fill out this dictionary of filenames so we can easily
-# run this code even if we need to change the filenames 
-# filenames = {
-#   "Bucket Table": 
-#   "Major Table"
-# }
+# update filenames here instead of in the code
+filenames = {
+  "Bucket Table": "bucket_table.csv",
+  "Major Table": "database_design_MT.csv",
+  "Course Table": "database_design_CT.csv",
+  "PreReq/CoReq Table": "prereq_coreq.csv"
+}
 
 class Major:
   def __init__(self, major_id, abbr, name, description):
@@ -43,23 +43,25 @@ class Course:
 
 
 class Bucket:
-  def __init__(self, bucket_id, name, course_names, num_hours, num_courses):
+  def __init__(self, bucket_id, name, num_hours, num_courses):
     self.bucket_id = bucket_id
     self.name = name
-    self.course_names = course_names
     self.num_hours = num_hours
     self.num_courses = num_courses
   
+  course_names = set()
   course_ids = set()
   bucket_ids = set()
+
+
 
 # from the course table, build a course object with 
 # ID, description, name, credit hours, prereqs, and coreqs
 def build_course_objects():
   try:
-    course_table = pd.read_csv('database_design_CT.csv', dtype=str)
+    course_table = pd.read_csv(filenames['Course Table'], dtype=str)
   except:
-    course_table = pd.read_csv('data_collection/database_design_CT.csv', dtype=str)
+    course_table = pd.read_csv('data_collection/'+filenames['Course Table'], dtype=str)
   course_table = course_table.fillna("NULL")
   
   course_objects = {}
@@ -70,9 +72,9 @@ def build_course_objects():
 
   # PREREQs and COREQs
   try:
-    prereqs = pd.read_csv('prereq_coreq.csv', dtype=str)
+    prereqs = pd.read_csv(filenames['PreReq/CoReq Table'], dtype=str)
   except:
-    prereqs = pd.read_csv('data_collection/prereq_coreq.csv', dtype=str)
+    prereqs = pd.read_csv('data_collection/'+filenames['PreReq/CoReq Table'], dtype=str)
 
   prereqs = prereqs.fillna("NULL")
   #for each row (each course and P/C pairing)
@@ -115,17 +117,32 @@ def build_course_objects():
               
   return course_objects
 
-def build_bucket_objects():
+def build_bucket_objects(course_objects):
   try:
-    bucket_table = pd.read_csv('database_design_BT.csv', dtype=str)
+    bucket_table = pd.read_csv(filenames['Bucket Table'], dtype=str)
   except:
-    bucket_table = pd.read_csv('data_collection/database_design_BT.csv', dtype=str)
+    bucket_table = pd.read_csv('data_collection/'+filenames['Bucket Table'], dtype=str)
   bucket_table= bucket_table.fillna("NULL")
   bucket_objects = {}
   for row in bucket_table.index:
       bucket_id = bucket_table.loc[row, "Bucket ID"]
-      bucket_obj = Bucket(bucket_table.loc[row, 'Bucket ID'], bucket_table.loc[row, 'Bucket Name'], bucket_table.loc[row, 'Course Names'], bucket_table.loc[row, 'Bucket Number of Hours'], bucket_table.loc[row, "Bucket Number of Courses"])
+      bucket_obj = Bucket(bucket_table.loc[row, 'Bucket ID'], bucket_table.loc[row, 'Bucket Name'], bucket_table.loc[row, 'Bucket Number of Hours'], bucket_table.loc[row, "Bucket Number of Courses"])
+
+      #seperate out the course names in semi-colon seperated list
+      bucket_obj.course_names = set(bucket_table['Course Names'][row].replace(" ", "").split(";"))
+
+      # #TODO this doesnt work. need to add course IDs
+      # for current_course_name in bucket_obj.course_names:
+      #   # find this course ID
+      #   for course_obj in course_objects.values():
+      #     if(course_obj.name == current_course_name):
+      #       bucket_obj = bucket_obj.course_ids.add(course_obj.course_id)
+
+      #add other bucket IDs
+      bucket_obj.bucket_ids.add(bucket_table['Sequence Bucket IDs'][row])
+      # save this new bucket object
       bucket_objects[str(bucket_id)] =  bucket_obj
+
 
   return bucket_objects
 
@@ -136,9 +153,9 @@ def build_bucket_objects():
 
 def build_major_objects(course_objects, bucket_objects):
   try:
-    major_table = pd.read_csv('database_design_MT.csv', dtype=str)
+    major_table = pd.read_csv(filenames['Major Table'], dtype=str)
   except:
-    major_table = pd.read_csv('data_collection/database_design_MT.csv', dtype=str)
+    major_table = pd.read_csv('data_collection/'+filenames['Major Table'], dtype=str)
   major_table = major_table.fillna("NULL")
   major_objects = {}
   for row in major_table.index:
@@ -190,7 +207,7 @@ def build_major_objects(course_objects, bucket_objects):
 
 def main():
   course_objects = build_course_objects()
-  bucket_objects = build_bucket_objects()
+  bucket_objects = build_bucket_objects(course_objects)
   print(course_objects)
   print(bucket_objects)
 
