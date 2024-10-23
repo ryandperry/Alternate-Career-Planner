@@ -15,8 +15,16 @@ const NavigationBar = ({ majors }) => {
             {/* My Quiz */}
             <h3 className="section-title"> My Quiz </h3>
             <ul>
-                <li className="sub-nav-title"> View Results </li>
-                <li className="sub-nav-title"> Retake Quiz </li>
+                <li className={`sub-nav-title ${location.pathname == "/results" ? 'isselected' : ''}`}> 
+                    <Link to="/results">
+                    View Results 
+                    </Link>
+                </li>
+                <li className="sub-nav-title"> 
+                    <Link to="/quiz">
+                        Retake Quiz 
+                    </Link>
+                </li>
             </ul>
             
             {/* List of Majors */}
