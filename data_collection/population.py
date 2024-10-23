@@ -17,7 +17,9 @@ filenames = {
   "Bucket Table": "bucket_table.csv",
   "Major Table": "database_design_MT.csv",
   "Course Table": "database_design_CT.csv",
-  "PreReq/CoReq Table": "prereq_coreq.csv"
+  "PreReq/CoReq Table": "prereq_coreq.csv",
+  "Major Requirements Folder Name": "major_requirement_csvs",
+  "Major Requirements Prefix": "major_"
 }
 
 class Major:
@@ -169,8 +171,8 @@ def build_major_objects(course_objects, bucket_objects):
     if( major_object.major_id == "NULL"):
       continue
 
-    relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
-    outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
+    relative_filename = filenames['Major Requirements Folder Name']+'/' + filenames['Major Requirements Prefix'] + str(int(major_object.major_id)) + '.csv'
+    outside_filename = 'data_collection/' + filenames['Major Requirements Folder Name']+'/' + filenames['Major Requirements Prefix'] + str(int(major_object.major_id)) + '.csv'
     try:
       try:
         major_requirements = pd.read_csv(relative_filename, dtype=str)
