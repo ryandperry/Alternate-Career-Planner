@@ -42,6 +42,13 @@
     display: block;
 }
 
+.sub-nav-title.isselected {
+    background-color: #FF8200 !important;
+    font-weight: 700 !important;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
 /* Show block around sub-headline when hovered */
 .sub-nav-title:hover {
     font-weight: 600;

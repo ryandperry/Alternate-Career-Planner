@@ -4,9 +4,11 @@
 
 import React from 'react';
 import './NavigationBar.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavigationBar = ({ majors }) => {
+    const location = useLocation();
+
     return (
         <div className="navbar-wrapper">
 
@@ -20,13 +22,16 @@ const NavigationBar = ({ majors }) => {
             {/* List of Majors */}
             <h3 className="section-title"> Majors </h3>
             <ul>
-                {majors.map((major) => (
-                    <li className="sub-nav-title" key={major.name}>
-                        <Link to={`/results/majors/${encodeURIComponent(major.name)}`}>
+                {majors.map((major) => {
+                    const majorPath = `/results/majors/${encodeURIComponent(major.name)}`;
+                    return (
+                    <li className={`sub-nav-title ${location.pathname == majorPath ? 'isselected' : ''}`} key={major.name}>
+                        <Link to={majorPath}>
                             { major.name }
                         </Link>
                     </li>
-                ))}
+                    );
+                })}
             </ul>
             
         </div>
