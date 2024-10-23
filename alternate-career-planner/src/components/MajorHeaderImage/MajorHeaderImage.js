@@ -17,13 +17,13 @@ const imageMap = {
     'Chemical Engineering': '/assets/major-header-images/chemical-eng-header.jpg',
     'Civil Engineering': '/assets/major-header-images/civil-eng-header.jpg',
     'Environmental Engineering': '/assets/major-header-images/environmental-eng-header.jpg',
-    'Material Science': '/assets/major-header-images/mse-header.jpg',
+    'Materials Science and Engineering': '/assets/major-header-images/mse-header.jpg',
 };
 
 // Returns a header image
 const MajorHeaderImage = ({ major }) => {
     // Return a generic header image if there is not one for that major
-    const imageURL = imageMap[major.name] || 'assets/major-header-images/generic-header-image.jpg';
+    const imageURL = imageMap[major.name] || '/assets/major-header-images/generic-header-image.jpg';
 
     return (
         <header className="header-image">

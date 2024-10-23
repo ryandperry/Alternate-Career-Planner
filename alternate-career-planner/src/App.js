@@ -21,7 +21,8 @@ function App() {
               <Route path="/quiz" element={<Quiz />} />
 
               {/* Views including sidebar after the similar majors have been generated */}
-              <Route path="/results" element={<ResultsView />} />
+              <Route path="/results/*" element={<ResultsView />} />
+
           </Routes>
       </Router>
   );

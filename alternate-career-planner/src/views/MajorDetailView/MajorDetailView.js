@@ -8,22 +8,32 @@ import './MajorDetailView.css';
 import CourseListView from '../../components/CourseList/CourseList';
 import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage';
 import JobsList from '../../components/JobsList/JobsList';
+import { useParams } from 'react-router-dom';
 
 // Lists the details of a given major including a description and required courses
-const MajorDetailView = ({ major, courses }) => {
+const MajorDetailView = ({ majors, courses }) => {
+
+    const { majorName } = useParams();
+    console.log("Major name:", majorName);
+    const selectedMajor = majors.find(
+        (major) => major.name === decodeURIComponent(majorName.replace(/%20/g, ' '))
+    );
+
+    const emptyCoursesList = [];
+
     return (
         <div>
             {/* Header, Title and Description */}
-            <MajorHeaderImage major={major}/>
-            <h1 className="major-title"> {major.name} </h1>
-            <p className="major-description"> { major.description } </p>
+            <MajorHeaderImage major={selectedMajor}/>
+            <h1 className="major-title"> {selectedMajor.name} </h1>
+            <p className="major-description"> { selectedMajor.description } </p>
 
             {/* Required Courses List */}
             <h2> Required Courses </h2>
-            <CourseListView courses = {courses}/>
+            <CourseListView courses = {courses || emptyCoursesList}/>
 
             {/* Jobs List */}
-            <JobsList majorname={major.name}/>
+            <JobsList majorname={selectedMajor.name}/>
 
         </div>
     )

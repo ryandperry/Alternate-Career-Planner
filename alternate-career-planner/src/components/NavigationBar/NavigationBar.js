@@ -4,6 +4,7 @@
 
 import React from 'react';
 import './NavigationBar.css';
+import { Link } from 'react-router-dom';
 
 const NavigationBar = ({ majors }) => {
     return (
@@ -20,8 +21,10 @@ const NavigationBar = ({ majors }) => {
             <h3 className="section-title"> Majors </h3>
             <ul>
                 {majors.map((major) => (
-                    <li className="sub-nav-title">
-                        { major.name }
+                    <li className="sub-nav-title" key={major.name}>
+                        <Link to={`/results/majors/${encodeURIComponent(major.name)}`}>
+                            { major.name }
+                        </Link>
                     </li>
                 ))}
             </ul>
