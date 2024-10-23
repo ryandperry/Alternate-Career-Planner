@@ -1,8 +1,14 @@
-# 340 Alternate Career Planner Database Population Script
+# Database Population Script
 # Takes in an excel with major, bucket, and course information
 # Builds tables for each major
 # Builds lists of course, major, and bucket information
 # Prepares data for the algorithm to match students -> majors
+
+# TO RUN:
+# select all (cntl+a)
+# shift+enter to use interactive window
+# highlight the contents of main
+# shift+enter to run whatever is in main
 
 import pandas as pd
 
@@ -47,7 +53,8 @@ class Bucket:
   course_ids = set()
   bucket_ids = set()
 
-#script to read in course table, major table, and bucket table
+# from the course table, build a course object with 
+# ID, description, name, credit hours, prereqs, and coreqs
 def build_course_objects():
   try:
     course_table = pd.read_csv('database_design_CT.csv', dtype=str)

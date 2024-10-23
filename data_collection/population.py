@@ -53,7 +53,8 @@ class Bucket:
   course_ids = set()
   bucket_ids = set()
 
-#script to read in course table, major table, and bucket table
+# from the course table, build a course object with 
+# ID, description, name, credit hours, prereqs, and coreqs
 def build_course_objects():
   try:
     course_table = pd.read_csv('database_design_CT.csv', dtype=str)
