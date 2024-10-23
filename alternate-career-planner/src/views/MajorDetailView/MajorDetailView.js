@@ -29,7 +29,6 @@ const MajorDetailView = ({ majors, courses }) => {
             <p className="major-description"> { selectedMajor.description } </p>
 
             {/* Required Courses List */}
-            <h2> Required Courses </h2>
             <CourseListView courses = {courses || emptyCoursesList}/>
 
             {/* Jobs List */}
