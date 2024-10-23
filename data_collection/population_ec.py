@@ -47,7 +47,7 @@ class Course:
     self.description = description
     self.hours = hours
     
-  prereq_courseids = {1, 4, 6, 7}
+  prereq_courseids = set()
   coreq_courseids = set()
 
 
@@ -142,8 +142,7 @@ print(bucket_objects)
 # loop through each csv with each major's requirements
 # right now we only have 4 accessbile csvs but in the future, we 
 # will have access to all 12
-# for major_object_key in major_objects.keys():
-for major_object_key in ["1", "5","10", "11"]:
+for major_object_key in major_objects.keys():
 
   #read csv for this major using the ID number
   major_object = major_objects[major_object_key]
@@ -154,9 +153,13 @@ for major_object_key in ["1", "5","10", "11"]:
   outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
   print(relative_filename)
   try:
-    major_requirements = pd.read_csv(relative_filename, dtype=str)
+    try:
+      major_requirements = pd.read_csv(relative_filename, dtype=str)
+    except:
+      major_requirements = pd.read_csv(outside_filename, dtype=str)
   except:
-    major_requirements = pd.read_csv(outside_filename, dtype=str)
+    #if this csv isnt in the folder yet, just skip it
+    continue
   #fill in everything thats null in the excel 
   major_requirements = major_requirements.fillna("NULL")
 
