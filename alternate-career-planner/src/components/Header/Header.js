@@ -1,8 +1,9 @@
 /* Header.js 
- * Description: Displays logo and name at the top of the page.
+ * Description: Displays logo and name at the top of the page. 
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -11,7 +12,11 @@ const Header = () => {
         <div className="header-wrapper">
             <header>
                 <div className ="titleRow">
-                    <img src={'/assets/logo.png'} alt="Alternate Career Planner Logo" className="logo"/>
+                    <Link to='/results'>
+                    <img src={require('./../../assets/Logo.png')} 
+                        alt="Alternate Career Planner Logo" 
+                        className="logo"/>
+                    </Link>
                     <h1> Alternate Career Planner </h1>
                 </div>
             </header>
