@@ -3,15 +3,21 @@
  *  This page will likely be displayed after the initial interest quiz.
  */
 
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import './MajorsListView.css';
 import MajorList from '../../components/MajorList/MajorList';
-import { useLocation, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // Lists similar majors and their descriptions
 const MajorsListView = ({ majors }) => {
-    const location = useLocation();
-    const finalMajor = location.state?.finalMajor;
+    const [finalMajor, setFinalMajor] = useState(null);
+
+    useEffect (() => {
+        const storedMajor = localStorage.getItem('finalMajor');
+        if (storedMajor) {
+          setFinalMajor(storedMajor);
+        }
+    }, []);
 
     return (
         <div>
