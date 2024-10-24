@@ -8,6 +8,10 @@ import Quiz from './views/Quiz/Quiz';
 import ResultsView from './views/ResultsView/ResultsView';
 
 function App() {
+  // Clear local storage when user opens website
+  window.onunload = function () {
+      localStorage.clear();
+  }
 
   return (
       <Router>
