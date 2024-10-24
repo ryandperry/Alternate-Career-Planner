@@ -256,13 +256,13 @@ def build_bucket_objects(course_objects):
 # todo: decide how to seperate algorithm functions
   #so we can each work on different aspects
 
-def processing_course(course_objects):
+def processing_course(course_objects, person_object):
   # list of strings
   # from ryan - list of strings
-  history_names = []
+  
   # goal - build set of ids (of classes that they took)
   history_ids = set()
-  for history_name in history_names:
+  for history_name in person_object.classes_array:
     for course in course_objects.values():
       if(course.name == history_name):
         history_ids.add(course.course_id)
@@ -271,13 +271,17 @@ def processing_course(course_objects):
 def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
   #major_objects is the dictionary of major objects 
   hour_counter = 0
+  # check in every major 
+  history_ids = processing_course(course_objects=course_objects, person_object=person_object)
   for i in major_objects:
+    # do not check against their current major
     if(major_objects[i].major_id == person_object.major):
       continue
     else:
-      for course_taken in person_object.classes_array:
+      # check their courses ?
+      for course_taken in history_ids:
         #somewhere in here we need to check if it is part of a bucket
-        # if(course_taken[i] in bucket_objects)
+        # if(course_taken in bucket_objects)
         #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
             #pseudo code : 
             # if this course name appears in the bucket objects' course names 
