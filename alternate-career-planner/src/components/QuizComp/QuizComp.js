@@ -14,7 +14,7 @@ const majorMapping = {
     N: "Electrical Engineering",
     Q: "Aerospace Engineering",
     J: "Biomedical Engineering",
-    K: "Biosystems Engineering",
+    K: "Environmental Engineering",
     S: "Chemical Engineering",
     O: "Industrial Engineering",
     R: "Mechanical Engineering",
