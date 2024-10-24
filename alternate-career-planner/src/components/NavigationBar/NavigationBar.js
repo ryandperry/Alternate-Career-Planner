@@ -15,7 +15,7 @@ const NavigationBar = ({ majors }) => {
             {/* My Quiz */}
             <h3 className="section-title"> My Quiz </h3>
             <ul>
-                <li className={`sub-nav-title ${location.pathname == "/results" ? 'isselected' : ''}`}> 
+                <li className={`sub-nav-title ${location.pathname === "/results" ? 'isselected' : ''}`}> 
                     <Link to="/results">
                     View Results 
                     </Link>
@@ -33,7 +33,7 @@ const NavigationBar = ({ majors }) => {
                 {majors.map((major) => {
                     const majorPath = `/results/majors/${encodeURIComponent(major.name)}`;
                     return (
-                    <li className={`sub-nav-title ${location.pathname == majorPath ? 'isselected' : ''}`} key={major.name}>
+                    <li className={`sub-nav-title ${location.pathname === majorPath ? 'isselected' : ''}`} key={major.name}>
                         <Link to={majorPath}>
                             { major.name }
                         </Link>
