@@ -118,7 +118,7 @@ export class QuizComp extends Component {
 
         return (
             <div>
-                <h4>{`Question ${this.state.currentIndex + 1}`}</h4>
+                <h2>{`Question ${this.state.currentIndex + 1}`}</h2>
                 <h2>{question}</h2>
 
                 {options.map((option, index) => (
