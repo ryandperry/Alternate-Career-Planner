@@ -3,12 +3,20 @@
  * descritpion of webpage, buttons, and tutorial.
  */
 
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import ImageSlider from "./../../components/ImageSlider/ImageSlider";
 
 const Home = () => {
+    const [finalMajor, setFinalMajor] = useState(null);
+
+    useEffect (() => {
+        const storedMajor = localStorage.getItem('finalMajor');
+        if (storedMajor) {
+          setFinalMajor(storedMajor);
+        }
+    }, []);
     
     const slides = [
         {
@@ -59,12 +67,35 @@ const Home = () => {
                     major is right for you. </p>
 
                 {/* Buttons */}
-                <div className='buttons'>
-                    <button className='upload-button'>Upload File</button>
-                    <Link to='/quiz'>
-                        <button className='quiz-button'>Take Quiz</button>
-                    </Link>
-                </div>
+                {finalMajor !== null ? (
+                    // Quiz has been completed
+                    <div className='buttons'>
+                        <button className='upload-button'>
+                            Upload File
+                        </button>
+                        <Link to='/results'>
+                            <button className='quiz-button'>
+                                View Quiz Results
+                            </button>
+                        </Link>
+                        <Link to='/quiz'>
+                            <button className='quiz-button'>
+                                Retake Quiz
+                            </button>
+                        </Link>
+                    </div>
+                ) : (
+                    <div className='buttons'>
+                        <button className='upload-button'>
+                            Upload File
+                        </button>
+                        <Link to='/quiz'>
+                            <button className='quiz-button'>
+                                Take Quiz
+                            </button>
+                        </Link>
+                    </div>
+                )} 
             </div> 
 
             <hr style={{ width: '100%', marginTop: '40px', marginBottom: '40px' }} />
