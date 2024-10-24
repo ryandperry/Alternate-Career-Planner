@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react'
 import { QuizData } from './quizdata2.js'
-import { Link, Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 const majorMapping = {
     I: "Computer Science",
