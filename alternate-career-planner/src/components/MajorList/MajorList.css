@@ -30,6 +30,13 @@ margin: 0 0 0 0;
 color: #FF8200; /* TN Orange */
 }
 
+/* Fix CSS on major list links */
+.majorlist-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 /* Makes the description gray */
 .majorlist-description {
 color: #4B4B4B; /* Smokey Gray */
