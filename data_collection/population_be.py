@@ -256,7 +256,19 @@ def build_bucket_objects(course_objects):
 # todo: decide how to seperate algorithm functions
   #so we can each work on different aspects
 
-def compare_academic_history(person_object, major_objects, course_objects):
+def processing_course(course_objects):
+  # list of strings
+  # from ryan - list of strings
+  history_names = []
+  # goal - build set of ids (of classes that they took)
+  history_ids = set()
+  for history_name in history_names:
+    for course in course_objects.values():
+      if(course.name == history_name):
+        history_ids.add(course.course_id)
+  return history_ids
+
+def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
   #major_objects is the dictionary of major objects 
   hour_counter = 0
   for i in major_objects:
@@ -265,7 +277,15 @@ def compare_academic_history(person_object, major_objects, course_objects):
     else:
       for course_taken in person_object.classes_array:
         #somewhere in here we need to check if it is part of a bucket
-        if(major_objects[i].course_id == course_taken[i]):
+        # if(course_taken[i] in bucket_objects)
+        #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
+            #pseudo code : 
+            # if this course name appears in the bucket objects' course names 
+            #if()
+            # then you need to see if this one class will fill the entire requirement via the course table hours !! 
+            # if it does not fill the entire requirement, manually subtract the hours required for that bucket
+            # if it does fill the whole requirement add that number to hour_counter
+        if(major_objects[course_taken].course_id == course_taken[i]):
           hour_counter += course_objects["course_taken"].hours
         # look up the course id in the major dictionary at this i 
 
@@ -280,4 +300,4 @@ def main():
   person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
   print(major_objects)
-  compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects)
+  compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
