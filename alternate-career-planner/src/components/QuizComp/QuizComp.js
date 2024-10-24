@@ -82,10 +82,13 @@ export class QuizComp extends Component {
         const { nextPath } = this.state;
 
         if (majorMapping[nextPath]) {
-            // If the path corresponds to a final major
+            const finalMajor = majorMapping[nextPath];
+
+            localStorage.setItem('finalMajor', finalMajor);
+
             this.setState({
                 quizEnd: true,
-                finalMajor: majorMapping[nextPath]
+                finalMajor: finalMajor
             });
         } else {
             // Otherwise, update the path and load the next question
