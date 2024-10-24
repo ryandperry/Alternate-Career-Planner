@@ -12,7 +12,7 @@ const Header = () => {
         <div className="header-wrapper">
             <header>
                 <div className ="titleRow">
-                    <Link to='/results'>
+                    <Link to='/'>
                     <img src={require('./../../assets/Logo.png')} 
                         alt="Alternate Career Planner Logo" 
                         className="logo"/>
