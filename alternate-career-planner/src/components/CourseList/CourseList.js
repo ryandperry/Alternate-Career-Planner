@@ -10,7 +10,7 @@ import './CourseList.css';
 const CourseListView = ({ courses }) => {
 
     // Don't show anything (including title) if there are no courses
-    if (!courses || courses.length == 0) {
+    if (!courses || courses.length === 0) {
         return null;
     }
 
