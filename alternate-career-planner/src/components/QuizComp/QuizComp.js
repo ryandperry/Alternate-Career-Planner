@@ -113,7 +113,7 @@ export class QuizComp extends Component {
                 userAnswer, disabled, finalMajor} = this.state;
 
         if (quizEnd) {
-            return <Navigate to="/results" state={{ finalMajor }} />;
+            return <Navigate to="/results"/>;
         }
 
         return (
@@ -132,9 +132,9 @@ export class QuizComp extends Component {
                     </p>
                 ))}
 
-                <button disabled=
-                    {disabled} onClick={this.nextQuestionHandler}>
-                    Next Question
+                <button className='next-button' 
+                    disabled={disabled} onClick={this.nextQuestionHandler}>
+                    Next
                 </button>
             </div>
         );
