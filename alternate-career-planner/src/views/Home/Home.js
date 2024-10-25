@@ -7,10 +7,12 @@ import React, {useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import ImageSlider from "./../../components/ImageSlider/ImageSlider";
+import FileUploader from "./../../components/FileUploader/FileUploader";
 
 const Home = () => {
     const [finalMajor, setFinalMajor] = useState(null);
 
+    // finalMajor is set if the quiz has been taken
     useEffect (() => {
         const storedMajor = localStorage.getItem('finalMajor');
         if (storedMajor) {
@@ -47,6 +49,7 @@ const Home = () => {
         }
     ];
 
+    // Slide size
     const containerStyles = {
         width: '921.6px',
         height: '518.4px',
@@ -60,35 +63,35 @@ const Home = () => {
             <div className='text-section'>
                 <h1>We make switching majors easy.</h1>
                 <p> Welcome to the Alternate Career Planner! Like 
-                    engineering but hate your major? Don't worry, you've
+                    engineering but not your major? Don't worry, you've
                     come to the right place. Upload your academic 
                     history file and find majors that you could easily 
                     switch to, or take a short quiz to find out which 
                     major is right for you. </p>
+            </div> 
 
-                {/* Buttons */}
+
+            <div className='button-section'>
+                <FileUploader />
+
+                {/* Quiz Buttons */}
                 {finalMajor !== null ? (
                     // Quiz has been completed
                     <div className='buttons'>
-                        <button className='upload-button'>
-                            Upload File
-                        </button>
-                        <Link to='/results'>
-                            <button className='quiz-button'>
-                                View Quiz Results
-                            </button>
-                        </Link>
                         <Link to='/quiz'>
                             <button className='quiz-button'>
                                 Retake Quiz
                             </button>
                         </Link>
+                        <Link to='/results'>
+                            <button className='quiz-button'>
+                                View Quiz Results
+                            </button>
+                        </Link>
                     </div>
                 ) : (
+                    // Quiz has not been completed
                     <div className='buttons'>
-                        <button className='upload-button'>
-                            Upload File
-                        </button>
                         <Link to='/quiz'>
                             <button className='quiz-button'>
                                 Take Quiz
