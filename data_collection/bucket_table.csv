@@ -1,4 +1,4 @@
- ,Bucket Name,Course Names,Sequence Bucket IDs,Bucket Number of Hours,Bucket Number of Courses,Course IDs
+Bucket ID,Bucket Name,Course Names,Sequence Bucket IDs,Bucket Number of Hours,Bucket Number of Courses,Course IDs
 1,COSC Term 1 MATH,MATH 130; MATH 131,,NULL,,
 2,EF 152/158,EF 152; EF 158,,4,,
 3,Calc 2,MATH 142; MATH 148,,4,,
