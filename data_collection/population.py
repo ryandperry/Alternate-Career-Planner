@@ -15,8 +15,8 @@ import pandas as pd
 # update filenames here instead of in the code
 filenames = {
   "Bucket Table": "bucket_table.csv",
-  "Major Table": "database_design_MT.csv",
-  "Course Table": "database_design_CT.csv",
+  "Major Table": "major_table.csv",
+  "Course Table": "course_table.csv",
   "PreReq/CoReq Table": "prereq_coreq.csv",
   "Major Requirements Folder Name": "major_requirement_csvs",
   "Major Requirements Prefix": "major_"
