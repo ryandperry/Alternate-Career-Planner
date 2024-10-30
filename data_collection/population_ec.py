@@ -15,8 +15,8 @@ import pandas as pd
 # update filenames here instead of in the code
 filenames = {
   "Bucket Table": "bucket_table.csv",
-  "Major Table": "database_design_MT.csv",
-  "Course Table": "database_design_CT.csv",
+  "Major Table": "major_table.csv",
+  "Course Table": "course_table.csv",
   "PreReq/CoReq Table": "prereq_coreq.csv",
   "Major Requirements Folder Name": "major_requirement_csvs",
   "Major Requirements Prefix": "major_"
@@ -127,18 +127,18 @@ def build_bucket_objects(course_objects):
   bucket_table= bucket_table.fillna("NULL")
   bucket_objects = {}
   for row in bucket_table.index:
-      bucket_id = bucket_table.loc[row, "Bucket ID"]
+      bucket_id = bucket_table['Bucket ID'][row]
       bucket_obj = Bucket(bucket_table.loc[row, 'Bucket ID'], bucket_table.loc[row, 'Bucket Name'], bucket_table.loc[row, 'Bucket Number of Hours'], bucket_table.loc[row, "Bucket Number of Courses"])
 
       #seperate out the course names in semi-colon seperated list
       bucket_obj.course_names = set(bucket_table['Course Names'][row].replace(" ", "").split(";"))
 
-      # #TODO this doesnt work. need to add course IDs
-      # for current_course_name in bucket_obj.course_names:
-      #   # find this course ID
-      #   for course_obj in course_objects.values():
-      #     if(course_obj.name == current_course_name):
-      #       bucket_obj = bucket_obj.course_ids.add(course_obj.course_id)
+      #TODO this doesnt work. need to add course IDs
+      for current_course_name in bucket_obj.course_names:
+        # find this course ID
+        for course_obj in course_objects.values():
+          if(course_obj.name == current_course_name):
+            bucket_obj = bucket_obj.course_ids.add(course_obj.course_id)
 
       #add other bucket IDs
       bucket_obj.bucket_ids.add(bucket_table['Sequence Bucket IDs'][row])
@@ -206,6 +206,43 @@ def build_major_objects(course_objects, bucket_objects):
         major_object.course_ids.add(str(course_ID))
   
   return major_objects
+
+def processing_course(course_objects, person_object):
+  # list of strings
+  # from ryan - list of strings
+  
+  # goal - build set of ids (of classes that they took)
+  history_ids = set()
+  for history_name in person_object.classes_array:
+    for course in course_objects.values():
+      if(course.name == history_name):
+        history_ids.add(course.course_id)
+  return history_ids
+
+def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
+  #major_objects is the dictionary of major objects 
+  hour_counter = 0
+  # check in every major 
+  history_ids = processing_course(course_objects=course_objects, person_object=person_object)
+  for i in major_objects:
+    # do not check against their current major
+    if(major_objects[i].major_id == person_object.major):
+      continue
+    else:
+      # check their courses ?
+      for course_taken in history_ids:
+        #somewhere in here we need to check if it is part of a bucket
+        # if(course_taken in bucket_objects)
+        #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
+            #pseudo code : 
+            # if this course name appears in the bucket objects' course names 
+            #if()
+            # then you need to see if this one class will fill the entire requirement via the course table hours !! 
+            # if it does not fill the entire requirement, manually subtract the hours required for that bucket
+            # if it does fill the whole requirement add that number to hour_counter
+        if(major_objects[course_taken].course_id == course_taken[i]):
+          hour_counter += course_objects["course_taken"].hours
+        # look up the course id in the major dictionary at this i 
 
 def main():
   course_objects = build_course_objects()
