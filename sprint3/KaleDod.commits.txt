@@ -1,0 +1,307 @@
+major_2.csv
+major_2.csv  (kaledod on 10/30/2024 at 15:38): Major ID,Required Course ID,Required Bucket ID,Required Course,Required Course Name,Required Course Number of Hours,Required Bucket Number of Hours,Required Bucket Name,List of Courses in Bucket
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,11,,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,34,,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,62,NULL,COSC 101,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,36,,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,7,NULL,MATH 142; MATH 148,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,6,NULL,EF 152; EF 158,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,63,NULL,COSC 102,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,66,,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,11,,MATH 231; MATH 237,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,216,NULL,ECE 201,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,25,NULL,COSC 202,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,14,NULL,PHYS 231,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,217,NULL,ECE 255,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,15,NULL,MATH 241; MATH 247,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,218,NULL,ECE 202,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,98,NULL,MATH 251; MATH 257,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,230,NULL,ECE 256,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,4,NULL,CHEM 122; CHEM 123; CHEM 128,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,231,NULL,ECE 351; ECE 357,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,222,NULL,ECE 335,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,232,NULL,COSC 302; COSC 307,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,233,,ECE 313; ECE 317,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,223,,ECE 395,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,220,,ECE 315,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,234,,COSC 311; COSC 317,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,235,,COSC 360; COSC 367,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,236,,ECE 356; ECE 358,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,228,,ECE 401,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,79,,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,80,,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,80,,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,229,,ECE 402,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,79,,,,,,
+major_2.csv  (kaledod on 10/30/2024 at 15:38): 2,NULL,80,,,,,,
+
+population_kd.py
+population_kd.py (kaledod on 10/30/2024 at 17:40): # Database Population Script
+population_kd.py (kaledod on 10/30/2024 at 17:40): # Takes in an excel with major, bucket, and course information
+population_kd.py (kaledod on 10/30/2024 at 17:40): # Builds tables for each major
+population_kd.py (kaledod on 10/30/2024 at 17:40): # Builds lists of course, major, and bucket information
+population_kd.py (kaledod on 10/30/2024 at 17:40): # Prepares data for the algorithm to match students -> majors
+population_kd.py (kaledod on 10/30/2024 at 17:40): # TO RUN:
+population_kd.py (kaledod on 10/30/2024 at 17:40): # select all (cntl+a)
+population_kd.py (kaledod on 10/30/2024 at 17:40): # shift+enter to use interactive window
+population_kd.py (kaledod on 10/30/2024 at 17:40): # highlight the contents of main
+population_kd.py (kaledod on 10/30/2024 at 17:40): # shift+enter to run whatever is in main
+population_kd.py (kaledod on 10/30/2024 at 17:40): import pandas as pd
+population_kd.py (kaledod on 10/30/2024 at 17:40): # update filenames here instead of in the code
+population_kd.py (kaledod on 10/30/2024 at 17:40): filenames = {
+population_kd.py (kaledod on 10/30/2024 at 17:40):   "Bucket Table": "bucket_table.csv",
+population_kd.py (kaledod on 10/31/2024 at 16:29):   "Major Table": "major_table.csv",
+population_kd.py (kaledod on 10/31/2024 at 16:29):   "Course Table": "course_table.csv",
+population_kd.py (kaledod on 10/30/2024 at 17:40):   "PreReq/CoReq Table": "prereq_coreq.csv",
+population_kd.py (kaledod on 10/30/2024 at 17:40):   "Major Requirements Folder Name": "major_requirement_csvs",
+population_kd.py (kaledod on 10/30/2024 at 17:40):   "Major Requirements Prefix": "major_"
+population_kd.py (kaledod on 10/30/2024 at 17:40): }
+population_kd.py (kaledod on 10/31/2024 at 16:29): #global sets that everyone needs access to?
+population_kd.py (kaledod on 10/30/2024 at 17:40): class Major:
+population_kd.py (kaledod on 10/30/2024 at 17:40):   def __init__(self, major_id, abbr, name, description):
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.major_id = major_id
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.abbr = abbr
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.name = name
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.description = description
+population_kd.py (kaledod on 10/31/2024 at 16:29):     self.course_ids = set()
+population_kd.py (kaledod on 10/31/2024 at 16:29):     self.bucket_ids = set()
+population_kd.py (kaledod on 10/30/2024 at 17:40): class Course:
+population_kd.py (kaledod on 10/31/2024 at 16:29):   def __init__(self, course_id, description, hours):
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.course_id = course_id
+population_kd.py (kaledod on 10/31/2024 at 16:29):     self.names = set()
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.description = description
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.hours = hours
+population_kd.py (kaledod on 10/31/2024 at 16:29):     self.prereq_courseids = set()
+population_kd.py (kaledod on 10/31/2024 at 16:29):     self.coreq_courseids = set()
+population_kd.py (kaledod on 10/30/2024 at 17:40): class Bucket:
+population_kd.py (kaledod on 10/30/2024 at 17:40):   def __init__(self, bucket_id, name, num_hours, num_courses):
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.bucket_id = bucket_id
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.name = name
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.num_hours = num_hours
+population_kd.py (kaledod on 10/30/2024 at 17:40):     self.num_courses = num_courses
+population_kd.py (kaledod on 10/31/2024 at 16:29):     self.course_names = set()
+population_kd.py (kaledod on 10/31/2024 at 16:29):     self.course_ids = set()
+population_kd.py (kaledod on 10/31/2024 at 16:29):     self.other_bucket_ids = set()
+population_kd.py (kaledod on 10/30/2024 at 17:40): # from the course table, build a course object with 
+population_kd.py (kaledod on 10/30/2024 at 17:40): # ID, description, name, credit hours, prereqs, and coreqs
+population_kd.py (kaledod on 10/30/2024 at 17:40): def build_course_objects():
+population_kd.py (kaledod on 10/30/2024 at 17:40):   try:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     course_table = pd.read_csv(filenames['Course Table'], dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   except:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     course_table = pd.read_csv('data_collection/'+filenames['Course Table'], dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   course_table = course_table.fillna("NULL")
+population_kd.py (kaledod on 10/30/2024 at 17:40):   course_objects = {}
+population_kd.py (kaledod on 10/30/2024 at 17:40):   for row in course_table.index:
+population_kd.py (kaledod on 10/30/2024 at 17:40):       course_id = course_table.loc[row, "Course ID"]
+population_kd.py (kaledod on 10/31/2024 at 16:29):       #if this course ID already exists, add this current name to the list of names
+population_kd.py (kaledod on 10/31/2024 at 16:29):       if course_id in course_objects.keys():
+population_kd.py (kaledod on 10/31/2024 at 16:29):         # print(row, " key already made, adding ", course_table['Course'][row])
+population_kd.py (kaledod on 10/31/2024 at 16:29):         course_objects[course_id].names.add(course_table['Course'][row])
+population_kd.py (kaledod on 10/31/2024 at 16:29):       else:
+population_kd.py (kaledod on 10/31/2024 at 16:29):         #make a new course object for this entry
+population_kd.py (kaledod on 10/31/2024 at 16:29):         # print(row," making new key, adding ", course_table.loc[row, 'Course ID'], " with names ",course_table['Course'][row] )
+population_kd.py (kaledod on 10/31/2024 at 16:29):         course_object = Course(course_table.loc[row, 'Course ID'], course_table.loc[row, 'Course Description'], course_table.loc[row, 'Course Hours'])
+population_kd.py (kaledod on 10/31/2024 at 16:29):         course_object.names.add(course_table['Course'][row])
+population_kd.py (kaledod on 10/31/2024 at 16:29):         course_objects[str(course_id)] = course_object
+population_kd.py (kaledod on 10/30/2024 at 17:40):   # PREREQs and COREQs
+population_kd.py (kaledod on 10/30/2024 at 17:40):   try:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     prereqs = pd.read_csv(filenames['PreReq/CoReq Table'], dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   except:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     prereqs = pd.read_csv('data_collection/'+filenames['PreReq/CoReq Table'], dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   prereqs = prereqs.fillna("NULL")
+population_kd.py (kaledod on 10/30/2024 at 17:40):   #for each row (each course and P/C pairing)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   for row in prereqs.index:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     #get this current row's course name and course ID
+population_kd.py (kaledod on 10/30/2024 at 17:40):     current_course_name = prereqs['Course'][row]
+population_kd.py (kaledod on 10/30/2024 at 17:40):     current_course_ID = prereqs['Course ID'][row]
+population_kd.py (kaledod on 10/30/2024 at 17:40):     #get this current row's req class name or req course ID
+population_kd.py (kaledod on 10/30/2024 at 17:40):     current_req_name = prereqs['PreReq/CoReq Course'][row]
+population_kd.py (kaledod on 10/30/2024 at 17:40):     current_req_ID = prereqs['Pre-Req Course ID'][row]
+population_kd.py (kaledod on 10/31/2024 at 16:29):     #this whole row is empty
+population_kd.py (kaledod on 10/30/2024 at 17:40):     if((current_course_name == 'NULL' and current_course_ID == "NULL") or 
+population_kd.py (kaledod on 10/30/2024 at 17:40):        (current_req_name == "NULL" and current_req_ID == "NULL")):
+population_kd.py (kaledod on 10/30/2024 at 17:40):       continue
+population_kd.py (kaledod on 10/31/2024 at 16:29):     #handle the case where the course ID is null
+population_kd.py (kaledod on 10/31/2024 at 16:29):     if(current_course_name != "NULL" and current_course_ID == "NULL"):
+population_kd.py (kaledod on 10/31/2024 at 16:29):       #need to get the ID to be able to match course IDs
+population_kd.py (kaledod on 10/31/2024 at 16:29):       for course_obj in course_objects.values():
+population_kd.py (kaledod on 10/31/2024 at 16:29):         # print(course_obj.names)
+population_kd.py (kaledod on 10/31/2024 at 16:29):         if current_course_name in course_obj.names:
+population_kd.py (kaledod on 10/31/2024 at 16:29):           # print("found")
+population_kd.py (kaledod on 10/31/2024 at 16:29):           current_course_ID = course_obj.course_id
+population_kd.py (kaledod on 10/30/2024 at 17:40):     #if it doesnt have an ID, find it and save it
+population_kd.py (kaledod on 10/30/2024 at 17:40):     if(current_req_ID == "NULL"):
+population_kd.py (kaledod on 10/30/2024 at 17:40):       for course in course_objects.values():
+population_kd.py (kaledod on 10/31/2024 at 16:29):         if(current_req_name in course.names):
+population_kd.py (kaledod on 10/30/2024 at 17:40):           current_req_ID = course.course_id
+population_kd.py (kaledod on 10/30/2024 at 17:40):     if(current_course_ID == "NULL" or current_req_ID == "NULL"):
+population_kd.py (kaledod on 10/30/2024 at 17:40):       continue
+population_kd.py (kaledod on 10/30/2024 at 17:40):     # for this row's requirement,
+population_kd.py (kaledod on 10/30/2024 at 17:40):     # save it to the course object's prereq or coreq list
+population_kd.py (kaledod on 10/30/2024 at 17:40):     if(prereqs['Co-req or Pre-req'][row] == 'P'):
+population_kd.py (kaledod on 10/30/2024 at 17:40):       course_objects[current_course_ID].prereq_courseids.add(current_req_ID)
+population_kd.py (kaledod on 10/30/2024 at 17:40):     if(prereqs['Co-req or Pre-req'][row] == 'C'):
+population_kd.py (kaledod on 10/30/2024 at 17:40):       course_objects[current_course_ID].coreq_courseids.add(current_req_ID)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   return course_objects
+population_kd.py (kaledod on 10/30/2024 at 17:40): def build_bucket_objects(course_objects):
+population_kd.py (kaledod on 10/30/2024 at 17:40):   try:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     bucket_table = pd.read_csv(filenames['Bucket Table'], dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   except:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     bucket_table = pd.read_csv('data_collection/'+filenames['Bucket Table'], dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   bucket_table= bucket_table.fillna("NULL")
+population_kd.py (kaledod on 10/30/2024 at 17:40):   bucket_objects = {}
+population_kd.py (kaledod on 10/30/2024 at 17:40):   for row in bucket_table.index:
+population_kd.py (kaledod on 10/31/2024 at 16:29):       bucket_id = bucket_table['Bucket ID'][row]
+population_kd.py (kaledod on 10/31/2024 at 16:29):       #make sure number of hours and number of courses are integers not strings
+population_kd.py (kaledod on 10/31/2024 at 16:29):       # do we want to do this in the algorithm or the data processing?
+population_kd.py (kaledod on 10/31/2024 at 16:29):       num_hours = bucket_table.loc[row, 'Bucket Number of Hours']
+population_kd.py (kaledod on 10/31/2024 at 16:29):       if (num_hours != "NULL"): num_hours = int(num_hours);
+population_kd.py (kaledod on 10/31/2024 at 16:29):       else: num_hours = -1
+population_kd.py (kaledod on 10/31/2024 at 16:29):       num_courses = bucket_table.loc[row, "Bucket Number of Courses"]
+population_kd.py (kaledod on 10/31/2024 at 16:29):       if (num_courses != "NULL"): num_courses = int(num_hours);
+population_kd.py (kaledod on 10/31/2024 at 16:29):       else: num_hours = -1
+population_kd.py (kaledod on 10/31/2024 at 16:29):       bucket_obj = Bucket(bucket_id=bucket_table.loc[row, 'Bucket ID'], name =bucket_table.loc[row, 'Bucket Name'],num_hours=num_hours, num_courses=num_courses)
+population_kd.py (kaledod on 10/30/2024 at 17:40):       #seperate out the course names in semi-colon seperated list
+population_kd.py (kaledod on 10/31/2024 at 16:29):       if(bucket_table['Course Names'][row] != "NULL"):
+population_kd.py (kaledod on 10/31/2024 at 16:29):         bucket_obj.course_names = set(bucket_table['Course Names'][row].replace(" ", "").split(";"))
+population_kd.py (kaledod on 10/31/2024 at 16:29):       for current_course_name in bucket_obj.course_names:
+population_kd.py (kaledod on 10/31/2024 at 16:29):         # find this course ID in the course objects list
+population_kd.py (kaledod on 10/31/2024 at 16:29):         for course_obj in course_objects.values():
+population_kd.py (kaledod on 10/31/2024 at 16:29):           # if(course_obj.name == "AE 377"): print("found")
+population_kd.py (kaledod on 10/31/2024 at 16:29):           if(current_course_name in course_obj.names):
+population_kd.py (kaledod on 10/31/2024 at 16:29):             bucket_obj.course_ids.add(course_obj.course_id)
+population_kd.py (kaledod on 10/31/2024 at 16:29):       #add the sequence IDs (other bucket ids.. we can think of a better name)
+population_kd.py (kaledod on 10/31/2024 at 16:29):       if( bucket_table['Sequence Bucket IDs'][row] != "NULL"):
+population_kd.py (kaledod on 10/31/2024 at 16:29):         bucket_obj.other_bucket_ids = set(bucket_table['Sequence Bucket IDs'][row].replace(" ", "").split(";"))
+population_kd.py (kaledod on 10/30/2024 at 17:40):       # save this new bucket object
+population_kd.py (kaledod on 10/30/2024 at 17:40):       bucket_objects[str(bucket_id)] =  bucket_obj
+population_kd.py (kaledod on 10/30/2024 at 17:40):   return bucket_objects
+population_kd.py (kaledod on 10/30/2024 at 17:40): #there are csvs for each major requirements
+population_kd.py (kaledod on 10/30/2024 at 17:40): #(from our "database")
+population_kd.py (kaledod on 10/30/2024 at 17:40): #name them major_ID like major_1 (which is CS)
+population_kd.py (kaledod on 10/30/2024 at 17:40): #place them in the major requirements csv folder
+population_kd.py (kaledod on 10/30/2024 at 17:40): def build_major_objects(course_objects, bucket_objects):
+population_kd.py (kaledod on 10/30/2024 at 17:40):   try:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     major_table = pd.read_csv(filenames['Major Table'], dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   except:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     major_table = pd.read_csv('data_collection/'+filenames['Major Table'], dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   major_table = major_table.fillna("NULL")
+population_kd.py (kaledod on 10/30/2024 at 17:40):   major_objects = {}
+population_kd.py (kaledod on 10/30/2024 at 17:40):   for row in major_table.index:
+population_kd.py (kaledod on 10/30/2024 at 17:40):       major_id = major_table.loc[row, 'Major ID']
+population_kd.py (kaledod on 10/30/2024 at 17:40):       major_obj = Major(major_table.loc[row, 'Major ID'], major_table.loc[row, 'Major Abreviation'], major_table.loc[row, 'Major Name'], major_table.loc[row, 'Major Description'])
+population_kd.py (kaledod on 10/30/2024 at 17:40):       major_objects[str(major_id)] = major_obj
+population_kd.py (kaledod on 10/30/2024 at 17:40):   for major_id in major_objects.keys():
+population_kd.py (kaledod on 10/30/2024 at 17:40):     major_object = major_objects[major_id]
+population_kd.py (kaledod on 10/30/2024 at 17:40):     if( major_object.major_id == "NULL"):
+population_kd.py (kaledod on 10/30/2024 at 17:40):       continue
+population_kd.py (kaledod on 10/30/2024 at 17:40):     relative_filename = filenames['Major Requirements Folder Name']+'/' + filenames['Major Requirements Prefix'] + str(int(major_object.major_id)) + '.csv'
+population_kd.py (kaledod on 10/30/2024 at 17:40):     outside_filename = 'data_collection/' + filenames['Major Requirements Folder Name']+'/' + filenames['Major Requirements Prefix'] + str(int(major_object.major_id)) + '.csv'
+population_kd.py (kaledod on 10/30/2024 at 17:40):     try:
+population_kd.py (kaledod on 10/30/2024 at 17:40):       try:
+population_kd.py (kaledod on 10/30/2024 at 17:40):         major_requirements = pd.read_csv(relative_filename, dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):       except:
+population_kd.py (kaledod on 10/30/2024 at 17:40):         major_requirements = pd.read_csv(outside_filename, dtype=str)
+population_kd.py (kaledod on 10/30/2024 at 17:40):     except:
+population_kd.py (kaledod on 10/30/2024 at 17:40):       #if this csv isnt in the folder yet, just skip it
+population_kd.py (kaledod on 10/30/2024 at 17:40):       continue
+population_kd.py (kaledod on 10/30/2024 at 17:40):     #fill in everything that's null in the excel 
+population_kd.py (kaledod on 10/30/2024 at 17:40):     major_requirements = major_requirements.fillna("NULL")
+population_kd.py (kaledod on 10/30/2024 at 17:40):     #make the course and bucket objects using either the ID or the name
+population_kd.py (kaledod on 10/30/2024 at 17:40):     #example: if the row has a course (MATH 141), lookup in the dictionary
+population_kd.py (kaledod on 10/30/2024 at 17:40):       #of courses for that and add the course ID to major.course_ids set()
+population_kd.py (kaledod on 10/30/2024 at 17:40):     #example: if the row has course ID 5, then add that ID
+population_kd.py (kaledod on 10/30/2024 at 17:40):     for row in major_requirements.index:
+population_kd.py (kaledod on 10/30/2024 at 17:40):       #get the course ID or bucket ID for this major requirement
+population_kd.py (kaledod on 10/30/2024 at 17:40):       bucket_ID = major_requirements['Required Bucket ID'][row]
+population_kd.py (kaledod on 10/30/2024 at 17:40):       course_ID = major_requirements['Required Course ID'][row]
+population_kd.py (kaledod on 10/30/2024 at 17:40):       course = major_requirements['Required Course'][row]
+population_kd.py (kaledod on 10/30/2024 at 17:40):       #if this row has a bucket, use the bucket ID
+population_kd.py (kaledod on 10/30/2024 at 17:40):       if(bucket_ID != "NULL"):
+population_kd.py (kaledod on 10/30/2024 at 17:40):         major_object.bucket_ids.add(str(bucket_ID))
+population_kd.py (kaledod on 10/30/2024 at 17:40):       elif(course_ID != "NULL"):
+population_kd.py (kaledod on 10/30/2024 at 17:40):         major_object.course_ids.add(str(course_ID))
+population_kd.py (kaledod on 10/30/2024 at 17:40):       elif(course != "NULL"):
+population_kd.py (kaledod on 10/31/2024 at 16:29):         course_ID = [course_obj.course_id for course_obj in course_objects.values() if course in course_obj.names]
+population_kd.py (kaledod on 10/30/2024 at 17:40):         major_object.course_ids.add(str(course_ID))
+population_kd.py (kaledod on 10/30/2024 at 17:40):   return major_objects
+population_kd.py (kaledod on 10/31/2024 at 16:29): def processing_course(course_objects, person_object):
+population_kd.py (kaledod on 10/31/2024 at 16:29):   # list of strings
+population_kd.py (kaledod on 10/31/2024 at 16:29):   # from ryan - list of strings
+population_kd.py (kaledod on 10/31/2024 at 16:29):   # goal - build set of ids (of classes that they took)
+population_kd.py (kaledod on 10/31/2024 at 16:29):   history_ids = set()
+population_kd.py (kaledod on 10/31/2024 at 16:29):   for history_name in person_object.classes_array:
+population_kd.py (kaledod on 10/31/2024 at 16:29):     for course in course_objects.values():
+population_kd.py (kaledod on 10/31/2024 at 16:29):       # TODO if history name in course.names
+population_kd.py (kaledod on 10/31/2024 at 16:29):       if(course.name == history_name):
+population_kd.py (kaledod on 10/31/2024 at 16:29):         history_ids.add(course.course_id)
+population_kd.py (kaledod on 10/31/2024 at 16:29):   return history_ids
+population_kd.py (kaledod on 10/31/2024 at 16:29): def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
+population_kd.py (kaledod on 10/31/2024 at 16:29):   #major_objects is the dictionary of major objects 
+population_kd.py (kaledod on 10/31/2024 at 16:29):   hour_counter = 0
+population_kd.py (kaledod on 10/31/2024 at 16:29):   # check in every major 
+population_kd.py (kaledod on 10/31/2024 at 16:29):   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
+population_kd.py (kaledod on 10/31/2024 at 16:29):   for i in major_objects:
+population_kd.py (kaledod on 10/31/2024 at 16:29):     # do not check against their current major
+population_kd.py (kaledod on 10/31/2024 at 16:29):     if(major_objects[i].major_id == person_object.major):
+population_kd.py (kaledod on 10/31/2024 at 16:29):       continue
+population_kd.py (kaledod on 10/31/2024 at 16:29):     else:
+population_kd.py (kaledod on 10/31/2024 at 16:29):       # check their courses ?
+population_kd.py (kaledod on 10/31/2024 at 16:29):       for course_taken in history_ids:
+population_kd.py (kaledod on 10/31/2024 at 16:29):         #somewhere in here we need to check if it is part of a bucket
+population_kd.py (kaledod on 10/31/2024 at 16:29):         # if(course_taken in bucket_objects)
+population_kd.py (kaledod on 10/31/2024 at 16:29):         #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
+population_kd.py (kaledod on 10/31/2024 at 16:29):             #pseudo code : 
+population_kd.py (kaledod on 10/31/2024 at 16:29):             # if this course name appears in the bucket objects' course names 
+population_kd.py (kaledod on 10/31/2024 at 16:29):             #if()
+population_kd.py (kaledod on 10/31/2024 at 16:29):             # then you need to see if this one class will fill the entire requirement via the course table hours !! 
+population_kd.py (kaledod on 10/31/2024 at 16:29):             # if it does not fill the entire requirement, manually subtract the hours required for that bucket
+population_kd.py (kaledod on 10/31/2024 at 16:29):             # if it does fill the whole requirement add that number to hour_counter
+population_kd.py (kaledod on 10/31/2024 at 16:29):         if(major_objects[course_taken].course_id == course_taken[i]):
+population_kd.py (kaledod on 10/31/2024 at 16:29):           hour_counter += course_objects["course_taken"].hours
+population_kd.py (kaledod on 10/31/2024 at 16:29):         # look up the course id in the major dictionary at this i 
+population_kd.py (kaledod on 10/30/2024 at 17:40): def print_course_obj(course_object):
+population_kd.py (kaledod on 10/31/2024 at 16:29):   course_name = course_object.names
+population_kd.py (kaledod on 10/30/2024 at 17:40):   course_hrs = course_object.hours
+population_kd.py (kaledod on 10/30/2024 at 17:40):   course_prereq_id = course_object.prereq_courseids
+population_kd.py (kaledod on 10/31/2024 at 16:29):   print_statement = "Courses: "
+population_kd.py (kaledod on 10/31/2024 at 16:29):   for y in course_name:
+population_kd.py (kaledod on 10/31/2024 at 16:29):     print_statement += y + " "
+population_kd.py (kaledod on 10/31/2024 at 16:29):   #print(course_object.course_id)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   if course_object.description == "NULL":
+population_kd.py (kaledod on 10/31/2024 at 16:29):     #print( "Course:", course_object.course_id, course_name, "\nDescription: N/A","\nRequires", course_hrs, "hours")
+population_kd.py (kaledod on 10/31/2024 at 16:29):     print_statement += "\nDescription: N/A" + "\nRequires " + course_hrs + " hours"
+population_kd.py (kaledod on 10/30/2024 at 17:40):   else:
+population_kd.py (kaledod on 10/31/2024 at 16:29):     #print( "Course:", course_object.course_id, course_name, "\nDescription:",course_object.description, "\nRequires", course_hrs, " hours, these prereqs ", course_prereq_id)
+population_kd.py (kaledod on 10/31/2024 at 16:29):     print_statement += "\nDescription: " + course_object.description + "\nRequires " + course_hrs + " hours"
+population_kd.py (kaledod on 10/31/2024 at 16:29):   if len(course_prereq_id) != 0:
+population_kd.py (kaledod on 10/31/2024 at 16:29):     print_statement += ", these prereqs "
+population_kd.py (kaledod on 10/31/2024 at 16:29):     for x in course_prereq_id:
+population_kd.py (kaledod on 10/31/2024 at 16:29):       print_statement += x
+population_kd.py (kaledod on 10/31/2024 at 16:29):   return print(print_statement)
+population_kd.py (kaledod on 10/30/2024 at 17:40): def print_bucket_obj(bucket_object):
+population_kd.py (kaledod on 10/30/2024 at 17:40):   bucket_name = bucket_object.name
+population_kd.py (kaledod on 10/31/2024 at 16:29):   num_hrs = bucket_object.num_hours
+population_kd.py (kaledod on 10/30/2024 at 17:40):   courses = bucket_object.course_names
+population_kd.py (kaledod on 10/31/2024 at 16:29):   print_statement = "Bucket: " + bucket_name + " has these courses "
+population_kd.py (kaledod on 10/31/2024 at 16:29):   for x in courses:
+population_kd.py (kaledod on 10/31/2024 at 16:29):     print_statement += x + " "
+population_kd.py (kaledod on 10/31/2024 at 16:29):   #print(bucket_object.num_hours)
+population_kd.py (kaledod on 10/31/2024 at 16:29):   print_statement += "\nFor a total of " + str(num_hrs) + " hours"
+population_kd.py (kaledod on 10/31/2024 at 16:29):   return print(print_statement) 
+population_kd.py (kaledod on 10/30/2024 at 17:40): def print_major_obj(major_object):
+population_kd.py (kaledod on 10/30/2024 at 17:40):   maj_cour_ids = major_object.course_ids
+population_kd.py (kaledod on 10/30/2024 at 17:40):   maj_buck_ids = major_object.bucket_ids
+population_kd.py (kaledod on 10/30/2024 at 17:40):   name = major_object.name
+population_kd.py (kaledod on 10/30/2024 at 17:40):   print(name)
+population_kd.py (kaledod on 10/30/2024 at 17:40):   return
+population_kd.py (kaledod on 10/30/2024 at 17:40): def main():
+population_kd.py (kaledod on 10/30/2024 at 17:40):   course_objects = build_course_objects()
+population_kd.py (kaledod on 10/30/2024 at 17:40):   bucket_objects = build_bucket_objects(course_objects)
+population_kd.py (kaledod on 10/31/2024 at 16:29):   #for i in course_objects:
+population_kd.py (kaledod on 10/30/2024 at 17:40):     #print_course_obj(course_object=course_objects[i])
+population_kd.py (kaledod on 10/31/2024 at 16:29):   for i in bucket_objects:
+population_kd.py (kaledod on 10/31/2024 at 16:29):     print_bucket_obj(bucket_object=bucket_objects[i])
+population_kd.py (kaledod on 10/30/2024 at 17:40):   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
+population_kd.py (kaledod on 10/31/2024 at 16:29):   #for i in major_objects:
+population_kd.py (kaledod on 10/31/2024 at 16:29):     #print_major_obj(major_object=major_objects[i])
