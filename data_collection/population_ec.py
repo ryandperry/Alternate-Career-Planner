@@ -23,8 +23,6 @@ filenames = {
 }
 
 #global sets that everyone needs access to?
-# course_ids = set()
-# bucket_ids = set()
 
 class Major:
   def __init__(self, major_id, abbr, name, description):
@@ -32,6 +30,9 @@ class Major:
     self.abbr = abbr
     self.name = name
     self.description = description
+    self.course_ids = set()
+    self.bucket_ids = set()
+
 
 
 class Course:
@@ -86,7 +87,6 @@ def build_course_objects():
 
   prereqs = prereqs.fillna("NULL")
   #for each row (each course and P/C pairing)
-  # TODO this matching doesnt work
   for row in prereqs.index:
     #get this current row's course name and course ID
     current_course_name = prereqs['Course'][row]
@@ -153,12 +153,11 @@ def build_bucket_objects(course_objects):
       if(bucket_table['Course Names'][row] != "NULL"):
         bucket_obj.course_names = set(bucket_table['Course Names'][row].replace(" ", "").split(";"))
 
-      #TODO this doesnt work. need to add course IDs
       for current_course_name in bucket_obj.course_names:
         # find this course ID in the course objects list
         for course_obj in course_objects.values():
           # if(course_obj.name == "AE 377"): print("found")
-          if(course_obj.name == current_course_name and course_obj.name != "NULL"):
+          if(current_course_name in course_obj.names):
             bucket_obj.course_ids.add(course_obj.course_id)
 
       #add the sequence IDs (other bucket ids.. we can think of a better name)
@@ -276,8 +275,6 @@ def main():
     print("Coreq IDs: ", course_obj.coreq_courseids)
 
   bucket_objects = build_bucket_objects(course_objects)
-  print(course_objects)
-
   print(bucket_objects)
   for bucket_obj in bucket_objects.values():
     print("Name: ", bucket_obj.name)
@@ -287,4 +284,7 @@ def main():
 
 
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
-  print(major_objects)
+  for major_obj in major_objects.values():
+    print("Name: ", major_obj.name)
+    print("Course IDs: ", major_obj.course_ids)
+    print("Bucket IDs: ", major_obj.bucket_ids)
