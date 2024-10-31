@@ -73,7 +73,7 @@ const Home = ({ onFileParse }) => {
             <div className='text-section'>
                 <h1>We make switching majors easy.</h1>
                 <p> Welcome to the Alternate Career Planner! Like 
-                    engineering but not your major? Don't worry, you've
+                    engineering, but not sure about your major? Don't worry, you've
                     come to the right place. Upload your academic 
                     history file and find majors that you could easily 
                     switch to, or take a short quiz to find out which 
