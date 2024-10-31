@@ -27,12 +27,14 @@ export const parseCourseContent = (content) => {
                 }
             }
             const newCourse = new Course();
-            newCourse.setCourseInfo(courseBlock);
+            if (!newCourse.setCourseInfo(courseBlock)) {
+                return false;
+            }
             coursesTaken.push(newCourse);
             // Reset the course block for the next coures
             courseBlock = '';
         }
     }
     localStorage.setItem('coursesTaken', JSON.stringify(coursesTaken));
+    return true;
 };
-
