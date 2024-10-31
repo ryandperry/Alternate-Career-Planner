@@ -22,6 +22,10 @@ filenames = {
   "Major Requirements Prefix": "major_"
 }
 
+#global sets that everyone needs access to?
+# course_ids = set()
+# bucket_ids = set()
+
 class Major:
   def __init__(self, major_id, abbr, name, description):
     self.major_id = major_id
@@ -29,20 +33,15 @@ class Major:
     self.name = name
     self.description = description
 
-  course_ids = set()
-  bucket_ids = set()
 
-#TODO courses need set of strings for names
 class Course:
   def __init__(self, course_id, description, hours):
     self.course_id = course_id
-    # self.names = set(name)
+    self.names = set()
     self.description = description
     self.hours = hours
-
-  names = set()
-  prereq_courseids = set()
-  coreq_courseids = set()
+    self.prereq_courseids = set()
+    self.coreq_courseids = set()
 
 
 class Bucket:
@@ -51,12 +50,9 @@ class Bucket:
     self.name = name
     self.num_hours = num_hours
     self.num_courses = num_courses
-  
-  course_names = set()
-  course_ids = set()
-  other_bucket_ids = set()
-
-
+    self.course_names = set()
+    self.course_ids = set()
+    self.other_bucket_ids = set()
 
 
 # from the course table, build a course object with 
@@ -73,62 +69,62 @@ def build_course_objects():
       course_id = course_table.loc[row, "Course ID"]
       #if this course ID already exists, add this current name to the list of names
       if course_id in course_objects.keys():
-        print(row, " key already made, adding ", course_table['Course'][row])
+        # print(row, " key already made, adding ", course_table['Course'][row])
         course_objects[course_id].names.add(course_table['Course'][row])
       else:
         #make a new course object for this entry
-        print(row," making new key, adding ", course_table.loc[row, 'Course ID'], " with names ",course_table['Course'][row] )
+        # print(row," making new key, adding ", course_table.loc[row, 'Course ID'], " with names ",course_table['Course'][row] )
         course_object = Course(course_table.loc[row, 'Course ID'], course_table.loc[row, 'Course Description'], course_table.loc[row, 'Course Hours'])
         course_object.names.add(course_table['Course'][row])
         course_objects[str(course_id)] = course_object
 
-  # # PREREQs and COREQs
-  # try:
-  #   prereqs = pd.read_csv(filenames['PreReq/CoReq Table'], dtype=str)
-  # except:
-  #   prereqs = pd.read_csv('data_collection/'+filenames['PreReq/CoReq Table'], dtype=str)
+  # PREREQs and COREQs
+  try:
+    prereqs = pd.read_csv(filenames['PreReq/CoReq Table'], dtype=str)
+  except:
+    prereqs = pd.read_csv('data_collection/'+filenames['PreReq/CoReq Table'], dtype=str)
 
-  # prereqs = prereqs.fillna("NULL")
-  # #for each row (each course and P/C pairing)
-  # # TODO this matching doesnt work
-  # for row in prereqs.index:
-  #   #get this current row's course name and course ID
-  #   current_course_name = prereqs['Course'][row]
-  #   current_course_ID = prereqs['Course ID'][row]
+  prereqs = prereqs.fillna("NULL")
+  #for each row (each course and P/C pairing)
+  # TODO this matching doesnt work
+  for row in prereqs.index:
+    #get this current row's course name and course ID
+    current_course_name = prereqs['Course'][row]
+    current_course_ID = prereqs['Course ID'][row]
 
-  #   #get this current row's req class name or req course ID
-  #   current_req_name = prereqs['PreReq/CoReq Course'][row]
-  #   current_req_ID = prereqs['Pre-Req Course ID'][row]
+    #get this current row's req class name or req course ID
+    current_req_name = prereqs['PreReq/CoReq Course'][row]
+    current_req_ID = prereqs['Pre-Req Course ID'][row]
 
-  #   #this whole row is empty
-  #   if((current_course_name == 'NULL' and current_course_ID == "NULL") or 
-  #      (current_req_name == "NULL" and current_req_ID == "NULL")):
-  #     continue
+    #this whole row is empty
+    if((current_course_name == 'NULL' and current_course_ID == "NULL") or 
+       (current_req_name == "NULL" and current_req_ID == "NULL")):
+      continue
 
-  #   #handle the case where the course ID is null
-  #   if(current_course_name != "NULL" and current_course_ID == "NULL"):
-  #     #need to get the ID to be able to match course IDs
-  #     for course_obj in course_objects.values():
-  #       # print(course_obj.names)
-  #       if current_course_name in course_obj.names:
-  #         # print("found")
-  #         current_course_ID = course_obj.course_id
+    #handle the case where the course ID is null
+    if(current_course_name != "NULL" and current_course_ID == "NULL"):
+      #need to get the ID to be able to match course IDs
+      for course_obj in course_objects.values():
+        # print(course_obj.names)
+        if current_course_name in course_obj.names:
+          # print("found")
+          current_course_ID = course_obj.course_id
     
-  #   #if it doesnt have an ID, find it and save it
-  #   if(current_req_ID == "NULL"):
-  #     for course in course_objects.values():
-  #       if(current_req_name in course.names):
-  #         current_req_ID = course.course_id
+    #if it doesnt have an ID, find it and save it
+    if(current_req_ID == "NULL"):
+      for course in course_objects.values():
+        if(current_req_name in course.names):
+          current_req_ID = course.course_id
 
-  #   if(current_course_ID == "NULL" or current_req_ID == "NULL"):
-  #     continue
+    if(current_course_ID == "NULL" or current_req_ID == "NULL"):
+      continue
     
-  #   # for this row's requirement,
-  #   # save it to the course object's prereq or coreq list
-  #   if(prereqs['Co-req or Pre-req'][row] == 'P'):
-  #     course_objects[current_course_ID].prereq_courseids.add(current_req_ID)
-  #   if(prereqs['Co-req or Pre-req'][row] == 'C'):
-  #     course_objects[current_course_ID].coreq_courseids.add(current_req_ID)
+    # for this row's requirement,
+    # save it to the course object's prereq or coreq list
+    if(prereqs['Co-req or Pre-req'][row] == 'P'):
+      course_objects[current_course_ID].prereq_courseids.add(current_req_ID)
+    if(prereqs['Co-req or Pre-req'][row] == 'C'):
+      course_objects[current_course_ID].coreq_courseids.add(current_req_ID)
               
   return course_objects
 
@@ -273,7 +269,7 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
 
 def main():
   course_objects = build_course_objects()
-  for course_obj in course_objects:
+  for course_obj in course_objects.values():
     print("Course Names: ", course_obj.names)
     print("Course ID: ", course_obj.course_id)
     print("Prereq IDs: ", course_obj.prereq_courseids)
