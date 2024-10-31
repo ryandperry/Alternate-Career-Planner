@@ -110,7 +110,7 @@ export class QuizComp extends Component {
      */
     render() {
         const { question, options, quizEnd, 
-                userAnswer, disabled, finalMajor} = this.state;
+                userAnswer, disabled } = this.state;
 
         if (quizEnd) {
             return <Navigate to="/results"/>;
