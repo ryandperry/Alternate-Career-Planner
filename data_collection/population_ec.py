@@ -53,7 +53,8 @@ class Bucket:
   
   course_names = set()
   course_ids = set()
-  bucket_ids = set()
+  other_bucket_ids = set()
+
 
 
 
@@ -80,10 +81,20 @@ def build_course_objects():
 
   prereqs = prereqs.fillna("NULL")
   #for each row (each course and P/C pairing)
+  # TODO this matching doesnt work
   for row in prereqs.index:
     #get this current row's course name and course ID
     current_course_name = prereqs['Course'][row]
     current_course_ID = prereqs['Course ID'][row]
+
+    #handle the case where either the course ID or the name is null
+    if(current_course_name != "NULL" and current_course_ID == "NULL"):
+      #need to get the ID to be able to match course IDs
+      for course_obj in course_objects.values():
+        print(course_obj.name)
+        if course_obj.name == current_course_name:
+          print("found")
+          current_course_ID = course_obj.course_id
 
     #get this current row's req class name or req course ID
     current_req_name = prereqs['PreReq/CoReq Course'][row]
@@ -125,26 +136,39 @@ def build_bucket_objects(course_objects):
   except:
     bucket_table = pd.read_csv('data_collection/'+filenames['Bucket Table'], dtype=str)
   bucket_table= bucket_table.fillna("NULL")
+
   bucket_objects = {}
   for row in bucket_table.index:
       bucket_id = bucket_table['Bucket ID'][row]
-      bucket_obj = Bucket(bucket_table.loc[row, 'Bucket ID'], bucket_table.loc[row, 'Bucket Name'], bucket_table.loc[row, 'Bucket Number of Hours'], bucket_table.loc[row, "Bucket Number of Courses"])
+      #make sure number of hours and number of courses are integers not strings
+      # do we want to do this in the algorithm or the data processing?
+      num_hours = bucket_table.loc[row, 'Bucket Number of Hours']
+      if (num_hours != "NULL"): num_hours = int(num_hours);
+      else: num_hours = -1
+      num_courses = bucket_table.loc[row, "Bucket Number of Courses"]
+      if (num_courses != "NULL"): num_courses = int(num_hours);
+      else: num_hours = -1
+
+      bucket_obj = Bucket(bucket_id=bucket_table.loc[row, 'Bucket ID'], name =bucket_table.loc[row, 'Bucket Name'],num_hours=num_hours, num_courses=num_courses)
 
       #seperate out the course names in semi-colon seperated list
-      bucket_obj.course_names = set(bucket_table['Course Names'][row].replace(" ", "").split(";"))
+      if(bucket_table['Course Names'][row] != "NULL"):
+        bucket_obj.course_names = set(bucket_table['Course Names'][row].replace(" ", "").split(";"))
 
       #TODO this doesnt work. need to add course IDs
       for current_course_name in bucket_obj.course_names:
-        # find this course ID
+        # find this course ID in the course objects list
         for course_obj in course_objects.values():
-          if(course_obj.name == current_course_name):
-            bucket_obj = bucket_obj.course_ids.add(course_obj.course_id)
+          if(course_obj.name == "AE 377"): print("found")
+          if(course_obj.name == current_course_name and course_obj.name != "NULL"):
+            bucket_obj.course_ids.add(course_obj.course_id)
 
-      #add other bucket IDs
-      bucket_obj.bucket_ids.add(bucket_table['Sequence Bucket IDs'][row])
+      #add the sequence IDs (other bucket ids.. we can think of a better name)
+      if( bucket_table['Sequence Bucket IDs'][row] != "NULL"):
+        bucket_obj.other_bucket_ids = set(bucket_table['Sequence Bucket IDs'][row].replace(" ", "").split(";"))
+
       # save this new bucket object
       bucket_objects[str(bucket_id)] =  bucket_obj
-
 
   return bucket_objects
 
@@ -246,9 +270,23 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
 
 def main():
   course_objects = build_course_objects()
+  for course_obj in course_objects.values():
+    print("Name: ", course_obj.name)
+    print("Course Name: ", course_obj.name)
+    print("Course ID: ", course_obj.course_id)
+    print("Prereq IDs: ", course_obj.prereq_courseids)
+    print("Coreq IDs: ", course_obj.coreq_courseids)
+
   bucket_objects = build_bucket_objects(course_objects)
   print(course_objects)
+
   print(bucket_objects)
+  for bucket_obj in bucket_objects.values():
+    print("Name: ", bucket_obj.name)
+    print("Course Names: ", bucket_obj.course_names)
+    print("Course IDs: ", bucket_obj.course_ids)
+    print("Other Bucket IDs: ", bucket_obj.other_bucket_ids)
+
 
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
   print(major_objects)
