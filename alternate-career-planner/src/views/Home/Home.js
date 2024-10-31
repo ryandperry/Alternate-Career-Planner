@@ -4,21 +4,31 @@
  */
 
 import React, {useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
 import ImageSlider from "./../../components/ImageSlider/ImageSlider";
 import FileUploader from "./../../components/FileUploader/FileUploader";
 
-const Home = () => {
+const Home = ({ onFileParse }) => {
     const [finalMajor, setFinalMajor] = useState(null);
+    const [coursesTaken, setCoursesTaken] = useState(null);
+    const navigate = useNavigate();
 
-    // finalMajor is set if the quiz has been taken
     useEffect (() => {
         const storedMajor = localStorage.getItem('finalMajor');
         if (storedMajor) {
           setFinalMajor(storedMajor);
         }
+
+        const storedCourses = localStorage.getItem('coursesTaken');
+        if (storedCourses) {
+            setCoursesTaken(JSON.parse(storedCourses));
+        }
     }, []);
+
+    const handleViewCourseHistory = () => {
+        navigate('/course_history');
+    }
     
     const slides = [
         {
@@ -72,7 +82,20 @@ const Home = () => {
 
 
             <div className='button-section'>
-                <FileUploader />
+                {/*File Upload or Course History Button*/}
+                {coursesTaken ? (
+                    <div className='buttons'>
+                        <FileUploader onFileParse={onFileParse} />
+                        <button 
+                            onClick={handleViewCourseHistory} 
+                            className='upload-button'
+                        >
+                            View History
+                        </button>
+                    </div>
+                ) : (
+                    <FileUploader onFileParse={onFileParse} />
+                )}
 
                 {/* Quiz Buttons */}
                 {finalMajor !== null ? (
@@ -120,4 +143,5 @@ const Home = () => {
         </div>
     );
 };
+
 export default Home;
