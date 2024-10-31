@@ -3,7 +3,7 @@
  * progress through their declared major.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import './CompletedCoursesView.css';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
