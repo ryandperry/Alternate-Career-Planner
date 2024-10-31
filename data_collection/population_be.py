@@ -256,6 +256,29 @@ def build_bucket_objects(course_objects):
 # todo: decide how to seperate algorithm functions
   #so we can each work on different aspects
 
+def adding_person(personCourseObjects, major, quiz_major, major_object):
+  # personCourseObjects is the array of course objects from Ryans parsing code 
+  # major will hopefully also be from ryan's code
+  # and then what they scored on the quiz is the quiz_major string 
+  # from the output from ryan's code , we will do the following 
+  # Ryan's code will create an array of course obects 
+
+  # major object is from our own stuff 
+
+  # changing both of the names into IDs so we can store those ids in our one person 
+  for majors in major_object:
+    if(major == majors.name):
+      major_id = majors.major_id 
+    if(quiz_major == majors.name):
+      quiz_id = majors.major_id
+  func_classes_array = []
+  for i in personCourseObjects:
+    if(personCourseObjects[i].grade > 'C'):
+      # if they got higher than a C, add it to the person object
+      func_classes_array.append(personCourseObjects[i].course_name)
+  OnlyOnePerson = Person(major=major_id, classes_array=func_classes_array, quiz_results=quiz_id)
+
+
 def processing_course(course_objects, person_object):
   # list of strings
   # from ryan - list of strings
@@ -270,6 +293,7 @@ def processing_course(course_objects, person_object):
 
 def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
   #major_objects is the dictionary of major objects 
+  # bucket_completion = {bucket_id: {"hours_completed": 0, "courses_completed": 0} for bucket_id in bucket_objects}
   hour_counter = 0
   # check in every major 
   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
@@ -291,7 +315,25 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
             # if it does fill the whole requirement add that number to hour_counter
         if(major_objects[course_taken].course_id == course_taken[i]):
           hour_counter += course_objects["course_taken"].hours
+        # for bucket_id in major.bucket_ids:
+        #     if bucket_id in bucket_objects:
+        #         bucket = bucket_objects[bucket_id]
+          # for course_id in history_ids:
+          #   if course_id in bucket.course_ids:
+          # Accumulate hours and course count
+          #   bucket_completion[bucket_id]["hours_completed"] += course_objects[course_id].hours
+          #   bucket_completion[bucket_id]["courses_completed"] += 1
         # look up the course id in the major dictionary at this i 
+
+#this is just an attempt : 
+def printing_coreqs(course_objects):
+  for course_id, course in course_objects.items():
+    if course.coreq_courseids:
+      print(f"Course {course_id}: {course.name}")
+      for coreq_id in course.coreq_courseids:
+        coreq_course = course_objects.get(coreq_id)
+        print(f"  --> coreq: {coreq_course.course_id} - {coreq_course.name} ")
+
 
 def main():
   course_objects = build_course_objects()
