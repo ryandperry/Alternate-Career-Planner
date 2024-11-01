@@ -1,0 +1,324 @@
+population_be.py
+
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400  31) filenames = {
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400  32)   "Bucket Table": "bucket_table.csv",
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400  33)   "Major Table": "database_design_MT.csv",
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400  34)   "Course Table": "database_design_CT.csv",
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400  35)   "PreReq/CoReq Table": "prereq_coreq.csv",
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400  36)   "Major Requirements Folder Name": "major_requirement_csvs",
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400  37)   "Major Requirements Prefix": "major_"
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400  38) }
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  50) class Person:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  51)   def __init__(self, major, classes_array, quiz_results):
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  52)     self.major = major
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  53)     self.classes_array = classes_array
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  54)     self.quiz_results = quiz_results
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  62)   prereq_courseids = {1, 4, 6, 7}
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  63)   coreq_courseids = set()
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  73)   course_ids = set()
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  74)   bucket_ids = set()
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  76) class Requisite:
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  77)   def __init__(self, p_or_c, course_names, course_id, bucket_id, num_courses):
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  78)     self.p_or_c = p_or_c
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  79)     self.course_names = course_names
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  80)     self.course_id = course_id
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  81)     self.bucket_id = bucket_id
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  82)     self.num_courses = num_courses 
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  84) #script to read in course table, major table, and bucket table
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400  85) # print("Hello World")
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  86) def build_course_objects():
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  87)   try:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  88)     df = pd.read_csv('database_design_CT.csv', dtype=str)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  89)   except:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  90)     df = pd.read_csv('data_collection/database_design_CT.csv', dtype=str)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  91)   #print(df.shape[0])
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  92)   course_objects = {}
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  93)   for row in df.index:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  94)       #course_id, name, description, hours
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  95)       course_id = df.loc[row, "Course ID"]
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  96)       course_object = Course(df.loc[row, 'Course ID'], df.loc[row, 'Course'], df.loc[row, 'Course Description'], df.loc[row, 'Course Hours'])
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  97)       #dict[i] = course_object
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  98)       course_objects[str(course_id)] = course_object
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400  99)       # print(dict[str(row)].name)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 100)       # print(course_object.name)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 101)   print(course_objects)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 102)   try:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 103)     df4 = pd.read_csv('database_design_PC.csv', dtype=str)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 104)   except:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 105)     df4 = pd.read_csv('data_collection/database_design_PC.csv', dtype=str)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 106)   prereq_objects = {}
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 107)   #for row in df4.index:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 108)   # fill in if this is what they want 
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 110) #looping through major table rows
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 111) #build major class object for each row
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 112) #dict of majors
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 113) def build_major_objects():
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 114)   try:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 115)     df2 = pd.read_csv('database_design_MT.csv', dtype=str)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 116)   except:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 117)     df2 = pd.read_csv('data_collection/database_design_MT.csv', dtype=str)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 118)   #print(df.shape[0])
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 119)   major_objects = {}
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 120)   for row in df2.index:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 121)       #course_id, name, description, hours
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 122)       major_id = df2.loc[row, 'Major ID']
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 123)       major_obj = Major(df2.loc[row, 'Major ID'], df2.loc[row, 'Major Abreviation'], df2.loc[row, 'Major Name'], df2.loc[row, 'Major Description'])
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 124)       #dict[i] = course_object
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 125)       major_objects[str(major_id)] = major_obj
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 126)       # print(major_objects[str(major_id)].name)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 127)       # print(major_obj.name)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 128)   print(major_objects)
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 130) #looping through bucket table rows
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 131) #build bucket class object for each row
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 132) #dict of buckets
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 133) def build_bucket_object():
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 134)   try:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 135)     df3 = pd.read_csv('database_design_BT.csv', dtype=str)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 136)   except:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 137)     df3 = pd.read_csv('data_collection/database_design_BT.csv', dtype=str)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 138)   bucket_objects = {}
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 139)   #print(df.shape[0])
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 140)   for row in df3.index:
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 141)       #course_id, name, description, hours
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 142)       bucket_id = df3.loc[row, "Bucket ID"]
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 143)       bucket_obj = Bucket(df3.loc[row, 'Bucket ID'], df3.loc[row, 'Bucket Name'], df3.loc[row, 'Course Names'], df3.loc[row, 'Bucket Number of Hours'], df3.loc[row, "Bucket Number of Courses"])
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 144)       #dict[i] = course_object
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 145)       bucket_objects[str(bucket_id)] =  bucket_obj
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 146)       # print(bucket_objects[str(bucket_id)].name)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 147)       # print(major_obj.name)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 148)   print(bucket_objects)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 149) 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 150) def build_bucket_objects(course_objects):
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 151)   try:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 152)     bucket_table = pd.read_csv(filenames['Bucket Table'], dtype=str)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 153)   except:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 154)     bucket_table = pd.read_csv('data_collection/'+filenames['Bucket Table'], dtype=str)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 155)   bucket_table= bucket_table.fillna("NULL")
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 156)   bucket_objects = {}
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 157)   for row in bucket_table.index:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 158)       bucket_id = bucket_table.loc[row, "Bucket ID"]
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 159)       bucket_obj = Bucket(bucket_table.loc[row, 'Bucket ID'], bucket_table.loc[row, 'Bucket Name'], bucket_table.loc[row, 'Bucket Number of Hours'], bucket_table.loc[row, "Bucket Number of Courses"])
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 160) 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 161)       #seperate out the course names in semi-colon seperated list
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 162)       bucket_obj.course_names = set(bucket_table['Course Names'][row].replace(" ", "").split(";"))
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 163) 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 164)       # #TODO this doesnt work. need to add course IDs
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 165)       # for current_course_name in bucket_obj.course_names:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 166)       #   # find this course ID
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 167)       #   for course_obj in course_objects.values():
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 168)       #     if(course_obj.name == current_course_name):
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 169)       #       bucket_obj = bucket_obj.course_ids.add(course_obj.course_id)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 170) 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 171)       #add other bucket IDs
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 172)       bucket_obj.bucket_ids.add(bucket_table['Sequence Bucket IDs'][row])
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 173)       # save this new bucket object
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 174)       bucket_objects[str(bucket_id)] =  bucket_obj
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 175) 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 176) 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 177)   return bucket_objects
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 178) 
+ccacee74 (bea-eldridge     2024-10-21 16:40:04 -0400 180) 
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 181) #script to match all major's requirements to the associated
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 182) #course or bucket IDs
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 184) #there are csvs for each major requirements
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 185) #(from our "database")
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 187) #place them in the major requirements csv folder
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 188) 
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 189) # loop through each csv with each major's requirements
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 190) # right now we only have 4 accessbile csvs but in the future, we 
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 191) # will have access to all 12
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 192) # for major_object_key in major_objects.keys():
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 193) # for major_object_key in ["1", "5","10", "11"]:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 195) #   #read csv for this major using the ID number
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 196) #   major_object = major_objects[major_object_key]
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 197) #   print(major_object.name)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 198) #   # print(major_object.bucket_ids)
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 199)   
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 200) #   relative_filename = 'major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 201) #   outside_filename = 'data_collection/major_requirement_csvs/major_' + str(int(major_object.major_id)) + '.csv'
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 202) #   print(relative_filename)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 203) #   try:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 204) #     major_requirements = pd.read_csv(relative_filename, dtype=str)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 205) #   except:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 206) #     major_requirements = pd.read_csv(outside_filename, dtype=str)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 207) #   #fill in everything thats null in the excel 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 208) #   major_requirements = major_requirements.fillna("NULL")
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 209) 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 210) #   #make the course and bucket objects using either the ID or the name
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 211) #   #example: if the row has a course (MATH 141), lookup in the dictionary
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 212) #     #of courses for that and add the course ID to major.course_ids set()
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 213) #   #example: if the row has course ID 5, then add that ID
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 214) #   for row in major_requirements.index:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 215) #     # print(row)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 216) #     #get the course ID or bucket ID for this major requirement
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 217) #     bucket_ID = major_requirements['Required Bucket ID'][row]
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 218) #     course_ID = major_requirements['Required Course ID'][row]
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 219) #     course = major_requirements['Required Course'][row]
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 220)   
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 221) #     #if this row has a bucket, use the bucket ID
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 222) #     if(bucket_ID != "NULL"):
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 223) #       # print("bucket ID is ", bucket_ID)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 224) #       major_object.bucket_ids.add(str(bucket_ID))
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 225) #       # print("bucket ids list is ", major_object.bucket_ids)
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 226)     
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 227) #     elif(course_ID != "NULL"):
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 228) #       # print("course ID is ", course_ID)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 229) #       major_object.course_ids.add(str(course_ID))
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 230) #       # print("course ids list is ", major_object.course_ids)
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 231)     
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 232) #     elif(course != "NULL"):
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 233) #       #get all values for the course objects
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 234) #       #search in the values for the course.name that matches
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 235) #       #get course ID
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 236) #       #add to the course_ids for this major
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 237) #       course_ID = [course_obj.course_id for course_obj in course_objects.values() if course_obj.name == course]
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 238) #       # print("found a course id from the name")
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 239) #       major_object.course_ids.add(str(course_ID))
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 240)     
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 241) #     # else:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 242) #       #this isnt a valid requirement because theres nothing in this row
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 243) #       # print("empty row: major requirement has neither course nor bucket listed")
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 244) #   print(major_object.bucket_ids)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 245) #   print(major_object.course_ids)
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 246) 
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 247) # emily to do
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 248) # test the civil engineering excel
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 249) # make sure ID's are matching as strings (no decimal issues)
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 253) 
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 254) # todo: merge ryan's html parsing code with this set up
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 255) # todo: decide how algorithm code will use these classes
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 256) # todo: decide how to seperate algorithm functions
+a2c48380 (bea-eldridge     2024-10-21 16:37:11 -0400 257)   #so we can each work on different aspects
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 258) 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 259) def adding_person(personCourseObjects, major, quiz_major, major_object):
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 260)   # personCourseObjects is the array of course objects from Ryans parsing code 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 261)   # major will hopefully also be from ryan's code
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 262)   # and then what they scored on the quiz is the quiz_major string 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 263)   # from the output from ryan's code , we will do the following 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 264)   # Ryan's code will create an array of course obects 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 265) 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 266)   # major object is from our own stuff 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 267) 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 268)   # changing both of the names into IDs so we can store those ids in our one person 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 269)   for majors in major_object:
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 270)     if(major == majors.name):
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 271)       major_id = majors.major_id 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 272)     if(quiz_major == majors.name):
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 273)       quiz_id = majors.major_id
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 274)   func_classes_array = []
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 275)   for i in personCourseObjects:
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 276)     if(personCourseObjects[i].grade > 'C'):
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 277)       # if they got higher than a C, add it to the person object
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 278)       func_classes_array.append(personCourseObjects[i].course_name)
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 279)   OnlyOnePerson = Person(major=major_id, classes_array=func_classes_array, quiz_results=quiz_id)
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 280) 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 281) 
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 282) def processing_course(course_objects, person_object):
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 283)   # list of strings
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 284)   # from ryan - list of strings
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 285)   
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 286)   # goal - build set of ids (of classes that they took)
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 287)   history_ids = set()
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 288)   for history_name in person_object.classes_array:
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 289)     for course in course_objects.values():
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 290)       if(course.name == history_name):
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 291)         history_ids.add(course.course_id)
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 292)   return history_ids
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 293) 
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 294) def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 295)   #major_objects is the dictionary of major objects 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 296)   # bucket_completion = {bucket_id: {"hours_completed": 0, "courses_completed": 0} for bucket_id in bucket_objects}
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 297)   hour_counter = 0
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 298)   # check in every major 
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 299)   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 300)   for i in major_objects:
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 301)     # do not check against their current major
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 302)     if(major_objects[i].major_id == person_object.major):
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 303)       continue
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 304)     else:
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 305)       # check their courses ?
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 306)       for course_taken in history_ids:
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 307)         #somewhere in here we need to check if it is part of a bucket
+107730ec (bea-eldridge     2024-10-24 09:08:41 -0400 308)         # if(course_taken in bucket_objects)
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 309)         #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 310)             #pseudo code : 
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 311)             # if this course name appears in the bucket objects' course names 
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 312)             #if()
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 313)             # then you need to see if this one class will fill the entire requirement via the course table hours !! 
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 314)             # if it does not fill the entire requirement, manually subtract the hours required for that bucket
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 315)             # if it does fill the whole requirement add that number to hour_counter
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 316)         if(major_objects[course_taken].course_id == course_taken[i]):
+8d12a7bd (bea-eldridge     2024-10-21 21:29:36 -0400 317)           hour_counter += course_objects["course_taken"].hours
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 318)         # for bucket_id in major.bucket_ids:
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 319)         #     if bucket_id in bucket_objects:
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 320)         #         bucket = bucket_objects[bucket_id]
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 321)           # for course_id in history_ids:
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 322)           #   if course_id in bucket.course_ids:
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 323)           # Accumulate hours and course count
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 324)           #   bucket_completion[bucket_id]["hours_completed"] += course_objects[course_id].hours
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 325)           #   bucket_completion[bucket_id]["courses_completed"] += 1
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 326)         # look up the course id in the major dictionary at this i 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 327) 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 328) #this is just an attempt : 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 329) def printing_coreqs(course_objects):
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 330)   for course_id, course in course_objects.items():
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 331)     if course.coreq_courseids:
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 332)       print(f"Course {course_id}: {course.name}")
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 333)       for coreq_id in course.coreq_courseids:
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 334)         coreq_course = course_objects.get(coreq_id)
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 335)         print(f"  --> coreq: {coreq_course.course_id} - {coreq_course.name} ")
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 336) 
+98e4de17 (bea-eldridge     2024-10-30 23:51:36 -0400 337) 
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 338) def main():
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 339)   course_objects = build_course_objects()
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 340)   bucket_objects = build_bucket_objects(course_objects)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 341)   print(course_objects)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 342)   print(bucket_objects)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 343)   majorid = 1
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 344)   classes_array = ["EF 151", "EF 230", "MATH 141"]
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 345)   quiz_results = "ME"
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 346)   person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 347)   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
+036499a9 (bea-eldridge     2024-10-23 10:15:45 -0400 348)   print(major_objects)
+f9338dae (bea-eldridge     2024-10-24 09:01:51 -0400 349)   compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+
+
+population.py
+
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 210) def processing_course(course_objects, person_object):
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 211)   # list of strings
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 212)   # from ryan - list of strings
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 213)   
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 214)   # goal - build set of ids (of classes that they took)
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 215)   history_ids = set()
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 216)   for history_name in person_object.classes_array:
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 217)     for course in course_objects.values():
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 218)       if(course.name == history_name):
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 219)         history_ids.add(course.course_id)
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 220)   return history_ids
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 221) 
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 222) def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 223)   #major_objects is the dictionary of major objects 
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 224)   hour_counter = 0
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 225)   # check in every major 
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 226)   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 227)   for i in major_objects:
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 228)     # do not check against their current major
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 229)     if(major_objects[i].major_id == person_object.major):
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 230)       continue
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 231)     else:
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 232)       # check their courses ?
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 233)       for course_taken in history_ids:
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 234)         #somewhere in here we need to check if it is part of a bucket
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 235)         # if(course_taken in bucket_objects)
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 236)         #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 237)             #pseudo code : 
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 238)             # if this course name appears in the bucket objects' course names 
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 239)             #if()
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 240)             # then you need to see if this one class will fill the entire requirement via the course table hours !! 
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 241)             # if it does not fill the entire requirement, manually subtract the hours required for that bucket
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 242)             # if it does fill the whole requirement add that number to hour_counter
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 243)         if(major_objects[course_taken].course_id == course_taken[i]):
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 244)           hour_counter += course_objects["course_taken"].hours
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 245)         # look up the course id in the major dictionary at this i 
+d5cfdad2 (bea-eldridge     2024-10-24 09:07:26 -0400 246) 
