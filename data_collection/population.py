@@ -266,7 +266,8 @@ def processing_course(course_objects, person_object):
   for history_name in person_object.classes_array:
     for course in course_objects.values():
       # TODO if history name in course.names
-      if(course.name == history_name):
+      if(history_name in course.names):
+      # if(course.name == history_name):  
         history_ids.add(course.course_id)
   return history_ids
 
@@ -381,5 +382,6 @@ def main():
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
   print(major_objects)
   compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+
 #optional
 main()
