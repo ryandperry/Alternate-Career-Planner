@@ -275,16 +275,20 @@ def main():
     print("Coreq IDs: ", course_obj.coreq_courseids)
 
   bucket_objects = build_bucket_objects(course_objects)
-  print(bucket_objects)
   for bucket_obj in bucket_objects.values():
     print("Name: ", bucket_obj.name)
     print("Course Names: ", bucket_obj.course_names)
     print("Course IDs: ", bucket_obj.course_ids)
-    print("Other Bucket IDs: ", bucket_obj.other_bucket_ids)
+    if bucket_obj.other_bucket_ids != set():
+      print("Other Bucket IDs: ", bucket_obj.other_bucket_ids)
 
 
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
   for major_obj in major_objects.values():
     print("Name: ", major_obj.name)
     print("Course IDs: ", major_obj.course_ids)
-    print("Bucket IDs: ", major_obj.bucket_ids)
+    if major_obj.bucket_ids != set():
+      print("Bucket IDs: ", major_obj.bucket_ids)
+
+#optional
+main()
