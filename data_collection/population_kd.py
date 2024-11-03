@@ -274,13 +274,10 @@ def print_course_obj(course_object):
   print_statement = "Courses: "
   for y in course_name:
     print_statement += y + " "
-  #print(course_object.course_id)
 
   if course_object.description == "NULL":
-    #print( "Course:", course_object.course_id, course_name, "\nDescription: N/A","\nRequires", course_hrs, "hours")
     print_statement += "\nDescription: N/A" + "\nRequires " + course_hrs + " hours"
   else:
-    #print( "Course:", course_object.course_id, course_name, "\nDescription:",course_object.description, "\nRequires", course_hrs, " hours, these prereqs ", course_prereq_id)
     print_statement += "\nDescription: " + course_object.description + "\nRequires " + course_hrs + " hours"
   
   if len(course_prereq_id) != 0:
@@ -300,26 +297,34 @@ def print_bucket_obj(bucket_object):
   print_statement = "Bucket: " + bucket_name + " has these courses "
   for x in courses:
     print_statement += x + " "
-  #print(bucket_object.num_hours)
-  print_statement += "\nFor a total of " + str(num_hrs) + " hours"
+  if num_hrs == -1:
+    print_statement += "\n"
+  else:
+    print_statement += "\nFor a total of " + str(num_hrs) + " hours"
   return print(print_statement) 
 
-def print_major_obj(major_object):
+def print_major_obj(major_object, course_obj): 
+  #set this up to take in course_obj so we can find them based on course_id set that this has
   maj_cour_ids = major_object.course_ids
   maj_buck_ids = major_object.bucket_ids
   name = major_object.name
-  print(name)
-  return
+  print_statement = name
+  for x in maj_cour_ids:
+    #print_course_obj(course_object=course_obj[x])
+    print(x)
+  #print(name)
+  return print_statement
 
 
 def main():
   course_objects = build_course_objects()
   bucket_objects = build_bucket_objects(course_objects)
-  #for i in course_objects:
-    #print_course_obj(course_object=course_objects[i])
+
+  for i in course_objects:
+    print_course_obj(course_object=course_objects[i])
   for i in bucket_objects:
     print_bucket_obj(bucket_object=bucket_objects[i])
 
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
-  #for i in major_objects:
-    #print_major_obj(major_object=major_objects[i])
+  for i in major_objects:
+    print_major_obj(major_object=major_objects[i], course_obj=course_objects)

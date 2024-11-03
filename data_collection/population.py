@@ -266,6 +266,54 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
           hour_counter += course_objects["course_taken"].hours
         # look up the course id in the major dictionary at this i 
 
+def print_course_obj(course_object):
+  course_name = course_object.names
+  course_hrs = course_object.hours
+  course_prereq_id = course_object.prereq_courseids
+  print_statement = "Courses: "
+  for y in course_name:
+    print_statement += y + " "
+
+  if course_object.description == "NULL":
+    print_statement += "\nDescription: N/A" + "\nRequires " + course_hrs + " hours"
+  else:
+    print_statement += "\nDescription: " + course_object.description + "\nRequires " + course_hrs + " hours"
+  
+  if len(course_prereq_id) != 0:
+    print_statement += ", these prereqs "
+    for x in course_prereq_id:
+      print_statement += x
+      
+  return print(print_statement)
+
+
+def print_bucket_obj(bucket_object):
+  bucket_name = bucket_object.name
+  num_hrs = bucket_object.num_hours
+
+  courses = bucket_object.course_names
+
+  print_statement = "Bucket: " + bucket_name + " has these courses "
+  for x in courses:
+    print_statement += x + " "
+  if num_hrs == -1:
+    print_statement += "\n"
+  else:
+    print_statement += "\nFor a total of " + str(num_hrs) + " hours"
+  return print(print_statement) 
+
+def print_major_obj(major_object, course_obj): 
+  #set this up to take in course_obj so we can find them based on course_id set that this has
+  maj_cour_ids = major_object.course_ids
+  maj_buck_ids = major_object.bucket_ids
+  name = major_object.name
+  print_statement = name
+  for x in maj_cour_ids:
+    #print_course_obj(course_object=course_obj[x])
+    print(x)
+  #print(name)
+  return print_statement
+
 def main():
   course_objects = build_course_objects()
   for course_obj in course_objects.values():
