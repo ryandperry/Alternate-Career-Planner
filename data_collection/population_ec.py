@@ -71,12 +71,12 @@ def build_course_objects():
       #if this course ID already exists, add this current name to the list of names
       if course_id in course_objects.keys():
         # print(row, " key already made, adding ", course_table['Course'][row])
-        course_objects[course_id].names.add(course_table['Course'][row])
+        course_objects[course_id].names.add(course_table['Course'][row].replace(" ",""))
       else:
         #make a new course object for this entry
         # print(row," making new key, adding ", course_table.loc[row, 'Course ID'], " with names ",course_table['Course'][row] )
         course_object = Course(course_table.loc[row, 'Course ID'], course_table.loc[row, 'Course Description'], course_table.loc[row, 'Course Hours'])
-        course_object.names.add(course_table['Course'][row])
+        course_object.names.add(course_table['Course'][row].replace(" ",""))
         course_objects[str(course_id)] = course_object
 
   # PREREQs and COREQs
@@ -89,11 +89,11 @@ def build_course_objects():
   #for each row (each course and P/C pairing)
   for row in prereqs.index:
     #get this current row's course name and course ID
-    current_course_name = prereqs['Course'][row]
+    current_course_name = prereqs['Course'][row].replace(" ","")
     current_course_ID = prereqs['Course ID'][row]
 
     #get this current row's req class name or req course ID
-    current_req_name = prereqs['PreReq/CoReq Course'][row]
+    current_req_name = prereqs['PreReq/CoReq Course'][row].replace(" ","")
     current_req_ID = prereqs['Pre-Req Course ID'][row]
 
     #this whole row is empty
@@ -156,8 +156,8 @@ def build_bucket_objects(course_objects):
       for current_course_name in bucket_obj.course_names:
         # find this course ID in the course objects list
         for course_obj in course_objects.values():
-          # if(course_obj.name == "AE 377"): print("found")
           if(current_course_name in course_obj.names):
+            # print("found a matching name")
             bucket_obj.course_ids.add(course_obj.course_id)
 
       #add the sequence IDs (other bucket ids.. we can think of a better name)
