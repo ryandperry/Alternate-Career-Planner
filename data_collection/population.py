@@ -331,7 +331,7 @@ def print_bucket_obj(bucket_object):
     print_statement += "\nFor a total of " + str(num_hrs) + " hours"
   return print(print_statement) 
 
-def print_major_obj(major_object, course_obj): 
+def print_major_obj(major_object): 
   #set this up to take in course_obj so we can find them based on course_id set that this has
   maj_cour_ids = major_object.course_ids
   maj_buck_ids = major_object.bucket_ids
@@ -366,6 +366,13 @@ def main():
     print("Course IDs: ", major_obj.course_ids)
     if major_obj.bucket_ids != set():
       print("Bucket IDs: ", major_obj.bucket_ids)
+
+  for i in course_objects:
+    print_course_obj(course_object=course_objects[i])
+  for i in bucket_objects:
+    print_bucket_obj(bucket_object=bucket_objects[i])
+  for i in major_objects:
+    print_major_obj(major_object=major_objects[i])
 
 #optional
 main()
