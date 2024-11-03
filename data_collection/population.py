@@ -374,5 +374,12 @@ def main():
   for i in major_objects:
     print_major_obj(major_object=major_objects[i])
 
+  majorid = 1
+  classes_array = ["EF 151", "EF 230", "MATH 141"]
+  quiz_results = "ME"
+  person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
+  major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
+  print(major_objects)
+  compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
 #optional
 main()
