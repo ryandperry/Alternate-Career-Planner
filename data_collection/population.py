@@ -55,6 +55,12 @@ class Bucket:
     self.course_ids = set()
     self.other_bucket_ids = set()
 
+class Person:
+  def __init__(self, major, classes_array, quiz_results):
+    self.major = major
+    self.classes_array = classes_array
+    self.quiz_results = quiz_results
+
 
 # from the course table, build a course object with 
 # ID, description, name, credit hours, prereqs, and coreqs
@@ -227,6 +233,29 @@ def build_major_objects(course_objects, bucket_objects):
         major_object.course_ids.add(str(course_ID))
   
   return major_objects
+
+def adding_person(personCourseObjects, major, quiz_major, major_object):
+  # personCourseObjects is the array of course objects from Ryans parsing code 
+  # major will hopefully also be from ryan's code
+  # and then what they scored on the quiz is the quiz_major string 
+  # from the output from ryan's code , we will do the following 
+  # Ryan's code will create an array of course obects 
+
+  # major object is from our own stuff 
+
+  # changing both of the names into IDs so we can store those ids in our one person 
+  for majors in major_object:
+    if(major == majors.name):
+      major_id = majors.major_id 
+    if(quiz_major == majors.name):
+      quiz_id = majors.major_id
+  func_classes_array = []
+  for i in personCourseObjects:
+    if(personCourseObjects[i].grade > 'C'):
+      # if they got higher than a C, add it to the person object
+      func_classes_array.append(personCourseObjects[i].course_name)
+  OnlyOnePerson = Person(major=major_id, classes_array=func_classes_array, quiz_results=quiz_id)
+  return OnlyOnePerson
 
 def processing_course(course_objects, person_object):
   # list of strings
