@@ -276,14 +276,24 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
   hour_counter = 0
   # check in every major 
   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
-  for i in major_objects:
+  for i in major_objects.keys():
     # do not check against their current major
     if(major_objects[i].major_id == person_object.major):
       continue
     else:
       # check their courses ?
       for course_taken in history_ids:
-        #somewhere in here we need to check if it is part of a bucket
+        # see if it is in the course_ids set for this major 
+        if course_taken in major_objects[i].course_ids:
+          hour_counter += course_objects[course_taken].hours
+          continue
+        # see if this course is in their bucket objects 
+        for bucket_id in bucket_objects.keys():
+          if course_taken in bucket_objects.course_ids:
+            hour_counter += course_objects[course_taken].hours
+            if(bucket_id.num_hours > 0):
+              bucket_objects[course_taken].num_hours -= course_objects[course_taken].num_hours
+          #somewhere in here we need to check if it is part of a bucket
         # if(course_taken in bucket_objects)
         #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
             #pseudo code : 
@@ -292,8 +302,6 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
             # then you need to see if this one class will fill the entire requirement via the course table hours !! 
             # if it does not fill the entire requirement, manually subtract the hours required for that bucket
             # if it does fill the whole requirement add that number to hour_counter
-        if(major_objects[course_taken].course_id == course_taken[i]):
-          hour_counter += course_objects["course_taken"].hours
         # look up the course id in the major dictionary at this i 
 
 def print_course_obj(course_object):
