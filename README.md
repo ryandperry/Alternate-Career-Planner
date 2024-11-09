@@ -1,5 +1,5 @@
 
-![Logo](https://raw.githubusercontent.com/utk-cs340-fall24/Alternate-Career-Planner/refs/heads/main/alternate-career-planner/public/assets/AlternateCareerPlannerHeader.png?token=GHSAT0AAAAAACVMCKV3DIJ4GKJDKW6LCYOGZZP2WSQ)
+![Logo](https://i.imgur.com/JPuGrjA.png)
 
 # Alternate Career Planner
 
