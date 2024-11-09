@@ -21,6 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 Additional Terms for UTK Assets
+
 The use of certain assets within this repository, including but not limited to
 images, colors, or other materials sourced from utk.edu, is restricted. 
 Permission must be obtained from the University of Tennessee, Knoxville (UTK)
