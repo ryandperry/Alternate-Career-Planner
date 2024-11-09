@@ -4,7 +4,7 @@
 
 ## Project Description
 
-Students in Tickle College of Engineering often get into their major and realize that they love engineering, but want a different specialty. Alternate Career Planner allows students to upload their DARS report webpage (in HTML) and view all other engineering majors ranked from the least number of remaining course requirements.
+Students in Tickle College of Engineering often get into their major and realize that they love engineering, but want a different specialty. Alternate Career Planner allows students to upload their DARS report webpage (in HTML) and view all other engineering majors ranked from the least number of remaining course requirements. Additionally, students can take a short quiz to determine what majors they would most enjoy based on their outside interests or hobbies.
 
 ## Technologies Used
 
