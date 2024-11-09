@@ -1,7 +1,6 @@
 
-![Logo](https://i.imgur.com/JPuGrjA.png)
-
 # Alternate Career Planner
+![Logo](https://i.imgur.com/JPuGrjA.png)
 
 ## Project Description
 
