@@ -47,3 +47,6 @@ This project was built with React.js, involving HTML, CSS, and JavaScript. Addit
 - Jack Minehan
 - Ryan Perry
 
+## License and Usage of UTK Assets
+This project uses the MIT license with additional terms for the usage of UTK assets. See `LICENSE.md` for more details.
+Please note that some assets from utk.edu, including images, descriptions, and colors, were used for the private scope of this project and are not intended to be used publicly without permission.
