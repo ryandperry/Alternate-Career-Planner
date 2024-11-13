@@ -66,7 +66,7 @@ const ImageSlider = ({slides}) => {
 
     const titleStyles = (isActive) => ({
         fontWeight: isActive ? 'bold' : 'normal',
-        color: '#4B4B4B', /* Smokey Gray */
+        color: isActive ? '#489fdf' /* Blue */ : '#4B4B4B' /* Smokey Gray */
     })
 
     const goToSlide = slideIndex => {
