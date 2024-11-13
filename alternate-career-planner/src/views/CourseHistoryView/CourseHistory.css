@@ -1,5 +1,57 @@
+/* CourseHistory.ccs
+ * Description: CSS styling for course history view.
+ */
+
+.Split {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.Sidebar {
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: auto;
+    background-color: #F9F9F9;
+    width: 33%;
+    position: sticky;
+    top: 0;
+    padding: 20px;
+}
+
+/* Hide scrollbar for WebKit browswers (Chrome, Safari)*/
+.Sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.mainContent {
+    width: 67%;
+    padding: 20px;
+}
+
+.Title {
+    padding-left: 20px;
+    color: #0f0d0a;
+}
+
 .Header {
-    color: #4B4B4B;
+    padding-left: 20px;
+    color: #0f0d0a;
+    cursor: pointer;
+}
+
+.Header.active {
+    font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 22px;
 }
 
 .CourseHeader {
@@ -11,5 +63,4 @@
 .GradeHeader {
     text-align: left;
     color: #4B4B4B;
-    
 }
