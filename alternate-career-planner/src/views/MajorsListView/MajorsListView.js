@@ -4,9 +4,10 @@
  */
 
 import React, {useEffect, useState } from 'react';
-import './MajorsListView.css';
+import '../MajorDetailView/MajorDetailView.css';
 import MajorList from '../../components/MajorList/MajorList';
-import { Link } from 'react-router-dom'
+import JobsList from '../../components/JobsList/JobsList';
+import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage';
 
 // Lists similar majors and their descriptions
 const MajorsListView = ({ majors }) => {
@@ -23,11 +24,9 @@ const MajorsListView = ({ majors }) => {
         <div>
             <h1 className='similarMajorsHeader'> Quiz Results 🎓 </h1>
             <h2> Thanks for taking the quiz! Based on your provided answers, we think you'll enjoy: </h2>
-            <p className="majorlist-item">
-                <Link to={`/results/majors/${encodeURIComponent(finalMajor)}`}>
-                    <h3 className="majorlist-title">{finalMajor}</h3>
-                </Link>
-            </p>
+                <MajorHeaderImage major={{name: finalMajor || "Unknown Major"}}/>
+                <h1 className="major-title">{finalMajor}</h1>
+                <JobsList majorname={finalMajor}/>
             <h2>Alternatively, explore all majors below. </h2>
             <MajorList majors = {majors}/>
         </div>
