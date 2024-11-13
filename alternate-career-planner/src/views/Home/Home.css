@@ -12,9 +12,14 @@
 }
 
 .text-section p {
+    color: #4B4B4B; /* Smokey Gray */
     font-size: 28px;
     margin-bottom: 30px;
     line-height: 1.5;
+}
+
+.text-section h1 {
+    color: #4B4B4B; /* Smokey Gray */
 }
 
 .button-section {
