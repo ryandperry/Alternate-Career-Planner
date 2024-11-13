@@ -90,7 +90,7 @@ const Home = ({ onFileParse }) => {
                             onClick={handleViewCourseHistory} 
                             className='upload-button'
                         >
-                            View History
+                            View Top Majors
                         </button>
                     </div>
                 ) : (
