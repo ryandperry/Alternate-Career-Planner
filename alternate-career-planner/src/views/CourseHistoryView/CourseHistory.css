@@ -44,11 +44,11 @@
     font-weight: bold;
 }
 
-ul {
+.History ul {
   list-style: none;
 }
 
-li {
+.Header li {
   display: inline-block;
   margin-right: 10px;
   font-size: 22px;

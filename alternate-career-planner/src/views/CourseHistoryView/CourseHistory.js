@@ -34,7 +34,7 @@ const CourseHistoryView = () => {
         <div className="Split">
             <div className="Sidebar">
                 <h1 className="Title">Courses</h1>
-                <ul>
+                <ul className="History">
                     <li className="Header"
                         className={`Header ${selectedFilter === "All" ? 
                                                 "active" : ""}`}
