@@ -26,6 +26,9 @@ npm start
 ```
 This should open a new browser window of Alternate Career Planner. This instance of ACP is running locally on your machine. If a browser window does not immediately appear, open a browser and visit `http://localhost:3000`.
 
+### Usage
+
+After running a local instance of Alternate Career Planner using the above instructions, users will be presented with instructions to upload a file or take an interest quiz. After completing an interest quiz, a suggested major will be presented alongside a list of all majors and their descriptions. 
 
 ## Technologies Used
 
