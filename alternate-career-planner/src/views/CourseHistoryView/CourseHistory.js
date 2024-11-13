@@ -65,7 +65,12 @@ const CourseHistoryView = () => {
             </div>
 
             <div className="mainContent">
-                <h1>MAIN CONTENT</h1>
+                <h1>Top Majors for You</h1>
+                <hr class="solid"></hr>
+                <p>
+                    These majors have the most course overlap with your
+                    academic history.
+                </p>
             </div>
 
         </div>
