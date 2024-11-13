@@ -22,13 +22,13 @@ const MajorsListView = ({ majors }) => {
     return (
         <div>
             <h1 className='similarMajorsHeader'> Quiz Results 🎓 </h1>
-            <p> Thanks for taking the quiz! Based on your provided answers, we think you'll enjoy: </p>
+            <h2> Thanks for taking the quiz! Based on your provided answers, we think you'll enjoy: </h2>
             <p className="majorlist-item">
                 <Link to={`/results/majors/${encodeURIComponent(finalMajor)}`}>
                     <h3 className="majorlist-title">{finalMajor}</h3>
                 </Link>
             </p>
-            <p>Alternatively, explore all majors below. </p>
+            <h2>Alternatively, explore all majors below. </h2>
             <MajorList majors = {majors}/>
         </div>
     )
