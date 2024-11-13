@@ -19,7 +19,8 @@ const ImageSlider = ({slides}) => {
         borderRadius: '10px',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundImage: `url(${slides[currentIndex].url})`
+        backgroundImage: `url(${slides[currentIndex].url})`,
+        marginBottom: '50px',
     };
 
     const rightArrowStyles = {
@@ -46,6 +47,7 @@ const ImageSlider = ({slides}) => {
 
     const checksContainerStyles = {
         justifyContent: 'center',
+        paddingBottom: '50px',
     };
 
     const itemStyles = {
@@ -63,7 +65,8 @@ const ImageSlider = ({slides}) => {
     };
 
     const titleStyles = (isActive) => ({
-        fontWeight: isActive ? 'bold' : 'normal'
+        fontWeight: isActive ? 'bold' : 'normal',
+        color: isActive ? '#489fdf' /* Blue */ : '#4B4B4B' /* Smokey Gray */
     })
 
     const goToSlide = slideIndex => {

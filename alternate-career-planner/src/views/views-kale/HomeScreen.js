@@ -5,7 +5,7 @@ function HomeScreen(){
     return (
         <div>
             <h1>Alternate Career Planner</h1>
-            <h2>Quick Explination</h2>
+            <h2>Quick Explanation</h2>
             <p>         Welcome to the Alternate Career Planner, this will allow to upload your 
                 completed courses and we will show you the alternate majors that you can change to. 
                 You can also take a short quiz and we can give you some majors that fit the answers 

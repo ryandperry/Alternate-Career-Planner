@@ -9,7 +9,7 @@ import './MajorHeaderImage.css';
 // Images from UTK major pages
 const imageMap = {
     'Computer Science': '/assets/major-header-images/computer-science-header.jpg',
-    'Computer Engineering': '/assets/major-header-images/computer-science-header.jpg',
+    'Computer Engineering': '/assets/major-header-images/computer-engineering-header.jpg',
     'Electrical Engineering': '/assets/major-header-images/electrical-engineering-header.jpg',
     'Mechanical Engineering': '/assets/major-header-images/mech-engineering-header.jpg',
     'Biomedical Engineering': '/assets/major-header-images/biomedical-header.jpg',
@@ -18,6 +18,8 @@ const imageMap = {
     'Civil Engineering': '/assets/major-header-images/civil-eng-header.jpg',
     'Environmental Engineering': '/assets/major-header-images/environmental-eng-header.jpg',
     'Materials Science and Engineering': '/assets/major-header-images/mse-header.jpg',
+    'Industrial Engineering': '/assets/major-header-images/industrial-engineering-header.jpg',
+    'Nuclear Engineering': '/assets/major-header-images/nuclear-engineering-header.jpg',
 };
 
 // Returns a header image
