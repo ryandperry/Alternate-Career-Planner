@@ -14,7 +14,7 @@ const CourseListView = ({ courses }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/ryandata');
+                const response = await fetch('http://127.0.0.1:5000/api/hello');
                 if (!response.ok) throw new Error('Network response was not ok');
 
                 const data = await response.json();
@@ -28,13 +28,14 @@ const CourseListView = ({ courses }) => {
     }, []);
 
     // Don't show anything (including title) if there are no courses
-    if (!courses || courses.length === 0) {
+    if ((!courses || courses.length === 0) && !message) {
         return null;
     }
 
     return (
         <div>
             <h2> Required Courses </h2>
+            <p>{message}</p>
             <ul>
                 {courses.map((course, index) => (
                     <li key={index} className="course-item">
@@ -44,7 +45,6 @@ const CourseListView = ({ courses }) => {
                     </li>
                 ))}
             </ul>
-            {message && <p>{message}</p>}
         </div>
     );
 };
