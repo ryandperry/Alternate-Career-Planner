@@ -10,6 +10,7 @@ import './CourseList.css';
 const CourseListView = ({ courses }) => {
     const [message, setMessage] = useState(null);
 
+    // Get data from flask server
     useEffect(() => {
         const fetchData = async () => {
             try {
