@@ -1,0 +1,125 @@
+population.py
+
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500  58) class Person:
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500  59)   def __init__(self, major, classes_array, quiz_results):
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500  60)     self.major = major
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500  61)     self.classes_array = classes_array
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500  62)     self.quiz_results = quiz_results
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500  63) 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 237) def adding_person(personCourseObjects, major, quiz_major, major_object):
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 238)   # personCourseObjects is the array of course objects from Ryans parsing code 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 239)   # major will hopefully also be from ryan's code
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 240)   # and then what they scored on the quiz is the quiz_major string 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 241)   # from the output from ryan's code , we will do the following 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 242)   # Ryan's code will create an array of course obects 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 243) 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 244)   # major object is from our own stuff 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 245) 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 246)   # changing both of the names into IDs so we can store those ids in our one person 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 247)   for majors in major_object:
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 248)     if(major == majors.name):
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 249)       major_id = majors.major_id 
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 250)     if(quiz_major == majors.name):
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 251)       quiz_id = majors.major_id
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 252)   func_classes_array = []
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 253)   for i in personCourseObjects:
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 254)     if(personCourseObjects[i].grade > 'C'):
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 255)       # if they got higher than a C, add it to the person object
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 256)       func_classes_array.append(personCourseObjects[i].course_name)
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 257)   OnlyOnePerson = Person(major=major_id, classes_array=func_classes_array, quiz_results=quiz_id)
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 258)   return OnlyOnePerson
+cc7ba34d (bea-eldridge     2024-11-03 17:59:58 -0500 259) 
+17c93c7d (bea-eldridge     2024-11-03 18:19:28 -0500 378)   majorid = 1
+17c93c7d (bea-eldridge     2024-11-03 18:19:28 -0500 379)   classes_array = ["EF 151", "EF 230", "MATH 141"]
+17c93c7d (bea-eldridge     2024-11-03 18:19:28 -0500 380)   quiz_results = "ME"
+17c93c7d (bea-eldridge     2024-11-03 18:19:28 -0500 381)   person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
+17c93c7d (bea-eldridge     2024-11-03 18:19:28 -0500 382)   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
+17c93c7d (bea-eldridge     2024-11-03 18:19:28 -0500 383)   print(major_objects)
+17c93c7d (bea-eldridge     2024-11-03 18:19:28 -0500 384)   compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+
+population_sp4_be.py
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 274) def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 275)   #major_objects is the dictionary of major objects 
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 276)   hour_counter = 0
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 278)   # check in every major 
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 279)   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 280)   for i in major_objects.keys():
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 281)     # do not check against their current major
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 282)     if(major_objects[i].major_id == person_object.major):
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 283)       continue
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 284)     else:
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 285)       # check their courses ?
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 286)       for course_taken in history_ids:
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 287)         # see if it is in the course_ids set for this major 
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 288)         if course_taken in major_objects[i].course_ids:
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 289)           hour_counter += course_objects[course_taken].hours
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 291)           continue
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 292)         # see if this course is in their bucket objects 
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 293)         for bucket_id in bucket_objects.keys():
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 294)           if course_taken in bucket_objects.course_ids:
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 295)             hour_counter += course_objects[course_taken].hours
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 296)             if(bucket_id.num_hours > 0):
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 297)               bucket_objects[course_taken].num_hours -= course_objects[course_taken].num_hours
+b72ac5ea (bea-eldridge      2024-11-06 21:13:47 -0500 298)           #somewhere in here we need to check if it is part of a bucket
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 299)         # if(course_taken in bucket_objects)
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 300)         #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 301)             #pseudo code : 
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 302)             # if this course name appears in the bucket objects' course names 
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 303)             #if()
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 304)             # then you need to see if this one class will fill the entire requirement via the course table hours !! 
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 305)             # if it does not fill the entire requirement, manually subtract the hours required for that bucket
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 306)             # if it does fill the whole requirement add that number to hour_counter
+1e76a4a4 (bea-eldridge      2024-11-03 18:24:48 -0500 307)         # look up the course id in the major dictionary at this i 
+
+flask.pye06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400  1) # they might have to be in the same folder
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400  2) 
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400  3) # after data cleaning is over, you should move all the 
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400  4) # csvs and all the population.py into this folder so we can 
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400  5) # properly import them 
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400  6) from population.py import Major, Course, Bucket
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400  7) # only need one fetch if we only call from the javascript once 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400  8) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400  9) # linux computer??
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 10) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 11) # sudo apt install python3-pip -y 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 12) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 13) # install flask: 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 14) # sudo pip3 install flask 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 15) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 16) #interacting with the api 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 17) #pip3 install requests 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 18) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 19) #nano flasktest.py
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 20) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 21) from flask import Flask
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 22) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 23) app = Flask(__name__)
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 24) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 25) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 26) #  python decorator: add more functionality ?
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 27) # route is the place to go 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 28) # when someone goes to the root of the website -->
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 29) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 30) # when they go to the root of the website this function will print out 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 31) @app.route("/results")
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 32) def index():
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 34)     course_objects = build_course_objects()
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 35)     bucket_objects = build_bucket_objects(course_objects)
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 36)     print(course_objects)
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 37)     print(bucket_objects)
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 38)     majorid = 1
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 39)     #classes_array = ["EF 151", "EF 230", "MATH 141"]
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 40)     # fetch the json from ryan for classes_array 
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 41)     # quiz_results = "ME"
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 42) 
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 43)     # the JSON will have the quiz results, major and classes array of objects
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 44)     #   grade received is in classes array 
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 45)     person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 46)     major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 47)     print(major_objects)
+e06b05a4 (bea-eldridge      2024-10-31 15:16:00 -0400 48)     compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 49)     return "string"
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 50) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 51) 
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 52) app.run(host="0.0.0.0", port=80)
+33b95060 (bea-eldridge      2024-10-31 15:05:14 -0400 53) # flask. run on our host 
