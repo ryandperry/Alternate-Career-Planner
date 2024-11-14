@@ -21,16 +21,16 @@ body {
 }
 
 .progress-bar{
-    width: 400px;
-    height: 30px;
-    border-radius: 10px;
+    width: 830px;
+    height: 20px;
+    border-radius: 30px;
     background-color: #e6e6e6;
     margin-bottom: 10px;
 }
 
 .progress-bar-fill {
     height: 100%;
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: #2ecc71;
     transition: width 0.5s ease-out;
 }
