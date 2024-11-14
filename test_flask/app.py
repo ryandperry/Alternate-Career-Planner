@@ -11,7 +11,7 @@ CORS(app)  # Enable CORS for all routes so react can connect
 
 @app.route('/api/hello', methods=['GET'])
 def hello():
-    return jsonify({"message": "Hello from Emily!"})
+    return jsonify({"message": "This is a test of a passed course!"})
 
 @app.post("/RyanData")
 def get_ryan_data():
