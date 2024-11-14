@@ -23,7 +23,7 @@ const CourseHistoryView = () => {
     };
 
     const filteredCourses = courses.filter(course => {
-        if (selectedFilter === "Active") {
+        if (selectedFilter === "In Progress") {
           return course.grade === "IP";
         } else if (selectedFilter === "Completed") {
           return course.grade !== "IP";
@@ -49,11 +49,11 @@ const CourseHistoryView = () => {
                     >
                         All 
                     </li>
-                    <li className={`Header ${selectedFilter === "Active" ? 
+                    <li className={`Header ${selectedFilter === "In Progress" ? 
                                                 "active" : ""}`}
-                        onClick={() => handleFilterChange("Active")}
+                        onClick={() => handleFilterChange("In Progress")}
                     >
-                        Active 
+                        In Progress 
                     </li>
                     <li className={`Header ${selectedFilter === "Completed" 
                                                 ? "active" : ""}`}
