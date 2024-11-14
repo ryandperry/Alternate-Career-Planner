@@ -16,14 +16,19 @@ def hello():
 @app.post("/RyanData")
 def get_ryan_data():
     if request.is_json:
-        ryan_data = request.get_json()
-        #make a new JSON and return it to Ryan 
-        results_data = {"Course": "PHYS341", "Bucket": "Introduction to ..."}
-        results_json = json.dumps(results_data)
-        return results_json
+      ryan_data = request.get_json()
+      print(ryan_data)
+
+      #make a new JSON and return it to Ryan 
+      results_data = {"Computer Science": "PHYS341"}
+      results_json = json.dumps(results_data)
+      return results_json
     return {"Error": "Request must be JSON"}, 415
 
 #make route for each page/request that's needed
+#post and get requests
+#put this app request at the bottom of our current code,
+#and overwrite the main with this
 
 #
 
