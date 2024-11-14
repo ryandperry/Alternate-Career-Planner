@@ -1,0 +1,244 @@
+/alternate-career-planner/src/components/CourseHistory/CourseHistory.css
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  1) table {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  2)     width: 100%;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  3)     border-collapse: separate;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  4)     border-spacing: 0 10px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  5) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  6) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  7) .CourseDetails {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  8)     display: flex;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  9)     justify-content: space-between;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 10)     background-color: #fefeff;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 11)     border-radius: 10px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 12)     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 13) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 14) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 15) .CourseName {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 18)     background-color: #FEFEFF;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 19)     border-radius: 10px 0 0 10px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 20)     text-align: left;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 21)     font-size: 18px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 24) .CourseGrade {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 26)     color: white;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 27)     background-color: #489FDF;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 28)     width: 20px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 29)     border-radius: 0 10px 10px 0;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 30)     font-size: 19px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 31) }
+
+/alternate-career-planner/src/components/CourseHistory/CourseHistory.js 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  6)     <div>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  7)         <table>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  8)             <tbody>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 10)                     <tr key={index}>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 11)                         <td className="CourseDetails">
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 12)                             <span className="CourseName">
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 13)                                 {course.title}
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 14)                             </span>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 15)                             <span className="CourseGrade">
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 16)                                 {course.grade}
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 17)                             </span>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 18)                         </td>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 19)                     </tr>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 21)             </tbody>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 22)         </table>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 23)     </div>
+
+/alternate-career-planner/src/components/ProgressBar/ProgressBar.css
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 24)     width: 830px;
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 25)     height: 20px;
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 26)     border-radius: 30px;
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 33)     border-radius: 30px;
+
+/alternate-career-planner/src/components/ProgressBar/ProgressBar.js
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500  6) import React from "react";
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500  7) import './ProgressBar.css'
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500  9) export const ProgressBar = ({ progress }) => {
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 11)         return "#489FDF";
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 12)     };
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 14)     return (
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 15)         <div className="container">
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 16)             <div className="progress-bar">
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 17)                 <div
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 18)                     className="progress-bar-fill"
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 19)                     style={{
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 20)                         width: `${progress}%`,
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 21)                         backgroundColor: getColor(),
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 22)                     }}
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 23)                 >
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 24)                     {" "}
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 25)                 </div>
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 28)     );
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 30) 
+
+/alternate-career-planner/src/components/TopMajors/TopMajors.js
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500  1) import React from 'react';
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500  2) import '../../views/MajorDetailView/MajorDetailView.css';
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500  3) import MajorHeaderImage from '../MajorHeaderImage/MajorHeaderImage';
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500  4) import JobsList from '../JobsList/JobsList';
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500  5) import { testMajors } from '../../views/ResultsView/testMajors';
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500  6) import { ProgressBar } from '../ProgressBar/ProgressBar';
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500  7) 
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500  8) const TopMajors = ({ majors }) => {
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500  9)     return (
+22ee7502 (Ryan Perry 2024-11-13 18:13:31 -0500 10)         <div>
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 11)             {majors.map((majorObj, index) => {
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 12)                 // Look up the major in the testMajors array
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 13)                 const majorInfo = testMajors.find(m => m.name === majorObj.title);
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 14)                 
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 15)                 // Get the description or default text
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 16)                 const description = majorInfo ? majorInfo.description : "Description not available";
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 17)                 
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 18)                 // Get the progress percentage from majorObj
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 19)                 const progress = majorObj.progress || 0;
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 20) 
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 21)                 return (
+22ee7502 (Ryan Perry 2024-11-13 18:13:31 -0500 22)                     <div key={index}>
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 23)                         <hr className="solid" />
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 24)                         <h1 className="major-title">#{index + 1} {majorObj.title}</h1>
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 25)                         <MajorHeaderImage major={{ name: majorObj.title || 
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 26)                               "Unknown Major" }} />
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 27)                         <p style={{fontSize: '20px'}}>
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 28)                             We estimate that you have completed <b>{progress}%</b> of
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 29)                             the required courses for <b>{majorObj.title}</b>.
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 30)                         </p> 
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 31)                         <ProgressBar progress={majorObj.progress || 0} />
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 32)                         <p className="major-description">{description}</p>
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 33)                         <JobsList majorname={majorObj.title} />
+22ee7502 (Ryan Perry 2024-11-13 18:13:31 -0500 34)                     </div>
+22ee7502 (Ryan Perry 2024-11-13 18:13:31 -0500 35)                 );
+22ee7502 (Ryan Perry 2024-11-13 18:13:31 -0500 36)             })}
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 37)         </div>
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500 38)     );
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500 39) }
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500 40) 
+cc40b82b (Ryan Perry 2024-11-13 18:09:44 -0500 41) export default TopMajors;
+9704e8b8 (Ryan Perry 2024-11-13 19:37:01 -0500 42) 
+
+/alternate-career-planner/src/views/CourseHistoryView/CourseHistory.css
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  1) /* CourseHistory.ccs
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  2)  * Description: CSS styling for course history view.
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  3)  */
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  4) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  5) .Split {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  6)     display: flex;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  7)     width: 100%;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  8)     margin: 0 auto;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  9) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 10) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 11) .Sidebar {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 12)     height: 100vh;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 13)     min-height: 100vh;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 14)     overflow-y: auto;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 15)     background-color: #F9F9F9;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 16)     width: 33%;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 17)     position: sticky;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 18)     top: 0;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 19)     padding: 20px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 20) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 21) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 22) /* Hide scrollbar for WebKit browswers (Chrome, Safari)*/
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 23) .Sidebar::-webkit-scrollbar {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 24)     display: none;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 25) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 26) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 27) .mainContent {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 28)     width: 67%;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 29)     padding: 20px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 30) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 31) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 32) .Title {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 33)     padding-left: 20px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 34)     color: #0f0d0a;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 35) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 36) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 38)     padding-left: 20px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 39)     color: #0f0d0a;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 40)     cursor: pointer;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 41) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 42) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 43) .Header.active {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 44)     font-weight: bold;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 45) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 46) 
+7206919b (Ryan Perry       2024-11-13 16:52:57 -0500 47) ul.History {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 48)   list-style: none;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 49) }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 50) 
+7206919b (Ryan Perry       2024-11-13 16:52:57 -0500 51) li.Header {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 52)   display: inline-block;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 53)   margin-right: 10px;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 54)   font-size: 22px;
+
+/alternate-career-planner/src/views/CourseHistoryView/CourseHistory.js
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  1) /* CourseHistory.js
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  2)  * Description: Displays the user's course history.
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  3)  */
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500  4) 
+cc40b82b (Ryan Perry       2024-11-13 18:09:44 -0500  8) import TopMajors from '../../components/TopMajors/TopMajors';
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 12)     const [selectedFilter, setSelectedFilter] = useState("All");
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 21)     const handleFilterChange = (filter) => {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 22)         setSelectedFilter(filter);
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 23)     };
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 24) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 25)     const filteredCourses = courses.filter(course => {
+3bece526 (Ryan Perry       2024-11-13 19:41:01 -0500 26)         if (selectedFilter === "In Progress") {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 27)           return course.grade === "IP";
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 28)         } else if (selectedFilter === "Completed") {
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 29)           return course.grade !== "IP";
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 30)         }
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 31)         return true;
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 32)     });
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 33) 
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 34)     /* Replace with top majors from backend */
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 35)     const topMajors = [
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 36)         { title: 'Computer Science', progress: 65 },
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 37)         { title: 'Computer Engineering', progress: 50},
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 38)         { title: 'Electrical Engineering', progress: 35}
+9704e8b8 (Ryan Perry       2024-11-13 19:37:01 -0500 39)     ];
+cc40b82b (Ryan Perry       2024-11-13 18:09:44 -0500 40) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 42)         <div className="Split">
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 43)             <div className="Sidebar">
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 44)                 <h1 className="Title">Courses</h1>
+cc40b82b (Ryan Perry       2024-11-13 18:09:44 -0500 46)                     <li className={`Header ${selectedFilter === "All" ? 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 47)                                                 "active" : ""}`}
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 48)                         onClick={() => handleFilterChange("All")}
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 49)                     >
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 50)                         All 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 51)                     </li>
+3bece526 (Ryan Perry       2024-11-13 19:41:01 -0500 52)                     <li className={`Header ${selectedFilter === "In Progress" ? 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 53)                                                 "active" : ""}`}
+3bece526 (Ryan Perry       2024-11-13 19:41:01 -0500 54)                         onClick={() => handleFilterChange("In Progress")}
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 55)                     >
+3bece526 (Ryan Perry       2024-11-13 19:41:01 -0500 56)                         In Progress 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 57)                     </li>
+cc40b82b (Ryan Perry       2024-11-13 18:09:44 -0500 58)                     <li className={`Header ${selectedFilter === "Completed" 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 59)                                                 ? "active" : ""}`}
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 60)                         onClick={() => handleFilterChange("Completed")}
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 61)                     >
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 62)                         Completed 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 63)                     </li>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 64)                 </ul>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 65)                 <table>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 66)                     <th colSpan={2}>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 67)                         <CourseHistory courses = {filteredCourses}/>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 68)                     </th>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 69)                 </table>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 70)             </div>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 71) 
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 72)             <div className="mainContent">
+f1ad8336 (Ryan Perry       2024-11-13 16:41:10 -0500 73)                 <h1>Top Majors for You</h1>
+f1ad8336 (Ryan Perry       2024-11-13 16:41:10 -0500 74)                 <p>
+f1ad8336 (Ryan Perry       2024-11-13 16:41:10 -0500 75)                     These majors have the most course overlap with your
+f1ad8336 (Ryan Perry       2024-11-13 16:41:10 -0500 76)                     academic history.
+f1ad8336 (Ryan Perry       2024-11-13 16:41:10 -0500 77)                 </p>
+cc40b82b (Ryan Perry       2024-11-13 18:09:44 -0500 78)                 <TopMajors majors={topMajors}/>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 79)             </div>
+b19878c3 (Ryan Perry       2024-11-13 16:05:35 -0500 80) 
+
+/alternate-career-planner/src/views/Home/Home.js
+d3cd12da (Ryan Perry       2024-11-13 16:26:47 -0500  93)                             View Top Majors
+
+/alternate-career-planner/src/views/Quiz/Quiz.css
+bb64cd58 (Ryan Perry       2024-11-13 19:50:03 -0500 28)     width: 100%;
+bb64cd58 (Ryan Perry       2024-11-13 19:50:03 -0500 32)     font-size: 22px;
