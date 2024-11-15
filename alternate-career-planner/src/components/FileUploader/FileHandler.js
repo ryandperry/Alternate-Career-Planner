@@ -36,5 +36,27 @@ export const parseCourseContent = (content) => {
         }
     }
     localStorage.setItem('coursesTaken', JSON.stringify(coursesTaken));
+
+    // Send couresTaken to backend
+    fetch("http://localhost:5000/RyanData", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(coursesTaken)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Response from server:', data);
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
+
     return true;
 };
