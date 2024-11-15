@@ -1,0 +1,206 @@
+HomeScreen.js
+HomeScreen.js (jckmnhn on 11/13/2024 at 14:50):             <h2>Quick Explanation</h2>
+
+README.md
+README.md    (jckmnhn on 11/09/2024 at 17:31): ![Logo](https://i.imgur.com/JPuGrjA.png)
+README.md    (jckmnhn on 11/09/2024 at 16:51): ## Project Description
+README.md    (jckmnhn on 11/09/2024 at 17:36): Students in Tickle College of Engineering often get into their major and realize that they love engineering, but want a different specialty. Alternate Career Planner allows students to upload their DARS report webpage (in HTML) and view all other engineering majors ranked from the least number of remaining course requirements. Additionally, students can take a short quiz to determine what majors they would most enjoy based on their outside interests or hobbies.
+README.md    (jckmnhn on 11/09/2024 at 17:55): ## Screenshot
+README.md    (jckmnhn on 11/09/2024 at 17:55): ![Screenshot1](https://i.imgur.com/h3aoBGZ.jpeg)
+README.md    (jckmnhn on 11/09/2024 at 17:55): ## Installation
+README.md    (jckmnhn on 11/09/2024 at 17:55): ### Prerequisites (Should already be installed)
+README.md    (jckmnhn on 11/09/2024 at 17:55): - npm
+README.md    (jckmnhn on 11/09/2024 at 17:55): - Node.js
+README.md    (jckmnhn on 11/09/2024 at 17:55): Navigate to `alternate-career-planner` within this Git repository. This is the React.js project directory.
+README.md    (jckmnhn on 11/09/2024 at 17:55): ```
+README.md    (jckmnhn on 11/09/2024 at 17:55): cd alternate-career-planner
+README.md    (jckmnhn on 11/09/2024 at 17:55): ```
+README.md    (jckmnhn on 11/09/2024 at 17:55): Run this command to start the React application.
+README.md    (jckmnhn on 11/09/2024 at 17:55): ```
+README.md    (jckmnhn on 11/09/2024 at 17:55): npm start
+README.md    (jckmnhn on 11/09/2024 at 17:55): ```
+README.md    (jckmnhn on 11/09/2024 at 17:55): This should open a new browser window of Alternate Career Planner. This instance of ACP is running locally on your machine. If a browser window does not immediately appear, open a browser and visit `http://localhost:3000`.
+README.md    (jckmnhn on 11/13/2024 at 14:17): ### Usage
+README.md    (jckmnhn on 11/13/2024 at 14:17): After running a local instance of Alternate Career Planner using the above instructions, users will be presented with instructions to upload a file or take an interest quiz. After completing an interest quiz, a suggested major will be presented alongside a list of all majors and their descriptions. 
+README.md    (jckmnhn on 11/09/2024 at 17:29): ## Technologies Used
+README.md    (jckmnhn on 11/09/2024 at 17:29): ![ReactBadge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+README.md    (jckmnhn on 11/09/2024 at 17:29): ![JSBadge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+README.md    (jckmnhn on 11/09/2024 at 17:29): ![HTMLBadge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+README.md    (jckmnhn on 11/09/2024 at 17:29): ![CSSBadge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+README.md    (jckmnhn on 11/09/2024 at 17:29): ![PythonBadge](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+README.md    (jckmnhn on 11/09/2024 at 17:29): ![FlaskBadge](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+README.md    (jckmnhn on 11/09/2024 at 17:29): This project was built with React.js, involving HTML, CSS, and JavaScript. Additionally, Python and Flask were used to analyze documents and determine suggested majors.
+README.md    (jckmnhn on 11/09/2024 at 16:51): ## Project Members
+README.md    (jckmnhn on 11/09/2024 at 16:51): - Emily Constantin
+README.md    (jckmnhn on 11/09/2024 at 16:51): - Kale Dodson
+README.md    (jckmnhn on 11/09/2024 at 16:51): - Beatrice Eldridge
+README.md    (jckmnhn on 11/09/2024 at 16:51): - Jack Minehan
+README.md    (jckmnhn on 11/09/2024 at 16:51): - Ryan Perry
+README.md    (jckmnhn on 11/09/2024 at 18:27): ## License and Usage of UTK Assets
+README.md    (jckmnhn on 11/09/2024 at 18:27): This project uses the MIT license with additional terms for the usage of UTK assets. See `LICENSE.md` for more details.
+README.md    (jckmnhn on 11/09/2024 at 18:27): Please note that some assets from utk.edu, including images, descriptions, and colors, were used for the private scope of this project and are not intended to be used publicly without permission.
+
+package-lock.json
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "axios": "^1.7.7",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "version": "7.21.11",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "resolved": "https://registry.npmjs.org/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.21.11.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "integrity": "sha512-0QZ8qP/3RLDVBwBFoWAwCtgcDZJVwA5LUJRZU8x2YFfKNuFq161wK3cuGrALu5yiPu+vzwTAg/sMWVNeWeNyaw==",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "deprecated": "This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "dependencies": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/helper-annotate-as-pure": "^7.18.6",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/helper-create-class-features-plugin": "^7.21.0",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/helper-plugin-utils": "^7.20.2",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/plugin-syntax-private-property-in-object": "^7.14.5"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     "node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-private-property-in-object": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "version": "7.21.0-placeholder-for-preset-env.2",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "resolved": "https://registry.npmjs.org/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.21.0-placeholder-for-preset-env.2.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "integrity": "sha512-SOSkfJDddaM7mak6cPEpswyTRnuRltl429hMraQEglW+OkovnCzsiszTmsrlY//qLFjCpQDFRvjdm2wA5pPm9w==",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "engines": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "node": ">=6.9.0"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "peerDependencies": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/core": "^7.0.0-0"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       }
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     "node_modules/axios": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "version": "1.7.7",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "resolved": "https://registry.npmjs.org/axios/-/axios-1.7.7.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "integrity": "sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "dependencies": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "follow-redirects": "^1.15.6",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "form-data": "^4.0.0",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "proxy-from-env": "^1.1.0"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       }
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     "node_modules/axios/node_modules/form-data": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "version": "4.0.1",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "resolved": "https://registry.npmjs.org/form-data/-/form-data-4.0.1.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "integrity": "sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "dependencies": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "asynckit": "^0.4.0",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "combined-stream": "^1.0.8",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "mime-types": "^2.1.12"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "engines": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "node": ">= 6"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       }
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     "node_modules/proxy-from-env": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "version": "1.1.0",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "resolved": "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "integrity": "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "version": "7.21.11",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "resolved": "https://registry.npmjs.org/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.21.11.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "integrity": "sha512-0QZ8qP/3RLDVBwBFoWAwCtgcDZJVwA5LUJRZU8x2YFfKNuFq161wK3cuGrALu5yiPu+vzwTAg/sMWVNeWeNyaw==",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "requires": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/helper-annotate-as-pure": "^7.18.6",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/helper-create-class-features-plugin": "^7.21.0",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/helper-plugin-utils": "^7.20.2",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/plugin-syntax-private-property-in-object": "^7.14.5"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       }
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "@babel/plugin-proposal-private-property-in-object": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           "version": "7.21.0-placeholder-for-preset-env.2",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           "resolved": "https://registry.npmjs.org/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.21.0-placeholder-for-preset-env.2.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           "integrity": "sha512-SOSkfJDddaM7mak6cPEpswyTRnuRltl429hMraQEglW+OkovnCzsiszTmsrlY//qLFjCpQDFRvjdm2wA5pPm9w==",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           "requires": {}
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     "axios": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "version": "1.7.7",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "resolved": "https://registry.npmjs.org/axios/-/axios-1.7.7.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "integrity": "sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "requires": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "follow-redirects": "^1.15.6",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "form-data": "^4.0.0",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "proxy-from-env": "^1.1.0"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "dependencies": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         "form-data": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           "version": "4.0.1",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           "resolved": "https://registry.npmjs.org/form-data/-/form-data-4.0.1.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           "integrity": "sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           "requires": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):             "asynckit": "^0.4.0",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):             "combined-stream": "^1.0.8",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):             "mime-types": "^2.1.12"
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):           }
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):         }
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       }
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     },
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     "proxy-from-env": {
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "version": "1.1.0",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "resolved": "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz",
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):       "integrity": "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="
+package-lock.json (jckmnhn on 11/14/2024 at 16:27):     },
+
+CourseHistory.js
+CourseHistory.js (jckmnhn on 11/13/2024 at 16:39):                 <ul className="History">
+
+CourseList.js
+CourseList.js (jckmnhn on 11/14/2024 at 16:27): import React, { useEffect, useState } from 'react';
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):     const [message, setMessage] = useState(null);
+CourseList.js (jckmnhn on 11/14/2024 at 16:29):     // Get data from flask server
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):     useEffect(() => {
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):         const fetchData = async () => {
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):             try {
+CourseList.js (jckmnhn on 11/14/2024 at 16:51):                 const response = await fetch('http://127.0.0.1:5000/api/hello');
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):                 if (!response.ok) throw new Error('Network response was not ok');
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):                 const data = await response.json();
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):                 setMessage(data.message);
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):             } catch (error) {
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):                 console.error("Fetch error:", error);
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):             }
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):         };
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):         fetchData();
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):     }, []);
+CourseList.js (jckmnhn on 11/14/2024 at 16:51):     if ((!courses || courses.length === 0) && !message) {
+CourseList.js (jckmnhn on 11/14/2024 at 16:51):             <p>{message}</p>
+CourseList.js (jckmnhn on 11/14/2024 at 16:27):     );
+CourseList.js (jckmnhn on 11/14/2024 at 16:27): };
+
+MajorsListView.js
+MajorsListView.js (jckmnhn on 11/13/2024 at 16:33): import '../MajorDetailView/MajorDetailView.css';
+MajorsListView.js (jckmnhn on 11/13/2024 at 16:33): import JobsList from '../../components/JobsList/JobsList';
+MajorsListView.js (jckmnhn on 11/13/2024 at 16:33): import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage';
+MajorsListView.js (jckmnhn on 11/14/2024 at 13:23):     const selectedMajor = majors.find((major) => major.name === finalMajor);
+MajorsListView.js (jckmnhn on 11/14/2024 at 13:23):     const description = selectedMajor ? selectedMajor.description : "";
+MajorsListView.js (jckmnhn on 11/13/2024 at 15:58):             <h2> Thanks for taking the quiz! Based on your provided answers, we think you'll enjoy: </h2>
+MajorsListView.js (jckmnhn on 11/13/2024 at 16:33):                 <MajorHeaderImage major={{name: finalMajor || "Unknown Major"}}/>
+MajorsListView.js (jckmnhn on 11/13/2024 at 16:33):                 <h1 className="major-title">{finalMajor}</h1>
+MajorsListView.js (jckmnhn on 11/14/2024 at 13:23):                 <p className="major-description">{description}</p>
+MajorsListView.js (jckmnhn on 11/13/2024 at 16:33):                 <JobsList majorname={finalMajor}/>
+MajorsListView.js (jckmnhn on 11/14/2024 at 13:23):             <hr className="divider" />
+MajorsListView.js (jckmnhn on 11/13/2024 at 15:58):             <h2>Alternatively, explore all majors below. </h2>
+
+Home.css
+Home.css     (jckmnhn on 11/13/2024 at 15:25):     color: #4B4B4B; /* Smokey Gray */
+Home.css     (jckmnhn on 11/13/2024 at 15:25): .text-section h1 {
+Home.css     (jckmnhn on 11/13/2024 at 15:25):     color: #4B4B4B; /* Smokey Gray */
+Home.css     (jckmnhn on 11/13/2024 at 15:25): }
+Home.css     (jckmnhn on 11/13/2024 at 15:28):   color: #4B4B4B; /* Smokey Gray */
+
+ImageSlider.js
+ImageSlider.js (jckmnhn on 11/13/2024 at 15:06):         backgroundImage: `url(${slides[currentIndex].url})`,
+ImageSlider.js (jckmnhn on 11/13/2024 at 15:06):         marginBottom: '50px',
+ImageSlider.js (jckmnhn on 11/13/2024 at 15:06):         paddingBottom: '50px',
+ImageSlider.js (jckmnhn on 11/13/2024 at 15:25):         fontWeight: isActive ? 'bold' : 'normal',
+ImageSlider.js (jckmnhn on 11/13/2024 at 15:54):         color: isActive ? '#489fdf' /* Blue */ : '#4B4B4B' /* Smokey Gray */
+
+package.json
+package.json (jckmnhn on 11/14/2024 at 16:27):     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+package.json (jckmnhn on 10/31/2024 at 15:08):     "axios": "^1.7.7",
+
+MajorHeaderImage.js
+MajorHeaderImage.js (jckmnhn on 11/13/2024 at 15:16):     'Computer Engineering': '/assets/major-header-images/computer-engineering-header.jpg',
+MajorHeaderImage.js (jckmnhn on 11/13/2024 at 15:16):     'Industrial Engineering': '/assets/major-header-images/industrial-engineering-header.jpg',
+MajorHeaderImage.js (jckmnhn on 11/13/2024 at 15:16):     'Nuclear Engineering': '/assets/major-header-images/nuclear-engineering-header.jpg',
+
+App.css
+App.css      (jckmnhn on 11/13/2024 at 15:37):   font-weight: 600;
+App.css      (jckmnhn on 11/13/2024 at 15:37):   padding: 10px 15px;
+App.css      (jckmnhn on 11/13/2024 at 15:37):   font-weight: 600;
+
+app.py
+app.py       (jckmnhn on 11/14/2024 at 16:51):     return jsonify({"message": "This is a test of a passed course!"})
