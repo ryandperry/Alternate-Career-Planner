@@ -1,0 +1,139 @@
+population_kd.py (kaledod on 11/14/2024 at 21:35): class Person:
+population_kd.py (kaledod on 11/14/2024 at 21:35):   def __init__(self, major, classes_array, quiz_results):
+population_kd.py (kaledod on 11/14/2024 at 21:35):     self.major = major
+population_kd.py (kaledod on 11/14/2024 at 21:35):     self.classes_array = classes_array
+population_kd.py (kaledod on 11/14/2024 at 21:35):     self.quiz_results = quiz_results
+population_kd.py (kaledod on 11/14/2024 at 21:35):         course_objects[course_id].names.add(course_table['Course'][row].replace(" ",""))
+population_kd.py (kaledod on 11/14/2024 at 21:35):         course_object.names.add(course_table['Course'][row].replace(" ",""))
+population_kd.py (kaledod on 11/14/2024 at 21:35):     current_course_name = prereqs['Course'][row].replace(" ","")
+population_kd.py (kaledod on 11/14/2024 at 21:35):     current_req_name = prereqs['PreReq/CoReq Course'][row].replace(" ","")
+population_kd.py (kaledod on 11/14/2024 at 21:35):             # print("found a matching name")
+population_kd.py (kaledod on 11/14/2024 at 21:35): def adding_person(personCourseObjects, major, quiz_major, major_object):
+population_kd.py (kaledod on 11/14/2024 at 21:35):   # personCourseObjects is the array of course objects from Ryans parsing code 
+population_kd.py (kaledod on 11/14/2024 at 21:35):   # major will hopefully also be from ryan's code
+population_kd.py (kaledod on 11/14/2024 at 21:35):   # and then what they scored on the quiz is the quiz_major string 
+population_kd.py (kaledod on 11/14/2024 at 21:35):   # from the output from ryan's code , we will do the following 
+population_kd.py (kaledod on 11/14/2024 at 21:35):   # Ryan's code will create an array of course obects 
+population_kd.py (kaledod on 11/14/2024 at 21:35):   # major object is from our own stuff 
+population_kd.py (kaledod on 11/14/2024 at 21:35):   # changing both of the names into IDs so we can store those ids in our one person 
+population_kd.py (kaledod on 11/14/2024 at 21:35):   for majors in major_object:
+population_kd.py (kaledod on 11/14/2024 at 21:35):     if(major == majors.name):
+population_kd.py (kaledod on 11/14/2024 at 21:35):       major_id = majors.major_id 
+population_kd.py (kaledod on 11/14/2024 at 21:35):     if(quiz_major == majors.name):
+population_kd.py (kaledod on 11/14/2024 at 21:35):       quiz_id = majors.major_id
+population_kd.py (kaledod on 11/14/2024 at 21:35):   func_classes_array = []
+population_kd.py (kaledod on 11/14/2024 at 21:35):   for i in personCourseObjects:
+population_kd.py (kaledod on 11/14/2024 at 21:35):     if(personCourseObjects[i].grade > 'C'):
+population_kd.py (kaledod on 11/14/2024 at 21:35):       # if they got higher than a C, add it to the person object
+population_kd.py (kaledod on 11/14/2024 at 21:35):       func_classes_array.append(personCourseObjects[i].course_name)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   OnlyOnePerson = Person(major=major_id, classes_array=func_classes_array, quiz_results=quiz_id)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   return OnlyOnePerson
+population_kd.py (kaledod on 11/14/2024 at 21:35):       if(history_name in course.names):
+population_kd.py (kaledod on 11/14/2024 at 21:35):       # if(course.name == history_name):  
+population_kd.py (kaledod on 11/14/2024 at 21:35):   print_statement = "\nCourses: "
+population_kd.py (kaledod on 11/14/2024 at 21:35):   print_statement += course_object.course_id + " "
+population_kd.py (kaledod on 11/14/2024 at 21:35):   print_statement += "\n"
+population_kd.py (kaledod on 11/14/2024 at 21:35):   return print_statement
+population_kd.py (kaledod on 11/14/2024 at 21:35):   print_statement = "\nBucket: " + bucket_name + " has these courses "
+population_kd.py (kaledod on 11/03/2024 at 17:57):   if num_hrs == -1:
+population_kd.py (kaledod on 11/03/2024 at 17:57):     print_statement += "\n"
+population_kd.py (kaledod on 11/03/2024 at 17:57):   else:
+population_kd.py (kaledod on 11/03/2024 at 17:57):     print_statement += "\nFor a total of " + str(num_hrs) + " hours"
+population_kd.py (kaledod on 11/14/2024 at 21:35):   print_statement += "\n"
+population_kd.py (kaledod on 11/14/2024 at 21:35):   return print_statement
+population_kd.py (kaledod on 11/14/2024 at 21:35): def print_major_obj(major_object, course_object, bucket_object): 
+population_kd.py (kaledod on 11/03/2024 at 17:57):   print_statement = name
+population_kd.py (kaledod on 11/03/2024 at 17:57):   for x in maj_cour_ids:
+population_kd.py (kaledod on 11/14/2024 at 21:35):     if x in course_object:
+population_kd.py (kaledod on 11/14/2024 at 21:35):       print_statement += print_course_obj(course_object=course_object[x])
+population_kd.py (kaledod on 11/14/2024 at 21:35):   for y in maj_buck_ids:
+population_kd.py (kaledod on 11/14/2024 at 21:35):     if y in bucket_object:
+population_kd.py (kaledod on 11/14/2024 at 21:35):       #in here is where we can add the hard coded exceptions for the odd buckets that we already found
+population_kd.py (kaledod on 11/14/2024 at 21:35):       print_statement += print_bucket_obj(bucket_object=bucket_object[y])
+population_kd.py (kaledod on 11/14/2024 at 21:35):   return print(print_statement)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   """
+population_kd.py (kaledod on 11/14/2024 at 21:35):   for course_obj in course_objects.values():
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Course Names: ", course_obj.names)
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Course ID: ", course_obj.course_id)
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Prereq IDs: ", course_obj.prereq_courseids)
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Coreq IDs: ", course_obj.coreq_courseids)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   """
+population_kd.py (kaledod on 11/14/2024 at 21:35):   """
+population_kd.py (kaledod on 11/14/2024 at 21:35):   for bucket_obj in bucket_objects.values():
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Name: ", bucket_obj.name)
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Course Names: ", bucket_obj.course_names)
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Course IDs: ", bucket_obj.course_ids)
+population_kd.py (kaledod on 11/14/2024 at 21:35):     if bucket_obj.other_bucket_ids != set():
+population_kd.py (kaledod on 11/14/2024 at 21:35):       print("Other Bucket IDs: ", bucket_obj.other_bucket_ids)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   """
+population_kd.py (kaledod on 11/14/2024 at 21:35):   """
+population_kd.py (kaledod on 11/14/2024 at 21:35):   for major_obj in major_objects.values():
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Name: ", major_obj.name)
+population_kd.py (kaledod on 11/14/2024 at 21:35):     print("Course IDs: ", major_obj.course_ids)
+population_kd.py (kaledod on 11/14/2024 at 21:35):     if major_obj.bucket_ids != set():
+population_kd.py (kaledod on 11/14/2024 at 21:35):       print("Bucket IDs: ", major_obj.bucket_ids)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   """
+population_kd.py (kaledod on 11/14/2024 at 21:35):   #for i in course_objects:
+population_kd.py (kaledod on 11/14/2024 at 21:35):     #print_course_obj(course_object=course_objects[i])
+population_kd.py (kaledod on 11/14/2024 at 21:35):   #for i in bucket_objects:
+population_kd.py (kaledod on 11/14/2024 at 21:35):     #print_bucket_obj(bucket_object=bucket_objects[i])
+population_kd.py (kaledod on 11/14/2024 at 21:35):   #for i in major_objects:
+population_kd.py (kaledod on 11/14/2024 at 21:35):     #print_major_obj(major_object=major_objects[i], course_object=course_objects, bucket_object=bucket_objects)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   #print(print_course_obj(course_object=course_objects["136"]))
+population_kd.py (kaledod on 11/14/2024 at 21:35):   #print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   majorid = 1
+population_kd.py (kaledod on 11/14/2024 at 21:35):   classes_array = ["EF 151", "EF 230", "MATH 141"]
+population_kd.py (kaledod on 11/14/2024 at 21:35):   quiz_results = "ME"
+population_kd.py (kaledod on 11/14/2024 at 21:35):   person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   #print(major_objects)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+population_kd.py (kaledod on 11/14/2024 at 21:35):   print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
+population_kd.py (kaledod on 11/14/2024 at 21:35): #optional
+population_kd.py (kaledod on 11/14/2024 at 21:35): main()
+
+population.py (kaledod on 11/03/2024 at 17:57): def print_course_obj(course_object):
+population.py (kaledod on 11/03/2024 at 17:57):   course_name = course_object.names
+population.py (kaledod on 11/03/2024 at 17:57):   course_hrs = course_object.hours
+population.py (kaledod on 11/03/2024 at 17:57):   course_prereq_id = course_object.prereq_courseids
+population.py (kaledod on 11/03/2024 at 17:57):   print_statement = "Courses: "
+population.py (kaledod on 11/03/2024 at 17:57):   for y in course_name:
+population.py (kaledod on 11/03/2024 at 17:57):     print_statement += y + " "
+population.py (kaledod on 11/03/2024 at 17:57):   if course_object.description == "NULL":
+population.py (kaledod on 11/03/2024 at 17:57):     print_statement += "\nDescription: N/A" + "\nRequires " + course_hrs + " hours"
+population.py (kaledod on 11/03/2024 at 17:57):   else:
+population.py (kaledod on 11/03/2024 at 17:57):     print_statement += "\nDescription: " + course_object.description + "\nRequires " + course_hrs + " hours"
+population.py (kaledod on 11/03/2024 at 17:57):   if len(course_prereq_id) != 0:
+population.py (kaledod on 11/03/2024 at 17:57):     print_statement += ", these prereqs "
+population.py (kaledod on 11/03/2024 at 17:57):     for x in course_prereq_id:
+population.py (kaledod on 11/03/2024 at 17:57):       print_statement += x
+population.py (kaledod on 11/03/2024 at 17:57):   return print(print_statement)
+population.py (kaledod on 11/03/2024 at 17:57): def print_bucket_obj(bucket_object):
+population.py (kaledod on 11/03/2024 at 17:57):   bucket_name = bucket_object.name
+population.py (kaledod on 11/03/2024 at 17:57):   num_hrs = bucket_object.num_hours
+population.py (kaledod on 11/03/2024 at 17:57):   courses = bucket_object.course_names
+population.py (kaledod on 11/03/2024 at 17:57):   print_statement = "Bucket: " + bucket_name + " has these courses "
+population.py (kaledod on 11/03/2024 at 17:57):   for x in courses:
+population.py (kaledod on 11/03/2024 at 17:57):     print_statement += x + " "
+population.py (kaledod on 11/03/2024 at 17:57):   if num_hrs == -1:
+population.py (kaledod on 11/03/2024 at 17:57):     print_statement += "\n"
+population.py (kaledod on 11/03/2024 at 17:57):   else:
+population.py (kaledod on 11/03/2024 at 17:57):     print_statement += "\nFor a total of " + str(num_hrs) + " hours"
+population.py (kaledod on 11/03/2024 at 17:57):   return print(print_statement) 
+population.py (kaledod on 11/03/2024 at 18:01): def print_major_obj(major_object): 
+population.py (kaledod on 11/03/2024 at 17:57):   #set this up to take in course_obj so we can find them based on course_id set that this has
+population.py (kaledod on 11/03/2024 at 17:57):   maj_cour_ids = major_object.course_ids
+population.py (kaledod on 11/03/2024 at 17:57):   maj_buck_ids = major_object.bucket_ids
+population.py (kaledod on 11/03/2024 at 17:57):   name = major_object.name
+population.py (kaledod on 11/03/2024 at 17:57):   print_statement = name
+population.py (kaledod on 11/03/2024 at 17:57):   for x in maj_cour_ids:
+population.py (kaledod on 11/03/2024 at 17:57):     #print_course_obj(course_object=course_obj[x])
+population.py (kaledod on 11/03/2024 at 17:57):     print(x)
+population.py (kaledod on 11/03/2024 at 17:57):   #print(name)
+population.py (kaledod on 11/03/2024 at 17:57):   return print_statement
+population.py (kaledod on 11/03/2024 at 18:01):   for i in course_objects:
+population.py (kaledod on 11/03/2024 at 18:01):     print_course_obj(course_object=course_objects[i])
+population.py (kaledod on 11/03/2024 at 18:01):   for i in bucket_objects:
+population.py (kaledod on 11/03/2024 at 18:01):     print_bucket_obj(bucket_object=bucket_objects[i])
+population.py (kaledod on 11/03/2024 at 18:01):   for i in major_objects:
+population.py (kaledod on 11/03/2024 at 18:01):     print_major_obj(major_object=major_objects[i])
