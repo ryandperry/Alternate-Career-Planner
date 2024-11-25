@@ -274,7 +274,9 @@ def processing_course(course_objects, person_object):
 def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
   #major_objects is the dictionary of major objects 
   hour_counter = 0
+  max_number_of_hours = 0
   # check in every major 
+  copy_major_objects = major_objects
   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
   for i in major_objects.keys():
     # do not check against their current major
@@ -286,6 +288,8 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
         # see if it is in the course_ids set for this major 
         if course_taken in major_objects[i].course_ids:
           hour_counter += course_objects[course_taken].hours
+          #  delete major_objects[i].course_ids
+          del copy_major_objects[i]
           continue
         # see if this course is in their bucket objects 
         for bucket_id in bucket_objects.keys():
@@ -303,6 +307,11 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
             # if it does not fill the entire requirement, manually subtract the hours required for that bucket
             # if it does fill the whole requirement add that number to hour_counter
         # look up the course id in the major dictionary at this i 
+        if hour_counter > max_number_of_hours:
+          max_number_of_hours = hour_counter
+          major = i
+          array_of_highest = major_objects[i].course_ids
+  return max_number_of_hours, major
 
 def print_course_obj(course_object):
   course_name = course_object.names
