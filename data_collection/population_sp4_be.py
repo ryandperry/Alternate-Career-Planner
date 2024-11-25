@@ -297,6 +297,7 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
             hour_counter += course_objects[course_taken].hours
             if(bucket_id.num_hours > 0):
               bucket_objects[course_taken].num_hours -= course_objects[course_taken].num_hours
+            # delete the bucket?
           #somewhere in here we need to check if it is part of a bucket
         # if(course_taken in bucket_objects)
         #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
