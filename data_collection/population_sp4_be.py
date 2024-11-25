@@ -287,16 +287,18 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
       for course_taken in history_ids:
         # see if it is in the course_ids set for this major 
         if course_taken in major_objects[i].course_ids:
-          hour_counter += course_objects[course_taken].hours
+          course_taken_id = int(course_taken)
+          if course_taken_id in course_objects:
+            hour_counter += int(course_objects[course_taken_id].hours)
           #  delete major_objects[i].course_ids
-          del copy_major_objects[i]
-          continue
+            del copy_major_objects[course_taken_id]
+            continue
         # see if this course is in their bucket objects 
-        for bucket_id in bucket_objects.keys():
-          if course_taken in bucket_objects.course_ids:
-            hour_counter += course_objects[course_taken].hours
+        for bucket_id in bucket_objects.values():
+          if course_taken in bucket_id.course_ids:
+            hour_counter += int(course_objects[course_taken].hours)
             if(bucket_id.num_hours > 0):
-              bucket_objects[course_taken].num_hours -= course_objects[course_taken].num_hours
+              bucket_objects[course_taken].num_hours -= int(course_objects[course_taken].num_hours)
             # delete the bucket?
           #somewhere in here we need to check if it is part of a bucket
         # if(course_taken in bucket_objects)
@@ -312,6 +314,8 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
           max_number_of_hours = hour_counter
           major = i
           array_of_highest = major_objects[i].course_ids
+  print(max_number_of_hours)
+  print(copy_major_objects[i])
   return max_number_of_hours, major
 
 def print_course_obj(course_object):
@@ -395,11 +399,15 @@ def main():
 
   majorid = 1
   classes_array = ["EF 151", "EF 230", "MATH 141"]
+  cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
+                  "EF302", "AE210", "AE201", "ME202", "MATH148", "ENGL298", "EF230", "EF158 ", "MATH147",
+                  "ENGL198", "EF157", "EF105", "EF102"]
   quiz_results = "ME"
-  person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
+  person_object = Person(major=majorid, classes_array=cole_classes, quiz_results=quiz_results)
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
   print(major_objects)
-  compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
-
+  max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+  print(f"Max hour: {max_hour}")
+  print("Major returned: {major_ret}")
 #optional
 main()
