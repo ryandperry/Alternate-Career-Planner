@@ -279,6 +279,7 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
   copy_major_objects = major_objects
   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
   for i in major_objects.keys():
+    hour_counter = 0
     # do not check against their current major
     if(major_objects[i].major_id == person_object.major):
       continue
