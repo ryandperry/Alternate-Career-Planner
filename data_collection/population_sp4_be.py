@@ -317,7 +317,7 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
           array_of_highest = major_objects[i].course_ids
   print(max_number_of_hours)
   print(copy_major_objects[i])
-  return max_number_of_hours, major_objects[i]
+  return max_number_of_hours, copy_major_objects[i]
 
 def print_course_obj(course_object):
   course_name = course_object.names
