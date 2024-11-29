@@ -55,6 +55,12 @@ class Bucket:
     self.course_ids = set()
     self.other_bucket_ids = set()
 
+class Person:
+  def __init__(self, major, classes_array, quiz_results):
+    self.major = major
+    self.classes_array = classes_array
+    self.quiz_results = quiz_results
+
 
 # from the course table, build a course object with 
 # ID, description, name, credit hours, prereqs, and coreqs
@@ -228,6 +234,29 @@ def build_major_objects(course_objects, bucket_objects):
   
   return major_objects
 
+def adding_person(personCourseObjects, major, quiz_major, major_object):
+  # personCourseObjects is the array of course objects from Ryans parsing code 
+  # major will hopefully also be from ryan's code
+  # and then what they scored on the quiz is the quiz_major string 
+  # from the output from ryan's code , we will do the following 
+  # Ryan's code will create an array of course obects 
+
+  # major object is from our own stuff 
+
+  # changing both of the names into IDs so we can store those ids in our one person 
+  for majors in major_object:
+    if(major == majors.name):
+      major_id = majors.major_id 
+    if(quiz_major == majors.name):
+      quiz_id = majors.major_id
+  func_classes_array = []
+  for i in personCourseObjects:
+    if(personCourseObjects[i].grade > 'C'):
+      # if they got higher than a C, add it to the person object
+      func_classes_array.append(personCourseObjects[i].course_name)
+  OnlyOnePerson = Person(major=major_id, classes_array=func_classes_array, quiz_results=quiz_id)
+  return OnlyOnePerson
+
 def processing_course(course_objects, person_object):
   # list of strings
   # from ryan - list of strings
@@ -237,23 +266,42 @@ def processing_course(course_objects, person_object):
   for history_name in person_object.classes_array:
     for course in course_objects.values():
       # TODO if history name in course.names
-      if(course.name == history_name):
+      if(history_name in course.names):
+      # if(course.name == history_name):  
         history_ids.add(course.course_id)
   return history_ids
 
 def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
   #major_objects is the dictionary of major objects 
   hour_counter = 0
+  max_number_of_hours = 0
   # check in every major 
+  copy_major_objects = major_objects
   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
-  for i in major_objects:
+  for i in major_objects.keys():
+    hour_counter = 0
     # do not check against their current major
     if(major_objects[i].major_id == person_object.major):
       continue
     else:
       # check their courses ?
       for course_taken in history_ids:
-        #somewhere in here we need to check if it is part of a bucket
+        # see if it is in the course_ids set for this major 
+        if course_taken in major_objects[i].course_ids:
+          course_taken_id = int(course_taken)
+          if course_taken_id in course_objects:
+            hour_counter += int(course_objects[course_taken_id].hours)
+          #  delete major_objects[i].course_ids
+            del copy_major_objects[course_taken_id]
+            continue
+        # see if this course is in their bucket objects 
+        for bucket_id in bucket_objects.values():
+          if course_taken in bucket_id.course_ids:
+            hour_counter += int(course_objects[course_taken].hours)
+            if(bucket_id.num_hours > 0):
+              bucket_objects[course_taken].num_hours -= int(course_objects[course_taken].num_hours)
+            # delete the bucket?
+          #somewhere in here we need to check if it is part of a bucket
         # if(course_taken in bucket_objects)
         #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
             #pseudo code : 
@@ -262,9 +310,62 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
             # then you need to see if this one class will fill the entire requirement via the course table hours !! 
             # if it does not fill the entire requirement, manually subtract the hours required for that bucket
             # if it does fill the whole requirement add that number to hour_counter
-        if(major_objects[course_taken].course_id == course_taken[i]):
-          hour_counter += course_objects["course_taken"].hours
         # look up the course id in the major dictionary at this i 
+        if hour_counter > max_number_of_hours:
+          max_number_of_hours = hour_counter
+          major = i
+          array_of_highest = major_objects[i].course_ids
+  print(max_number_of_hours)
+  print(copy_major_objects[i])
+  return max_number_of_hours, copy_major_objects[i]
+
+def print_course_obj(course_object):
+  course_name = course_object.names
+  course_hrs = course_object.hours
+  course_prereq_id = course_object.prereq_courseids
+  print_statement = "Courses: "
+  for y in course_name:
+    print_statement += y + " "
+
+  if course_object.description == "NULL":
+    print_statement += "\nDescription: N/A" + "\nRequires " + course_hrs + " hours"
+  else:
+    print_statement += "\nDescription: " + course_object.description + "\nRequires " + course_hrs + " hours"
+  
+  if len(course_prereq_id) != 0:
+    print_statement += ", these prereqs "
+    for x in course_prereq_id:
+      print_statement += x
+      
+  return print(print_statement)
+
+
+def print_bucket_obj(bucket_object):
+  bucket_name = bucket_object.name
+  num_hrs = bucket_object.num_hours
+
+  courses = bucket_object.course_names
+
+  print_statement = "Bucket: " + bucket_name + " has these courses "
+  for x in courses:
+    print_statement += x + " "
+  if num_hrs == -1:
+    print_statement += "\n"
+  else:
+    print_statement += "\nFor a total of " + str(num_hrs) + " hours"
+  return print(print_statement) 
+
+def print_major_obj(major_object): 
+  #set this up to take in course_obj so we can find them based on course_id set that this has
+  maj_cour_ids = major_object.course_ids
+  maj_buck_ids = major_object.bucket_ids
+  name = major_object.name
+  print_statement = name
+  for x in maj_cour_ids:
+    #print_course_obj(course_object=course_obj[x])
+    print(x)
+  #print(name)
+  return print_statement
 
 def main():
   course_objects = build_course_objects()
@@ -290,5 +391,25 @@ def main():
     if major_obj.bucket_ids != set():
       print("Bucket IDs: ", major_obj.bucket_ids)
 
+  for i in course_objects:
+    print_course_obj(course_object=course_objects[i])
+  for i in bucket_objects:
+    print_bucket_obj(bucket_object=bucket_objects[i])
+  for i in major_objects:
+    print_major_obj(major_object=major_objects[i])
+
+  majorid = 1
+  classes_array = ["EF 151", "EF 230", "MATH 141"]
+  cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
+                  "EF302", "AE210", "AE201", "ME202", "MATH148", "ENGL298", "EF230", "EF158 ", "MATH147",
+                  "ENGL198", "EF157", "EF105", "EF102"]
+  quiz_results = "ME"
+  person_object = Person(major=majorid, classes_array=cole_classes, quiz_results=quiz_results)
+  major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
+  print(major_objects)
+  max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+  #the max hour prints bu the major return doesnt
+  print(f"Max hour: {max_hour}")
+  print_major_obj(major_ret)
 #optional
 main()
