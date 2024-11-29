@@ -300,6 +300,7 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
             hour_counter += int(course_objects[course_taken].hours)
             if(bucket_id.num_hours > 0):
               bucket_objects[course_taken].num_hours -= int(course_objects[course_taken].num_hours)
+            
             # delete the bucket?
           #somewhere in here we need to check if it is part of a bucket
         # if(course_taken in bucket_objects)
@@ -315,9 +316,40 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
           max_number_of_hours = hour_counter
           major = i
           array_of_highest = major_objects[i].course_ids
+
+        #run the execptions code on their history id's
+        ie_tech_electives(history_ids)
+
   print(max_number_of_hours)
   print(copy_major_objects[i])
   return max_number_of_hours, copy_major_objects[i]
+
+#search student's history id's for speicifc classes to meet tech elective requirements
+def ie_tech_electives():
+  #do tech electives have to be on STRING basis because their logic requires it to match the online template
+
+  #logic:
+  #needs 6 hours of a tech elective
+  #can choose from some specific classes
+  #   DATA 301; DSGN 430*; ECE 255, ECE 463; ECON 311, ECON 313, ECON 322, ECON 331, ECON 333, ECON 351;
+  #   ENT 350, ENT 415, ENT 425, ENT 451, ENT 460, ENT 492; FINC 300; IE 423, IE 430, IE 452, IE 457,
+  #   IE 465, IE 483, IE 484, IE 493, IE 494, IE 495; MARK 300; MGT 300; MSE 405, ME 321, ME 365, ME 366, ME 367
+  #build set of optional singular classes:
+  singular_options = set("DATA 301", "DSGN 430", "ECE 255", "ECE 463", "ECON 311", "ECON 313", "ECON 322", "ECON 331", 
+                         "ECON 333", "ECON 351", "ENT 350", "ENT 415", "ENT 425", "ENT 451", "ENT 460", "ENT 492", "FINC 300", 
+                         "IE 423", "IE 430", "IE 452", "IE 457", "IE 465", "IE 483", "IE 484", "IE 493", "IE 494", "IE 495",
+                           "MARK 300", "MGT 300", "MSE 405", "ME 321", "ME 365", "ME 366", "ME 367", "MSE 302",
+                           "MSE 340", "MSE 360", "MSE 390", "NE 342" )
+  singular_option_ids = set()
+
+  three_hours_of = set("EF 333", "IE 350", "IE 450" )
+  three_hours_of_ids = set()
+
+  #check if 
+
+def cve_tech_electives():
+
+
 
 def print_course_obj(course_object):
   course_name = course_object.names
