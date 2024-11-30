@@ -280,6 +280,14 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
   for i in major_objects.keys():
     hour_counter = 0
+
+    #TODO IF this is the industrial engineering major, use this elective function
+    #run the execptions code on their history id's
+    copy_major_objects = ie_electives(history_ids, copy_major_objects)
+
+    # TODO if this is the civil engineering major, use this elective funtion
+    copy_major_objects = cve_electives(history_ids, copy_major_objects)
+
     # do not check against their current major
     if(major_objects[i].major_id == person_object.major):
       continue
@@ -317,37 +325,41 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
           major = i
           array_of_highest = major_objects[i].course_ids
 
-        #run the execptions code on their history id's
-        ie_tech_electives(history_ids)
-
   print(max_number_of_hours)
   print(copy_major_objects[i])
   return max_number_of_hours, copy_major_objects[i]
 
 #search student's history id's for speicifc classes to meet tech elective requirements
-def ie_tech_electives():
-  #do tech electives have to be on STRING basis because their logic requires it to match the online template
+def ie_electives(history_ids, copy_major_objects):
+  
+  #TODO calculate these ids
+  ie_electives = set("IE 423", "IE 430", "IE 452", "IE 457", "IE 465", "IE 483", "IE 484", "IE 493", "IE 494", "IE 495")
+  ie_electives = set()
 
-  #logic:
-  #needs 6 hours of a tech elective
-  #can choose from some specific classes
-  #   DATA 301; DSGN 430*; ECE 255, ECE 463; ECON 311, ECON 313, ECON 322, ECON 331, ECON 333, ECON 351;
-  #   ENT 350, ENT 415, ENT 425, ENT 451, ENT 460, ENT 492; FINC 300; IE 423, IE 430, IE 452, IE 457,
-  #   IE 465, IE 483, IE 484, IE 493, IE 494, IE 495; MARK 300; MGT 300; MSE 405, ME 321, ME 365, ME 366, ME 367
-  #build set of optional singular classes:
-  singular_options = set("DATA 301", "DSGN 430", "ECE 255", "ECE 463", "ECON 311", "ECON 313", "ECON 322", "ECON 331", 
+  # tech electives can choose from some specific classes
+  # TODO caluclate
+  ie_singular_options = set("DATA 301", "DSGN 430", "ECE 255", "ECE 463", "ECON 311", "ECON 313", "ECON 322", "ECON 331", 
                          "ECON 333", "ECON 351", "ENT 350", "ENT 415", "ENT 425", "ENT 451", "ENT 460", "ENT 492", "FINC 300", 
                          "IE 423", "IE 430", "IE 452", "IE 457", "IE 465", "IE 483", "IE 484", "IE 493", "IE 494", "IE 495",
                            "MARK 300", "MGT 300", "MSE 405", "ME 321", "ME 365", "ME 366", "ME 367", "MSE 302",
                            "MSE 340", "MSE 360", "MSE 390", "NE 342" )
-  singular_option_ids = set()
+  ie_singular_option_ids = set()
+  #and theyre also allowed to have up to 3 hours of these three classes (basically just one class)
+  #TODO calculate
+  ie_three_hours_of = set("EF 333", "IE 350", "IE 450" )
+  ie_three_hours_of_ids = set()
 
-  three_hours_of = set("EF 333", "IE 350", "IE 450" )
-  three_hours_of_ids = set()
+  #CHECK if their history ids has any electives done 
+  # count and update beatrice's counter
 
-  #check if 
+  #and remove the ones they've take FROM the tech electives
 
-def cve_tech_electives():
+  #needs 9 hours total of IE electives (3 classes)
+  
+  #needs 6 hours total of a tech elective
+
+
+def cve_electives(history_ids, copy_major_objects):
 
 
 
