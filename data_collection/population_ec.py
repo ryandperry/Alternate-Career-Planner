@@ -281,12 +281,14 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
   for i in major_objects.keys():
     hour_counter = 0
 
-    # #TODO IF this is the industrial engineering major, use this elective function
-    # #run the execptions code on their history id's
-    # copy_major_objects = ie_electives(course_objects, history_ids, copy_major_objects)
-
-    # # TODO if this is the civil engineering major, use this elective funtion
-    # copy_major_objects = cve_electives(course_objects, history_ids, copy_major_objects)
+    #TODO IF this is the industrial engineering major, use this elective function
+    #run the execptions code on their history id's
+    if(major_objects[i].abbr == "IE"):
+      #this is the industrial major, so you need to account for their electives and tech electives
+      copy_major_objects, hour_counter = ie_electives(course_objects, 
+                                                      history_ids, 
+                                                      copy_major_objects, 
+                                                      hour_counter)
 
     # do not check against their current major
     if(major_objects[i].major_id == person_object.major):
@@ -330,7 +332,7 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
   return max_number_of_hours, copy_major_objects[i]
 
 #search student's history id's for speicifc classes to meet tech elective requirements
-def ie_electives(course_objects, history_ids, copy_major_objects):
+def ie_electives(course_objects, history_ids, copy_major_objects, hour_counter):
   
   ie_electives_ids = set()
   ie_electives_ids = {'191', '192', '193', '185', '187', '194', '186', '188', '189', '190'}
@@ -369,52 +371,47 @@ def ie_electives(course_objects, history_ids, copy_major_objects):
   #       ie_three_hours_of_ids.add(course_id)
 
   #CHECK if their history ids has any electives done 
-  elective_classes_done = 0
+  elective_hours = 0
   for history_id in history_ids:
     if history_id in ie_electives_ids:
-      #they've taken a class that counts for an IE elective
-      # TODO update beatrice counter of hours
-      elective_classes_done += 1
-      # TODO update the copy major objcts?
+      # this means they've taken a class that counts for an IE elective
+      # update beatrice's main tracking: hours and major objects
+      elective_hours += int(course_objects[history_id].hours)
+      #needs 9 hours total of IE electives (3 classes)
+      if(elective_hours >= 9):
+        break
+
+      hour_counter += int(course_objects[history_id].hours)
+      del copy_major_objects[history_id]
       # remove this as a valid tech elective (per exceptions rules)
       ie_singular_option_ids.remove(history_id)
   
   #after checking for ie electives, check if they've taken one of the 3 hour tech elective courses
-  tech_electives_done = 0
+  tech_hours = 0
   for history_id in history_ids:
     if history_id in ie_three_hours_of_ids:
-      # TODO update beatrice course hour counter
-      # TODO update the copy major objects?
-      # mark this as complete
-      tech_electives_done += 1
+      tech_hours += int(course_objects[history_id].hours)
+      if(tech_hours >= 3):
+        break
+
+      hour_counter += int(course_objects[history_id].hours)
+      del copy_major_objects[history_id]
       break
 
   # after checking those 3 hours, check for tech electives from the main options
   for history_id in history_ids:
     if history_id in ie_singular_option_ids:
       # they've taken a class that counts for an IE TECH elective
-      # update counter of hours
-      # TODO update beatrice course hour counter
-      # TODO update the copy major objects?
-      tech_electives_done += 1
+      tech_hours += int(course_objects[history_id].hours)
+      #needs 6 hours total of a tech elective (2 classes)
+      if(tech_hours >= 6):
+        break
+
+      hour_counter += int(course_objects[history_id].hours)
+      del copy_major_objects[history_id]
       continue
 
-  #final check for what they have left to take:
-  #needs 9 hours total of IE electives (3 classes)
-  if elective_classes_done != 3:
-    #do something?
-  else:
-    #theyre done with their electives
-
-  #needs 6 hours total of a tech elective
-  if tech_electives_done != 2:
-    #do something?
-  else:
-    #theyre done with their tech electives
-
-
-def cve_electives(history_ids, copy_major_objects):
-  return 0;
+  return copy_major_objects, hour_counter
 
 
 def print_course_obj(course_object):
