@@ -1,0 +1,278 @@
+{
+    "major_name": "Biomedical Engineering",
+    "courses": [
+        {
+            "course_name": [
+                "BME347",
+                "BME341"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "PHIL345"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "BME315"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "BME345"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "BME450"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "BME460"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "BME449"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "BME473",
+                "BME477"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "EF105"
+            ],
+            "course_description": [
+                "Description: Introduction to computer applications used in engineering problem solving and communications. Introduction to programming concepts, including conditional statements and looping, and the development and implementation of logic flow diagrams."
+            ],
+            "course_hrs": "1"
+        },
+        {
+            "course_name": [
+                "BIO168",
+                "BIO160"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "ME231"
+            ],
+            "course_description": [
+                "Description: Kinematics of rigid bodies, center of mass, and kinetics of systems of particles. Mass moments of inertia. Kinetics of rigid bodies. Newton\u2019s laws, work-energy, and impulse-momentum."
+            ],
+            "course_hrs": "3"
+        },
+        {
+            "course_name": [
+                "PHYS231"
+            ],
+            "course_description": [
+                "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+            ],
+            "course_hrs": "3"
+        },
+        {
+            "course_name": [
+                "STAT251"
+            ],
+            "course_description": [
+                "Description: Data collection and descriptive statistics. Concepts of probability and probability distributions. Discrete and continuous distributions."
+            ],
+            "course_hrs": "3"
+        },
+        {
+            "course_name": [
+                "BME205"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "ME202"
+            ],
+            "course_description": [
+                "Description: Review of vector algebra. Statics of two-dimensional trusses and frames, including methods of joints and sections. Geometric properties of cross sections, including first and second moments and location of centroid. Inertial properties of rigid bodies, including moment of inertia and location of mass center."
+            ],
+            "course_hrs": "2"
+        },
+        {
+            "course_name": [
+                "ENGL102"
+            ],
+            "course_description": [
+                "Description: Advancing concepts introduced in ENGL 101*. Intensive writing instruction focused on inquiry and research. Strategies for formulating and investigating questions, locating and evaluating information, using varied sources and research methods, developing positions on intercultural and interdisciplinary issues from diverse texts (print, digital, and multimedia), and presenting research using appropriate rhetorical conventions."
+            ],
+            "course_hrs": "3"
+        },
+        {
+            "course_name": [
+                "ENGL101"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "BME367",
+                "BME363"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "MATH200"
+            ],
+            "course_description": [
+                "Description: Introduction to matrix calculations, including determinants, eigenvalues, and eigenvectors."
+            ],
+            "course_hrs": "2"
+        },
+        {
+            "course_name": [
+                "BME474"
+            ],
+            "course_description": [
+                "Description: N/A"
+            ],
+            "course_hrs": "NULL"
+        },
+        {
+            "course_name": [
+                "ECE301"
+            ],
+            "course_description": [
+                "Description: DC and AC circuits, transients, transformers, motors, and generators."
+            ],
+            "course_hrs": "3"
+        }
+    ],
+    "buckets": [
+        {
+            "bucket_name": "Calc 3",
+            "bucket_hours": -1,
+            "course_name": [
+                "BMETechnicalElective"
+            ]
+        },
+        {
+            "bucket_name": "EF 152/158",
+            "bucket_hours": -1,
+            "course_name": [
+                "EF158",
+                "EF152"
+            ]
+        },
+        {
+            "bucket_name": "EF options",
+            "bucket_hours": -1,
+            "course_name": [
+                "EF151",
+                "EF142",
+                "EF157"
+            ]
+        },
+        {
+            "bucket_name": "Term 1 chem options",
+            "bucket_hours": -1,
+            "course_name": [
+                "CHEM128",
+                "CHEM122"
+            ]
+        },
+        {
+            "bucket_name": "Computer Solution",
+            "bucket_hours": -1,
+            "course_name": [
+                "EF237",
+                "EF230"
+            ]
+        },
+        {
+            "bucket_name": "BME Technical Elective",
+            "bucket_hours": -1,
+            "course_name": []
+        },
+        {
+            "bucket_name": "Diff Eq 1",
+            "bucket_hours": -1,
+            "course_name": [
+                "MATH237",
+                "MATH231"
+            ]
+        },
+        {
+            "bucket_name": "NULL",
+            "bucket_hours": -1,
+            "course_name": [
+                "MATH142",
+                "MATH148"
+            ]
+        },
+        {
+            "bucket_name": "CBE 201 PreReq",
+            "bucket_hours": -1,
+            "course_name": [
+                "CHEM132",
+                "CHEM138"
+            ]
+        },
+        {
+            "bucket_name": "Engineering Term 1 Math",
+            "bucket_hours": -1,
+            "course_name": [
+                "MATH147",
+                "MATH132",
+                "MATH141"
+            ]
+        }
+    ]
+}
