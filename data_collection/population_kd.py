@@ -12,6 +12,7 @@
 
 import pandas as pd
 import json
+import os
 
 # update filenames here instead of in the code
 filenames = {
@@ -387,6 +388,12 @@ def print_bucket_obj(bucket_object):
   }
 
   print_statement = "\nBucket: " + bucket_name + " has these courses "
+  if bucket_object.bucket_id == "45":
+    bucket_data["course_name"].append("5 Technical Electives")
+  elif bucket_object.bucket_id == "41":
+    bucket_data["course_name"].append("4 Technical Electives")
+  elif bucket_object.bucket_id == "80":
+    bucket_data["course_name"].append("3 Technical Electives")
   for x in courses:
     print_statement += x + " "
     bucket_data["course_name"].append(x)
@@ -404,6 +411,7 @@ def print_major_obj(major_object, course_object, bucket_object):
   name = major_object.name
   print_statement = name
   output_file = "json_test.json"
+  existing_data = []
 
   major_data = {
     "major_name": name,
@@ -420,8 +428,19 @@ def print_major_obj(major_object, course_object, bucket_object):
       #print_statement += print_bucket_obj(bucket_object=bucket_object[y])
       major_data["buckets"].append(print_bucket_obj(bucket_object=bucket_object[y]))
 
+  if os.path.exists(output_file):
+    with open(output_file, "r") as json_file:
+      try:
+        existing_data = json.load(json_file)
+        if isinstance(existing_data, dict):
+          existing_data = [existing_data]
+      except json.JSONDecodeError:
+        existing_data = []
+
+  existing_data.append(major_data)
+  
   with open(output_file, "w") as json_file:
-    json.dump(major_data, json_file, indent=4)
+    json.dump(existing_data, json_file, indent=4)
   return print(print_statement)
 
 def main():
@@ -471,6 +490,8 @@ def main():
   #print(major_objects)
   #compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
   print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
+  print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
+  print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
 
 #optional
