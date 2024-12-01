@@ -66,11 +66,9 @@ class Bucket:
     self.course_ids = set()
     self.other_bucket_ids = set()
 
-class Person:
-  def __init__(self, major, classes_array, quiz_results):
-    self.major = major
-    self.classes_array = classes_array
-    self.quiz_results = quiz_results
+# class Person:
+#   def __init__(self, major, classes_array, quiz_results):
+#     self.classes_array = classes_array
 
 
 # from the course table, build a course object with 
@@ -245,38 +243,42 @@ def build_major_objects(course_objects, bucket_objects):
   
   return major_objects
 
-def adding_person(personCourseObjects, major, quiz_major, major_object):
-  # personCourseObjects is the array of course objects from Ryans parsing code 
-  # major will hopefully also be from ryan's code
-  # and then what they scored on the quiz is the quiz_major string 
-  # from the output from ryan's code , we will do the following 
-  # Ryan's code will create an array of course obects 
+# def adding_person(personCourseObjects, major_objects):
+#   # personCourseObjects is the array of course objects from Ryans parsing code 
+#   # major will hopefully also be from ryan's code
+#   # and then what they scored on the quiz is the quiz_major string 
+#   # from the output from ryan's code , we will do the following 
+#   # Ryan's code will create an array of course obects 
 
-  # major object is from our own stuff 
+#   # major object is from our own stuff 
 
-  # changing both of the names into IDs so we can store those ids in our one person 
-  for majors in major_object:
-    if(major == majors.name):
-      major_id = majors.major_id 
-    if(quiz_major == majors.name):
-      quiz_id = majors.major_id
-  func_classes_array = []
-  for i in personCourseObjects:
-    # if grade in ['A', 'B', 'C']
-    # TODO check if grade works
-    if(personCourseObjects[i].grade > 'C'):
-      # if they got higher than a C, add it to the person object
-      func_classes_array.append(personCourseObjects[i].course_name)
-  OnlyOnePerson = Person(major=major_id, classes_array=func_classes_array, quiz_results=quiz_id)
-  return OnlyOnePerson
+#   # changing both of the names into IDs so we can store those ids in our one person 
+#   for majors in major_objects:
+    
+#     func_classes_array = []
+#     for i in personCourseObjects:
+#       # TODO check if grade works
+#       if personCourseObjects[i].grade in ["A", "A-", "B+", "B", "B-", "C+", "C", "S"]:
+#         # if they got higher than a C, add it to the person object
+#         func_classes_array.append(personCourseObjects[i].course_name)
 
-def processing_course(course_objects, person_object):
+#     OnlyOnePerson = func_classes_array
+#   return OnlyOnePerson
+
+def processing_course(course_objects, ryan_data):
   # list of strings
   # from ryan - list of strings
+
+  #take ryan course objects and pull out the valid course codes
+  person_classes = []
+  for class_info in ryan_data:
+    # TODO check with some TA or W's 
+    if class_info['grade'] in ["A", "A-", "B+", "B", "B-", "C+", "C", "S"]:
+      person_classes.append(class_info['courseCode'])
   
   # goal - build set of ids (of classes that they took)
   history_ids = set()
-  for history_name in person_object.classes_array:
+  for history_name in person_classes:
     for course in course_objects.values():
       # TODO if history name in course.names
       if(history_name.replace(" ", "") in course.names):
@@ -285,13 +287,13 @@ def processing_course(course_objects, person_object):
   return history_ids
 
 
-def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
-#major_objects is the dictionary of major objects 
+def compare_academic_history(ryan_data, major_objects, course_objects, bucket_objects):
+  #major_objects is the dictionary of major objects 
   hour_counter = 0
   max_number_of_hours = 0
   # check in every major 
   # copy_major_objects = major_objects
-  history_ids = processing_course(course_objects=course_objects, person_object=person_object)
+  history_ids = processing_course(course_objects=course_objects, ryan_data=ryan_data)
   for i in major_objects.keys():
     copy_major_objects = major_objects
     hour_counter = 0
@@ -306,44 +308,40 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
                                                       copy_major_objects, 
                                                       hour_counter)
 
-    # do not check against their current major
-    if(major_objects[i].major_id == person_object.major):
-      continue
-    else:
-      # check their courses ?
-      for course_taken in history_ids:
-        # see if it is in the course_ids set for this major 
-        if course_taken in major_objects[i].course_ids:
-          course_taken_id = int(course_taken)
-          if course_taken_id in course_objects:
-            hour_counter += int(course_objects[course_taken_id].hours)
-          #  delete major_objects[i].course_ids
-            del copy_major_objects[course_taken_id]
-            continue
-        # see if this course is in their bucket objects 
-        for bucket_id in bucket_objects.values():
-          if course_taken in bucket_id.course_ids:
-            hour_counter += int(course_objects[course_taken].hours)
-            if(bucket_id.num_hours > 0):
-              bucket_id.num_hours -= int(course_objects[course_taken].hours)
-            # delete the bucket?
-          #somewhere in here we need to check if it is part of a bucket
-        # if(course_taken in bucket_objects)
-        #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
-            #pseudo code : 
-            # if this course name appears in the bucket objects' course names 
-            #if()
-            # then you need to see if this one class will fill the entire requirement via the course table hours !! 
-            # if it does not fill the entire requirement, manually subtract the hours required for that bucket
-            # if it does fill the whole requirement add that number to hour_counter
-        # look up the course id in the major dictionary at this i 
-        if hour_counter > max_number_of_hours:
-          max_number_of_hours = hour_counter
-          major = i
-          array_of_highest = major_objects[i].course_ids
+    # check their courses 
+    for course_taken in history_ids:
+      # see if it is in the course_ids set for this major 
+      if course_taken in major_objects[i].course_ids:
+        course_taken_id = int(course_taken)
+        if course_taken_id in course_objects:
+          hour_counter += int(course_objects[course_taken_id].hours)
+        #  delete major_objects[i].course_ids
+          del copy_major_objects[course_taken_id]
+          continue
+      # see if this course is in their bucket objects 
+      for bucket_id in bucket_objects.values():
+        if course_taken in bucket_id.course_ids:
+          hour_counter += int(course_objects[course_taken].hours)
+          if(bucket_id.num_hours > 0):
+            bucket_id.num_hours -= int(course_objects[course_taken].hours)
+          # delete the bucket?
+        #somewhere in here we need to check if it is part of a bucket
+      # if(course_taken in bucket_objects)
+      #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
+          #pseudo code : 
+          # if this course name appears in the bucket objects' course names 
+          #if()
+          # then you need to see if this one class will fill the entire requirement via the course table hours !! 
+          # if it does not fill the entire requirement, manually subtract the hours required for that bucket
+          # if it does fill the whole requirement add that number to hour_counter
+      # look up the course id in the major dictionary at this i 
+      if hour_counter > max_number_of_hours:
+        max_number_of_hours = hour_counter
+        major = i
+        array_of_highest = major_objects[i].course_ids
   print(max_number_of_hours)
   print(copy_major_objects[i])
-  return max_number_of_hours, copy_major_objects[i]
+  return max_number_of_hours, copy_major_objects
 
 #search student's history id's for speicifc classes to meet tech elective requirements
 def ie_electives(course_objects, history_ids, copy_major_objects, hour_counter):
@@ -588,26 +586,23 @@ def dev_main(ryan_data):
   #print(print_course_obj(course_object=course_objects["136"]))
   #print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
-  # TODO read in Ryan's object with course information
   #parse ryan's data to get the person's classes: code, credit hour, title, grade
+  # run "flask run" and upload file to get terminal output of ryan data
   print(ryan_data)
+  # TODO remove this hardcoding when ready to test through react upload
+  ryan_data = [{'courseCode': 'ME 391', 'creditHours': 3, 'grade': 'IP', 'title': 'ENGINEERING ANALYSIS'}, {'courseCode': 'ME 363', 'creditHours': 3, 'grade': 'IP', 'title': 'SYSTEM DYNAMICS'}, {'courseCode': 'ECON 201', 'creditHours': 4, 'grade': 'IP', 'title': 'INTRO ECONOMICS: SURVEY COURS'}, {'courseCode': 'AE 377', 'creditHours': 4, 'grade': 'IP', 'title': 'HONORS: AIRPLANE PERFORMANCE'}, {'courseCode': 'AE 347', 'creditHours': 3, 'grade': 'IP', 'title': 'HONORS: FLUID MECHANICS'}, {'courseCode': 'PHIL 244', 'creditHours': 3, 'grade': 'A', 'title': 'PROFESSIONAL RESPONSIBILITY'}, {'courseCode': 'ME 331', 'creditHours': 3, 'grade': 'B+', 'title': 'THERMODYNAMICS'}, {'courseCode': 'ME 321', 'creditHours': 3, 'grade': 'A-', 'title': 'MECHANICS OF MATERIALS'}, {'courseCode': 'MATH 241', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS III'}, {'courseCode': 'ECE 301', 'creditHours': 3, 'grade': 'A', 'title': 'CIRCUITS/ELECTRO MECH COMPON'}, {'courseCode': 'PHYS 231', 'creditHours': 3, 'grade': 'A', 'title': 'FUND PHYS: ELECTRIC/MAGNETISM'}, {'courseCode': 'ME 231', 'creditHours': 3, 'grade': 'B-', 'title': 'DYNAMICS'}, {'courseCode': 'MATH 231', 'creditHours': 3, 'grade': 'A', 'title': 'DIFFERENTIAL EQUATIONS I'}, {'courseCode': 'MATH 200', 'creditHours': 2, 'grade': 'A', 'title': 'MATRIX COMPUTATIONS'}, {'courseCode': 'EF 302', 'creditHours': 1, 'grade': 'A', 'title': 'ENGINEERING LEADERSHIP SEMINA'}, {'courseCode': 'AE 210', 'creditHours': 2, 'grade': 'A', 'title': 'PROFESSIONAL TOPICS'}, {'courseCode': 'AE 201', 'creditHours': 1, 'grade': 'S', 'title': 'AEROSPACE SEMINAR'}, {'courseCode': 'ME 202', 'creditHours': 2, 'grade': 'A', 'title': 'ENGINEERING MECHANICS'}, {'courseCode': 'MATH 148', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: CALCULUS II'}, {'courseCode': 'ENGL 298', 'creditHours': 3, 'grade': 'A', 'title': "CHANCELLOR'S HONORS WRITING I"}, {'courseCode': 'EF 230', 'creditHours': 2, 'grade': 'A', 'title': 'COMP SOLUTION/ENGR PROBLEMS'}, {'courseCode': 'EF 158', 'creditHours': 4, 'grade': 'A-', 'title': 'HONORS: PHYSICS/ENGINEERS II'}, {'courseCode': 'MATH 147', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: CALCULUS I'}, {'courseCode': 'ENGL 198', 'creditHours': 3, 'grade': 'A', 'title': "CHANCELLOR'S HONORS WRITING I"}, {'courseCode': 'EF 157', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: PHYSICS/ENGINEERS I'}, {'courseCode': 'EF 105', 'creditHours': 1, 'grade': 'A', 'title': 'COMPUT METH/ENGR PROB SOLVING'}, {'courseCode': 'EF 102', 'creditHours': 1, 'grade': 'A', 'title': 'INTRO TO TCE'}, {'courseCode': 'HIUS 222', 'creditHours': 3, 'grade': 'S', 'title': 'HISTORY OF THE UNITED STATES'}, {'courseCode': 'HIUS 221', 'creditHours': 3, 'grade': 'S', 'title': 'HISTORY OF THE UNITED STATES'}, {'courseCode': 'ECON 211', 'creditHours': 3, 'grade': 'S', 'title': 'PRINCIPLES OF MICROECONOMICS'}, {'courseCode': 'CHEM 133', 'creditHours': 1, 'grade': 'S', 'title': 'GENERAL CHEMISTRY II LAB'}, {'courseCode': 'CHEM 132', 'creditHours': 3, 'grade': 'S', 'title': 'GENERAL CHEMISTRY II'}, {'courseCode': 'CHEM 123', 'creditHours': 1, 'grade': 'S', 'title': 'GENERAL CHEMISTRY I LAB'}, {'courseCode': 'CHEM 122', 'creditHours': 3, 'grade': 'S', 'title': 'GENERAL CHEMISTRY I'}]
+  max_hour, majors_returned = compare_academic_history(ryan_data=ryan_data, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+  for index in majors_returned:
+    print_major_obj(majors_returned[index], course_objects, bucket_objects)
+    # print(f"Max hour: {max_hour}")
 
-  majorid = 1
-  classes_array = ["EF 151", "EF 230", "MATH 141"]
-  cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
-                  "EF302", "AE210", "AE201", "ME202", "MATH148", "ENGL298", "EF230", "EF158 ", "MATH147",
-                  "ENGL198", "EF157", "EF105", "EF102"]
-  quiz_results = "ME"
-  person_object = Person(major=majorid, classes_array=cole_classes, quiz_results=quiz_results)
-  major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
-  # print(major_objects)
-  max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
-  print(f"Max hour: {max_hour}")
-  print_major_obj(major_ret, course_objects, bucket_objects) 
+  # max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+  # print(f"Max hour: {max_hour}")
+  # print_major_obj(major_ret, course_objects, bucket_objects) 
 
-  print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
-  print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
-  print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
+  # print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
+  # print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
+  # print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
   return [
             {"name": "Course 1", "description": "Description 1", "credits": 3},
