@@ -472,7 +472,6 @@ def print_course_obj(course_object):
   return print_statement
 
 
-
 def print_bucket_obj(bucket_object):
   bucket_name = bucket_object.name
   num_hrs = bucket_object.num_hours
@@ -482,12 +481,10 @@ def print_bucket_obj(bucket_object):
   bucket_data = {
     "bucket_name": bucket_name,
     "bucket_hours": num_hrs,
-    "bucket_num_courses": bucket_object.num_courses,
-    "bucket_sentence": "Choose " + str(bucket_object.num_courses) + " from the list of courses below/above",
     "course_name": []
   }
 
-  #print_statement = "\nBucket: " + bucket_name + " has these courses "
+  print_statement = "\nBucket: " + bucket_name + " has these courses "
   if bucket_object.bucket_id == "45":
     bucket_data["course_name"].append("5 Technical Electives")
   elif bucket_object.bucket_id == "41":
@@ -495,16 +492,15 @@ def print_bucket_obj(bucket_object):
   elif bucket_object.bucket_id == "80":
     bucket_data["course_name"].append("3 Technical Electives")
   for x in courses:
-    #print_statement += x + " "
+    print_statement += x + " "
     bucket_data["course_name"].append(x)
-  #if num_hrs == -1:
-    #print_statement += "\n"
-  #else:
-    #print_statement += "\nFor a total of " + str(num_hrs) + " hours"
-  #print_statement += "\n"
-
+  if num_hrs == -1:
+    print_statement += "\n"
+  else:
+    print_statement += "\nFor a total of " + str(num_hrs) + " hours"
+  print_statement += "\n"
   return bucket_data
-  #return print_statement
+  return print_statement
 
 def print_major_obj(major_object, course_object, bucket_object): 
   maj_cour_ids = major_object.course_ids
