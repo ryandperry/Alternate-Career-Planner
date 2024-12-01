@@ -11,6 +11,8 @@
 # shift+enter to run whatever is in main
 
 import pandas as pd
+import json
+import os
 
 # update filenames here instead of in the code
 filenames = {
@@ -274,6 +276,31 @@ def processing_course(course_objects, person_object):
 def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
   #major_objects is the dictionary of major objects 
   hour_counter = 0
+  # check in every major 
+  history_ids = processing_course(course_objects=course_objects, person_object=person_object)
+  for i in major_objects:
+    # do not check against their current major
+    if(major_objects[i].major_id == person_object.major):
+      continue
+    else:
+      # check their courses ?
+      for course_taken in history_ids:
+        #somewhere in here we need to check if it is part of a bucket
+        # if(course_taken in bucket_objects)
+        #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
+            #pseudo code : 
+            # if this course name appears in the bucket objects' course names 
+            #if()
+            # then you need to see if this one class will fill the entire requirement via the course table hours !! 
+            # if it does not fill the entire requirement, manually subtract the hours required for that bucket
+            # if it does fill the whole requirement add that number to hour_counter
+        if(major_objects[course_taken].course_id == course_taken[i]):
+          hour_counter += course_objects["course_taken"].hours
+        # look up the course id in the major dictionary at this i 
+
+def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
+  #major_objects is the dictionary of major objects 
+  hour_counter = 0
   max_number_of_hours = 0
   # check in every major 
   copy_major_objects = major_objects
@@ -299,16 +326,15 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
       for course_taken in history_ids:
         # see if it is in the course_ids set for this major 
         if course_taken in major_objects[i].course_ids:
-          course_taken_id = int(course_taken)
-          if course_taken_id in course_objects:
-            hour_counter += int(course_objects[course_taken_id].hours)
+          hour_counter += course_objects[course_taken].hours
           #  delete major_objects[i].course_ids
-            del copy_major_objects[course_taken_id]
-            continue
+          del copy_major_objects[i]
+          continue
         # see if this course is in their bucket objects 
-        for bucket_id in bucket_objects.values():
-          if course_taken in bucket_id.course_ids:
-            hour_counter += int(course_objects[course_taken].hours)
+        for bucket_id in bucket_objects.keys():
+          #this is where we would call the funcs that treat certain buckets diff
+          if course_taken in bucket_objects.course_ids:
+            hour_counter += course_objects[course_taken].hours
             if(bucket_id.num_hours > 0):
               bucket_objects[course_taken].num_hours -= int(course_objects[course_taken].num_hours)
             
@@ -431,21 +457,32 @@ def print_course_obj(course_object):
   course_name = course_object.names
   course_hrs = course_object.hours
   course_prereq_id = course_object.prereq_courseids
-  print_statement = "Courses: "
+  course_data = {
+    "course_name": [],
+    "course_description": [],
+    "course_hrs": course_hrs
+  }
+  print_statement = "\nCourses: "
+  print_statement += course_object.course_id + " "
   for y in course_name:
     print_statement += y + " "
+    course_data["course_name"].append(y)
 
   if course_object.description == "NULL":
     print_statement += "\nDescription: N/A" + "\nRequires " + course_hrs + " hours"
+    course_data["course_description"].append("Description: N/A")
   else:
     print_statement += "\nDescription: " + course_object.description + "\nRequires " + course_hrs + " hours"
+    course_data["course_description"].append("Description: " + course_object.description)
   
   if len(course_prereq_id) != 0:
     print_statement += ", these prereqs "
     for x in course_prereq_id:
       print_statement += x
       
-  return print(print_statement)
+  print_statement += "\n"
+  return course_data
+  return print_statement
 
 
 def print_bucket_obj(bucket_object):
@@ -454,73 +491,120 @@ def print_bucket_obj(bucket_object):
 
   courses = bucket_object.course_names
 
-  print_statement = "Bucket: " + bucket_name + " has these courses "
+  bucket_data = {
+    "bucket_name": bucket_name,
+    "bucket_hours": num_hrs,
+    "course_name": []
+  }
+
+  print_statement = "\nBucket: " + bucket_name + " has these courses "
+  if bucket_object.bucket_id == "45":
+    bucket_data["course_name"].append("5 Technical Electives")
+  elif bucket_object.bucket_id == "41":
+    bucket_data["course_name"].append("4 Technical Electives")
+  elif bucket_object.bucket_id == "80":
+    bucket_data["course_name"].append("3 Technical Electives")
   for x in courses:
     print_statement += x + " "
+    bucket_data["course_name"].append(x)
   if num_hrs == -1:
     print_statement += "\n"
   else:
     print_statement += "\nFor a total of " + str(num_hrs) + " hours"
-  return print(print_statement) 
+  print_statement += "\n"
+  return bucket_data
+  return print_statement
 
-def print_major_obj(major_object): 
-  #set this up to take in course_obj so we can find them based on course_id set that this has
+def print_major_obj(major_object, course_object, bucket_object): 
   maj_cour_ids = major_object.course_ids
   maj_buck_ids = major_object.bucket_ids
   name = major_object.name
   print_statement = name
+  output_file = "json_test.json"
+  existing_data = []
+
+  major_data = {
+    "major_name": name,
+    "courses": [],
+    "buckets": [],
+  }
   for x in maj_cour_ids:
-    #print_course_obj(course_object=course_obj[x])
-    print(x)
-  #print(name)
-  return print_statement
+    if x in course_object:
+      #print_statement += print_course_obj(course_object=course_object[x])
+      major_data["courses"].append(print_course_obj(course_object=course_object[x]))
+  for y in maj_buck_ids:
+    if y in bucket_object:
+      #in here is where we can add the hard coded exceptions for the odd buckets that we already found
+      #print_statement += print_bucket_obj(bucket_object=bucket_object[y])
+      major_data["buckets"].append(print_bucket_obj(bucket_object=bucket_object[y]))
+
+  if os.path.exists(output_file):
+    with open(output_file, "r") as json_file:
+      try:
+        existing_data = json.load(json_file)
+        if isinstance(existing_data, dict):
+          existing_data = [existing_data]
+      except json.JSONDecodeError:
+        existing_data = []
+
+  existing_data.append(major_data)
+  
+  with open(output_file, "w") as json_file:
+    json.dump(existing_data, json_file, indent=4)
+  return print(print_statement)
 
 def main():
   course_objects = build_course_objects()
-  # for course_obj in course_objects.values():
-  #   print("Course Names: ", course_obj.names)
-  #   print("Course Description: ", course_obj.description)
-  #   print("Course ID: ", course_obj.course_id)
-  #   print("Prereq IDs: ", course_obj.prereq_courseids)
-  #   print("Coreq IDs: ", course_obj.coreq_courseids)
+  """
+  for course_obj in course_objects.values():
+    print("Course Names: ", course_obj.names)
+    print("Course ID: ", course_obj.course_id)
+    print("Prereq IDs: ", course_obj.prereq_courseids)
+    print("Coreq IDs: ", course_obj.coreq_courseids)
+  """
 
   bucket_objects = build_bucket_objects(course_objects)
-  # for bucket_obj in bucket_objects.values():
-  #   print("Name: ", bucket_obj.name)
-  #   print("Course Names: ", bucket_obj.course_names)
-  #   print("Course IDs: ", bucket_obj.course_ids)
-  #   if bucket_obj.other_bucket_ids != set():
-  #     print("Other Bucket IDs: ", bucket_obj.other_bucket_ids)
+  """
+  for bucket_obj in bucket_objects.values():
+    print("Name: ", bucket_obj.name)
+    print("Course Names: ", bucket_obj.course_names)
+    print("Course IDs: ", bucket_obj.course_ids)
+    if bucket_obj.other_bucket_ids != set():
+      print("Other Bucket IDs: ", bucket_obj.other_bucket_ids)
+  """
 
 
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
-  # for major_obj in major_objects.values():
-  #   print("Name: ", major_obj.name)
-  #   print("Course IDs: ", major_obj.course_ids)
-  #   if major_obj.bucket_ids != set():
-  #     print("Bucket IDs: ", major_obj.bucket_ids)
+  """
+  for major_obj in major_objects.values():
+    print("Name: ", major_obj.name)
+    print("Course IDs: ", major_obj.course_ids)
+    if major_obj.bucket_ids != set():
+      print("Bucket IDs: ", major_obj.bucket_ids)
+  """
 
-  # for i in course_objects:
-  #   print_course_obj(course_object=course_objects[i])
-  # for i in bucket_objects:
-  #   print_bucket_obj(bucket_object=bucket_objects[i])
-  # for i in major_objects:
-  #   print_major_obj(major_object=major_objects[i])
+  #for i in course_objects:
+    #print_course_obj(course_object=course_objects[i])
+  #for i in bucket_objects:
+    #print_bucket_obj(bucket_object=bucket_objects[i])
+  #for i in major_objects:
+    #print_major_obj(major_object=major_objects[i], course_object=course_objects, bucket_object=bucket_objects)
+  #print(print_course_obj(course_object=course_objects["136"]))
+  #print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
   # TODO read in ryan's object with course history information
   majorid = 1
   classes_array = ["EF 151", "EF 230", "MATH 141"]
-  cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
-                  "EF302", "AE210", "AE201", "ME202", "MATH148", "ENGL298", "EF230", "EF158 ", "MATH147",
-                  "ENGL198", "EF157", "EF105", "EF102"]
   quiz_results = "ME"
-  person_object = Person(major=majorid, classes_array=cole_classes, quiz_results=quiz_results)
+  person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
   print(major_objects)
   max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
   #the max hour prints but the major return doesnt
   print(f"Max hour: {max_hour}")
-  print_major_obj(major_ret)
+  print_major_obj(major_ret) 
+
+
 
 
 #optional - this runs everything but the variables aren't accessible for testing
