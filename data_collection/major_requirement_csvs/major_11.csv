@@ -1,4 +1,4 @@
-﻿Major ID,Required Course ID,Required Bucket ID,Required Course,Required Course Name,Required Course Number of Hours,Required Bucket Number of Hours,Required Bucket Name,List of Courses in Bucket
+Major ID,Required Course ID,Required Bucket ID,Required Course,Required Course Name,Required Course Number of Hours,Required Bucket Number of Hours,Required Bucket Name,List of Courses in Bucket
 11,4,NULL,,,,,,
 11,NULL,11,,,,,,
 11,2,NULL,,,,,,
@@ -34,3 +34,8 @@
 11,,,CE 399S,,,,,
 11,,,CE 401,,,,,
 11,,,CE 400,,,,,
+11,,13,NULL,,,,,
+11,,15,NULL,,,,,
+11,,16,NULL,,,,,
+11,,,,,,,,
+11,,,,,,,,

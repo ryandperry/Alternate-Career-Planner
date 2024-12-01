@@ -1,7 +1,7 @@
 Major ID,Required Course ID,Required Bucket ID,Required Course,Required Course Name,Required Course Number of Hours,Required Bucket Number of Hours,Required Bucket Name,List of Courses in Bucket
 9,4,NULL,,,,,,
 9,2,NULL,,,,,,
-9,,11,,,,,,
+9,NULL,11,,,,,,
 9,6,NULL,,,,,,
 9,7,NULL,,,,,,
 9,34,NULL,,,,,,
