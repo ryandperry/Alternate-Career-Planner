@@ -568,21 +568,23 @@ def main():
   #print(print_course_obj(course_object=course_objects["136"]))
   #print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
-  # TODO read in ryan's object with course history information
+  # TODO read in Ryan's object with course information
   majorid = 1
   classes_array = ["EF 151", "EF 230", "MATH 141"]
+  cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
+                  "EF302", "AE210", "AE201", "ME202", "MATH148", "ENGL298", "EF230", "EF158 ", "MATH147",
+                  "ENGL198", "EF157", "EF105", "EF102"]
   quiz_results = "ME"
-  person_object = Person(major=majorid, classes_array=classes_array, quiz_results=quiz_results)
+  person_object = Person(major=majorid, classes_array=cole_classes, quiz_results=quiz_results)
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
-  print(major_objects)
+  # print(major_objects)
   max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
-  #the max hour prints but the major return doesnt
   print(f"Max hour: {max_hour}")
   print_major_obj(major_ret, course_objects, bucket_objects) 
 
-  print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
-  print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
-  print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
+  # print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
+  # print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
+  # print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
 
 
