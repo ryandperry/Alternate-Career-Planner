@@ -523,4 +523,4 @@ def main():
 
 
 #optional - this runs everything but the variables aren't accessible for testing
-# main()
+main()
