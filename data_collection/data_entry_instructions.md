@@ -39,7 +39,7 @@ Ignore VolCore (general education) requirements
 ### CSVs
 CSV's are comma seperated, so when you list multiple courses or multiple buckets, use a semicolon.
 
-When you're finished with your major-specific table, export the sheet as an excel. change all column data types strings only. then expost that sheet as a csv titled "major_IDNUMBER.csv" (for example major_2.csv) and commit to github under the folder "major_requirement_csvs"
+When you're finished with your major-specific table, export the sheet as an excel. change all column data types strings only. then export that sheet as a csv titled "major_IDNUMBER.csv" (for example major_2.csv) and commit to github under the folder "major_requirement_csvs"
 
 All other sheets will be exported by whoever runs the processing code.
 
