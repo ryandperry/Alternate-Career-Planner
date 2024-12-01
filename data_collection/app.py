@@ -601,7 +601,10 @@ def dev_main(ryan_data):
   # print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
   # print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
-  return {"Computer Science": "PHYS341"}
+  return [
+            {"name": "Course 1", "description": "Description 1", "credits": 3},
+            {"name": "Course 2", "description": "Description 2", "credits": 4}
+        ]
 
 
 #optional - this runs everything but the variables aren't accessible for testing
