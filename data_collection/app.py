@@ -14,6 +14,14 @@ import pandas as pd
 import json
 import os
 
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+import json
+
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes so react can connect
+
+
 # update filenames here instead of in the code
 filenames = {
   "Bucket Table": "bucket_table.csv",
@@ -253,6 +261,8 @@ def adding_person(personCourseObjects, major, quiz_major, major_object):
       quiz_id = majors.major_id
   func_classes_array = []
   for i in personCourseObjects:
+    # if grade in ['A', 'B', 'C']
+    # TODO check if grade works
     if(personCourseObjects[i].grade > 'C'):
       # if they got higher than a C, add it to the person object
       func_classes_array.append(personCourseObjects[i].course_name)
@@ -462,6 +472,7 @@ def print_course_obj(course_object):
   return print_statement
 
 
+
 def print_bucket_obj(bucket_object):
   bucket_name = bucket_object.name
   num_hrs = bucket_object.num_hours
@@ -533,7 +544,7 @@ def print_major_obj(major_object, course_object, bucket_object):
     json.dump(existing_data, json_file, indent=4)
   return print(print_statement)
 
-def main():
+def dev_main(ryan_data):
   course_objects = build_course_objects()
   """
   for course_obj in course_objects.values():
@@ -563,6 +574,7 @@ def main():
       print("Bucket IDs: ", major_obj.bucket_ids)
   """
 
+
   #for i in course_objects:
     #print_course_obj(course_object=course_objects[i])
   #for i in bucket_objects:
@@ -573,24 +585,54 @@ def main():
   #print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
   # TODO read in Ryan's object with course information
-  majorid = 1
-  classes_array = ["EF 151", "EF 230", "MATH 141"]
-  cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
-                  "EF302", "AE210", "AE201", "ME202", "MATH148", "ENGL298", "EF230", "EF158 ", "MATH147",
-                  "ENGL198", "EF157", "EF105", "EF102"]
-  quiz_results = "ME"
-  person_object = Person(major=majorid, classes_array=cole_classes, quiz_results=quiz_results)
-  major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
-  # print(major_objects)
-  max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
-  print(f"Max hour: {max_hour}")
-  print_major_obj(major_ret, course_objects, bucket_objects) 
+  #parse ryan's data to get the person's classes: code, credit hour, title, grade
+  print(ryan_data)
 
-  print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
-  print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
-  print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
+  # majorid = 1
+  # classes_array = ["EF 151", "EF 230", "MATH 141"]
+  # cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
+  #                 "EF302", "AE210", "AE201", "ME202", "MATH148", "ENGL298", "EF230", "EF158 ", "MATH147",
+  #                 "ENGL198", "EF157", "EF105", "EF102"]
+  # quiz_results = "ME"
+  # person_object = Person(major=majorid, classes_array=cole_classes, quiz_results=quiz_results)
+  # major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
+  # # print(major_objects)
+  # max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+  # print(f"Max hour: {max_hour}")
+  # print_major_obj(major_ret, course_objects, bucket_objects) 
 
+  # print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
+  # print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
+  # print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
+
+  return {"Computer Science": "PHYS341"}
 
 
 #optional - this runs everything but the variables aren't accessible for testing
-main()
+# main()
+
+@app.route('/api/hello', methods=['GET'])
+def hello():
+    return jsonify({"message": "This is a test of a passed course!"})
+
+@app.post("/RyanData")
+def get_ryan_data():
+    if request.is_json:
+      ryan_data = request.get_json()
+      print(ryan_data)
+
+      #make a new JSON and return it to Ryan 
+      results = dev_main(ryan_data)
+      # results_data = {"Computer Science": "PHYS341"}
+      results_json = json.dumps(results)
+      return results_json
+    return {"Error": "Request must be JSON"}, 415
+
+#make route for each page/request that's needed
+#post and get requests
+#put this app request at the bottom of our current code,
+#and overwrite the main with this
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
