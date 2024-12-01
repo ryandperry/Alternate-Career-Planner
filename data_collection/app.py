@@ -601,7 +601,7 @@ def dev_main(ryan_data):
   # print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
   # print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
-  return {"Course": "PHYS341"}
+  return {"Computer Science": "PHYS341"}
 
 
 #optional - this runs everything but the variables aren't accessible for testing
@@ -614,17 +614,14 @@ def hello():
 @app.post("/RyanData")
 def get_ryan_data():
     if request.is_json:
-        ryan_data = request.get_json()
-        print(ryan_data)
-        
-        # Example course data
-        results = [
-            {"name": "Computer Science 101", "description": "Intro to CS", "credits": 3},
-            {"name": "Data Structures", "description": "Learn about data structures", "credits": 4},
-            {"name": "Algorithms", "description": "Learn about algorithms", "credits": 3}
-        ]
-        
-        return jsonify(results)
+      ryan_data = request.get_json()
+      print(ryan_data)
+
+      #make a new JSON and return it to Ryan 
+      results = dev_main(ryan_data)
+      # results_data = {"Computer Science": "PHYS341"}
+      results_json = json.dumps(results)
+      return results_json
     return {"Error": "Request must be JSON"}, 415
 
 #make route for each page/request that's needed
