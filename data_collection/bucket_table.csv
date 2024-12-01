@@ -50,8 +50,7 @@ Bucket ID,Bucket Name,Course Names,Sequence Bucket IDs,Bucket Number of Hours,Bu
 48,Chemistry first year,"CHEM 132, CHEM 133; CHEM 138",,,2,
 49,Upper division stats requirements,STAT 251; IE 200,,,1,
 51,MSE Elective UD,MSE 404; MSE 405; MSE 408; MSE 410; MSE 415; MSE 421; MSE 425; MSE 432; MSE 443; MSE 450; MSE 451; MSE 455; MSE 460; MSE 466; MSE 474; MSE 475; MSE 494; MSE 495; MSE 496,,6,,
-52,MSE Tech Elective,"BCMB 230; BIOL 150; BIOL 158; BIOL 159; BIOL 160; BIOL 168; BME 409; CHEM 260; CHEM 360; CBE 475; ECE 301; EF 333; ENGL 360; GEOL 310; MATH 475; MSE 457; MSE 483; MSE 484; MSE 485; MSE 486;
-any MSE course not already required; PHYS 232; other 300 or 400 level science or engineering courses as approved by academic advisor and department head.",,6,,
+52,MSE Tech Elective,BCMB 230; BIOL 150; BIOL 158; BIOL 159; BIOL 160; BIOL 168; BME 409; CHEM 260; CHEM 360; CBE 475; ECE 301; EF 333; ENGL 360; GEOL 310; MATH 475; MSE 457; MSE 483; MSE 484; MSE 485; MSE 486; PHYS 232; ,,6,,
 53,IE Engineering Science Elective,,54; 55; 56; 57; 58; 59,6,,
 54,EF Engineering Science Elective,EF 130; EF 230; EF 237,,,1,
 55,Engineering Science Sequence,DATA 201,,,1,
