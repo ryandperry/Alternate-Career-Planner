@@ -142,6 +142,17 @@ const jobsData = {
     },
   ],
 
+  'Industrial Engineering': [
+    {
+      title: 'Industrial Manufacturing Engineer',
+      description: 'As an Industrial Manufacturing Engineer, you will play a pivotal role in ensuring the efficiency, quality, and reliability of our manufacturing processes.',
+    },
+    {
+      title: 'Field Engineer',
+      description: 'As a Field Engineer for our Industrial construction, you will have the opportunity to work on a wide variety of projects around the country to build your career with opportunities to grow and advance into higher level positions as your advance your knowledge. You bring your big ideas, commitment to top quality and safety and unwavering work ethic.',
+    },
+  ],
+
   'Computer Engineering': [
     {
       title: 'Embedded Systems Engineer',
