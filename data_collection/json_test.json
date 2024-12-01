@@ -1,278 +1,1534 @@
-{
-    "major_name": "Biomedical Engineering",
-    "courses": [
-        {
-            "course_name": [
-                "BME347",
-                "BME341"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "PHIL345"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "BME315"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "BME345"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "BME450"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "BME460"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "BME449"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "BME473",
-                "BME477"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "EF105"
-            ],
-            "course_description": [
-                "Description: Introduction to computer applications used in engineering problem solving and communications. Introduction to programming concepts, including conditional statements and looping, and the development and implementation of logic flow diagrams."
-            ],
-            "course_hrs": "1"
-        },
-        {
-            "course_name": [
-                "BIO168",
-                "BIO160"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "ME231"
-            ],
-            "course_description": [
-                "Description: Kinematics of rigid bodies, center of mass, and kinetics of systems of particles. Mass moments of inertia. Kinetics of rigid bodies. Newton\u2019s laws, work-energy, and impulse-momentum."
-            ],
-            "course_hrs": "3"
-        },
-        {
-            "course_name": [
-                "PHYS231"
-            ],
-            "course_description": [
-                "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
-            ],
-            "course_hrs": "3"
-        },
-        {
-            "course_name": [
-                "STAT251"
-            ],
-            "course_description": [
-                "Description: Data collection and descriptive statistics. Concepts of probability and probability distributions. Discrete and continuous distributions."
-            ],
-            "course_hrs": "3"
-        },
-        {
-            "course_name": [
-                "BME205"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "ME202"
-            ],
-            "course_description": [
-                "Description: Review of vector algebra. Statics of two-dimensional trusses and frames, including methods of joints and sections. Geometric properties of cross sections, including first and second moments and location of centroid. Inertial properties of rigid bodies, including moment of inertia and location of mass center."
-            ],
-            "course_hrs": "2"
-        },
-        {
-            "course_name": [
-                "ENGL102"
-            ],
-            "course_description": [
-                "Description: Advancing concepts introduced in ENGL 101*. Intensive writing instruction focused on inquiry and research. Strategies for formulating and investigating questions, locating and evaluating information, using varied sources and research methods, developing positions on intercultural and interdisciplinary issues from diverse texts (print, digital, and multimedia), and presenting research using appropriate rhetorical conventions."
-            ],
-            "course_hrs": "3"
-        },
-        {
-            "course_name": [
-                "ENGL101"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "BME367",
-                "BME363"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "MATH200"
-            ],
-            "course_description": [
-                "Description: Introduction to matrix calculations, including determinants, eigenvalues, and eigenvectors."
-            ],
-            "course_hrs": "2"
-        },
-        {
-            "course_name": [
-                "BME474"
-            ],
-            "course_description": [
-                "Description: N/A"
-            ],
-            "course_hrs": "NULL"
-        },
-        {
-            "course_name": [
-                "ECE301"
-            ],
-            "course_description": [
-                "Description: DC and AC circuits, transients, transformers, motors, and generators."
-            ],
-            "course_hrs": "3"
-        }
-    ],
-    "buckets": [
-        {
-            "bucket_name": "Calc 3",
-            "bucket_hours": -1,
-            "course_name": [
-                "BMETechnicalElective"
-            ]
-        },
-        {
-            "bucket_name": "EF 152/158",
-            "bucket_hours": -1,
-            "course_name": [
-                "EF158",
-                "EF152"
-            ]
-        },
-        {
-            "bucket_name": "EF options",
-            "bucket_hours": -1,
-            "course_name": [
-                "EF151",
-                "EF142",
-                "EF157"
-            ]
-        },
-        {
-            "bucket_name": "Term 1 chem options",
-            "bucket_hours": -1,
-            "course_name": [
-                "CHEM128",
-                "CHEM122"
-            ]
-        },
-        {
-            "bucket_name": "Computer Solution",
-            "bucket_hours": -1,
-            "course_name": [
-                "EF237",
-                "EF230"
-            ]
-        },
-        {
-            "bucket_name": "BME Technical Elective",
-            "bucket_hours": -1,
-            "course_name": []
-        },
-        {
-            "bucket_name": "Diff Eq 1",
-            "bucket_hours": -1,
-            "course_name": [
-                "MATH237",
-                "MATH231"
-            ]
-        },
-        {
-            "bucket_name": "NULL",
-            "bucket_hours": -1,
-            "course_name": [
-                "MATH142",
-                "MATH148"
-            ]
-        },
-        {
-            "bucket_name": "CBE 201 PreReq",
-            "bucket_hours": -1,
-            "course_name": [
-                "CHEM132",
-                "CHEM138"
-            ]
-        },
-        {
-            "bucket_name": "Engineering Term 1 Math",
-            "bucket_hours": -1,
-            "course_name": [
-                "MATH147",
-                "MATH132",
-                "MATH141"
-            ]
-        }
-    ]
-}
+[
+    {
+        "major_name": "Biomedical Engineering",
+        "courses": [
+            {
+                "course_name": [
+                    "BME205"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "PHIL345"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "BIO168",
+                    "BIO160"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "BME363",
+                    "BME367"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "ECE301"
+                ],
+                "course_description": [
+                    "Description: DC and AC circuits, transients, transformers, motors, and generators."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ME202"
+                ],
+                "course_description": [
+                    "Description: Review of vector algebra. Statics of two-dimensional trusses and frames, including methods of joints and sections. Geometric properties of cross sections, including first and second moments and location of centroid. Inertial properties of rigid bodies, including moment of inertia and location of mass center."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "BME450"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "EF105"
+                ],
+                "course_description": [
+                    "Description: Introduction to computer applications used in engineering problem solving and communications. Introduction to programming concepts, including conditional statements and looping, and the development and implementation of logic flow diagrams."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "BME341",
+                    "BME347"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "MATH200"
+                ],
+                "course_description": [
+                    "Description: Introduction to matrix calculations, including determinants, eigenvalues, and eigenvectors."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "BME449"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "BME315"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "ENGL101"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "STAT251"
+                ],
+                "course_description": [
+                    "Description: Data collection and descriptive statistics. Concepts of probability and probability distributions. Discrete and continuous distributions."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "BME474"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "ENGL102"
+                ],
+                "course_description": [
+                    "Description: Advancing concepts introduced in ENGL 101*. Intensive writing instruction focused on inquiry and research. Strategies for formulating and investigating questions, locating and evaluating information, using varied sources and research methods, developing positions on intercultural and interdisciplinary issues from diverse texts (print, digital, and multimedia), and presenting research using appropriate rhetorical conventions."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "BME460"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "BME473",
+                    "BME477"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "ME231"
+                ],
+                "course_description": [
+                    "Description: Kinematics of rigid bodies, center of mass, and kinetics of systems of particles. Mass moments of inertia. Kinetics of rigid bodies. Newton\u2019s laws, work-energy, and impulse-momentum."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "BME345"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "PHYS231"
+                ],
+                "course_description": [
+                    "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+                ],
+                "course_hrs": "3"
+            }
+        ],
+        "buckets": [
+            {
+                "bucket_name": "Engineering Term 1 Math",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH141",
+                    "MATH132",
+                    "MATH147"
+                ]
+            },
+            {
+                "bucket_name": "Computer Solution",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF237",
+                    "EF230"
+                ]
+            },
+            {
+                "bucket_name": "NULL",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH142",
+                    "MATH148"
+                ]
+            },
+            {
+                "bucket_name": "CBE 201 PreReq",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM138",
+                    "CHEM132"
+                ]
+            },
+            {
+                "bucket_name": "EF 152/158",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF158",
+                    "EF152"
+                ]
+            },
+            {
+                "bucket_name": "BME Technical Elective",
+                "bucket_hours": -1,
+                "course_name": [
+                    "5 Technical Electives"
+                ]
+            },
+            {
+                "bucket_name": "Term 1 chem options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM128",
+                    "CHEM122"
+                ]
+            },
+            {
+                "bucket_name": "Diff Eq 1",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH231",
+                    "MATH237"
+                ]
+            },
+            {
+                "bucket_name": "Calc 3",
+                "bucket_hours": -1,
+                "course_name": [
+                    "BMETechnicalElective"
+                ]
+            },
+            {
+                "bucket_name": "EF options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF151",
+                    "EF157",
+                    "EF142"
+                ]
+            }
+        ]
+    },
+    {
+        "major_name": "Computer Engineering",
+        "courses": [
+            {
+                "course_name": [
+                    "COSC101"
+                ],
+                "course_description": [
+                    "Description: An introduction to computational thinking and structured programming. Topics include problem solving and algorithm development with emphasis on conditional if/else statements, loop based iteration, and function calls. Students will also be given an overview of commonly used data structures such as arrays. Skills learned include designing a program to solving a problem, developing the algorithms needed, writing code to implement them, testing the code and correcting errors, as well as documenting how the code works."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "MATH231",
+                    "MATH237"
+                ],
+                "course_description": [
+                    "Description: First course emphasizing solution techniques. Includes first-order equations and applications, theory of linear equations, equations with constant coefficients, Laplace transforms, and series solutions."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ECE395"
+                ],
+                "course_description": [
+                    "Description: Presentations and discussions related to professional development, including registration, ethics, and current topics in electrical and computer engineering. Students will analyze aspects of scientific and technical writing and write a series of articles suitable for the general public. "
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "COSC202"
+                ],
+                "course_description": [
+                    "Description: Design, analysis, and implementation of fundamental data structures and algorithms including lists, stacks, queues, hash tables, binary search trees and heaps."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "ECE401"
+                ],
+                "course_description": [
+                    "Description: A design course that focuses the student\u2019s attention on professional practice, ethics, accumulated background of curricular components, and recent developments in the field. The focus is on teaching both the design process and design principles that allow students to utilize all of the above elements to effectively create designs for major design projects."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "ECE402"
+                ],
+                "course_description": [
+                    "Description: A project-oriented course that requires teams of students to design a major project that incorporates the principles taught in ECE 401*. The design emphasis is directed to topics within the field of electrical and computer engineering."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "COSC102"
+                ],
+                "course_description": [
+                    "Description: Modular programming in an object-oriented programming language, including string and vector manipulation, file I/O, bit operators, Boolean algebra, pointers, simple sorting and binary search, plus introductions to recursion and templates."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "ECE335"
+                ],
+                "course_description": [
+                    "Description: Semiconductor physics, theory of p-n junctions. Diodes, field-effect transistors, and bipolar transistors. Modeling of diode and transistor devices. Analysis and design of diode switching and rectifier circuits. Basic transistor switching circuits and single stage amplifiers. Electronic circuit simulation using SPICE."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ECE202"
+                ],
+                "course_description": [
+                    "Description: Operational amplifiers, average, complex, imaginary and real power; effective values of voltage and currents, three phase circuits, delta and wye connections. Complex frequency; sinusoidal forcing functions and natural response. Resonance: general case, special cases in series and parallel circuits. Scaling: magnitude and frequency. Mutual inductance, transformers as circuit elements; linear and ideal transformers. Admittance, impedance, and hybrid parameters. Trigonometric and complex Fourier series. Includes laboratory exercises."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "MATH251",
+                    "MATH257"
+                ],
+                "course_description": [
+                    "Description: First course in the algebra of simultaneous linear equations and matrices. Includes Gaussian elimination, determinants, vector spaces, linear transformations, eigenvalues, and eigenvectors."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ECE255"
+                ],
+                "course_description": [
+                    "Description: Introduction to digital logic design techniques, including the implementation of combinational and sequential logic. Topics include number systems, base conversions, Boolean algebra, finite state machines, and techniques for minimizing Boolean functions and logic circuits. Laboratory exercises will provide hands-on experience implementing digital logic circuits using discrete components and programmable logic devices."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "MATH142",
+                    "MATH148"
+                ],
+                "course_description": [
+                    "Description: Single variable calculus especially for students of science, engineering, mathematics, and computer science. Integral calculus with applications."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "ECE201"
+                ],
+                "course_description": [
+                    "Description: Fundamental laws of circuit analysis. Ohm\u2019s Law. Kirchhoff\u2019s current and voltage laws; the law of conservation of energy; circuits containing independent and dependent voltage, and current sources, resistance, conductance, capacitance, and inductance analyzed using mesh and nodal analysis, superposition, and source of transformations; and Norton\u2019s and Thevenin\u2019s Theorems. Steady state analysis of DC and AC circuits. Complete solution for transient analysis for circuits with one and two storage elements."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "EF158",
+                    "EF152"
+                ],
+                "course_description": [
+                    "Description: Calculus-based study of basic physics concepts, including rotational dynamics, statics, oscillations, waves, fluids, heat and temperature, first and second law of thermodynamics and electricity and magnetism. Introduction to team work. Introduction to the engineering disciplines, examination of engineering principles and design issues. Oral and written presentation skills."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "ECE315"
+                ],
+                "course_description": [
+                    "Description: Continuous- and discrete-time functions, function transformations, signal energy and power, solution of linear differential equations, system properties, convolution, continuous and discrete-time Fourier series, continuous and discrete-time Fourier transforms, Bode diagrams, and correlation."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "MATH247",
+                    "MATH241"
+                ],
+                "course_description": [
+                    "Description: Calculus of functions in two or more dimensions. Includes solid analytic geometry, partial differentiation, multiple integration, and selected topics in vector calculus."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "PHYS231"
+                ],
+                "course_description": [
+                    "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "CHEM128",
+                    "CHEM123",
+                    "CHEM122"
+                ],
+                "course_description": [
+                    "Description: A general course in theoretical and descriptive chemistry. Modern atomic theory, chemical bonding, molecular structures and geometries, stoichiometry, and quantitative aspects of solution chemistry, gas laws, and chemical energy."
+                ],
+                "course_hrs": "3"
+            }
+        ],
+        "buckets": [
+            {
+                "bucket_name": "Engineering Term 1 Math",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH141",
+                    "MATH132",
+                    "MATH147"
+                ]
+            },
+            {
+                "bucket_name": "AE Term 2 Engl",
+                "bucket_hours": -1,
+                "course_name": [
+                    "ENGL112",
+                    "ENGL132",
+                    "ENGL102"
+                ]
+            },
+            {
+                "bucket_name": "EF options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF151",
+                    "EF157",
+                    "EF142"
+                ]
+            },
+            {
+                "bucket_name": "Sem 1 ENG",
+                "bucket_hours": -1,
+                "course_name": [
+                    "ENGL131",
+                    "ENGL101"
+                ]
+            }
+        ]
+    },
+    {
+        "major_name": "Nuclear Engineering",
+        "courses": [
+            {
+                "course_name": [
+                    "NE471"
+                ],
+                "course_description": [
+                    "Description: Design and analysis of a nuclear system. Feasibility, cost analysis and initial steps of a nuclear engineering design project is to be completed in NE 472."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE340"
+                ],
+                "course_description": [
+                    "Description: Introduction to the materials science and engineering mechanics principles relevant for understanding the behavior of fuels and materials used in nuclear reactors. Topics include atomic bonding and crystal structure of materials, thermodynamics principles, including the interpretation of phase diagrams, diffusion mechanisms, atomic and extended defects in materials, elastic strains and stresses, and mechanical properties including plastic deformation and analysis of stress loading of components. In each topical area, the relevance to nuclear power applications will be emphasized."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE470"
+                ],
+                "course_description": [
+                    "Description: Fundamentals of reactor physics relative to cross sections kinematics of elastic scattering, reactor kinetics, reactor systems, and nuclear data. Analytical and numerical methods applicable to general criticality problems, eigenvalue searches, perturbation theory, and the multigroup diffusion equations."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ME202"
+                ],
+                "course_description": [
+                    "Description: Review of vector algebra. Statics of two-dimensional trusses and frames, including methods of joints and sections. Geometric properties of cross sections, including first and second moments and location of centroid. Inertial properties of rigid bodies, including moment of inertia and location of mass center."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "NE400"
+                ],
+                "course_description": [
+                    "Description: Current topics related to nuclear and radiological engineering including ethics, contemporary issues, and commitment to life-long learning."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE472"
+                ],
+                "course_description": [
+                    "Description: First order design and analysis of a nuclear system. Interface with nonnuclear aspects of system design, including system reliability and economics. Class project."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ME331"
+                ],
+                "course_description": [
+                    "Description: Energy and laws governing energy transformations. Thermodynamic properties and thermodynamic cycles. Ideal gas mixtures and application to engineering problems."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "EF105"
+                ],
+                "course_description": [
+                    "Description: Introduction to computer applications used in engineering problem solving and communications. Introduction to programming concepts, including conditional statements and looping, and the development and implementation of logic flow diagrams."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE360"
+                ],
+                "course_description": [
+                    "Description: Safety and operating limits of nuclear steam supply system components. NRC regulations. Accident analysis and mitigation."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE351",
+                    "NE357"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "NE342",
+                    "NE347"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "PHYS231"
+                ],
+                "course_description": [
+                    "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE401"
+                ],
+                "course_description": [
+                    "Description: Physics and electronics associated with radiation detection and measurement. Concepts covered include radiation interactions and signal formation in different detector types, radiation counting and spectroscopy, nuclear instrumentation, applications of radiation detection systems, and statistical methods of data analysis."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "PHYS341"
+                ],
+                "course_description": [
+                    "Description: Introductory theoretical nuclear physics with emphasis on applied aspects. Primarily for nuclear engineering majors."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE250"
+                ],
+                "course_description": [
+                    "Description: This course will provide students with the necessary mathematical tools to be successful in upper level nuclear engineering courses. Students will reinforce their mathematical skills while applying them to nuclear-related problems they will encounter in higher-level courses. Topics covered include statistics, error analysis, linear algebra, and solution methods of differential equations relevant to nuclear engineering."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE233"
+                ],
+                "course_description": [
+                    "Description: Radiation quantities, limits and risk assessment, external and internal dosimetry, biological effects of radiation, radiation detection, radiation interactions and decay, applications."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE200"
+                ],
+                "course_description": [
+                    "Description: Introduction to topics and issues in nuclear engineering, with scientific and technical topics interspersed with discussions about policy, lifelong learning and professional responsibility/ethics. This course combines traditional lectures and class dialogue. Students will learn the fundamentals of radiation, nuclear chemistry, and physics that are needed to understand concepts of nuclear reactions, including fission and fusion. Introduces the concepts of nuclear reactor theory and analysis needed to understand nuclear power engineering. Class discussions on the technical and policy aspects associated with nuclear (non) proliferation and the nuclear fuel cycle, most specifically involving the management of spent nuclear fuel. Introduces the application of nuclear radiation with matter in terms of understanding concepts of radiation protection, radiation detection, and health physics."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "NE101"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "1"
+            }
+        ],
+        "buckets": [
+            {
+                "bucket_name": "Engineering Term 1 Math",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH141",
+                    "MATH132",
+                    "MATH147"
+                ]
+            },
+            {
+                "bucket_name": "IE chemistry options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM128",
+                    "CHEM122"
+                ]
+            },
+            {
+                "bucket_name": "NE Technical Elective",
+                "bucket_hours": -1,
+                "course_name": [
+                    "4 Technical Electives"
+                ]
+            },
+            {
+                "bucket_name": "NE PHYS 250/252",
+                "bucket_hours": -1,
+                "course_name": [
+                    "PHYS252",
+                    "PHYS250"
+                ]
+            },
+            {
+                "bucket_name": "Computer Solution",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF237",
+                    "EF230"
+                ]
+            },
+            {
+                "bucket_name": "NULL",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH142",
+                    "MATH148"
+                ]
+            },
+            {
+                "bucket_name": "CBE 201 PreReq",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM138",
+                    "CHEM132"
+                ]
+            },
+            {
+                "bucket_name": "EF 152/158",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF158",
+                    "EF152"
+                ]
+            },
+            {
+                "bucket_name": "Term 1 chem options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM128",
+                    "CHEM122"
+                ]
+            },
+            {
+                "bucket_name": "Diff Eq 1",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH231",
+                    "MATH237"
+                ]
+            },
+            {
+                "bucket_name": "Calc 3",
+                "bucket_hours": -1,
+                "course_name": [
+                    "BMETechnicalElective"
+                ]
+            },
+            {
+                "bucket_name": "EF options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF151",
+                    "EF157",
+                    "EF142"
+                ]
+            },
+            {
+                "bucket_name": "Sem 1 ENG",
+                "bucket_hours": -1,
+                "course_name": [
+                    "ENGL131",
+                    "ENGL101"
+                ]
+            }
+        ]
+    },
+    {
+        "major_name": "Biomedical Engineering",
+        "courses": [
+            {
+                "course_name": [
+                    "BME205"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "PHIL345"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "BIO168",
+                    "BIO160"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "BME363",
+                    "BME367"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "ECE301"
+                ],
+                "course_description": [
+                    "Description: DC and AC circuits, transients, transformers, motors, and generators."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ME202"
+                ],
+                "course_description": [
+                    "Description: Review of vector algebra. Statics of two-dimensional trusses and frames, including methods of joints and sections. Geometric properties of cross sections, including first and second moments and location of centroid. Inertial properties of rigid bodies, including moment of inertia and location of mass center."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "BME450"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "EF105"
+                ],
+                "course_description": [
+                    "Description: Introduction to computer applications used in engineering problem solving and communications. Introduction to programming concepts, including conditional statements and looping, and the development and implementation of logic flow diagrams."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "BME341",
+                    "BME347"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "MATH200"
+                ],
+                "course_description": [
+                    "Description: Introduction to matrix calculations, including determinants, eigenvalues, and eigenvectors."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "BME449"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "BME315"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "ENGL101"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "STAT251"
+                ],
+                "course_description": [
+                    "Description: Data collection and descriptive statistics. Concepts of probability and probability distributions. Discrete and continuous distributions."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "BME474"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "ENGL102"
+                ],
+                "course_description": [
+                    "Description: Advancing concepts introduced in ENGL 101*. Intensive writing instruction focused on inquiry and research. Strategies for formulating and investigating questions, locating and evaluating information, using varied sources and research methods, developing positions on intercultural and interdisciplinary issues from diverse texts (print, digital, and multimedia), and presenting research using appropriate rhetorical conventions."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "BME460"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "BME473",
+                    "BME477"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "ME231"
+                ],
+                "course_description": [
+                    "Description: Kinematics of rigid bodies, center of mass, and kinetics of systems of particles. Mass moments of inertia. Kinetics of rigid bodies. Newton\u2019s laws, work-energy, and impulse-momentum."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "BME345"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "PHYS231"
+                ],
+                "course_description": [
+                    "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+                ],
+                "course_hrs": "3"
+            }
+        ],
+        "buckets": [
+            {
+                "bucket_name": "Engineering Term 1 Math",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH141",
+                    "MATH132",
+                    "MATH147"
+                ]
+            },
+            {
+                "bucket_name": "Computer Solution",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF237",
+                    "EF230"
+                ]
+            },
+            {
+                "bucket_name": "NULL",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH142",
+                    "MATH148"
+                ]
+            },
+            {
+                "bucket_name": "CBE 201 PreReq",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM138",
+                    "CHEM132"
+                ]
+            },
+            {
+                "bucket_name": "EF 152/158",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF158",
+                    "EF152"
+                ]
+            },
+            {
+                "bucket_name": "BME Technical Elective",
+                "bucket_hours": -1,
+                "course_name": [
+                    "5 Technical Electives"
+                ]
+            },
+            {
+                "bucket_name": "Term 1 chem options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM128",
+                    "CHEM122"
+                ]
+            },
+            {
+                "bucket_name": "Diff Eq 1",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH231",
+                    "MATH237"
+                ]
+            },
+            {
+                "bucket_name": "Calc 3",
+                "bucket_hours": -1,
+                "course_name": [
+                    "BMETechnicalElective"
+                ]
+            },
+            {
+                "bucket_name": "EF options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF151",
+                    "EF157",
+                    "EF142"
+                ]
+            }
+        ]
+    },
+    {
+        "major_name": "Computer Engineering",
+        "courses": [
+            {
+                "course_name": [
+                    "COSC101"
+                ],
+                "course_description": [
+                    "Description: An introduction to computational thinking and structured programming. Topics include problem solving and algorithm development with emphasis on conditional if/else statements, loop based iteration, and function calls. Students will also be given an overview of commonly used data structures such as arrays. Skills learned include designing a program to solving a problem, developing the algorithms needed, writing code to implement them, testing the code and correcting errors, as well as documenting how the code works."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "MATH231",
+                    "MATH237"
+                ],
+                "course_description": [
+                    "Description: First course emphasizing solution techniques. Includes first-order equations and applications, theory of linear equations, equations with constant coefficients, Laplace transforms, and series solutions."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ECE395"
+                ],
+                "course_description": [
+                    "Description: Presentations and discussions related to professional development, including registration, ethics, and current topics in electrical and computer engineering. Students will analyze aspects of scientific and technical writing and write a series of articles suitable for the general public. "
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "COSC202"
+                ],
+                "course_description": [
+                    "Description: Design, analysis, and implementation of fundamental data structures and algorithms including lists, stacks, queues, hash tables, binary search trees and heaps."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "ECE401"
+                ],
+                "course_description": [
+                    "Description: A design course that focuses the student\u2019s attention on professional practice, ethics, accumulated background of curricular components, and recent developments in the field. The focus is on teaching both the design process and design principles that allow students to utilize all of the above elements to effectively create designs for major design projects."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "ECE402"
+                ],
+                "course_description": [
+                    "Description: A project-oriented course that requires teams of students to design a major project that incorporates the principles taught in ECE 401*. The design emphasis is directed to topics within the field of electrical and computer engineering."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "COSC102"
+                ],
+                "course_description": [
+                    "Description: Modular programming in an object-oriented programming language, including string and vector manipulation, file I/O, bit operators, Boolean algebra, pointers, simple sorting and binary search, plus introductions to recursion and templates."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "ECE335"
+                ],
+                "course_description": [
+                    "Description: Semiconductor physics, theory of p-n junctions. Diodes, field-effect transistors, and bipolar transistors. Modeling of diode and transistor devices. Analysis and design of diode switching and rectifier circuits. Basic transistor switching circuits and single stage amplifiers. Electronic circuit simulation using SPICE."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ECE202"
+                ],
+                "course_description": [
+                    "Description: Operational amplifiers, average, complex, imaginary and real power; effective values of voltage and currents, three phase circuits, delta and wye connections. Complex frequency; sinusoidal forcing functions and natural response. Resonance: general case, special cases in series and parallel circuits. Scaling: magnitude and frequency. Mutual inductance, transformers as circuit elements; linear and ideal transformers. Admittance, impedance, and hybrid parameters. Trigonometric and complex Fourier series. Includes laboratory exercises."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "MATH251",
+                    "MATH257"
+                ],
+                "course_description": [
+                    "Description: First course in the algebra of simultaneous linear equations and matrices. Includes Gaussian elimination, determinants, vector spaces, linear transformations, eigenvalues, and eigenvectors."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ECE255"
+                ],
+                "course_description": [
+                    "Description: Introduction to digital logic design techniques, including the implementation of combinational and sequential logic. Topics include number systems, base conversions, Boolean algebra, finite state machines, and techniques for minimizing Boolean functions and logic circuits. Laboratory exercises will provide hands-on experience implementing digital logic circuits using discrete components and programmable logic devices."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "MATH142",
+                    "MATH148"
+                ],
+                "course_description": [
+                    "Description: Single variable calculus especially for students of science, engineering, mathematics, and computer science. Integral calculus with applications."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "ECE201"
+                ],
+                "course_description": [
+                    "Description: Fundamental laws of circuit analysis. Ohm\u2019s Law. Kirchhoff\u2019s current and voltage laws; the law of conservation of energy; circuits containing independent and dependent voltage, and current sources, resistance, conductance, capacitance, and inductance analyzed using mesh and nodal analysis, superposition, and source of transformations; and Norton\u2019s and Thevenin\u2019s Theorems. Steady state analysis of DC and AC circuits. Complete solution for transient analysis for circuits with one and two storage elements."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "EF158",
+                    "EF152"
+                ],
+                "course_description": [
+                    "Description: Calculus-based study of basic physics concepts, including rotational dynamics, statics, oscillations, waves, fluids, heat and temperature, first and second law of thermodynamics and electricity and magnetism. Introduction to team work. Introduction to the engineering disciplines, examination of engineering principles and design issues. Oral and written presentation skills."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "ECE315"
+                ],
+                "course_description": [
+                    "Description: Continuous- and discrete-time functions, function transformations, signal energy and power, solution of linear differential equations, system properties, convolution, continuous and discrete-time Fourier series, continuous and discrete-time Fourier transforms, Bode diagrams, and correlation."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "MATH247",
+                    "MATH241"
+                ],
+                "course_description": [
+                    "Description: Calculus of functions in two or more dimensions. Includes solid analytic geometry, partial differentiation, multiple integration, and selected topics in vector calculus."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "PHYS231"
+                ],
+                "course_description": [
+                    "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "CHEM128",
+                    "CHEM123",
+                    "CHEM122"
+                ],
+                "course_description": [
+                    "Description: A general course in theoretical and descriptive chemistry. Modern atomic theory, chemical bonding, molecular structures and geometries, stoichiometry, and quantitative aspects of solution chemistry, gas laws, and chemical energy."
+                ],
+                "course_hrs": "3"
+            }
+        ],
+        "buckets": [
+            {
+                "bucket_name": "Engineering Term 1 Math",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH141",
+                    "MATH132",
+                    "MATH147"
+                ]
+            },
+            {
+                "bucket_name": "AE Term 2 Engl",
+                "bucket_hours": -1,
+                "course_name": [
+                    "ENGL112",
+                    "ENGL132",
+                    "ENGL102"
+                ]
+            },
+            {
+                "bucket_name": "EF options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF151",
+                    "EF157",
+                    "EF142"
+                ]
+            },
+            {
+                "bucket_name": "Sem 1 ENG",
+                "bucket_hours": -1,
+                "course_name": [
+                    "ENGL131",
+                    "ENGL101"
+                ]
+            }
+        ]
+    },
+    {
+        "major_name": "Nuclear Engineering",
+        "courses": [
+            {
+                "course_name": [
+                    "NE471"
+                ],
+                "course_description": [
+                    "Description: Design and analysis of a nuclear system. Feasibility, cost analysis and initial steps of a nuclear engineering design project is to be completed in NE 472."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE340"
+                ],
+                "course_description": [
+                    "Description: Introduction to the materials science and engineering mechanics principles relevant for understanding the behavior of fuels and materials used in nuclear reactors. Topics include atomic bonding and crystal structure of materials, thermodynamics principles, including the interpretation of phase diagrams, diffusion mechanisms, atomic and extended defects in materials, elastic strains and stresses, and mechanical properties including plastic deformation and analysis of stress loading of components. In each topical area, the relevance to nuclear power applications will be emphasized."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE470"
+                ],
+                "course_description": [
+                    "Description: Fundamentals of reactor physics relative to cross sections kinematics of elastic scattering, reactor kinetics, reactor systems, and nuclear data. Analytical and numerical methods applicable to general criticality problems, eigenvalue searches, perturbation theory, and the multigroup diffusion equations."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ME202"
+                ],
+                "course_description": [
+                    "Description: Review of vector algebra. Statics of two-dimensional trusses and frames, including methods of joints and sections. Geometric properties of cross sections, including first and second moments and location of centroid. Inertial properties of rigid bodies, including moment of inertia and location of mass center."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "NE400"
+                ],
+                "course_description": [
+                    "Description: Current topics related to nuclear and radiological engineering including ethics, contemporary issues, and commitment to life-long learning."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE472"
+                ],
+                "course_description": [
+                    "Description: First order design and analysis of a nuclear system. Interface with nonnuclear aspects of system design, including system reliability and economics. Class project."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ME331"
+                ],
+                "course_description": [
+                    "Description: Energy and laws governing energy transformations. Thermodynamic properties and thermodynamic cycles. Ideal gas mixtures and application to engineering problems."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "EF105"
+                ],
+                "course_description": [
+                    "Description: Introduction to computer applications used in engineering problem solving and communications. Introduction to programming concepts, including conditional statements and looping, and the development and implementation of logic flow diagrams."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE360"
+                ],
+                "course_description": [
+                    "Description: Safety and operating limits of nuclear steam supply system components. NRC regulations. Accident analysis and mitigation."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE351",
+                    "NE357"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "NE342",
+                    "NE347"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "NULL"
+            },
+            {
+                "course_name": [
+                    "PHYS231"
+                ],
+                "course_description": [
+                    "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE401"
+                ],
+                "course_description": [
+                    "Description: Physics and electronics associated with radiation detection and measurement. Concepts covered include radiation interactions and signal formation in different detector types, radiation counting and spectroscopy, nuclear instrumentation, applications of radiation detection systems, and statistical methods of data analysis."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "PHYS341"
+                ],
+                "course_description": [
+                    "Description: Introductory theoretical nuclear physics with emphasis on applied aspects. Primarily for nuclear engineering majors."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE250"
+                ],
+                "course_description": [
+                    "Description: This course will provide students with the necessary mathematical tools to be successful in upper level nuclear engineering courses. Students will reinforce their mathematical skills while applying them to nuclear-related problems they will encounter in higher-level courses. Topics covered include statistics, error analysis, linear algebra, and solution methods of differential equations relevant to nuclear engineering."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE233"
+                ],
+                "course_description": [
+                    "Description: Radiation quantities, limits and risk assessment, external and internal dosimetry, biological effects of radiation, radiation detection, radiation interactions and decay, applications."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE200"
+                ],
+                "course_description": [
+                    "Description: Introduction to topics and issues in nuclear engineering, with scientific and technical topics interspersed with discussions about policy, lifelong learning and professional responsibility/ethics. This course combines traditional lectures and class dialogue. Students will learn the fundamentals of radiation, nuclear chemistry, and physics that are needed to understand concepts of nuclear reactions, including fission and fusion. Introduces the concepts of nuclear reactor theory and analysis needed to understand nuclear power engineering. Class discussions on the technical and policy aspects associated with nuclear (non) proliferation and the nuclear fuel cycle, most specifically involving the management of spent nuclear fuel. Introduces the application of nuclear radiation with matter in terms of understanding concepts of radiation protection, radiation detection, and health physics."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "NE101"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "1"
+            }
+        ],
+        "buckets": [
+            {
+                "bucket_name": "Engineering Term 1 Math",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH141",
+                    "MATH132",
+                    "MATH147"
+                ]
+            },
+            {
+                "bucket_name": "IE chemistry options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM128",
+                    "CHEM122"
+                ]
+            },
+            {
+                "bucket_name": "NE Technical Elective",
+                "bucket_hours": -1,
+                "course_name": [
+                    "4 Technical Electives"
+                ]
+            },
+            {
+                "bucket_name": "NE PHYS 250/252",
+                "bucket_hours": -1,
+                "course_name": [
+                    "PHYS252",
+                    "PHYS250"
+                ]
+            },
+            {
+                "bucket_name": "Computer Solution",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF237",
+                    "EF230"
+                ]
+            },
+            {
+                "bucket_name": "NULL",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH142",
+                    "MATH148"
+                ]
+            },
+            {
+                "bucket_name": "CBE 201 PreReq",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM138",
+                    "CHEM132"
+                ]
+            },
+            {
+                "bucket_name": "EF 152/158",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF158",
+                    "EF152"
+                ]
+            },
+            {
+                "bucket_name": "Term 1 chem options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "CHEM128",
+                    "CHEM122"
+                ]
+            },
+            {
+                "bucket_name": "Diff Eq 1",
+                "bucket_hours": -1,
+                "course_name": [
+                    "MATH231",
+                    "MATH237"
+                ]
+            },
+            {
+                "bucket_name": "Calc 3",
+                "bucket_hours": -1,
+                "course_name": [
+                    "BMETechnicalElective"
+                ]
+            },
+            {
+                "bucket_name": "EF options",
+                "bucket_hours": -1,
+                "course_name": [
+                    "EF151",
+                    "EF157",
+                    "EF142"
+                ]
+            },
+            {
+                "bucket_name": "Sem 1 ENG",
+                "bucket_hours": -1,
+                "course_name": [
+                    "ENGL131",
+                    "ENGL101"
+                ]
+            }
+        ]
+    }
+]
