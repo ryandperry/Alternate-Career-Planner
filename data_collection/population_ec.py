@@ -507,6 +507,7 @@ def main():
   # for i in major_objects:
   #   print_major_obj(major_object=major_objects[i])
 
+  # TODO read in ryan's object with course history information
   majorid = 1
   classes_array = ["EF 151", "EF 230", "MATH 141"]
   cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
