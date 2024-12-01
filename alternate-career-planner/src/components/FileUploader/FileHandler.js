@@ -27,10 +27,9 @@ export const parseCourseContent = (content) => {
                 }
             }
             const newCourse = new Course();
-            if (!newCourse.setCourseInfo(courseBlock)) {
-                return false;
+            if (newCourse.setCourseInfo(courseBlock)) {
+                coursesTaken.push(newCourse);
             }
-            coursesTaken.push(newCourse);
             // Reset the course block for the next coures
             courseBlock = '';
         }
@@ -57,6 +56,4 @@ export const parseCourseContent = (content) => {
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
     });
-
-    return true;
 };
