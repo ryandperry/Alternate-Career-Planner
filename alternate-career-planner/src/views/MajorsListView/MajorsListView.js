@@ -8,6 +8,7 @@ import '../MajorDetailView/MajorDetailView.css';
 import MajorList from '../../components/MajorList/MajorList';
 import JobsList from '../../components/JobsList/JobsList';
 import MajorHeaderImage from '../../components/MajorHeaderImage/MajorHeaderImage';
+import CourseListView from '../../components/CourseList/CourseList';
 
 // Lists similar majors and their descriptions
 const MajorsListView = ({ majors }) => {
@@ -31,6 +32,7 @@ const MajorsListView = ({ majors }) => {
                 <h1 className="major-title">{finalMajor}</h1>
                 <p className="major-description">{description}</p>
                 <JobsList majorname={finalMajor}/>
+                <CourseListView major={finalMajor}/>
             <hr className="divider" />
             <h2>Alternatively, explore all majors below. </h2>
             <MajorList majors = {majors}/>

@@ -601,9 +601,362 @@ def dev_main(ryan_data):
   # print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
   # print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
-  return [
-            {"name": "Course 1", "description": "Description 1", "credits": 3},
-            {"name": "Course 2", "description": "Description 2", "credits": 4}
+  return [    
+          {
+              "major_name": "Materials Science and Engineering",
+              "courses": [
+                  {
+                      "course_name": [
+                          "PHYS231"
+                      ],
+                      "course_description": [
+                          "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE367",
+                          "MSE360"
+                      ],
+                      "course_description": [
+                          "Description: Description of the atomic structure of ceramic materials and glasses. Description of defects in ceramic materials and correlations to physical properties."
+                      ],
+                      "course_hrs": "4"
+                  },
+                  {
+                      "course_name": [
+                          "MSE480"
+                      ],
+                      "course_description": [
+                          "Description: Systematic materials selection in design."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE489"
+                      ],
+                      "course_description": [
+                          "Description: Design projects involving materials selection and performance."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE302"
+                      ],
+                      "course_description": [
+                          "Description: Fundamentals of deformation and fracture in solids, including metals, ceramics, polymers, and composites."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "CHEM128",
+                          "CHEM123",
+                          "CHEM122"
+                      ],
+                      "course_description": [
+                          "Description: A general course in theoretical and descriptive chemistry. Modern atomic theory, chemical bonding, molecular structures and geometries, stoichiometry, and quantitative aspects of solution chemistry, gas laws, and chemical energy."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "EF158",
+                          "EF152"
+                      ],
+                      "course_description": [
+                          "Description: Calculus-based study of basic physics concepts, including rotational dynamics, statics, oscillations, waves, fluids, heat and temperature, first and second law of thermodynamics and electricity and magnetism. Introduction to team work. Introduction to the engineering disciplines, examination of engineering principles and design issues. Oral and written presentation skills."
+                      ],
+                      "course_hrs": "4"
+                  },
+                  {
+                      "course_name": [
+                          "MSE117",
+                          "MSE110"
+                      ],
+                      "course_description": [
+                          "Description: Fundamental principles of the chemistry of condensed states of matter including ceramics, metals, and polymers."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE201",
+                          "MSE207"
+                      ],
+                      "course_description": [
+                          "Description: Correlation of atomic structure, crystal structure, and microstructure of solids with mechanical, physical, and chemical properties of engineering significance."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE357",
+                          "MSE350"
+                      ],
+                      "course_description": [
+                          "Description: Fundamental electronic, optical, and magnetic properties of solid state materials."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE300"
+                      ],
+                      "course_description": [
+                          "Description: Laboratory assignments demonstrating the structure-property-processing relationships in metals, ceramics, and polymers."
+                      ],
+                      "course_hrs": "2"
+                  },
+                  {
+                      "course_name": [
+                          "EF230",
+                          "EF237"
+                      ],
+                      "course_description": [
+                          "Description: Primary focus is on development of computer programs in a modern programming language to solve engineering problems."
+                      ],
+                      "course_hrs": "2"
+                  },
+                  {
+                      "course_name": [
+                          "EF105"
+                      ],
+                      "course_description": [
+                          "Description: Introduction to computer applications used in engineering problem solving and communications. Introduction to programming concepts, including conditional statements and looping, and the development and implementation of logic flow diagrams."
+                      ],
+                      "course_hrs": "1"
+                  },
+                  {
+                      "course_name": [
+                          "MSE390",
+                          "MSE397"
+                      ],
+                      "course_description": [
+                          "Description: Review of the heat treatment of steels, hardenability, quenching of steels, tempering of steels, austenitzation of steels, annealing, normalizing, martempering and austempering, surface treatments of steels, tool steels, stainless steels, structural steels, review of diffusion, ternary phase diagrams, physical metallurgy and heat treatment of aluminum and cu alloys, design of heat treatments."
+                      ],
+                      "course_hrs": "4"
+                  },
+                  {
+                      "course_name": [
+                          "MSE260"
+                      ],
+                      "course_description": [
+                          "Description: Thermodynamic laws, entropy, internal energy, and state functions."
+                      ],
+                      "course_hrs": "4"
+                  },
+                  {
+                      "course_name": [
+                          "MSE340",
+                          "MSE347"
+                      ],
+                      "course_description": [
+                          "Description: Synthesis and molecular structure of polymers and polymerization kinetics. Molecular characterization, crystalline and glass transitions, crystallization kinetics, mechanical properties, rheology, and processing."
+                      ],
+                      "course_hrs": "4"
+                  },
+                  {
+                      "course_name": [
+                          "MSE127",
+                          "MSE120"
+                      ],
+                      "course_description": [
+                          "Description: Explores the connections between the discovery of new materials such as ceramics, glass, concrete, metals, plastics, semiconductors etc. and the development of technologies and social structures worldwide"
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE301"
+                      ],
+                      "course_description": [
+                          "Description: Statistical methods for probabilities, expectations, sampling, and estimation; numerical methods for regression, integration, solution for systems of linear/nonlinear algebraic and differential equations."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MATH231",
+                          "MATH237"
+                      ],
+                      "course_description": [
+                          "Description: First course emphasizing solution techniques. Includes first-order equations and applications, theory of linear equations, equations with constant coefficients, Laplace transforms, and series solutions."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MATH200"
+                      ],
+                      "course_description": [
+                          "Description: Introduction to matrix calculations, including determinants, eigenvalues, and eigenvectors."
+                      ],
+                      "course_hrs": "2"
+                  },
+                  {
+                      "course_name": [
+                          "MATH247",
+                          "MATH241"
+                      ],
+                      "course_description": [
+                          "Description: Calculus of functions in two or more dimensions. Includes solid analytic geometry, partial differentiation, multiple integration, and selected topics in vector calculus."
+                      ],
+                      "course_hrs": "4"
+                  },
+                  {
+                      "course_name": [
+                          "MSE304"
+                      ],
+                      "course_description": [
+                          "Description: Laboratory assignments demonstrating advanced concepts in materials science and engineering."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MATH141",
+                          "MATH147"
+                      ],
+                      "course_description": [
+                          "Description: Single variable calculus especially for students of science, engineering, mathematics, and computer science. Differential calculus with applications."
+                      ],
+                      "course_hrs": "4"
+                  },
+                  {
+                      "course_name": [
+                          "ENGL101"
+                      ],
+                      "course_description": [
+                          "Description: Intensive instruction in writing, focusing on analysis and argument. Strategies for reading critically, analyzing texts from diverse perspectives, developing substantive arguments through systematic revision, addressing specific audiences, integrating sources, and expressing ideas with clarity and correctness."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "ENGL102"
+                      ],
+                      "course_description": [
+                          "Description: Advancing concepts introduced in ENGL 101*. Intensive writing instruction focused on inquiry and research. Strategies for formulating and investigating questions, locating and evaluating information, using varied sources and research methods, developing positions on intercultural and interdisciplinary issues from diverse texts (print, digital, and multimedia), and presenting research using appropriate rhetorical conventions."
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE210"
+                      ],
+                      "course_description": [
+                          "Description: Laboratory assignments demonstrating introductory concepts in materials science and engineering such as crystallography, 3D-printing, strengthening mechanisms in metals, mechanical testing, ceramic processing, and microscopy"
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE220"
+                      ],
+                      "course_description": [
+                          "Description: Covers aspects of technical report organization, literature reviews, preparing graphics, using databases and standards, reading journal articles, and attending technical meetings and seminars. "
+                      ],
+                      "course_hrs": "3"
+                  },
+                  {
+                      "course_name": [
+                          "MSE250"
+                      ],
+                      "course_description": [
+                          "Description: Mass and energy balances and reaction kinetics. Steady state and transient heat transfer. Viscous flow of gases and liquids."
+                      ],
+                      "course_hrs": "4"
+                  }
+              ],
+              "buckets": [
+                  {
+                      "bucket_name": "MSE Tech Elective",
+                      "bucket_hours": -1,
+                      "bucket_num_courses": "NULL",
+                      "bucket_sentence": "Choose NULL from the list of courses below/above",
+                      "course_name": [
+                          "",
+                          "BME409",
+                          "BIOL168",
+                          "MSE484",
+                          "BIOL158",
+                          "BIOL160",
+                          "BCMB230",
+                          "ENGL360",
+                          "MSE486",
+                          "BIOL150",
+                          "PHYS232",
+                          "MSE457",
+                          "BIOL159",
+                          "ECE301",
+                          "MATH475",
+                          "CHEM260",
+                          "MSE485",
+                          "EF333",
+                          "GEOL310",
+                          "CHEM360",
+                          "CBE475",
+                          "MSE483"
+                      ]
+                  },
+                  {
+                      "bucket_name": "CVE Term 5 Options",
+                      "bucket_hours": -1,
+                      "bucket_num_courses": -1,
+                      "bucket_sentence": "Choose -1 from the list of courses below/above",
+                      "course_name": [
+                          "COSC101",
+                          "COSC102",
+                          "ME202",
+                          "MSE201",
+                          "COSC111",
+                          "CBE201"
+                      ]
+                  },
+                  {
+                      "bucket_name": "MSE Elective UD",
+                      "bucket_hours": -1,
+                      "bucket_num_courses": "NULL",
+                      "bucket_sentence": "Choose NULL from the list of courses below/above",
+                      "course_name": [
+                          "MSE405",
+                          "MSE474",
+                          "MSE421",
+                          "MSE475",
+                          "MSE496",
+                          "MSE415",
+                          "MSE494",
+                          "MSE466",
+                          "MSE460",
+                          "MSE410",
+                          "MSE451",
+                          "MSE432",
+                          "MSE450",
+                          "MSE443",
+                          "MSE404",
+                          "MSE455",
+                          "MSE425",
+                          "MSE495",
+                          "MSE408"
+                      ]
+                  },
+                  {
+                      "bucket_name": "EF options",
+                      "bucket_hours": -1,
+                      "bucket_num_courses": -1,
+                      "bucket_sentence": "Choose -1 from the list of courses below/above",
+                      "course_name": [
+                          "EF142",
+                          "EF151",
+                          "EF157"
+                      ]
+                  }
+              ]
+          }
         ]
 
 
