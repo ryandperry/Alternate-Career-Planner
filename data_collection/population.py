@@ -275,7 +275,7 @@ def processing_course(course_objects, person_object):
 
 
 def compare_academic_history(person_object, major_objects, course_objects, bucket_objects):
-  #major_objects is the dictionary of major objects 
+#major_objects is the dictionary of major objects 
   hour_counter = 0
   max_number_of_hours = 0
   # check in every major 
@@ -302,18 +302,18 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
       for course_taken in history_ids:
         # see if it is in the course_ids set for this major 
         if course_taken in major_objects[i].course_ids:
-          hour_counter += course_objects[course_taken].hours
+          course_taken_id = int(course_taken)
+          if course_taken_id in course_objects:
+            hour_counter += int(course_objects[course_taken_id].hours)
           #  delete major_objects[i].course_ids
-          del copy_major_objects[i]
-          continue
+            del copy_major_objects[course_taken_id]
+            continue
         # see if this course is in their bucket objects 
-        for bucket_id in bucket_objects.keys():
-          #this is where we would call the funcs that treat certain buckets diff
-          if course_taken in bucket_objects[bucket_id].course_ids:
-            hour_counter += course_objects[course_taken].hours
+        for bucket_id in bucket_objects.values():
+          if course_taken in bucket_id.course_ids:
+            hour_counter += int(course_objects[course_taken].hours)
             if(bucket_id.num_hours > 0):
               bucket_objects[course_taken].num_hours -= int(course_objects[course_taken].num_hours)
-            
             # delete the bucket?
           #somewhere in here we need to check if it is part of a bucket
         # if(course_taken in bucket_objects)
@@ -329,10 +329,10 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
           max_number_of_hours = hour_counter
           major = i
           array_of_highest = major_objects[i].course_ids
-
   print(max_number_of_hours)
   print(copy_major_objects[i])
   return max_number_of_hours, copy_major_objects[i]
+
 
 #search student's history id's for speicifc classes to meet tech elective requirements
 def ie_electives(course_objects, history_ids, copy_major_objects, hour_counter):
