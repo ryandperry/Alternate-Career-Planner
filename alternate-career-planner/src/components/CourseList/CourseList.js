@@ -45,13 +45,13 @@
                 <h2> Required Courses </h2>
                 {/* Render the fetched courses */}
                 <ul>
-                    {resultsJSON.map((course, index) => (
+                    {/* {resultsJSON((course, index) => (
                         <li key={index} className="course-item">
                             <h3>{course.name}</h3>
                             <p className="course-description">{course.description}</p>
                             <p>{course.credits} credit hours</p>
                         </li>
-                    ))}
+                    ))} */}
                 </ul>
             </div>
         );
