@@ -251,7 +251,7 @@ def adding_person(personCourseObjects, major, quiz_major, major_object):
       quiz_id = majors.major_id
   func_classes_array = []
   for i in personCourseObjects:
-    if(personCourseObjects[i].grade > 'C'):
+    if personCourseObjects[i].grade in ["A", "A-", "B+", "B", "B-", "C+", "C"]:
       # if they got higher than a C, add it to the person object
       func_classes_array.append(personCourseObjects[i].course_name)
   OnlyOnePerson = Person(major=major_id, classes_array=func_classes_array, quiz_results=quiz_id)
