@@ -152,8 +152,8 @@ def build_bucket_objects(course_objects):
       if (num_hours != "NULL"): num_hours = int(num_hours);
       else: num_hours = -1
       num_courses = bucket_table.loc[row, "Bucket Number of Courses"]
-      if (num_courses != "NULL"): num_courses = int(num_hours);
-      else: num_hours = -1
+      if (num_courses != "NULL"): num_courses = int(num_courses);
+      else: num_courses = -1
 
       bucket_obj = Bucket(bucket_id=bucket_table.loc[row, 'Bucket ID'], name =bucket_table.loc[row, 'Bucket Name'],num_hours=num_hours, num_courses=num_courses)
 
@@ -314,7 +314,7 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
           if course_taken in bucket_id.course_ids:
             hour_counter += int(course_objects[course_taken].hours)
             if(bucket_id.num_hours > 0):
-              bucket_objects[course_taken].num_hours -= int(course_objects[course_taken].num_hours)
+              bucket_id.num_hours -= int(course_objects[course_taken].hours)
             # delete the bucket?
           #somewhere in here we need to check if it is part of a bucket
         # if(course_taken in bucket_objects)
@@ -465,14 +465,15 @@ def print_course_obj(course_object):
 def print_bucket_obj(bucket_object):
   bucket_name = bucket_object.name
   num_hrs = bucket_object.num_hours
+  num_courses = bucket_object.num_courses
 
   courses = bucket_object.course_names
 
   bucket_data = {
     "bucket_name": bucket_name,
     "bucket_hours": num_hrs,
-    "bucket_num_courses": bucket_object.num_courses,
-    "bucket_sentence": "Choose " + str(bucket_object.num_courses) + " from the list of courses below/above",
+    "bucket_num_courses": num_courses,
+    "bucket_sentence": [],
     "course_name": []
   }
 
@@ -486,9 +487,11 @@ def print_bucket_obj(bucket_object):
   for x in courses:
     #print_statement += x + " "
     bucket_data["course_name"].append(x)
-  #if num_hrs == -1:
+  if num_hrs == -1:
     #print_statement += "\n"
-  #else:
+    bucket_data["bucket_sentence"].append("Choose " + str(num_courses) + " courses from the list of courses below")
+  else:
+    bucket_data["bucket_sentence"].append("Choose " + str(num_hrs) + " hours from the courses listed below")
     #print_statement += "\nFor a total of " + str(num_hrs) + " hours"
   #print_statement += "\n"
 
@@ -589,6 +592,7 @@ def main():
   print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
   print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
   print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
+  print_major_obj(major_object=major_objects["1"], course_object=course_objects, bucket_object=bucket_objects)
 
 
 
