@@ -28,10 +28,7 @@ const FileUploader = ({ onFileParse }) => {
 
         reader.onload = (e) => {
             const content = e.target.result;
-            if(!parseCourseContent(content)) {
-                setError('Invalid course data. Please upload another file.');
-                return;
-            }
+            parseCourseContent(content);
             
             setFileUploaded(true);
             onFileParse([...coursesTaken]);
