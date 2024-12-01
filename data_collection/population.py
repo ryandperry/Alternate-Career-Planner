@@ -479,11 +479,15 @@ def print_bucket_obj(bucket_object):
 
   #print_statement = "\nBucket: " + bucket_name + " has these courses "
   if bucket_object.bucket_id == "45":
-    bucket_data["course_name"].append("5 Technical Electives")
+    #bucket_data["course_name"].append("5 Technical Electives")
+    bucket_data["bucket_sentence"].append("Choose 5 Biomedical Technical Electives")
+    return bucket_data
   elif bucket_object.bucket_id == "41":
-    bucket_data["course_name"].append("4 Technical Electives")
+    bucket_data["course_sentence"].append("Choose 4 Nuclear Engineering Technical Electives")
+    return bucket_data
   elif bucket_object.bucket_id == "80":
-    bucket_data["course_name"].append("3 Technical Electives")
+    bucket_data["course_name"].append("Choose 3 Computer Engineering Senior Electives")
+    return bucket_data
   for x in courses:
     #print_statement += x + " "
     bucket_data["course_name"].append(x)
@@ -588,11 +592,16 @@ def main():
   max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
   print(f"Max hour: {max_hour}")
   print_major_obj(major_ret, course_objects, bucket_objects) 
-
+  print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
+  #for i in major_objects:
+    #print_major_obj(major_object=major_objects[i], course_object=course_objects, bucket_object=bucket_objects)
+"""
   print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
   print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
   print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
   print_major_obj(major_object=major_objects["1"], course_object=course_objects, bucket_object=bucket_objects)
+
+"""
 
 
 
