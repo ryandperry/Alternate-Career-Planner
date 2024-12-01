@@ -280,6 +280,17 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
   for i in major_objects.keys():
     hour_counter = 0
+
+    #TODO IF this is the industrial engineering major, use this elective function
+    # OR just make a bucket with all these classes in it for IE electives/tech electives
+    #run the execptions code on their history id's
+    if(major_objects[str(i)].abbr == "IE"):
+      #this is the industrial major, so you need to account for their electives and tech electives
+      copy_major_objects, hour_counter = ie_electives(course_objects, 
+                                                      history_ids, 
+                                                      copy_major_objects, 
+                                                      hour_counter)
+
     # do not check against their current major
     if(major_objects[i].major_id == person_object.major):
       continue
@@ -300,6 +311,7 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
             hour_counter += int(course_objects[course_taken].hours)
             if(bucket_id.num_hours > 0):
               bucket_objects[course_taken].num_hours -= int(course_objects[course_taken].num_hours)
+            
             # delete the bucket?
           #somewhere in here we need to check if it is part of a bucket
         # if(course_taken in bucket_objects)
@@ -315,9 +327,105 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
           max_number_of_hours = hour_counter
           major = i
           array_of_highest = major_objects[i].course_ids
+
   print(max_number_of_hours)
   print(copy_major_objects[i])
   return max_number_of_hours, copy_major_objects[i]
+
+#search student's history id's for speicifc classes to meet tech elective requirements
+def ie_electives(course_objects, history_ids, copy_major_objects, hour_counter):
+  
+  ie_electives_ids = set()
+  ie_electives_ids = {'191', '192', '193', '185', '187', '194', '186', '188', '189', '190'}
+  # KEEP - last calculated 11/30
+  # ie_electives = set()
+  # ie_electives = ("IE423", "IE430", "IE452", "IE457", "IE465", "IE483", "IE484", "IE493", "IE494", "IE495")
+  # for course_name in ie_electives:
+  #   for course_id in course_objects.keys():
+  #     if course_name in course_objects[course_id].names:
+  #       ie_electives_id.add(course_id)
+
+  # tech electives can choose from some specific classes
+  ie_singular_option_ids = set()
+  ie_singular_option_ids = {'201', '203', '78', '199', '108', '194', '186', '198', '204', '189', '200', '166', '192', '196', '209', '205', '190', '197', '208', '210', '185', '187', '212', '211', '188', '207', '191', '161', '217', '163', '193', '100', '162', '145', '106', '195', '206'}
+  # KEEP - last calculated 11/30
+  # ie_singular_options = set()
+  # ie_singular_options = ("DATA 301", "DSGN 430", "ECE 255", "ECE 463", "ECON 311", "ECON 313", "ECON 322", "ECON 331", 
+  #                        "ECON 333", "ECON 351", "ENT 350", "ENT 415", "ENT 425", "ENT 451", "ENT 460", "ENT 492", "FINC 300", 
+  #                        "IE 423", "IE 430", "IE 452", "IE 457", "IE 465", "IE 483", "IE 484", "IE 493", "IE 494", "IE 495",
+  #                          "MARK 300", "MGT 300", "MSE 405", "ME 321", "ME 365", "ME 366", "ME 367", "MSE 302",
+  #                          "MSE 340", "MSE 360", "MSE 390", "NE 342")
+  # for course_name in ie_singular_options:
+  #   for course_id in course_objects.keys():
+  #     if course_name.replace(" ", "") in course_objects[course_id].names:
+  #       ie_singular_option_ids.add(course_id)
+
+  #and theyre also allowed to have up to 3 hours of these three classes (basically just one class)
+  ie_three_hours_of_ids = set()
+  ie_three_hours_of_ids = {'213', '214', '202'}
+  # KEEP - last calculated: 11/30
+  # ie_three_hours_of = set()
+  # ie_three_hours_of = ("EF 333", "IE 350", "IE 450" )
+  # for course_name in ie_three_hours_of:
+  #   for course_id in course_objects.keys():
+  #     if course_name.replace(" ", "") in course_objects[course_id].names:
+  #       ie_three_hours_of_ids.add(course_id)
+
+  #CHECK if their history ids has any electives done 
+  elective_hours = 0
+  for history_id in history_ids:
+    if history_id in ie_electives_ids:
+      # this means they've taken a class that counts for an IE elective
+      # update beatrice's main tracking: hours and major objects
+      elective_hours += int(course_objects[history_id].hours)
+      #needs 9 hours total of IE electives (3 classes)
+      if(elective_hours > 9):
+        break
+
+      hour_counter += int(course_objects[history_id].hours)
+      try:
+        del copy_major_objects[history_id]
+        try:
+          ie_singular_option_ids.remove(history_id)
+        except:
+          continue
+      except:
+        continue
+      # remove this as a valid tech elective (per exceptions rules)
+      ie_singular_option_ids.remove(history_id)
+  
+  #after checking for ie electives, check if they've taken one of the 3 hour tech elective courses
+  tech_hours = 0
+  for history_id in history_ids:
+    if history_id in ie_three_hours_of_ids:
+      tech_hours += int(course_objects[history_id].hours)
+      if(tech_hours > 3):
+        break
+
+      hour_counter += int(course_objects[history_id].hours)
+      try:
+        del copy_major_objects[history_id]
+      except:
+        break
+      break
+
+  # after checking those 3 hours, check for tech electives from the main options
+  for history_id in history_ids:
+    if history_id in ie_singular_option_ids:
+      # they've taken a class that counts for an IE TECH elective
+      tech_hours += int(course_objects[history_id].hours)
+      #needs 6 hours total of a tech elective (2 classes)
+      if(tech_hours > 6):
+        break
+
+      hour_counter += int(course_objects[history_id].hours)
+      try:
+        del copy_major_objects[history_id]
+      except:      
+        continue
+
+  return copy_major_objects, hour_counter
+
 
 def print_course_obj(course_object):
   course_name = course_object.names
@@ -369,35 +477,37 @@ def print_major_obj(major_object):
 
 def main():
   course_objects = build_course_objects()
-  for course_obj in course_objects.values():
-    print("Course Names: ", course_obj.names)
-    print("Course ID: ", course_obj.course_id)
-    print("Prereq IDs: ", course_obj.prereq_courseids)
-    print("Coreq IDs: ", course_obj.coreq_courseids)
+  # for course_obj in course_objects.values():
+  #   print("Course Names: ", course_obj.names)
+  #   print("Course Description: ", course_obj.description)
+  #   print("Course ID: ", course_obj.course_id)
+  #   print("Prereq IDs: ", course_obj.prereq_courseids)
+  #   print("Coreq IDs: ", course_obj.coreq_courseids)
 
   bucket_objects = build_bucket_objects(course_objects)
-  for bucket_obj in bucket_objects.values():
-    print("Name: ", bucket_obj.name)
-    print("Course Names: ", bucket_obj.course_names)
-    print("Course IDs: ", bucket_obj.course_ids)
-    if bucket_obj.other_bucket_ids != set():
-      print("Other Bucket IDs: ", bucket_obj.other_bucket_ids)
+  # for bucket_obj in bucket_objects.values():
+  #   print("Name: ", bucket_obj.name)
+  #   print("Course Names: ", bucket_obj.course_names)
+  #   print("Course IDs: ", bucket_obj.course_ids)
+  #   if bucket_obj.other_bucket_ids != set():
+  #     print("Other Bucket IDs: ", bucket_obj.other_bucket_ids)
 
 
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
-  for major_obj in major_objects.values():
-    print("Name: ", major_obj.name)
-    print("Course IDs: ", major_obj.course_ids)
-    if major_obj.bucket_ids != set():
-      print("Bucket IDs: ", major_obj.bucket_ids)
+  # for major_obj in major_objects.values():
+  #   print("Name: ", major_obj.name)
+  #   print("Course IDs: ", major_obj.course_ids)
+  #   if major_obj.bucket_ids != set():
+  #     print("Bucket IDs: ", major_obj.bucket_ids)
 
-  for i in course_objects:
-    print_course_obj(course_object=course_objects[i])
-  for i in bucket_objects:
-    print_bucket_obj(bucket_object=bucket_objects[i])
-  for i in major_objects:
-    print_major_obj(major_object=major_objects[i])
+  # for i in course_objects:
+  #   print_course_obj(course_object=course_objects[i])
+  # for i in bucket_objects:
+  #   print_bucket_obj(bucket_object=bucket_objects[i])
+  # for i in major_objects:
+  #   print_major_obj(major_object=major_objects[i])
 
+  # TODO read in ryan's object with course history information
   majorid = 1
   classes_array = ["EF 151", "EF 230", "MATH 141"]
   cole_classes = ["PHIL244", "ME331", "ME321", "MATH241", "ECE301", "PHYS231", "ME231", "MATH231", "MATH200", 
@@ -408,8 +518,10 @@ def main():
   major_objects = build_major_objects(course_objects=course_objects, bucket_objects=bucket_objects)
   print(major_objects)
   max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
-  #the max hour prints bu the major return doesnt
+  #the max hour prints but the major return doesnt
   print(f"Max hour: {max_hour}")
   print_major_obj(major_ret)
-#optional
+
+
+#optional - this runs everything but the variables aren't accessible for testing
 main()
