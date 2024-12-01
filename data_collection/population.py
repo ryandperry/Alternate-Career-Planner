@@ -279,9 +279,10 @@ def compare_academic_history(person_object, major_objects, course_objects, bucke
   hour_counter = 0
   max_number_of_hours = 0
   # check in every major 
-  copy_major_objects = major_objects
+  # copy_major_objects = major_objects
   history_ids = processing_course(course_objects=course_objects, person_object=person_object)
   for i in major_objects.keys():
+    copy_major_objects = major_objects
     hour_counter = 0
 
     #TODO IF this is the industrial engineering major, use this elective function
@@ -582,9 +583,9 @@ def main():
   print(f"Max hour: {max_hour}")
   print_major_obj(major_ret, course_objects, bucket_objects) 
 
-  # print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
-  # print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
-  # print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
+  print_major_obj(major_object=major_objects["5"], course_object=course_objects, bucket_object=bucket_objects)
+  print_major_obj(major_object=major_objects["2"], course_object=course_objects, bucket_object=bucket_objects)
+  print_major_obj(major_object=major_objects["10"], course_object=course_objects, bucket_object=bucket_objects)
 
 
 
