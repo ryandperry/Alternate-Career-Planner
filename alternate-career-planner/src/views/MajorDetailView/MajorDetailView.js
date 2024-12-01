@@ -28,11 +28,11 @@ const MajorDetailView = ({ majors, courses }) => {
             <h1 className="major-title"> {selectedMajor.name} </h1>
             <p className="major-description"> { selectedMajor.description } </p>
 
-            {/* Required Courses List */}
-            <CourseListView courses = {courses || emptyCoursesList}/>
-
             {/* Jobs List */}
             <JobsList majorname={selectedMajor.name}/>
+
+            {/* Required Courses List */}
+            <CourseListView major = {selectedMajor.name}/>
 
         </div>
     )
