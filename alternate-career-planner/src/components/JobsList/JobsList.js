@@ -153,6 +153,17 @@ const jobsData = {
     },
   ],
 
+  'Nuclear Engineering': [
+    {
+      title: 'Nuclear Facility Safety Engineer',
+      description: 'Perform, document, and maintain technical nuclear safety analyses for new and/or existing nuclear facilities/activities, including hazard identification, hazard categorization, hazard analysis, accident analysis, and establishment of hazard controls and their functional requirements',
+    },
+    {
+      title: 'Nuclear Project Engineer',
+      description: 'Work to support the mechanical/electrical design, engineering and maintenance needs of the reactor and associated facilities. Participate in the development of major facility systems and experimental instruments.',
+    },
+  ],
+
   'Computer Engineering': [
     {
       title: 'Embedded Systems Engineer',

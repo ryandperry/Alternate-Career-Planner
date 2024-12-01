@@ -1,0 +1,277 @@
+[
+    {
+        "major_name": "Nuclear Engineering",
+        "courses": [
+            {
+                "course_name": [
+                    "PHYS341"
+                ],
+                "course_description": [
+                    "Description: Introductory theoretical nuclear physics with emphasis on applied aspects. Primarily for nuclear engineering majors."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE360"
+                ],
+                "course_description": [
+                    "Description: Safety and operating limits of nuclear steam supply system components. NRC regulations. Accident analysis and mitigation."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE401"
+                ],
+                "course_description": [
+                    "Description: Physics and electronics associated with radiation detection and measurement. Concepts covered include radiation interactions and signal formation in different detector types, radiation counting and spectroscopy, nuclear instrumentation, applications of radiation detection systems, and statistical methods of data analysis."
+                ],
+                "course_hrs": "4"
+            },
+            {
+                "course_name": [
+                    "NE400"
+                ],
+                "course_description": [
+                    "Description: Current topics related to nuclear and radiological engineering including ethics, contemporary issues, and commitment to life-long learning."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE472"
+                ],
+                "course_description": [
+                    "Description: First order design and analysis of a nuclear system. Interface with nonnuclear aspects of system design, including system reliability and economics. Class project."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "EF105"
+                ],
+                "course_description": [
+                    "Description: Introduction to computer applications used in engineering problem solving and communications. Introduction to programming concepts, including conditional statements and looping, and the development and implementation of logic flow diagrams."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE340"
+                ],
+                "course_description": [
+                    "Description: Introduction to the materials science and engineering mechanics principles relevant for understanding the behavior of fuels and materials used in nuclear reactors. Topics include atomic bonding and crystal structure of materials, thermodynamics principles, including the interpretation of phase diagrams, diffusion mechanisms, atomic and extended defects in materials, elastic strains and stresses, and mechanical properties including plastic deformation and analysis of stress loading of components. In each topical area, the relevance to nuclear power applications will be emphasized."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE357",
+                    "NE351"
+                ],
+                "course_description": [
+                    "Description: System modeling and time-domain response, transfer functions, frequency-domain response, stability, state-space methods, and control design. Nuclear reactor kinetics, nodal modeling of core heat transfer, reactor control systems, and nuclear plant transient response are discussed. System simulation and control using PC-based software and toolboxes."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE471"
+                ],
+                "course_description": [
+                    "Description: Design and analysis of a nuclear system. Feasibility, cost analysis and initial steps of a nuclear engineering design project is to be completed in NE 472."
+                ],
+                "course_hrs": "1"
+            },
+            {
+                "course_name": [
+                    "NE347",
+                    "NE342"
+                ],
+                "course_description": [
+                    "Description: Fluid statics. Conservation equations of mass, momentum, and energy. Heat transfer processes: conduction and convection. Applications to fluid machinery and nuclear reactor heat transfer."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE470"
+                ],
+                "course_description": [
+                    "Description: Fundamentals of reactor physics relative to cross sections kinematics of elastic scattering, reactor kinetics, reactor systems, and nuclear data. Analytical and numerical methods applicable to general criticality problems, eigenvalue searches, perturbation theory, and the multigroup diffusion equations."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ME331"
+                ],
+                "course_description": [
+                    "Description: Energy and laws governing energy transformations. Thermodynamic properties and thermodynamic cycles. Ideal gas mixtures and application to engineering problems."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE233"
+                ],
+                "course_description": [
+                    "Description: Radiation quantities, limits and risk assessment, external and internal dosimetry, biological effects of radiation, radiation detection, radiation interactions and decay, applications."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE250"
+                ],
+                "course_description": [
+                    "Description: This course will provide students with the necessary mathematical tools to be successful in upper level nuclear engineering courses. Students will reinforce their mathematical skills while applying them to nuclear-related problems they will encounter in higher-level courses. Topics covered include statistics, error analysis, linear algebra, and solution methods of differential equations relevant to nuclear engineering."
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "NE200"
+                ],
+                "course_description": [
+                    "Description: Introduction to topics and issues in nuclear engineering, with scientific and technical topics interspersed with discussions about policy, lifelong learning and professional responsibility/ethics. This course combines traditional lectures and class dialogue. Students will learn the fundamentals of radiation, nuclear chemistry, and physics that are needed to understand concepts of nuclear reactions, including fission and fusion. Introduces the concepts of nuclear reactor theory and analysis needed to understand nuclear power engineering. Class discussions on the technical and policy aspects associated with nuclear (non) proliferation and the nuclear fuel cycle, most specifically involving the management of spent nuclear fuel. Introduces the application of nuclear radiation with matter in terms of understanding concepts of radiation protection, radiation detection, and health physics."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "PHYS231"
+                ],
+                "course_description": [
+                    "Description: For engineers and majors in mathematics and the physical sciences. Electric and magnetic phenomena including DC and AC circuits and electromagnetic waves.\n"
+                ],
+                "course_hrs": "3"
+            },
+            {
+                "course_name": [
+                    "ME202"
+                ],
+                "course_description": [
+                    "Description: Review of vector algebra. Statics of two-dimensional trusses and frames, including methods of joints and sections. Geometric properties of cross sections, including first and second moments and location of centroid. Inertial properties of rigid bodies, including moment of inertia and location of mass center."
+                ],
+                "course_hrs": "2"
+            },
+            {
+                "course_name": [
+                    "NE101"
+                ],
+                "course_description": [
+                    "Description: N/A"
+                ],
+                "course_hrs": "1"
+            }
+        ],
+        "buckets": [
+            {
+                "bucket_name": "Engineering Term 1 Math",
+                "bucket_hours": -1,
+                "bucket_num_courses": 1,
+                "bucket_sentence": [
+                    "Choose 1 courses from the list of courses below"
+                ],
+                "course_name": [
+                    "MATH132",
+                    "MATH147",
+                    "MATH141"
+                ]
+            },
+            {
+                "bucket_name": "CBE 201 PreReq",
+                "bucket_hours": -1,
+                "bucket_num_courses": 1,
+                "bucket_sentence": [
+                    "Choose 1 courses from the list of courses below"
+                ],
+                "course_name": [
+                    "CHEM132",
+                    "CHEM138"
+                ]
+            },
+            {
+                "bucket_name": "EF options",
+                "bucket_hours": -1,
+                "bucket_num_courses": 1,
+                "bucket_sentence": [
+                    "Choose 1 courses from the list of courses below"
+                ],
+                "course_name": [
+                    "EF142",
+                    "EF157",
+                    "EF151"
+                ]
+            },
+            {
+                "bucket_name": "NE Technical Elective",
+                "bucket_hours": -1,
+                "bucket_num_courses": 4,
+                "bucket_sentence": [
+                    "Choose 4 Nuclear Engineering Technical Electives"
+                ],
+                "course_name": []
+            },
+            {
+                "bucket_name": "Term 1 chem options",
+                "bucket_hours": -1,
+                "bucket_num_courses": 1,
+                "bucket_sentence": [
+                    "Choose 1 courses from the list of courses below"
+                ],
+                "course_name": [
+                    "CHEM128",
+                    "CHEM122"
+                ]
+            },
+            {
+                "bucket_name": "IE chemistry options",
+                "bucket_hours": 4,
+                "bucket_num_courses": -1,
+                "bucket_sentence": [
+                    "Choose 4 hours from the courses listed below"
+                ],
+                "course_name": [
+                    "CHEM128",
+                    "CHEM122"
+                ]
+            },
+            {
+                "bucket_name": "NE PHYS 250/252",
+                "bucket_hours": -1,
+                "bucket_num_courses": 1,
+                "bucket_sentence": [
+                    "Choose 1 courses from the list of courses below"
+                ],
+                "course_name": [
+                    "PHYS252",
+                    "PHYS250"
+                ]
+            },
+            {
+                "bucket_name": "BME Technical Elective",
+                "bucket_hours": -1,
+                "bucket_num_courses": -1,
+                "bucket_sentence": [
+                    "Choose -1 courses from the list of courses below"
+                ],
+                "course_name": []
+            },
+            {
+                "bucket_name": "Sem 1 ENG",
+                "bucket_hours": -1,
+                "bucket_num_courses": 1,
+                "bucket_sentence": [
+                    "Choose 1 courses from the list of courses below"
+                ],
+                "course_name": [
+                    "ENGL131",
+                    "ENGL101"
+                ]
+            }
+        ]
+    }
+]
