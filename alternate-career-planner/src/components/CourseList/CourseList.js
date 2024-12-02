@@ -46,7 +46,7 @@ const CourseListView = ({ major }) => {
 
     return (
         <div>
-            <h2> Unfinished Requirements for {major} </h2>
+            <h2> Requirements for {major} </h2>
         <ul>
             {majorCourses.buckets
                 .filter(bucket => bucket.course_name && bucket.course_name.some(course => course.trim() !== ""))
