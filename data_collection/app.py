@@ -316,8 +316,12 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
       for bucket_id in bucket_objects.values():
         if course_taken in bucket_id.course_ids:
           hour_counter += int(course_objects[course_taken].hours)
-          if(bucket_id.num_hours > 0):
-            bucket_id.num_hours -= int(course_objects[course_taken].hours)
+          if(bucket_objects[bucket_id].num_hours > 0):
+            bucket_objects[bucket_id].num_hours -= int(course_objects[course_taken].hours)
+          if(bucket_objects[bucket_id].num_courses > 0):
+              bucket_objects[bucket_id].num_courses -= 1
+          if(bucket_objects[bucket_id].num_courses == 0 or bucket_objects[bucket_id].num_hours == 0):
+            copy_major_objects[i].bucket_ids.remove(bucket_id)
           # delete the bucket?
           # if(bucket_id.num_hours == 0):
           #   copy_major_objects[]
