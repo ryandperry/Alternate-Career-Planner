@@ -277,11 +277,14 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
   #major_objects is the dictionary of major objects 
   hour_counter = 0
   max_number_of_hours = 0
-  top_3_max_percentages = []
+  top_3_percents = [0, 0, 0]
+  top_3_major_names = ["", "", ""]
   # check in every major 
   # copy_major_objects = major_objects
   history_ids = processing_course(course_objects=course_objects, ryan_data=ryan_data)
   for i in major_objects.keys():
+    if i == "NULL":
+      continue
     copy_major_objects = major_objects
     hour_counter = 0
 
@@ -327,12 +330,17 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
         major = i
         array_of_highest = major_objects[i].course_ids
 
-      if(max_number_of_hours/major_objects[i].total_hours < top_3_max_percentages[0]):
-        top_3_max_percentages[0] = max_number_of_hours/major_objects[i].total_hours
-      elif(max_number_of_hours/major_objects[i].total_hours < top_3_max_percentages[1]):
-        top_3_max_percentages[1] = max_number_of_hours/major_objects[i].total_hours
-      elif(max_number_of_hours/major_objects[i].total_hours < top_3_max_percentages[2]):
-        top_3_max_percentages[2] = max_number_of_hours/major_objects[i].total_hours
+    major_total_hours = int(major_objects[i].total_hours)
+    percentage = max_number_of_hours/major_total_hours
+    if(percentage > top_3_percents[0]):
+      top_3_percents[0] = percentage
+      top_3_major_names[0] = major_objects[i].name
+    elif(percentage > top_3_percents[1]):
+      top_3_percents[1] = percentage
+      top_3_major_names[1] = major_objects[i].name
+    elif(percentage > top_3_percents[2]):
+      top_3_percents[2] = percentage
+      top_3_major_names[2] = major_objects[i].name
     
   # print(max_number_of_hours)
   # print(copy_major_objects[i])
@@ -589,6 +597,10 @@ def dev_main(ryan_data):
   # print(ryan_data)
   max_hour, majors_returned = compare_academic_history(ryan_data=ryan_data, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
   list_of_major_dictionaries = []
+
+  #save the 3 top percentages
+
+
   for index in majors_returned:
     major_data = print_major_obj(majors_returned[index], course_objects, bucket_objects)
     list_of_major_dictionaries.append(major_data)
