@@ -26,6 +26,7 @@ const CourseListView = ({ major }) => {
     
                 const data = await response.json();
                 setResultsJSON(data);  // Assuming the server returns a list of majors with courses
+                console.log('results json: ', data);
     
             } catch (error) {
                 console.error("Fetch error:", error);
@@ -45,7 +46,29 @@ const CourseListView = ({ major }) => {
 
     return (
         <div>
-            <h2> Courses for {major} </h2>
+            <h2> Unfinished Requirements for {major} </h2>
+        <ul>
+            {majorCourses.buckets
+                .filter(bucket => bucket.course_name && bucket.course_name.some(course => course.trim() !== ""))
+                .map((bucket, index) => (
+                    <li key={index} className="course-item">
+                        <h3>{bucket.bucket_sentence.join(", ")}</h3>
+                        <p className="course-description">
+                            {bucket.course_name
+                                .filter(course => course.trim() !== "")
+                                .map((course, i, filteredCourses) => (
+                                    <span key={i}>
+                                        {course}
+                                        {/* Add a comma if it's not the last course */}
+                                        {i < filteredCourses.length - 1 && ", "}
+                                        {/* Add a new line after every 6 courses */}
+                                        {(i + 1) % 6 === 0 && <br />}
+                                    </span>
+                                ))}
+                        </p>
+                    </li>
+                ))}
+        </ul>
             <ul>
                 {majorCourses.courses.map((course, index) => (
                     <li key={index} className="course-item">
