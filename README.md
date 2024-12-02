@@ -44,11 +44,11 @@ This project was built with React.js, involving HTML, CSS, and JavaScript. Addit
 
 ## Project Members
 
-- Emily Constantin
-- Kale Dodson
-- Beatrice Eldridge
-- Jack Minehan
-- Ryan Perry
+- Emily Constantin (Github ID: e4met)
+- Kale Dodson (Github ID: KaleDod)
+- Beatrice Eldridge (Github ID: bea-eldridge)
+- Jack Minehan (Github ID: jckmnhn)
+- Ryan Perry (Github ID: ryandavidperry)
 
 ## License and Usage of UTK Assets
 This project uses the MIT license with additional terms for the usage of UTK assets. See `LICENSE.md` for more details.
