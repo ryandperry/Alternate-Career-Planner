@@ -35,14 +35,16 @@ filenames = {
 
 #global sets that everyone needs access to?
 
+# TODO read in total hours from new database csv for major_table
 class Major:
-  def __init__(self, major_id, abbr, name, description):
+  def __init__(self, major_id, abbr, name, description, total_hours):
     self.major_id = major_id
     self.abbr = abbr
     self.name = name
     self.description = description
     self.course_ids = set()
     self.bucket_ids = set()
+    self.total_hours = total_hours
 
 
 
@@ -275,6 +277,7 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
   #major_objects is the dictionary of major objects 
   hour_counter = 0
   max_number_of_hours = 0
+  top_3_max_percentages = []
   # check in every major 
   # copy_major_objects = major_objects
   history_ids = processing_course(course_objects=course_objects, ryan_data=ryan_data)
@@ -323,8 +326,16 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
         max_number_of_hours = hour_counter
         major = i
         array_of_highest = major_objects[i].course_ids
-  print(max_number_of_hours)
-  print(copy_major_objects[i])
+
+      if(max_number_of_hours/major_objects[i].total_hours < top_3_max_percentages[0]):
+        top_3_max_percentages[0] = max_number_of_hours/major_objects[i].total_hours
+      elif(max_number_of_hours/major_objects[i].total_hours < top_3_max_percentages[1]):
+        top_3_max_percentages[1] = max_number_of_hours/major_objects[i].total_hours
+      elif(max_number_of_hours/major_objects[i].total_hours < top_3_max_percentages[2]):
+        top_3_max_percentages[2] = max_number_of_hours/major_objects[i].total_hours
+    
+  # print(max_number_of_hours)
+  # print(copy_major_objects[i])
   return max_number_of_hours, copy_major_objects
 
 #search student's history id's for speicifc classes to meet tech elective requirements
@@ -581,6 +592,8 @@ def dev_main(ryan_data):
   for index in majors_returned:
     major_data = print_major_obj(majors_returned[index], course_objects, bucket_objects)
     list_of_major_dictionaries.append(major_data)
+
+  
   return list_of_major_dictionaries
 
   # max_hour, major_ret = compare_academic_history(person_object=person_object, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
