@@ -37,12 +37,6 @@ const CourseHistoryView = () => {
         return true;
     });
 
-    /*const topMajors = [
-        { title: 'Computer Science', progress: 65 },
-        { title: 'Computer Engineering', progress: 50},
-        { title: 'Electrical Engineering', progress: 35}
-    ];*/
-
     return (
         <div className="Split">
             <div className="Sidebar">
