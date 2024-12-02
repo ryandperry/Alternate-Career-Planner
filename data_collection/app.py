@@ -200,7 +200,7 @@ def build_major_objects(course_objects, bucket_objects):
   major_objects = {}
   for row in major_table.index:
       major_id = major_table.loc[row, 'Major ID']
-      major_obj = Major(major_table.loc[row, 'Major ID'], major_table.loc[row, 'Major Abreviation'], major_table.loc[row, 'Major Name'], major_table.loc[row, 'Major Description'])
+      major_obj = Major(major_table.loc[row, 'Major ID'], major_table.loc[row, 'Major Abreviation'], major_table.loc[row, 'Major Name'], major_table.loc[row, 'Major Description'], major_table.loc[row, 'Number of Hours'])
       major_objects[str(major_id)] = major_obj
 
   for major_id in major_objects.keys():
