@@ -284,7 +284,7 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
   hours_towards_major = 0
   # max_number_of_hours = 0
 
-  percentages = dict()
+  percentages = []
   # check in every major 
   copy_major_objects = dict(major_objects)
   history_ids = processing_course(course_objects=course_objects, ryan_data=ryan_data)
@@ -306,24 +306,24 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
 
     # check their courses 
     for course_taken in history_ids:
-      print("course taken id ", course_taken)
+      # print("course taken id ", course_taken)
       # see if it is in the course_ids set for this major 
       if course_taken in major_objects[i].course_ids:
-        print("course is in the major")
+        # print("course is in the major")
         hours_towards_major += int(course_objects[course_taken].hours)
         # delete this course from the copy major objects
         copy_major_objects[i].course_ids.remove(course_taken)
       
       # if this class isnt in this major's course id's, check if it's in a bucket
       else:
-        print("course is not in the major, check the buckets")
+        # print("course is not in the major, check the buckets")
         # see if this course is in the buckets for this major
         for bucket_id in bucket_objects.keys():
           if bucket_id in major_objects[i].bucket_ids:
             
             # if this current course is in this current bucket, count it!
             if course_taken in bucket_objects[bucket_id].course_ids:
-              print("course is in a bucket")
+              # print("course is in a bucket")
               hours_towards_major += int(course_objects[course_taken].hours)
               # for kale printing function
               if(bucket_objects[bucket_id].num_hours > 0):
@@ -332,18 +332,19 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
                 bucket_objects[bucket_id].num_courses -= 1
               # if the number of hours left or number of courses is 0, then dont print this as a requirement
               if(bucket_objects[bucket_id].num_courses == 0 or bucket_objects[bucket_id].num_hours == 0):
-                print("remove this bucket id - it's done")
+                # print("remove this bucket id - it's done")
                 copy_major_objects[i].bucket_ids.remove(bucket_id)
         
 
     # TODO - add prereqs and coreqs?
-    print("Comparing to ", major_objects[i].name)
-    print("Hours towards major: ",hours_towards_major)
+    # print("Comparing to ", major_objects[i].name)
+    # print("Hours towards major: ",hours_towards_major)
     major_total_hours = int(major_objects[i].total_hours)
     percentage = round(hours_towards_major/major_total_hours, 2)
-    percentages[major_objects[i].name] = str(percentage)
+    percentages.append((major_objects[i].name,float(percentage)))
 
   # SORT the percentages
+  percentages = sorted(percentages, key=lambda x: x[1])
 
   return copy_major_objects, percentages
 
@@ -588,12 +589,12 @@ def dev_main(ryan_data):
   # ryan_data = [{'courseCode': 'COSC 360', 'creditHours': 4, 'grade': 'IP', 'title': 'SYSTEMS PROGRAMMING'}, {'courseCode': 'COSC 340', 'creditHours': 3, 'grade': 'IP', 'title': 'SOFTWARE ENGINEERING'}, {'courseCode': 'REST 499', 'creditHours': 3, 'grade': 'A', 'title': 'ADV SEM. IN THE STUDY OF RELI'}, {'courseCode': 'REST 405', 'creditHours': 3, 'grade': 'A', 'title': 'ZIONISM AND STATE OF ISRAEL'}, {'courseCode': 'REST 360', 'creditHours': 3, 'grade': 'A', 'title': 'WITCHCRAFT, MAGIC AND RELIGIO'}, {'courseCode': 'MATH 453', 'creditHours': 3, 'grade': 'A-', 'title': 'MATRIX ALGEBRA II'}, {'courseCode': 'REST 306', 'creditHours': 3, 'grade': 'A', 'title': 'CONTEMPORARY CHRISTIAN THOUGH'}, {'courseCode': 'MATH 589', 'creditHours': 1, 'grade': 'A', 'title': 'SEMINAR: MATHEMATICAL BIOLOGY'}, {'courseCode': 'MATH 529', 'creditHours': 1, 'grade': 'A', 'title': 'SEMINAR: STOCHASTICS/MATH DAT'}, {'courseCode': 'MATH 435', 'creditHours': 3, 'grade': 'A-', 'title': 'PARTIAL DIFFERENTIAL EQUATION'}, {'courseCode': 'INPG 412', 'creditHours': 1, 'grade': 'A', 'title': 'ARTS/SCIENCES AMBASSADOR TRAI'}, {'courseCode': 'ECE 255', 'creditHours': 3, 'grade': 'A', 'title': 'INTRO/LOGIC DESIGN DIGITAL SY'}, {'courseCode': 'COSC 425', 'creditHours': 3, 'grade': 'A', 'title': 'INTRO/MACHINE LEARNING'}, {'courseCode': 'REST 305', 'creditHours': 3, 'grade': 'A', 'title': 'CONTEM RELIG THOUGHT/PRACTICE'}, {'courseCode': 'MATH 405', 'creditHours': 3, 'grade': 'A', 'title': 'MODELS IN BIOLOGY'}, {'courseCode': 'MATH 341', 'creditHours': 3, 'grade': 'A-', 'title': 'INTRODUCTION TO ANALYSIS'}, {'courseCode': 'INPG 412', 'creditHours': 1, 'grade': 'A', 'title': 'ARTS/SCIENCES AMBASSADOR TRAI'}, {'courseCode': 'COSC 302', 'creditHours': 4, 'grade': 'A', 'title': 'DATA STRUCTURES/ALGORITHMS II'}, {'courseCode': 'REST 339', 'creditHours': 3, 'grade': 'A', 'title': 'ISLAM IN THE MODERN WORLD'}, {'courseCode': 'MATH 411', 'creditHours': 3, 'grade': 'A', 'title': 'MATHEMATICAL MODELING'}, {'courseCode': 'MATH 351', 'creditHours': 3, 'grade': 'A-', 'title': 'INTRO TO ABSTRACT ALGEBRA'}, {'courseCode': 'MATH 323', 'creditHours': 3, 'grade': 'A', 'title': 'PROBABILITY AND STATISTICS'}, {'courseCode': 'COSC 140', 'creditHours': 4, 'grade': 'A', 'title': 'DATA STRUCTURES/ALGORITHMS I'}, {'courseCode': 'HIST 262', 'creditHours': 3, 'grade': 'A', 'title': 'HISTORY/WORLD CIVILIZATION'}, {'courseCode': 'ENGL 251', 'creditHours': 3, 'grade': 'A', 'title': 'INTRODUCTION/POETRY'}, {'courseCode': 'REST 372', 'creditHours': 3, 'grade': 'A', 'title': 'CONTEMPORARY BUDDHISM'}, {'courseCode': 'REST 301', 'creditHours': 3, 'grade': 'A', 'title': 'RELIGION/NONPROFIT LEADERSHIP'}, {'courseCode': 'MATH 431', 'creditHours': 3, 'grade': 'S', 'title': 'DIFFERENTIAL EQUATIONS II'}, {'courseCode': 'COSC 312', 'creditHours': 3, 'grade': 'A', 'title': 'ALGORITHM ANALYSIS/AUTOMATA'}, {'courseCode': 'COSC 130', 'creditHours': 4, 'grade': 'A', 'title': 'COMPUTER ORGANIZATION'}, {'courseCode': 'REST 300', 'creditHours': 3, 'grade': 'A', 'title': 'METHOD/THEORY RELIGIOUS STU'}, {'courseCode': 'PHIL 244', 'creditHours': 3, 'grade': 'A', 'title': 'PROFESSIONAL RESPONSIBILITY'}, {'courseCode': 'MATH 371', 'creditHours': 3, 'grade': 'A', 'title': 'NUMERICAL ALGORITHMS'}, {'courseCode': 'MATH 307', 'creditHours': 3, 'grade': 'A', 'title': 'HON:INTRO/ABSTRACT MATHEMATIC'}, {'courseCode': 'REST 312', 'creditHours': 3, 'grade': 'A', 'title': 'INTRO/EARLY JUDAISM'}, {'courseCode': 'MATH 251', 'creditHours': 3, 'grade': 'A', 'title': 'MATRIX ALGEBRA I'}, {'courseCode': 'MATH 237', 'creditHours': 3, 'grade': 'A', 'title': 'HONRS DIFFERENTIAL EQUATIONS'}, {'courseCode': 'FREN 212', 'creditHours': 3, 'grade': 'A', 'title': 'INTERMEDIATE FRENCH II'}, {'courseCode': 'ENGL 102', 'creditHours': 3, 'grade': 'A', 'title': 'ENGLISH COMPOSITION II'}, {'courseCode': 'REST 332', 'creditHours': 3, 'grade': 'A', 'title': 'INTRODUCTION TO ISLAM'}, {'courseCode': 'PHYS 136', 'creditHours': 4, 'grade': 'A', 'title': 'INTRO PHYS/SCI MATH MAJORS II'}, {'courseCode': 'MATH 241', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS III'}, {'courseCode': 'FREN 211', 'creditHours': 3, 'grade': 'A', 'title': 'INTERMEDIATE FRENCH I'}, {'courseCode': 'COSC 102', 'creditHours': 4, 'grade': 'TA', 'title': 'INTRODUCTION/COMPUTER SCIENCE'}, {'courseCode': 'REST 232', 'creditHours': 3, 'grade': 'A', 'title': 'RELIGIONS/GLOBAL PERSPECTIVE'}, {'courseCode': 'PHYS 135', 'creditHours': 4, 'grade': 'A', 'title': 'INTRO PHYS/SCI MATH MAJORS I'}, {'courseCode': 'MUSC 101', 'creditHours': 1, 'grade': 'A', 'title': 'FUNDAMENTALS OF PERFORMANCE'}, {'courseCode': 'MATH 142', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS II'}, {'courseCode': 'HIST 261', 'creditHours': 3, 'grade': 'A-', 'title': 'HISTORY/WORLD CIVILIZATION'}, {'courseCode': 'PSYC 110', 'creditHours': 3, 'grade': 'S', 'title': 'GENERAL PSYCHOLOGY'}, {'courseCode': 'MATH 125', 'creditHours': 3, 'grade': 'S', 'title': 'BASIC CALCULUS'}, {'courseCode': 'ENGL 101', 'creditHours': 3, 'grade': 'S', 'title': 'ENGLISH COMPOSITION I'}, {'courseCode': 'POLS 102', 'creditHours': 3, 'grade': 'A-', 'title': 'INTRO/POLITICAL SCIENCE'}, {'courseCode': 'MATH 141', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS I'}, {'courseCode': 'FYS 129', 'creditHours': 1, 'grade': 'S', 'title': 'MEDITATION-ACADEMIC SUCCESS'}, {'courseCode': 'FYS 101', 'creditHours': 1, 'grade': 'A', 'title': 'THE UT EXPERIENCE'}, {'courseCode': 'ENGL 198', 'creditHours': 3, 'grade': 'A-', 'title': "CHANCELLOR'S HONORS WRITING I"},{'courseCode': 'COSC 360', 'creditHours': 4, 'grade': 'IP', 'title': 'SYSTEMS PROGRAMMING'}, {'courseCode': 'COSC 340', 'creditHours': 3, 'grade': 'IP', 'title': 'SOFTWARE ENGINEERING'}, {'courseCode': 'REST 499', 'creditHours': 3, 'grade': 'A', 'title': 'ADV SEM. IN THE STUDY OF RELI'}, {'courseCode': 'REST 405', 'creditHours': 3, 'grade': 'A', 'title': 'ZIONISM AND STATE OF ISRAEL'}, {'courseCode': 'REST 360', 'creditHours': 3, 'grade': 'A', 'title': 'WITCHCRAFT, MAGIC AND RELIGIO'}, {'courseCode': 'MATH 453', 'creditHours': 3, 'grade': 'A-', 'title': 'MATRIX ALGEBRA II'}, {'courseCode': 'REST 306', 'creditHours': 3, 'grade': 'A', 'title': 'CONTEMPORARY CHRISTIAN THOUGH'}, {'courseCode': 'MATH 589', 'creditHours': 1, 'grade': 'A', 'title': 'SEMINAR: MATHEMATICAL BIOLOGY'}, {'courseCode': 'MATH 529', 'creditHours': 1, 'grade': 'A', 'title': 'SEMINAR: STOCHASTICS/MATH DAT'}, {'courseCode': 'MATH 435', 'creditHours': 3, 'grade': 'A-', 'title': 'PARTIAL DIFFERENTIAL EQUATION'}, {'courseCode': 'INPG 412', 'creditHours': 1, 'grade': 'A', 'title': 'ARTS/SCIENCES AMBASSADOR TRAI'}, {'courseCode': 'ECE 255', 'creditHours': 3, 'grade': 'A', 'title': 'INTRO/LOGIC DESIGN DIGITAL SY'}, {'courseCode': 'COSC 425', 'creditHours': 3, 'grade': 'A', 'title': 'INTRO/MACHINE LEARNING'}, {'courseCode': 'REST 305', 'creditHours': 3, 'grade': 'A', 'title': 'CONTEM RELIG THOUGHT/PRACTICE'}, {'courseCode': 'MATH 405', 'creditHours': 3, 'grade': 'A', 'title': 'MODELS IN BIOLOGY'}, {'courseCode': 'MATH 341', 'creditHours': 3, 'grade': 'A-', 'title': 'INTRODUCTION TO ANALYSIS'}, {'courseCode': 'INPG 412', 'creditHours': 1, 'grade': 'A', 'title': 'ARTS/SCIENCES AMBASSADOR TRAI'}, {'courseCode': 'COSC 302', 'creditHours': 4, 'grade': 'A', 'title': 'DATA STRUCTURES/ALGORITHMS II'}, {'courseCode': 'REST 339', 'creditHours': 3, 'grade': 'A', 'title': 'ISLAM IN THE MODERN WORLD'}, {'courseCode': 'MATH 411', 'creditHours': 3, 'grade': 'A', 'title': 'MATHEMATICAL MODELING'}, {'courseCode': 'MATH 351', 'creditHours': 3, 'grade': 'A-', 'title': 'INTRO TO ABSTRACT ALGEBRA'}, {'courseCode': 'MATH 323', 'creditHours': 3, 'grade': 'A', 'title': 'PROBABILITY AND STATISTICS'}, {'courseCode': 'COSC 140', 'creditHours': 4, 'grade': 'A', 'title': 'DATA STRUCTURES/ALGORITHMS I'}, {'courseCode': 'HIST 262', 'creditHours': 3, 'grade': 'A', 'title': 'HISTORY/WORLD CIVILIZATION'}, {'courseCode': 'ENGL 251', 'creditHours': 3, 'grade': 'A', 'title': 'INTRODUCTION/POETRY'}, {'courseCode': 'REST 372', 'creditHours': 3, 'grade': 'A', 'title': 'CONTEMPORARY BUDDHISM'}, {'courseCode': 'REST 301', 'creditHours': 3, 'grade': 'A', 'title': 'RELIGION/NONPROFIT LEADERSHIP'}, {'courseCode': 'MATH 431', 'creditHours': 3, 'grade': 'S', 'title': 'DIFFERENTIAL EQUATIONS II'}, {'courseCode': 'COSC 312', 'creditHours': 3, 'grade': 'A', 'title': 'ALGORITHM ANALYSIS/AUTOMATA'}, {'courseCode': 'COSC 130', 'creditHours': 4, 'grade': 'A', 'title': 'COMPUTER ORGANIZATION'}, {'courseCode': 'REST 300', 'creditHours': 3, 'grade': 'A', 'title': 'METHOD/THEORY RELIGIOUS STU'}, {'courseCode': 'PHIL 244', 'creditHours': 3, 'grade': 'A', 'title': 'PROFESSIONAL RESPONSIBILITY'}, {'courseCode': 'MATH 371', 'creditHours': 3, 'grade': 'A', 'title': 'NUMERICAL ALGORITHMS'}, {'courseCode': 'MATH 307', 'creditHours': 3, 'grade': 'A', 'title': 'HON:INTRO/ABSTRACT MATHEMATIC'}, {'courseCode': 'REST 312', 'creditHours': 3, 'grade': 'A', 'title': 'INTRO/EARLY JUDAISM'}, {'courseCode': 'MATH 251', 'creditHours': 3, 'grade': 'A', 'title': 'MATRIX ALGEBRA I'}, {'courseCode': 'MATH 237', 'creditHours': 3, 'grade': 'A', 'title': 'HONRS DIFFERENTIAL EQUATIONS'}, {'courseCode': 'FREN 212', 'creditHours': 3, 'grade': 'A', 'title': 'INTERMEDIATE FRENCH II'}, {'courseCode': 'ENGL 102', 'creditHours': 3, 'grade': 'A', 'title': 'ENGLISH COMPOSITION II'}, {'courseCode': 'REST 332', 'creditHours': 3, 'grade': 'A', 'title': 'INTRODUCTION TO ISLAM'}, {'courseCode': 'PHYS 136', 'creditHours': 4, 'grade': 'A', 'title': 'INTRO PHYS/SCI MATH MAJORS II'}, {'courseCode': 'MATH 241', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS III'}, {'courseCode': 'FREN 211', 'creditHours': 3, 'grade': 'A', 'title': 'INTERMEDIATE FRENCH I'}, {'courseCode': 'COSC 102', 'creditHours': 4, 'grade': 'TA', 'title': 'INTRODUCTION/COMPUTER SCIENCE'}, {'courseCode': 'REST 232', 'creditHours': 3, 'grade': 'A', 'title': 'RELIGIONS/GLOBAL PERSPECTIVE'}, {'courseCode': 'PHYS 135', 'creditHours': 4, 'grade': 'A', 'title': 'INTRO PHYS/SCI MATH MAJORS I'}, {'courseCode': 'MUSC 101', 'creditHours': 1, 'grade': 'A', 'title': 'FUNDAMENTALS OF PERFORMANCE'}, {'courseCode': 'MATH 142', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS II'}, {'courseCode': 'HIST 261', 'creditHours': 3, 'grade': 'A-', 'title': 'HISTORY/WORLD CIVILIZATION'}, {'courseCode': 'PSYC 110', 'creditHours': 3, 'grade': 'S', 'title': 'GENERAL PSYCHOLOGY'}, {'courseCode': 'MATH 125', 'creditHours': 3, 'grade': 'S', 'title': 'BASIC CALCULUS'}, {'courseCode': 'ENGL 101', 'creditHours': 3, 'grade': 'S', 'title': 'ENGLISH COMPOSITION I'}, {'courseCode': 'POLS 102', 'creditHours': 3, 'grade': 'A-', 'title': 'INTRO/POLITICAL SCIENCE'}, {'courseCode': 'MATH 141', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS I'}, {'courseCode': 'FYS 129', 'creditHours': 1, 'grade': 'S', 'title': 'MEDITATION-ACADEMIC SUCCESS'}, {'courseCode': 'FYS 101', 'creditHours': 1, 'grade': 'A', 'title': 'THE UT EXPERIENCE'}, {'courseCode': 'ENGL 198', 'creditHours': 3, 'grade': 'A-', 'title': "CHANCELLOR'S HONORS WRITING I"}]  
     # print(ryan_data)
   majors_returned, percentages = compare_academic_history(ryan_data=ryan_data, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
+  
   list_of_major_dictionaries = []
-
   #save the 3 top percentages
-  list_of_major_dictionaries.append({"First Match": {"Name":  , "Percent": }})
-  list_of_major_dictionaries.append({"Second Match":{"Name":  , "Percent": }})
-  list_of_major_dictionaries.append({"Third Match":{"Name":  , "Percent": }})
+  list_of_major_dictionaries.append({"First Match": {"Name": percentages[len(percentages)-1][0], "Percent": percentages[len(percentages)-1][1]}})
+  list_of_major_dictionaries.append({"Second Match":{"Name": percentages[len(percentages)-2][0] , "Percent": percentages[len(percentages)-2][1]}})
+  list_of_major_dictionaries.append({"Third Match":{"Name": percentages[len(percentages)-3][0] , "Percent": percentages[len(percentages)-3][1]}})
 
   for index in majors_returned:
     major_data = print_major_obj(majors_returned[index], course_objects, bucket_objects)
