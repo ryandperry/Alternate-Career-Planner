@@ -10,11 +10,17 @@ import TopMajors from '../../components/TopMajors/TopMajors';
 const CourseHistoryView = () => {
     const [courses, setCourses] = useState([]);
     const [selectedFilter, setSelectedFilter] = useState("All");
+    const [backendMajors, setBackendMajors] = useState([]);
 
     useEffect(() => {
         const storedCourses = localStorage.getItem('coursesTaken');
         if (storedCourses) {
           setCourses(JSON.parse(storedCourses));
+        }
+
+        const storedBackendMajors = localStorage.getItem('backendMajors');
+        if (storedBackendMajors) {
+          setBackendMajors(JSON.parse(storedBackendMajors));
         }
     }, []);
 
@@ -31,12 +37,11 @@ const CourseHistoryView = () => {
         return true;
     });
 
-    /* Replace with top majors from backend */
-    const topMajors = [
+    /*const topMajors = [
         { title: 'Computer Science', progress: 65 },
         { title: 'Computer Engineering', progress: 50},
         { title: 'Electrical Engineering', progress: 35}
-    ];
+    ];*/
 
     return (
         <div className="Split">
@@ -75,7 +80,7 @@ const CourseHistoryView = () => {
                     These majors have the most course overlap with your
                     academic history.
                 </p>
-                <TopMajors majors={topMajors}/>
+                <TopMajors majors={backendMajors}/>
             </div>
 
         </div>

@@ -28,15 +28,21 @@ const FileUploader = ({ onFileParse }) => {
 
         reader.onload = (e) => {
             const content = e.target.result;
-            parseCourseContent(content);
-            
-            setFileUploaded(true);
-            onFileParse([...coursesTaken]);
-            navigate('/course_history');
+            parseCourseContent(content)
+                .then(() => {
+                    setFileUploaded(true);
+                    onFileParse([...coursesTaken]);
+                    navigate('/course_history');
+                })
+                .catch((error) => {
+                    console.error('Error processing file: ', error);
+                    setError('Failed to process file. Please try again');
+                });
         };
 
         reader.onerror = (err) => {
             console.error("Error reading file:", err);
+                    setError('Failed to read file. Please try again');
         };
 
         reader.readAsText(file);
