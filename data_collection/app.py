@@ -302,12 +302,16 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
     for course_taken in history_ids:
       # see if it is in the course_ids set for this major 
       if course_taken in major_objects[i].course_ids:
-        course_taken_id = int(course_taken)
-        if course_taken_id in course_objects:
+        # emily changes - removed int
+        course_taken_id = course_taken
+        # Emily changed to KEYS
+        if course_taken_id in course_objects.keys():
           hour_counter += int(course_objects[course_taken_id].hours)
-        #  delete major_objects[i].course_ids
-          del copy_major_objects[course_taken_id]
+          #  delete major_objects[i].course_ids
+          # emily changed to this line
+          copy_major_objects[i].course_ids.remove(course_taken_id)
           continue
+
       # see if this course is in their bucket objects 
       for bucket_id in bucket_objects.values():
         if course_taken in bucket_id.course_ids:
@@ -315,6 +319,8 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
           if(bucket_id.num_hours > 0):
             bucket_id.num_hours -= int(course_objects[course_taken].hours)
           # delete the bucket?
+          # if(bucket_id.num_hours == 0):
+          #   copy_major_objects[]
         #somewhere in here we need to check if it is part of a bucket
       # if(course_taken in bucket_objects)
       #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
@@ -991,7 +997,6 @@ def get_ryan_data():
 
       #make a new JSON and return it to Ryan 
       results = dev_main(ryan_data)
-      # results_data = {"Computer Science": "PHYS341"}
       results_json = json.dumps(results)
       return results_json
     return {"Error": "Request must be JSON"}, 415
