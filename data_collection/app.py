@@ -280,12 +280,12 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
   top_3_percents = [0, 0, 0]
   top_3_major_names = ["", "", ""]
   # check in every major 
-  # copy_major_objects = major_objects
+  copy_major_objects = dict(major_objects)
   history_ids = processing_course(course_objects=course_objects, ryan_data=ryan_data)
   for i in major_objects.keys():
     if i == "NULL":
       continue
-    copy_major_objects = major_objects
+    # copy_major_objects = major_objects
     hour_counter = 0
 
     #TODO IF this is the industrial engineering major, use this elective function
@@ -313,8 +313,10 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
           continue
 
       # see if this course is in their bucket objects 
-      for bucket_id in bucket_objects.values():
-        if course_taken in bucket_id.course_ids:
+      for bucket_id in bucket_objects.keys():
+        if bucket_id not in major_objects[i].bucket_ids:
+          continue
+        if course_taken in bucket_objects[bucket_id].course_ids:
           hour_counter += int(course_objects[course_taken].hours)
           if(bucket_objects[bucket_id].num_hours > 0):
             bucket_objects[bucket_id].num_hours -= int(course_objects[course_taken].hours)
@@ -322,18 +324,7 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
               bucket_objects[bucket_id].num_courses -= 1
           if(bucket_objects[bucket_id].num_courses == 0 or bucket_objects[bucket_id].num_hours == 0):
             copy_major_objects[i].bucket_ids.remove(bucket_id)
-          # delete the bucket?
-          # if(bucket_id.num_hours == 0):
-          #   copy_major_objects[]
-        #somewhere in here we need to check if it is part of a bucket
-      # if(course_taken in bucket_objects)
-      #if("person_object.classes_array[course_taken]" in bucket_objects.values()):
-          #pseudo code : 
-          # if this course name appears in the bucket objects' course names 
-          #if()
-          # then you need to see if this one class will fill the entire requirement via the course table hours !! 
-          # if it does not fill the entire requirement, manually subtract the hours required for that bucket
-          # if it does fill the whole requirement add that number to hour_counter
+
       # look up the course id in the major dictionary at this i 
       if hour_counter > max_number_of_hours:
         max_number_of_hours = hour_counter
@@ -341,7 +332,7 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
         array_of_highest = major_objects[i].course_ids
 
     major_total_hours = int(major_objects[i].total_hours)
-    percentage = round(max_number_of_hours/major_total_hours, 2)
+    percentage = round(hour_counter/major_total_hours, 2)
     if(percentage > top_3_percents[0]):
       top_3_percents[0] = percentage
       top_3_major_names[0] = major_objects[i].name
@@ -603,7 +594,9 @@ def dev_main(ryan_data):
   # run "flask run" and upload file to get terminal output of ryan data
   print(ryan_data)
   # TODO remove this hardcoding when ready to test through react upload
-  # ryan_data = [{'courseCode': 'ME 391', 'creditHours': 3, 'grade': 'IP', 'title': 'ENGINEERING ANALYSIS'}, {'courseCode': 'ME 363', 'creditHours': 3, 'grade': 'IP', 'title': 'SYSTEM DYNAMICS'}, {'courseCode': 'ECON 201', 'creditHours': 4, 'grade': 'IP', 'title': 'INTRO ECONOMICS: SURVEY COURS'}, {'courseCode': 'AE 377', 'creditHours': 4, 'grade': 'IP', 'title': 'HONORS: AIRPLANE PERFORMANCE'}, {'courseCode': 'AE 347', 'creditHours': 3, 'grade': 'IP', 'title': 'HONORS: FLUID MECHANICS'}, {'courseCode': 'PHIL 244', 'creditHours': 3, 'grade': 'A', 'title': 'PROFESSIONAL RESPONSIBILITY'}, {'courseCode': 'ME 331', 'creditHours': 3, 'grade': 'B+', 'title': 'THERMODYNAMICS'}, {'courseCode': 'ME 321', 'creditHours': 3, 'grade': 'A-', 'title': 'MECHANICS OF MATERIALS'}, {'courseCode': 'MATH 241', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS III'}, {'courseCode': 'ECE 301', 'creditHours': 3, 'grade': 'A', 'title': 'CIRCUITS/ELECTRO MECH COMPON'}, {'courseCode': 'PHYS 231', 'creditHours': 3, 'grade': 'A', 'title': 'FUND PHYS: ELECTRIC/MAGNETISM'}, {'courseCode': 'ME 231', 'creditHours': 3, 'grade': 'B-', 'title': 'DYNAMICS'}, {'courseCode': 'MATH 231', 'creditHours': 3, 'grade': 'A', 'title': 'DIFFERENTIAL EQUATIONS I'}, {'courseCode': 'MATH 200', 'creditHours': 2, 'grade': 'A', 'title': 'MATRIX COMPUTATIONS'}, {'courseCode': 'EF 302', 'creditHours': 1, 'grade': 'A', 'title': 'ENGINEERING LEADERSHIP SEMINA'}, {'courseCode': 'AE 210', 'creditHours': 2, 'grade': 'A', 'title': 'PROFESSIONAL TOPICS'}, {'courseCode': 'AE 201', 'creditHours': 1, 'grade': 'S', 'title': 'AEROSPACE SEMINAR'}, {'courseCode': 'ME 202', 'creditHours': 2, 'grade': 'A', 'title': 'ENGINEERING MECHANICS'}, {'courseCode': 'MATH 148', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: CALCULUS II'}, {'courseCode': 'ENGL 298', 'creditHours': 3, 'grade': 'A', 'title': "CHANCELLOR'S HONORS WRITING I"}, {'courseCode': 'EF 230', 'creditHours': 2, 'grade': 'A', 'title': 'COMP SOLUTION/ENGR PROBLEMS'}, {'courseCode': 'EF 158', 'creditHours': 4, 'grade': 'A-', 'title': 'HONORS: PHYSICS/ENGINEERS II'}, {'courseCode': 'MATH 147', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: CALCULUS I'}, {'courseCode': 'ENGL 198', 'creditHours': 3, 'grade': 'A', 'title': "CHANCELLOR'S HONORS WRITING I"}, {'courseCode': 'EF 157', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: PHYSICS/ENGINEERS I'}, {'courseCode': 'EF 105', 'creditHours': 1, 'grade': 'A', 'title': 'COMPUT METH/ENGR PROB SOLVING'}, {'courseCode': 'EF 102', 'creditHours': 1, 'grade': 'A', 'title': 'INTRO TO TCE'}, {'courseCode': 'HIUS 222', 'creditHours': 3, 'grade': 'S', 'title': 'HISTORY OF THE UNITED STATES'}, {'courseCode': 'HIUS 221', 'creditHours': 3, 'grade': 'S', 'title': 'HISTORY OF THE UNITED STATES'}, {'courseCode': 'ECON 211', 'creditHours': 3, 'grade': 'S', 'title': 'PRINCIPLES OF MICROECONOMICS'}, {'courseCode': 'CHEM 133', 'creditHours': 1, 'grade': 'S', 'title': 'GENERAL CHEMISTRY II LAB'}, {'courseCode': 'CHEM 132', 'creditHours': 3, 'grade': 'S', 'title': 'GENERAL CHEMISTRY II'}, {'courseCode': 'CHEM 123', 'creditHours': 1, 'grade': 'S', 'title': 'GENERAL CHEMISTRY I LAB'}, {'courseCode': 'CHEM 122', 'creditHours': 3, 'grade': 'S', 'title': 'GENERAL CHEMISTRY I'}]
+  ryan_data = [{'courseCode': 'ME 391', 'creditHours': 3, 'grade': 'IP', 'title': 'ENGINEERING ANALYSIS'}, {'courseCode': 'ME 363', 'creditHours': 3, 'grade': 'IP', 'title': 'SYSTEM DYNAMICS'}, {'courseCode': 'ECON 201', 'creditHours': 4, 'grade': 'IP', 'title': 'INTRO ECONOMICS: SURVEY COURS'}, {'courseCode': 'AE 377', 'creditHours': 4, 'grade': 'IP', 'title': 'HONORS: AIRPLANE PERFORMANCE'}, {'courseCode': 'AE 347', 'creditHours': 3, 'grade': 'IP', 'title': 'HONORS: FLUID MECHANICS'}, {'courseCode': 'PHIL 244', 'creditHours': 3, 'grade': 'A', 'title': 'PROFESSIONAL RESPONSIBILITY'}, {'courseCode': 'ME 331', 'creditHours': 3, 'grade': 'B+', 'title': 'THERMODYNAMICS'}, {'courseCode': 'ME 321', 'creditHours': 3, 'grade': 'A-', 'title': 'MECHANICS OF MATERIALS'}, {'courseCode': 'MATH 241', 'creditHours': 4, 'grade': 'A', 'title': 'CALCULUS III'}, {'courseCode': 'ECE 301', 'creditHours': 3, 'grade': 'A', 'title': 'CIRCUITS/ELECTRO MECH COMPON'}, {'courseCode': 'PHYS 231', 'creditHours': 3, 'grade': 'A', 'title': 'FUND PHYS: ELECTRIC/MAGNETISM'}, {'courseCode': 'ME 231', 'creditHours': 3, 'grade': 'B-', 'title': 'DYNAMICS'}, {'courseCode': 'MATH 231', 'creditHours': 3, 'grade': 'A', 'title': 'DIFFERENTIAL EQUATIONS I'}, {'courseCode': 'MATH 200', 'creditHours': 2, 'grade': 'A', 'title': 'MATRIX COMPUTATIONS'}, {'courseCode': 'EF 302', 'creditHours': 1, 'grade': 'A', 'title': 'ENGINEERING LEADERSHIP SEMINA'}, {'courseCode': 'AE 210', 'creditHours': 2, 'grade': 'A', 'title': 'PROFESSIONAL TOPICS'}, {'courseCode': 'AE 201', 'creditHours': 1, 'grade': 'S', 'title': 'AEROSPACE SEMINAR'}, {'courseCode': 'ME 202', 'creditHours': 2, 'grade': 'A', 'title': 'ENGINEERING MECHANICS'}, {'courseCode': 'MATH 148', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: CALCULUS II'}, {'courseCode': 'ENGL 298', 'creditHours': 3, 'grade': 'A', 'title': "CHANCELLOR'S HONORS WRITING I"}, {'courseCode': 'EF 230', 'creditHours': 2, 'grade': 'A', 'title': 'COMP SOLUTION/ENGR PROBLEMS'}, {'courseCode': 'EF 158', 'creditHours': 4, 'grade': 'A-', 'title': 'HONORS: PHYSICS/ENGINEERS II'}, {'courseCode': 'MATH 147', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: CALCULUS I'}, {'courseCode': 'ENGL 198', 'creditHours': 3, 'grade': 'A', 'title': "CHANCELLOR'S HONORS WRITING I"}, {'courseCode': 'EF 157', 'creditHours': 4, 'grade': 'A', 'title': 'HONORS: PHYSICS/ENGINEERS I'}, {'courseCode': 'EF 105', 'creditHours': 1, 'grade': 'A', 'title': 'COMPUT METH/ENGR PROB SOLVING'}, {'courseCode': 'EF 102', 'creditHours': 1, 'grade': 'A', 'title': 'INTRO TO TCE'}, {'courseCode': 'HIUS 222', 'creditHours': 3, 'grade': 'S', 'title': 'HISTORY OF THE UNITED STATES'}, {'courseCode': 'HIUS 221', 'creditHours': 3, 'grade': 'S', 'title': 'HISTORY OF THE UNITED STATES'}, {'courseCode': 'ECON 211', 'creditHours': 3, 'grade': 'S', 'title': 'PRINCIPLES OF MICROECONOMICS'}, {'courseCode': 'CHEM 133', 'creditHours': 1, 'grade': 'S', 'title': 'GENERAL CHEMISTRY II LAB'}, {'courseCode': 'CHEM 132', 'creditHours': 3, 'grade': 'S', 'title': 'GENERAL CHEMISTRY II'}, {'courseCode': 'CHEM 123', 'creditHours': 1, 'grade': 'S', 'title': 'GENERAL CHEMISTRY I LAB'}, {'courseCode': 'CHEM 122', 'creditHours': 3, 'grade': 'S', 'title': 'GENERAL CHEMISTRY I'}]
+  # ryan_data = [{'courseCode': 'ME 202', 'creditHours': 4, 'grade': 'A', 'title': 'ENGINEERING ANALYSIS'}]
+  
   # print(ryan_data)
   max_hour, majors_returned, top_3_major_names, top_3_percents = compare_academic_history(ryan_data=ryan_data, major_objects=major_objects, course_objects=course_objects, bucket_objects=bucket_objects)
   list_of_major_dictionaries = []
