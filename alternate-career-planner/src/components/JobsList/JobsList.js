@@ -127,7 +127,7 @@ const jobsData = {
     },
   ],
 
-  'Materials Science and Engineering': [
+  'Material Science & Engineering': [
     {
       title: 'Materials Engineer',
       description: 'Materials engineers analyze and develop new materials for various applications, studying their properties to create products with enhanced performance and durability.',

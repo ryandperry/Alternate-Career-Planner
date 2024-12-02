@@ -17,7 +17,7 @@ const imageMap = {
     'Chemical Engineering': '/assets/major-header-images/chemical-eng-header.jpg',
     'Civil Engineering': '/assets/major-header-images/civil-eng-header.jpg',
     'Environmental Engineering': '/assets/major-header-images/environmental-eng-header.jpg',
-    'Materials Science and Engineering': '/assets/major-header-images/mse-header.jpg',
+    'Material Science & Engineering': '/assets/major-header-images/mse-header.jpg',
     'Industrial Engineering': '/assets/major-header-images/industrial-engineering-header.jpg',
     'Nuclear Engineering': '/assets/major-header-images/nuclear-engineering-header.jpg',
 };

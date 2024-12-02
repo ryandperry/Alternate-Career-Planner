@@ -50,7 +50,7 @@ const testMajors = [
     description: 'Our undergraduate curriculum is designed to prepare our graduates to achieve the following program objectives 3-5 years after graduation:\n\nObjective 1: Have successful professional careers based on industrial engineering knowledge and skills.\n\nObjective 2: Engage in professional development practices that enable them to remain competent in the ever expanding discipline of industrial engineering.\n\nObjective 3: Provide strong leadership and quality service to their organization, community, and society.',
     },
     {
-    name: 'Materials Science and Engineering',
+    name: 'Material Science & Engineering',
     description: 'At the Department of Materials Science Engineering, we stay on the leading edge of technology through the development of new materials and the improvement of existing materials for applications in all engineering fields. As an interdisciplinary field, MSE is at the forefront of modern technological advances, offering students a stepping stone to solving tomorrow’s grand challenges as they take their next steps toward their future in engineering.',
     },
     {

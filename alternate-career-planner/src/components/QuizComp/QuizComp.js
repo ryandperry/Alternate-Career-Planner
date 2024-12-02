@@ -20,7 +20,7 @@ const majorMapping = {
     R: "Mechanical Engineering",
     L: "Nuclear Engineering",
     P: "Civil Engineering",
-    T: "Materials Science and Engineering"
+    T: "Material Science & Engineering"
 }
 
 export class QuizComp extends Component {
