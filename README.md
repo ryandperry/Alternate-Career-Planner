@@ -42,7 +42,7 @@ Flask will now run in the background at `http://localhost:5000`.
 
 ### Usage
 
-After running a local instance of Alternate Career Planner using the above instructions, users will be presented with instructions to upload a file or take an interest quiz. After completing an interest quiz, a suggested major will be presented alongside a list of all majors and their descriptions. After uploading a file, three majors will be returned that have the highest overlap. The ideal user is someone from catalog year 2024-2025 who began at UTK. Other transfer credits or undergraduate course histories may not be applicable to the database. 
+After running a local instance of Alternate Career Planner using the above instructions, users will be presented with instructions to upload a file or take an interest quiz. After completing an interest quiz, a suggested major will be presented alongside a list of all majors and their descriptions. After uploading a file, three majors will be returned that have the highest overlap. The ideal user is someone from catalog year 2024-2025 who began at UTK. Other transfer credits or undergraduate course histories of a graduate student may not be applicable to the database. 
 
 ## Technologies Used
 
