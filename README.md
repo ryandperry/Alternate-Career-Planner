@@ -10,24 +10,37 @@ Students in Tickle College of Engineering often get into their major and realize
 ![Screenshot1](https://i.imgur.com/h3aoBGZ.jpeg)
 
 ## Installation
-### Prerequisites (Should already be installed)
+### Prerequisites
 
 - npm
 - Node.js
 - Python
 - Flask
-- Pandas
-- (clone repo)
+- pandas
+- flask-cors
 
-Navigate to `alternate-career-planner` within this Git repository. This is the React.js project directory.
+### Buidling
+
+Clone the GitHub repository.
+```
+git clone https://github.com/utk-cs340-fall24/Alternate-Career-Planner
+```
+
+Navigate to the `alternate-career-planner` directory within the repository. This contains the React.js project.
 ```
 cd Alternate-Career-Planner/alternate-career-planner
 ```
 
-Run this command to start the React application.
+Install the Node.js packages for the project.
+```
+npm install
+```
+
+Start the React application.
 ```
 npm start
 ```
+
 This should open a new browser window of Alternate Career Planner. This instance of ACP is running locally on your machine. If a browser window does not immediately appear, open a browser and visit `http://localhost:3000`.
 
 Open a new terminal window and navigate to the `data_collection` directory.
@@ -35,10 +48,11 @@ Open a new terminal window and navigate to the `data_collection` directory.
 cd Alternate-Career-Planner/data_collection
 ```
 
-To start the Flask server, use the following command.
+Start the Flask server.
 ```
 flask run
 ```
+
 Flask will now run in the background at `http://localhost:5000`.
 
 ### Usage
