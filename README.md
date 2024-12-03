@@ -16,6 +16,7 @@ Students in Tickle College of Engineering often get into their major and realize
 - Node.js
 - Python
 - Flask
+- (clone repo)
 
 Navigate to `alternate-career-planner` within this Git repository. This is the React.js project directory.
 ```
