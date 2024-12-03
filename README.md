@@ -19,7 +19,7 @@ Students in Tickle College of Engineering often get into their major and realize
 
 Navigate to `alternate-career-planner` within this Git repository. This is the React.js project directory.
 ```
-cd alternate-career-planner
+cd Alternate-Career-Planner/alternate-career-planner
 ```
 
 Run this command to start the React application.
@@ -28,7 +28,12 @@ npm start
 ```
 This should open a new browser window of Alternate Career Planner. This instance of ACP is running locally on your machine. If a browser window does not immediately appear, open a browser and visit `http://localhost:3000`.
 
-To start the flask server, use the following command
+Open a new terminal window and navigate to the `data_collection` directory.
+```
+cd Alternate-Career-Planner/data_collection
+```
+
+To start the Flask server, use the following command.
 ```
 flask run
 ```
