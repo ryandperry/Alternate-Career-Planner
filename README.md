@@ -32,6 +32,7 @@ To start the flask server, use the following command
 ```
 flask run
 ```
+Flask will now run in the background at `http://localhost:5000`.
 
 ### Usage
 
