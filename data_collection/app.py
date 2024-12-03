@@ -288,6 +288,7 @@ def compare_academic_history(ryan_data, major_objects, course_objects, bucket_ob
   # check in every major 
   copy_major_objects = dict(major_objects)
   history_ids = processing_course(course_objects=course_objects, ryan_data=ryan_data)
+  found_in_a_bucket = False
   for i in major_objects.keys():
     if i == "NULL":
       continue
