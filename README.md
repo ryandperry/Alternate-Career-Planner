@@ -1,6 +1,7 @@
 
 # Alternate Career Planner
 ![Logo](https://i.imgur.com/JPuGrjA.png)
+This project was developed in a [team of five](#project-members). My individual commits can be found in [ryanperry.commits.txt](https://github.com/ryandperry/Alternate-Career-Planner/blob/main/ryanperry.commits.txt).
 
 ## Project Description
 
